@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! '"Fixing" gcc on Mountain Lion for gem install'
+title: 'Fixing gcc on Mountain Lion for gem install'
 tags: 
 ---
 <p>When you install Mountain Lion, you will no longer have build tools such as `gcc` or `make`</p>

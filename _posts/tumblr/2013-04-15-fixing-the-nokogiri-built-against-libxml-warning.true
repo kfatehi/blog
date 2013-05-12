@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Fixing the "Nokogiri built against LibXML..." warning
+title: 'Fixing the "Nokogiri built against LibXML..." warning'
 tags:
 - ruby
 - nokogiri

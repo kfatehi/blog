@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Apache hosts, virtual / virtualhosts, and control / ctl on Mac OS X 10.7 Lion
+title: 'Apache vhosts and control on Mac OS X 10.7 Lion'
 tags: 
 ---
 <p><a href="https://rapd.wordpress.com/2008/06/09/apache2-vhosts-for-multi-host-names/">https://rapd.wordpress.com/2008/06/09/apache2-vhosts-for-multi-host-names/</a></p>
