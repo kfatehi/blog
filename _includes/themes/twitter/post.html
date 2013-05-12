@@ -43,7 +43,9 @@
       {% endif %}
       </ul>
     </div>
-    <hr>
-    {% include JB/comments %}
+    {% if site.JB.comments.provider %}
+      <hr>
+      {% include JB/comments %}
+    {% endif %}
   </div>
 </div>
