@@ -1,0 +1,6 @@
+---
+layout: post
+title: Explain the concept of a ruby gem (#ruby on Freenode)
+tags: 
+---
+<section><dialog><dt>jake_:</dt><dd>could someone explain a gem to me?  is it the same as a python module? or it more like a package that gets installed that contains modules?</dd><dt>shevy3:</dt><dd>jake_: not sure how python does it</dd><dt>shevy3:</dt><dd>a .gem file is basically a kind of archive, with different files in it, mostly .rb files</dd><dt>shevy3:</dt><dd>so you install it via "gem install name" it gets downloaded and installed into [value of INSTALLATION DIRECTORY returned by `gem env`]</dd><dt>shevy3:</dt><dd>most often, the gem has some kind of main module, the main namespace</dd><dt>shevy3:</dt><dd>like foobar-1.0.gem would usually have the main namespace module Foobar; end</dd></section></dialog>

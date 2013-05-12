@@ -1,0 +1,6 @@
+---
+layout: post
+title: DNSSD RubyGem dependencies on Debian
+tags: 
+---
+<p><code>root@debian:~# aptitude install libavahi-compat-libdnssd-dev libavahi-compat-libdnssd1</code></p>
