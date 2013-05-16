@@ -1,7 +1,7 @@
 ---
 layout: post
 category : blog
-title: 'willfull defiance q'
+title: 'willful defiance'
 tags : [hackers]
 ---
 {% include JB/setup %}
