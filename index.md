@@ -1,46 +1,24 @@
 ---
 layout: page
-title: Hello World!
-tagline: Supporting tagline
+title: "Welcome Sesame!"
+tagline: "It feels Orwellian today"
 ---
 {% include JB/setup %}
 
-Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
+Hey, what's up, welcome
 
-Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
+I'm a ruby/node.js/iOS developer at DigitalFilm Tree in Los Angeles, CA
 
-## Update Author Attributes
+You can find me on github (they generously host this page for free) as keyvanfatehi
 
-In `_config.yml` remember to specify your own data:
-    
-    title : My Blog =)
-    
-    author :
-      name : Name Lastname
-      email : blah@email.test
-      github : username
-      twitter : username
+I also use Skype as keyvan.fatehi and frequent IRC Freenode as lovclrtxt.
 
-The theme should reference these variables whenever needed.
-    
-## Sample Posts
+In addition, my twitter is @lovclrtxt
 
-This blog contains sample posts which help stage pages and blog data.
-When you don't need the samples anymore just delete the `_posts/core-samples` folder.
+---
 
-    $ rm -rf _posts/core-samples
+The purpose of this blog is twofold:
+* Publish technical solutions to common problems, reference any of my open-source contributions, etc
+* Publish pieces that help me to cope with and make sense of the world beyond computers, as needed
 
-Here's a sample "posts list".
-
-<ul class="posts">
-  {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
-
-## To-Do
-
-This theme is still unfinished. If you'd like to be added as a contributor, [please fork](http://github.com/plusjade/jekyll-bootstrap)!
-We need to clean up the themes, make theme usage guides with theme-specific markup examples.
-
-
+TODO Organize tumblr-imported posts and new posts under category "blog" for the pieces and without "blog" for the technical stuff, or maybe some other way... Maybe I should install octopress...
