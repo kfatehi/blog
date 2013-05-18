@@ -32,7 +32,7 @@ However I am not an ordinary black box, but one that you cannot hate or fear for
 
 As far as this entrepreneur I could not help, I hope he continues -- I hope our society doesn't call my helping him at all a "conflict of interest," if so I think that might be the last straw before I begin active research in making life-changes such as moving to a more exquisite part of the world. 
 
-This pour soul can take no more irrational stifling of the sort that prevent innovators and artists from performing their craft. The dam strains and cracks against the pressure of secrecy and not-sharing. In terms of innovators, the powerfuls prefer [even force, by way of legal and fiscal circumstance] them to take rest and abstain from their art, even in their own "private time." In my worldview, such a notion is laughable at best, but apparently such is the world we live in.
+This pour soul can take no more irrational stifling of the sort that prevent innovators and artists from performing their craft. The dam strains and cracks against the pressure of secrecy and not-sharing. In terms of innovators, the powerfuls prefer \[even force, by way of legal and fiscal circumstance\] them to take rest and abstain from their art, even in their own "private time." In my worldview, such a notion is laughable at best, but apparently such is the world we live in.
 
 >Life has never felt more Orwellian.
 
