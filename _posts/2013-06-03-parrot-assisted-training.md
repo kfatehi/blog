@@ -1,4 +1,8 @@
-
+---
+layout: post
+category : blog
+tags : ['parrot', 'ai', 'paratrain', 'ios', 'objective-c', 'audio queue services', '3d printing']
+---
 # PARATRAIN
 
 Paratrain is a new app I'm developing for audio, language, and animal research. It stands for something along the lines of parrot-assist training, 
