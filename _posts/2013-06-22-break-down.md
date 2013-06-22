@@ -6,8 +6,6 @@ tags : ['song', 'telescope', 'ai', 'cameras']
 ---
 {% include JB/setup %}
 
-{% youtube XfIU9DqPTl8 %}
-
 Wish you collected more cool data? Want to bring proper streaming telescope services to the masses from inside the browser? It's due time we get this right, by building the first well-done telescope service.
 
 Here's how you might do it:
@@ -54,3 +52,5 @@ Allow operators to implement and run scripts from the web browser, a la:
 Fun Links:
 
 [OData API Explorer](http://services.odata.org/ODataAPIExplorer/ODataAPIExplorer.html)
+
+{% youtube XfIU9DqPTl8 %}
