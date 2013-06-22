@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bellow (another notification gem)</title>
+    
+    <meta name="author" content="Keyvan Fatehi">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">Keyvan's Log</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Bellow (another notification gem) </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>14 May 2013</span>
+    </div>
+    <div class="content">
+      <p>It wraps the top Prowl and Notify My Android ruby gems and presents one method</p>
+
+<p><a href='https://github.com/keyvanfatehi/bellow'>bellow on github</a></p>
+<div class='highlight'><pre><code class='ruby'><span class='c1'># People and API keys for each service (nma and prowl)</span>
+<span class='n'>people</span> <span class='o'>=</span> <span class='p'>{</span>
+  <span class='ss'>:guillaume</span> <span class='o'>=&gt;</span> <span class='p'>{</span>
+    <span class='ss'>:prowl</span> <span class='o'>=&gt;</span> <span class='s2'>&quot;f7a1879f0331667e0a993b501127a5f21ce7fbff&quot;</span><span class='p'>,</span>
+    <span class='ss'>:nma</span> <span class='o'>=&gt;</span> <span class='s2'>&quot;baa2ab11aa424a08945938a3df1e0341ce935d30704eca0b&quot;</span>
+  <span class='p'>},</span>
+  <span class='s1'>&#39;keyvan fatehi&#39;</span> <span class='o'>=&gt;</span> <span class='p'>{</span>
+    <span class='ss'>:prowl</span> <span class='o'>=&gt;</span> <span class='s2'>&quot;757e5b121f243d7309eafa041ba93f5d794336cd&quot;</span>
+  <span class='p'>},</span>
+  <span class='ss'>:steve</span> <span class='o'>=&gt;</span> <span class='p'>{</span>
+    <span class='ss'>:prowl</span> <span class='o'>=&gt;</span> <span class='s2'>&quot;85138c449bd3ee2f48039c8ca471f710c4257f70&quot;</span>
+  <span class='p'>}</span>
+<span class='p'>}</span>
+
+<span class='c1'># Build your message</span>
+<span class='n'>subject</span> <span class='o'>=</span> <span class='s2'>&quot;McDonalds&quot;</span>
+<span class='n'>message</span> <span class='o'>=</span> <span class='s2'>&quot;Hey guys I just ordered a Big Mac LOL&quot;</span>
+
+<span class='c1'># Notify them all with Bellow</span>
+<span class='no'>Bellow</span><span class='o'>.</span><span class='n'>notify</span><span class='p'>(</span><span class='n'>people</span><span class='p'>,</span> <span class='n'>app</span><span class='p'>,</span> <span class='n'>message</span><span class='p'>)</span>
+</code></pre></div>
+<p><a href='http://www.prowlapp.com'>ProwlApp</a></p>
+
+<p><a href='http://www.notifymyandroid.com'>NMA</a></p>
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#blog-ref">
+    		blog <span>10</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#gems-ref">gems <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/blog/2013/05/11/hello-jekyll-goodbye-tumblr" title="Hello Jekyll Goodbye Tumblr">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/blog/2013/05/14/willful-defiance" title="Willful Defiance">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2013 Keyvan Fatehi
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+<link rel="stylesheet" href="/assets/css/pygments.css">

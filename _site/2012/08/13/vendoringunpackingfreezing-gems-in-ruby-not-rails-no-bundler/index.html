@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vendoring/Unpacking/Freezing gems in Ruby (not Rails, no Bundler)</title>
+    
+    <meta name="author" content="Keyvan Fatehi">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">Keyvan's Log</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Vendoring/Unpacking/Freezing gems in Ruby (not Rails, no Bundler) </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>13 August 2012</span>
+    </div>
+    <div class="content">
+      <p>I&#8217;ve been writing a lot of utility scripts lately using <a href="http://mstratman.github.com/cocoadialog/">CocoaDialog</a> and its <a href="https://github.com/mikedamage/ruby-cocoa-dialog">ruby wrapper</a> to produce nice dialogs and <a href="http://sveinbjorn.org/platypus">Platypus</a> to package them as simple Mac droplets.</p>
+
+<p>Since the users of the droplets will not have any gems installed, they need to be unpacked and added to your project:</p>
+
+<p><code>gem unpack NAME</code></p>
+
+<p>Be sure to do this for all dependencies of the given gem(s). Bundler helps quite a bit in figuring out what those are (e.g. <code>bundle package</code>), however <code>bundle package</code> provides you the <code>.gem</code> files and not the actual ruby scripts, so I use <code>gem unpack</code></p>
+
+<p>Next, put the unpacked gems within your project, e.g. <code>vendor/gems</code> and add this to your script:</p>
+
+<p><code>Dir.glob(File.join(File.dirname(__FILE__), "vendor", "gems", "*", "lib")).each do |lib|
+  $LOAD_PATH.unshift File.expand_path(lib)
+end
+require 'GEMNAME' # they are in your load path now!</code></p>
+
+<p>I do NOT require rubygems in these scripts, however if you will be doing this, or you suspect a gem might be doing this, you&#8217;ll want to prepare in advance, with a slight mod to the above:</p>
+
+<p><code>require 'rubygems'
+Dir.glob(File.join(File.dirname(__FILE__), "vendor", "gems", "*", "lib")).each do |lib|
+  $LOAD_PATH.unshift File.expand_path(lib)
+  Gem.path.unshift File.expand_path(lib)
+end
+require 'GEMNAME' # they are in your load path now! They'll also be known to rubygems within the context of your application</code></p>
+
+    </div>
+
+    
+
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2012/08/05/dnssd-rubygem-dependencies-on-debian" title="DNSSD RubyGem dependencies on Debian">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/2012/08/25/kill-stuck-screen-sharing-vnc-login-window" title="Kill stuck screen sharing vnc login window ">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2013 Keyvan Fatehi
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+<link rel="stylesheet" href="/assets/css/pygments.css">

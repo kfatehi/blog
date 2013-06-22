@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>How to add a framework to your project in Xcode 4</title>
+    
+    <meta name="author" content="Keyvan Fatehi">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">Keyvan's Log</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>How to add a framework to your project in Xcode 4 </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>07 June 2011</span>
+    </div>
+    <div class="content">
+      <p>When I googled for this, I got false information &#8212; so here is how you do it:</p>
+<p>1) First click the Blue Xcode icon signifying your project on the lefthand navigation pane.</p>
+<p>Confused? The highlighted thing: </p>
+<p><img src="http://f.cl.ly/items/0G1j2K2O1w1d462j2s17/Screen%20shot%202011-06-07%20at%204.19.46%20AM.png" width="383" height="292"/></p>
+<p>2) Now look right, to the next pane. Make sure the project name under TARGETS is selected, not PROJECTS.</p>
+<p>Looks like this: </p>
+<p><img src="http://f.cl.ly/items/3x3i0K440h1j0W0O3v1F/Screen%20shot%202011-06-07%20at%204.21.40%20AM.png" width="425" height="334"/></p>
+<p>3) Next pane on the right, you&#8217;ll see a few things at the top, &#8220;Summary&#8221;, &#8220;Info&#8221;, &#8220;Build Settings&#8221;, &#8220;Build Phases&#8221;, &#8220;Build Rules&#8221; &#8230; You want to click on <strong>Build Phases</strong>.</p>
+<p>You will see a few expandable sections now.</p>
+<p>4) Expand the section labeled <strong>Link Binary With Libraries</strong></p>
+<p>You should now be seeing something that looks like this:</p>
+<p><img height="425" width="614" src="http://f.cl.ly/items/3B1c042p1R3q0q3f3s1L/Screen%20shot%202011-06-07%20at%204.36.55%20AM.png"/></p>
+<p>5) Click the + button at the bottom-left of that <strong>Link Binary With Libraries </strong>section</p>
+<p>Select the library you want, for example, AVFoundation.framework and click <strong>Add</strong>.</p>
+<p>You&#8217;ll notice the library/framework has appeared in your navigation pane at the left.</p>
+<p>You can go ahead and drag that into the Frameworks folder.</p>
+<p>6) In order to utilize the framework, you will need to <em>#import</em> it into your source code.</p>
+<p>For AVFoundation.framework, I simply put the following line in my main.m, right under the existing <em>#import</em> for UIKit</p>
+<blockquote>
+<p>#import &lt;AVFoundation/AVFoundation.h&gt;</p>
+</blockquote>
+<p>And that worked for me.</p>
+
+    </div>
+
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#ios-ref">ios <span>7</span></a></li>
+     
+    	<li><a href="/tags.html#xcode-ref">xcode <span>5</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2011/06/06/learning-ios-development-for-free" title="Learning iOS Development for Free">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/2011/06/07/upgraded-to-xcode-4-could-not-insert-new-outlet-" title="Upgraded to Xcode 4: Could not insert new outlet ...">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2013 Keyvan Fatehi
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+<link rel="stylesheet" href="/assets/css/pygments.css">

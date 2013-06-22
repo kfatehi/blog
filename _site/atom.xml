@@ -1,0 +1,1931 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Keyvan's Log</title>
+ <link href="http://keyvanfatehi.github.io/" rel="self"/>
+ <link href="http://keyvanfatehi.github.io"/>
+ <updated>2013-06-22T03:10:07-07:00</updated>
+ <id>http://keyvanfatehi.github.io</id>
+ <author>
+   <name>Keyvan Fatehi</name>
+   <email>keyvanfatehi@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>How to build a telescope server</title>
+   <link href="http://keyvanfatehi.github.io/blog/2013/06/22/break-down"/>
+   <updated>2013-06-22T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/blog/2013/06/22/break-down</id>
+   <content type="html">&lt;p&gt;Wish you collected more cool data? Want to bring proper streaming telescope services to the masses from inside the browser? It&amp;#8217;s due time we get this right, by building the first well-done telescope service.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#8217;s how you might do it:&lt;/p&gt;
+
+&lt;h2 id='hardware'&gt;Hardware&lt;/h2&gt;
+
+&lt;p&gt;Buy a good telescope&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href='http://www.celestron.com/astronomy/series/advanced-series-gt-computerized-telescopes/'&gt;Must have GoTo feature&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href='http://www.celestron.com/astronomy/celestron-nexstar-5se.html'&gt;Something about nexstar?&lt;/a&gt; Not sure, see github repo link below.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Mount on a high-altitude home in the Hollywood Hills (avoid smog and light pollution) with a high speed connection&lt;/p&gt;
+
+&lt;p&gt;Attach telescope lens to android device at the camera &lt;a href='http://www.htc.com/us/smartphones/htc-one/?PS=1&amp;amp;cid=sem157p174347&amp;amp;gclid=COf2jK2u97cCFRHhQgodhwoAGg'&gt;HTC One&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I would recommend designing this in solidworks and printing the mount for the best results.&lt;/p&gt;
+
+&lt;p&gt;Use a Raspberry Pi the basis of your compute platform.&lt;/p&gt;
+
+&lt;p&gt;Design and supply over USB an API to the weather protector&lt;/p&gt;
+
+&lt;p&gt;Suppply over USB ambient temperature and weather sensor data&lt;/p&gt;
+
+&lt;h2 id='software'&gt;Software&lt;/h2&gt;
+
+&lt;p&gt;Setup https://github.com/fcsonline/node-telescope-server&lt;/p&gt;
+
+&lt;p&gt;Build a IRC-like single-operator chatroom system&lt;/p&gt;
+
+&lt;p&gt;Implement (port?) &lt;a href='http://www.stellarium.org/'&gt;Stellarium&lt;/a&gt;-like system in the browser.&lt;/p&gt;
+
+&lt;p&gt;Display camera live feed.&lt;/p&gt;
+
+&lt;p&gt;Allow capture of the Android camera&amp;#8217;s feed to LocalStorage.&lt;/p&gt;
+
+&lt;p&gt;Allow operators to implement and run scripts from the web browser, a la:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Keep a video running with a high speed camera sensor
+Constantly adjust focus to detect movers
+When detected, focus in on the mover and follow it
+Repeat
+
+Dump all activity (images, video, events) into ES/MD w/ odata&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Fun Links:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://services.odata.org/ODataAPIExplorer/ODataAPIExplorer.html'&gt;OData API Explorer&lt;/a&gt;&lt;/p&gt;
+&lt;iframe height='420' src='http://www.youtube.com/embed/XfIU9DqPTl8' width='560' /&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Leaderless</title>
+   <link href="http://keyvanfatehi.github.io/blog/2013/06/17/leaderless"/>
+   <updated>2013-06-17T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/blog/2013/06/17/leaderless</id>
+   <content type="html">&lt;p&gt;Still thinking about this&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://www.youtube.com/embed/_Z99qFwsDmU'&gt;snowden interview&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;There has been no change.&lt;/p&gt;
+
+&lt;p&gt;We are leaderless; at least we&amp;#8217;ve still got apathy :3&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Parrot Assisted Training</title>
+   <link href="http://keyvanfatehi.github.io/blog/2013/06/03/parrot-assisted-training"/>
+   <updated>2013-06-03T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/blog/2013/06/03/parrot-assisted-training</id>
+   <content type="html">&lt;h1 id='paratrain'&gt;PARATRAIN&lt;/h1&gt;
+
+&lt;p&gt;Paratrain is a new app I&amp;#8217;m developing for audio, language, and animal research. It stands for something along the lines of parrot-assist training,&lt;/p&gt;
+
+&lt;h2 id='artificial_intelligence'&gt;Artificial Intelligence&lt;/h2&gt;
+
+&lt;h3 id='carrot'&gt;CARROT&lt;/h3&gt;
+
+&lt;p&gt;In Chicago last week I purchased CARROT on the Apple App Store while in line for Shedd Aquarium. Animals, ooh, I forgot all about them while developing software all the time. My legs fucking hurt too until the final Day there wherein my muscles finally remembered they can regenerate.&lt;/p&gt;
+
+&lt;p&gt;Food and drugs doesn&amp;#8217;t fix long-term atrophy, exercise is necessary. Some people get dogs, like my older brother, which makes him more be more active.&lt;/p&gt;
+
+&lt;p&gt;One could assert by this that this is a &lt;strong&gt;use case&lt;/strong&gt; for having a kid &lt;em&gt;oof&lt;/em&gt; i mean pet.&lt;/p&gt;
+
+&lt;p&gt;It is a selfish reason, but a reason no less.&lt;/p&gt;
+
+&lt;h3 id='paratrain'&gt;PARATRAIN&lt;/h3&gt;
+
+&lt;p&gt;This is &lt;a href='https://github.com/keyvanfatehi/paratrain'&gt;my accidental AI project&lt;/a&gt;&amp;#8230; (the rapidly iterative README as of today)&lt;/p&gt;
+
+&lt;h4 id='paratrain_readme'&gt;Paratrain README&lt;/h4&gt;
+
+&lt;h2 id='paratrain'&gt;Paratrain&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Purchase Paratrain from the Apple App Store&lt;/li&gt;
+
+&lt;li&gt;Make sure you&amp;#8217;re connected to wifi and have a lot of battery&lt;/li&gt;
+
+&lt;li&gt;Open the app and create a profile for the learner&lt;/li&gt;
+
+&lt;li&gt;Setup some options in the the profile and enable the algorithm&lt;/li&gt;
+
+&lt;li&gt;Ensure the iphone and the learner are within earshot of each other.&lt;/li&gt;
+
+&lt;li&gt;Optionally set up a 2nd screen to provide visual data for the learner (See the API by version 1)&lt;/li&gt;
+
+&lt;li&gt;Optionally place wireless nodes around for the learner to activate. Custom-configuration possible. (See the API by version 2)&lt;/li&gt;
+
+&lt;li&gt;Optionally enable camera and the &amp;#8220;Paratrainer&amp;#8221; for strategies of increased awareness between learner and AI (See the API by version 3) * The paratrainer avatar can be invoked remotely by you (See facially emotive API by version 4)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I don&amp;#8217;t expect anything like Version 4 for at least another 3 years.&lt;/p&gt;
+
+&lt;p&gt;I intend to complete Version 1 by the end of June. The rest is futurestory, or as I like to call them, user stories&amp;#8230;&lt;/p&gt;
+
+&lt;h2 id='paratrain_ai_subsystems'&gt;Paratrain AI Subsystems&lt;/h2&gt;
+
+&lt;h1 id='system_1_listening_mode'&gt;System 1 Listening Mode&lt;/h1&gt;
+
+&lt;p&gt;System 1 can be toggled on or off. It&amp;#8217;s Paratrain&amp;#8217;s &amp;#8220;Listening Mode&amp;#8221;. This is how it affects Paratrain&amp;#8217;s behavior:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;It collect words the that it &amp;quot;hears&amp;quot;.
+When it hears a new word, it will verify that it&amp;#39;s a word by converting the audio to text.
+  consider the confidence of the conversion
+  unconfident? then forget it
+  confident? then do this:
+    consider whether we&amp;#39;ve heard this word before
+    we have?
+      take note that we just heard this word again.
+      store this unique utterance (Word has_many Utterances)
+    we haven&amp;#39;t?
+      fetch media for the word (definitions, thesaurus, audio, images, video)
+      store all this in the database
+    Check if System 2 is enabled, if so, notify it that we&amp;#39;ve just now heard this word [id] for the [count] time
+  not sure?
+    store it in the app, let the user choose to:
+      * listen to the sample
+      * convert it to text manually and save with that audio
+      * adjust the confidence threshold&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;System 1 will start to be implemented once &lt;a href='https://github.com/keyvanfatehi/paratrain/issues/6'&gt;#6&lt;/a&gt; is complete.&lt;/p&gt;
+
+&lt;h2 id='system_2_learning_mode'&gt;System 2 Learning Mode&lt;/h2&gt;
+
+&lt;p&gt;Responsible for matters related to the exposure of the iphone&amp;#8217;s existence to the learner.&lt;/p&gt;
+
+&lt;h3 id='engagement'&gt;Engagement&lt;/h3&gt;
+
+&lt;p&gt;Engagement controls if and how the iphone speaks to nearby listeners There are several aspects of engagement exposed by System 2&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;persistence 0-100&lt;/li&gt;
+
+&lt;li&gt;aggression 0-100&lt;/li&gt;
+
+&lt;li&gt;boredom 0-100&lt;/li&gt;
+
+&lt;li&gt;rewards&lt;/li&gt;
+
+&lt;li&gt;content&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id='second_screen'&gt;Second Screen&lt;/h2&gt;
+
+&lt;p&gt;If a second screen is available (Apple TV), the &lt;strong&gt;Visual Association Toggle&lt;/strong&gt; becomes available. It works like this:&lt;/p&gt;
+
+&lt;h4 id='vatsystem_1'&gt;VAT:System 1&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;As someone learning a language
+When my artificial intelligence hears a word
+In order that I be more likely to learn the word
+I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id='vatsystem_2'&gt;VAT:System 2&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;As someone learning a language
+When I am engaged by my artificial intelligence
+In order that I be more likely to learn the word
+I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h1 id='goal'&gt;Goal&lt;/h1&gt;
+
+&lt;p&gt;Design a system good enough to teach an African Grey parrot at least 500 words before the age of 6, without inflicting emotional damage.&lt;/p&gt;
+
+&lt;p&gt;If successful, it can be used for small children, and eventually turn into an effective &amp;#8220;knowledge download&amp;#8221; tool. Might as well dream big; but it&amp;#8217;s mainly to distract me from immediately buying a Grey before I&amp;#8217;m really ready.&lt;/p&gt;
+
+&lt;h2 id='no_impulsebuy'&gt;No impulse-buy&lt;/h2&gt;
+
+&lt;p&gt;Only a few days ago, my brother suggested I get a parrot. I didn&amp;#8217;t speak or think of parrots for maybe 7 years; It was something I could just never have, and so put away mentally &amp;#8230; too expensive &amp;#8230; with luck, becoming a competent developer has allowed me to break that financial barrier.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Resisting the impulse buy the African Grey is hard, but it&amp;#8217;s a huge responsibility &amp;#8211; I am older and the facts of the matters make resistance easy&lt;/p&gt;
+
+&lt;p&gt;I always wanted a parrot as a kid, but needed to wait until I knew I could take care of it correctly (and afford one). I&amp;#8217;ve had pets that died, and as a small kid, it can be traumatic. Failing to train a Grey well would be almost criminal.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m 24 and I feel like this parrot thing is now is making me face it, and the other big questions, all at once.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This was a small thing for him, I think, but for me it begins to feel as though it has stirred up a great spirit that been asleep inside me. All this time I&amp;#8217;ve been secluding myself, perhaps buried under a lot of old guilt from the pets that I&amp;#8217;ve had that have died &amp;#8212; not getting any more pets so as not to &amp;#8220;kill it again&amp;#8221;. Perhaps this is one of those latent and hard-to-understand better-to-avoid reasons I am so keen to remain single&amp;#8230; err&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;Uhm, in any case: I have a long history with avians and would rather get the bird when I have a house, to build a proper aviary again.&lt;/p&gt;
+
+&lt;p&gt;But I can start &lt;a href='https://github.com/keyvanfatehi/paratrain'&gt;developing software&lt;/a&gt; and &lt;a href='https://github.com/keyvanfatehi/paratrain/issues/5'&gt;doing research&lt;/a&gt;. It has proven fruitful so far.&lt;/p&gt;
+
+&lt;p&gt;I feel that &lt;strong&gt;buying the parrot right now would be a big mistake&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The matured scientist in me is eagerly awaiting pending discoveries into learning and intelligence &amp;#8230; and wants to ensure readiness &amp;#8230; once this turns into design, and then &lt;em&gt;implementation&lt;/em&gt;, I am ready.&lt;/p&gt;
+
+&lt;h1 id='caged_bird'&gt;Caged Bird&lt;/h1&gt;
+
+&lt;p&gt;I will be waiting until the software &lt;em&gt;AND&lt;/em&gt; hardware is ready. I need an indoor cage. I&amp;#8217;m opting not to build it with wood as I did for the doves I owned as a small child (these pets created life&amp;#8230; they are not a memory of death like some later animals I had; but one of but birth and life; contentment and prosperity)&lt;/p&gt;
+
+&lt;p&gt;Consequently, software and hardware for a parrot equates to massive amounts of learning by the undertaker &lt;span&gt;me&lt;/span&gt;.&lt;/p&gt;
+
+&lt;h2 id='3d_printer__solidworks__technique___habitat_'&gt;3d Printer + Solidworks + Technique &amp;#8230; = Habitat ?&lt;/h2&gt;
+
+&lt;p&gt;My &lt;a href='http://pirate3d.com/'&gt;Pirate3d 3d Printer, the Buccaneer&lt;/a&gt;, arrives in Dec 2013.&lt;/p&gt;
+
+&lt;p&gt;Now I have a real reason to properly learn &lt;strong&gt;SOLIDWORKS&lt;/strong&gt; again.&lt;/p&gt;
+
+&lt;p&gt;I need a chop-up-big-stuff algorithm for this. I am looking into &lt;span&gt;aluminum&lt;/span&gt; extrusion/profile interlock systems for this.&lt;/p&gt;
+
+&lt;h2 id='space_i_see_you_baby'&gt;Space, I see you baby&lt;/h2&gt;
+
+&lt;p&gt;All I need to do now is ensure I learn electronics too and perhaps my Space 2022 ambitions will indeed become true on time.&lt;/p&gt;
+
+&lt;p&gt;If something like paratrain can be pulled off as quickly as it looks, then building the micro-agriculture systems I&amp;#8217;ve envisioned should be less sweat too.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Bountysource</title>
+   <link href="http://keyvanfatehi.github.io/blog/2013/06/03/bountysource"/>
+   <updated>2013-06-03T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/blog/2013/06/03/bountysource</id>
+   <content type="html">&lt;p&gt;pre 2:58 PM keyvan joined (uid7672@gateway/web/irccloud.com/x-noobbtzvvxakpxyr) 2:58 PM Channel mode is +cnt 2:58 PM Homepage: http://www.bountysource.com 2:58 PM keyvan wooo bountysource is awesome. good job :D 2:59 PM keyvan my very first bounty https://www.bountysource.com/#issues/379039-portfolio-page 3:03 PM nbouscal quit brooss nipped out&lt;br /&gt;3:43 PM corytheboyd aww, thanks keyvan :) 3:43 PM corytheboyd feel free to give us feedback! 3:44 PM keyvan sure thanks 3:46 PM keyvan corytheboyd: do you think should i be making an effort to market the opportunity or does bountysource do this for me somehow? that was one of the difficulties i had in thinking of how to design such an application&amp;#8230; the marketing aspect&amp;#8230; 3:47 PM nbouscal joined (~nbouscal@c-67-185-201-65.hsd1.wa.comcast.net) 3:50 PM corytheboyd keyvan: good question. we don&amp;#8217;t advertise bounties outside of our site 3:51 PM corytheboyd it&amp;#8217;s mostly up the the respective community to advertise bounties 3:51 PM keyvan corytheboyd: my other question was, how do you make money? i was debating if i&amp;#8217;d scrape money from the bounties in my implementation but i wasnt sure how that would fly with people 3:51 PM keyvan what strategy are you taking on the money front? 3:54 PM keyvan ccverg: how did you find my issue by the way? did you search github for &amp;#8220;bounty&amp;#8221; or something? the fact that you guys have built this thing is such a pleasant surprise. i mean to look to see if you guys have an API later, i&amp;#8217;ll just make my browser extension ive been working on fit right into that 3:55 PM keyvan also it would be cool for the issue itself to get auto-updated by BountySource to say something like &amp;#8220;There is a X bounty on this issue!&amp;#8221; and other appropriate notices if any 3:55 PM keyvan ive thought a lot about this project so i&amp;#8217;m kind of excited that it&amp;#8217;s here :) 3:56 PM nbouscal quit (~nbouscal@c-67-185-201-65.hsd1.wa.comcast.net) Quit: Computer has commenced electric sheep tracking protocol. 3:56 PM keyvan i think it will have huge positive consequences &amp;#8211; i.e. people with skill but inability to find jobs can now do useful work and get paid&amp;#8230; i know several people like this personally. 3:58 PM ccverg kevyan: hey there! 3:59 PM ccverg we charge a fee on bounties that are paid out, and on fundraisers once they are successful 4:00 PM ccverg we actually have a plugin for GitHub that updates issues with bounty details as you described, but a project committer has to enable it 4:00 PM ccverg you can see some screenshots on our blog (blog.bountysource.com/post/48954271533/improved-github-integration-automatically-update) 4:00 PM keyvan lol you guys may want to fix this http://cl.ly/image/1d09080J1Y24 4:01 PM keyvan nice good stuff ccverg 4:01 PM ccverg &amp;#8220;people with skill but inability to find jobs can now do useful work and get paid&amp;#8230; i know several people like this personally.&amp;#8221; — that&amp;#8217;s awesome! that&amp;#8217;s our goal, allowing open source developers to sustain themselves with their work 4:02 PM ccverg kevyan: ack, good catch 4:02 PM ccverg we&amp;#8217;ll update that, thanks 4:03 PM keyvan ccverg: i would love to help you guys out, from a dev perspective, like on weekends and maybe nights &amp;#8211; it was my ambition to build what you guys have so feel free to direct me to the proper channels if you&amp;#8217;re interested in a Ruby/Rails/Coffeescript/Javascript/iOS developer looking at stuff 4:04 PM keyvan like if you have an API that would be a great start so i can work on the browser extension and you guys can see if you like it / think it should be part of it or something 4:04 PM keyvan also i was thinking of a mobile app that is basically a browser with the ideas of the browser extension built in, so you&amp;#8217;re contributing to open source from your mobile device, making money thru bountysource integrations as well (if the project ur editing has a bounty that is) 4:07 PM keyvan sorry i havent checked the bountysource github page, you probably alreayd have most if not all of it open source anyway, wherein i can find issues, and browser for API docs myself &amp;#8211; im just at work right now :) i&amp;#8217;ll definitely be looking deeper later 4:11 PM ccverg kevyan: awesome! :D 4:12 PM ccverg only our frontend is open source right now, actually… but you&amp;#8217;re welcome to check out the issues we have open so far 4:12 PM ccverg and we really appreciate you wanting to help out! 4:19 PM corytheboyd keyvan: sorry, got a little distracted :p 4:25 PM nbouscal joined (~nbouscal@c-67-168-113-48.hsd1.wa.comcast.net) 4:27 PM keyvan cool for sure. np cory 4:50 PM nbouscal and satazor quit jsilver popped in&lt;br /&gt;6:41 PM keyvan woohoo first bounty complete! https://www.bountysource.com/#issues/379039-portfolio-page 6:41 PM keyvan definitely a smooth process, my bounty hunter is pleased as well 7:48 PM Anonymous296 popped in bountysource, warreng, corytheboyd, ccverg (opped) and realazthat nipped out&lt;br /&gt;10:19 PM keyvan im going to start making random projects, speccable, and giving them bounties :) there aren&amp;#8217;t enough live bounties as there should be&amp;#8230; easy ones even 10:20 PM keyvan knowing there&amp;#8217;s an &amp;#8220;army of developers&amp;#8221; out there that can slam out any spec should motivate more of us that squelch our ideas because &amp;#8220;work is more important&amp;#8221; and you never write that README 10:20 PM keyvan maybe someone&amp;#8217;s willing to do it if you throw some coin at it! 10:23 PM keyvan i thought (and mostly meet this type-) people resisted sharing their ideas because they are afraid to share&amp;#8230; they&amp;#8217;re wrong you should share, and you should even place a bounty on if it&amp;#8217;s something you really want built &amp;#8211; if you&amp;#8217;re in it for the money and u dont want to share for that reason, your startup probably won&amp;#8217;t do well anyway and don&amp;#8217;t get the 10:23 PM keyvan big picture (i dont say this to them though, i&amp;#8217;ll generally motivate them to learn jQuery or ruby). 10:26 PM mode: corytheboyd (opped) nbouscal popped in&lt;br /&gt;/pre&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Coffeescript Source Maps</title>
+   <link href="http://keyvanfatehi.github.io/blog/2013/05/23/coffeescript-source-maps"/>
+   <updated>2013-05-23T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/blog/2013/05/23/coffeescript-source-maps</id>
+   <content type="html">&lt;p&gt;No longer can your team claim ignorance of CoffeeScript and tout the excuse that it is difficult to debug in the console. Behold &lt;code&gt;gem &amp;#39;coffee-rails-source-maps&amp;#39;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='https://github.com/markbates/coffee-rails-source-maps'&gt;GitHub&lt;/a&gt; | &lt;a href='http://cl.ly/image/233C2H1j1V0F'&gt;Screenshot&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This works in Rails 4 RC1, however I cannot install it on Rails 3.2 (coffee-rails version too old)&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Conflict Of Interest</title>
+   <link href="http://keyvanfatehi.github.io/blog/2013/05/16/conflict-of-interest"/>
+   <updated>2013-05-16T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/blog/2013/05/16/conflict-of-interest</id>
+   <content type="html">&lt;p&gt;At my place of employment, I&amp;#8217;ve never had the issue of a conflict of interest &amp;#8211; until recently when I wanted to help a through-work contact to develop a small HTML5-driven web application, essentially helping him to launch an overnight startup. It was a very targeted problem, a simple one, and well thought out and designed &amp;#8211; the kinds of projects we love because it&amp;#8217;s clear. The kinds of projects you can turn around in a few hours if you had a bunch of Red Bull, as it were.&lt;/p&gt;
+
+&lt;p&gt;Seemed like a no-brainer, right? Well I guess not; I had met this particular entrepreneur through the work duties of interacting with the studios and artists that use our custom software, one of the standard things I needed to do myself as I built out the software division of my then-non-software-oriented (software-dev-virgin?) company. Now I have people that do this client and support interfacing &amp;#8211; so I don&amp;#8217;t develop the relationship that would yield this sort of excitement and impetus unless chancily I was met with the opportunity. The odds of this are low and my emotions thank the circumstances, despite this particular one&amp;#8217;s &lt;a href='/blog/2013/05/14/willful-defiance'&gt;imprisoning&lt;/a&gt; smell.&lt;/p&gt;
+
+&lt;h1 id='estimate__start'&gt;Estimate &amp;amp; Start!&lt;/h1&gt;
+
+&lt;p&gt;Let&amp;#8217;s build it! That&amp;#8217;s my attitude!&lt;/p&gt;
+
+&lt;p&gt;I estimated it would take 1-3 diligent weekends to pull it off. I would create it for him and he would go sell it to the world as he wants &amp;#8211; I ask for nothing in return. It may seem strange to some, but I do this because I love to see people&amp;#8217;s eyes light up as the weight is lifted from their shoulder and that energy can now be put into the business side. I prefer them to run the business instead if that&amp;#8217;s the skill they are good at. If they become successful, great! If not, even better because the lessons are valuable. Ultimately these are human investments which I think are totally worth making. In fact this is why I&amp;#8217;m a big proponent of &lt;a href='http://startupweekend.org/'&gt;Startup Weekend&lt;/a&gt; events.&lt;/p&gt;
+
+&lt;h1 id='excite__fizzle'&gt;Excite -&amp;gt; Fizzle&lt;/h1&gt;
+
+&lt;p&gt;The issue with this, and what took a lot of drilling from various people at work (CEO, Lawyer, HR, etc) for me to understand, is that an unavoidable, unbrainstorm-out-of-able conflict exists here:&lt;/p&gt;
+
+&lt;p&gt;I just want to build great software and help people out. In fact, I said I would do it for free! It would happen on the weekend, so I have a reason to be in Los Angeles and make a friend or two outside of work while still engaging in the things that interest me (development).&lt;/p&gt;
+
+&lt;p&gt;But the society and the laws are concerned with the fact that a usual employment contract (mine included) can own things you do outside of work hours&amp;#8230; my company happens to be &amp;#8220;nice&amp;#8221; enough not to lay a claim to things unless they fall within a specific scope; this unlucky entrepreneur&amp;#8217;s idea definitely fell within it.&lt;/p&gt;
+
+&lt;h1 id='when_all_else_fails_you_do_it_yourself'&gt;When all else fails, you do it yourself&lt;/h1&gt;
+
+&lt;p&gt;On the bright side, he was really excited to &lt;a href='http://try.jquery.com/'&gt;try jQuery&lt;/a&gt; and will have his hand at building his system all by himself&amp;#8230; I believe it can be done and it&amp;#8217;s the very same drive that resulted in my acquisition of ruby knowledge and the rest of it. This is far more valuable than any free work some developer might do for you &amp;#8211; I am a black box. You hate the black box, as you should, you must fear the black box, anything else is irrational.&lt;/p&gt;
+
+&lt;p&gt;However I am not an ordinary black box, but one that you cannot hate or fear for if you approach me with the interest, the dam holding back a torrent of knowledge only waits to be pulled back and for these weights to be lifted, shared. A black box is a single point of failure. We design around this in our software systems as we should with our human resources. I digress.&lt;/p&gt;
+
+&lt;p&gt;As far as this entrepreneur I could not help, I hope he continues &amp;#8211; I hope our society doesn&amp;#8217;t call my helping him at all a &amp;#8220;conflict of interest,&amp;#8221; if so I think that might be the last straw before I begin active research in making life-changes such as moving to a more exquisite part of the world.&lt;/p&gt;
+
+&lt;p&gt;This pour soul can take no more irrational stifling of the sort that prevent innovators and artists from performing their craft. The dam strains and cracks against the pressure of secrecy and not-sharing. In terms of innovators, the powerfuls prefer [even force, by way of legal and fiscal circumstance] them to take rest and abstain from their art, even in their own &amp;#8220;private time.&amp;#8221; In my worldview, such a notion is laughable at best, but apparently such is the world we live in.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Life has never felt more Orwellian.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;All that strife has got me thinking&amp;#8230; if you could change it &lt;a href='/blog/2013/05/16/can-you-do-better'&gt;could you do better?&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Extra&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;taken from &lt;a href='http://answers.onstartups.com/questions/947/when-is-a-startup-a-conflict-of-interest-with-existing-job'&gt;source&lt;/a&gt;:&lt;/p&gt;
+
+&lt;h2 id='when_is_a_startup_a_conflict_of_interest_with_existing_job'&gt;When is a startup a conflict of interest with existing job?&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;At least in Switzerland, you have to be very cautious about what of the things you create during your employment belongs to your employer. If you do not especially ask for the contract to include only results of your work for the company, all your private inventions and achievements not only in your field of employment can be claimed by the employer. It happened to a friend of mine that even the rights on a published book of poems were taken by his employer, another one lost the rights to a new bicycle break he invented. Both were programmers.&lt;/p&gt;
+
+&lt;p&gt;Some employers insist on 100% of your work time, including private work. They then claim that all achievements have been made during their time.&lt;/p&gt;
+
+&lt;p&gt;Rare cases I agree. And maybe its different where you live. Just read your contract very carefully.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;#8220;things you create during your employment belongs to your employer&amp;#8221; - is this the default (i.e. with no other agreements in place) rule? In the states, that&amp;#8217;s not the default, but it can be written into contracts and it has held up in court. – Alex Papadimoulis Oct 12 &amp;#8216;09 at 16:46&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It&amp;#8217;s a little more wordy,but the standard clause boils down to this in front of the court. It is one of the things that usually are missed by people - which does not matter in most cases, but when you are successful with your startup suddenly might. – malach Oct 13 &amp;#8216;09 at 4:34&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Can You Do Better</title>
+   <link href="http://keyvanfatehi.github.io/blog/2013/05/16/can-you-do-better"/>
+   <updated>2013-05-16T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/blog/2013/05/16/can-you-do-better</id>
+   <content type="html">&lt;p&gt;I&amp;#8217;m a software developer, and not an economist, but I&amp;#8217;m beginning to feel some things that were never apparent to me and I didn&amp;#8217;t much care to think of before &amp;#8211; I hope it may be something I can articulate soon. But as of now, no, I can&amp;#8217;t do any better, and even if I did have clear ideas for reformation that would satisfy the internal moral conflict that the above discusses, I don&amp;#8217;t have the money/power/influence to implement the reforms it would take to make us a more innovative and forward thinking state.&lt;/p&gt;
+
+&lt;p&gt;I do think that open source, anonymity, and bitcoins are building blocks to a subversive arsenal against the tyrants that stifle innovation: current laws, market forces, assholes. This all reduces the rate of good positive change and the general level of beauty and art in the world.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ll close by saying the top hedge fund managers in the world get paid inane amounts of money for doing literally nothing positive (it&amp;#8217;s a zero sum game), while the scientists trying to cure your mother&amp;#8217;s cancer are being stifled and underfunded. Sick society.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Willful Defiance</title>
+   <link href="http://keyvanfatehi.github.io/blog/2013/05/14/willful-defiance"/>
+   <updated>2013-05-14T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/blog/2013/05/14/willful-defiance</id>
+   <content type="html">&lt;p&gt;In response to &lt;a href='http://articles.latimes.com/2013/may/12/local/la-me-adv-lausd-discipline-20130513'&gt;LAUSD board could ban suspensions for &amp;#8216;willful defiance&amp;#8217;&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id='4_freedom_is_good'&gt;4. Freedom is good.&lt;/h2&gt;
+
+&lt;p&gt;Hackers are naturally anti-authoritarian. Anyone who can give you orders can stop you from solving whatever problem you&amp;#8217;re being fascinated by &amp;#8211; and, given the way authoritarian minds work, will generally find some appallingly stupid reason to do so. So the authoritarian attitude has to be fought wherever you find it, lest it smother you and other hackers. (This isn&amp;#8217;t the same as fighting all authority. Children need to be guided and criminals restrained. A hacker may agree to accept some kinds of authority in order to get something he wants more than the time he spends following orders. But that&amp;#8217;s a limited, conscious bargain; the kind of personal surrender authoritarians want is not on offer.)&lt;/p&gt;
+
+&lt;p&gt;Authoritarians thrive on censorship and secrecy. And they distrust voluntary cooperation and information-sharing &amp;#8211; they only like &amp;#8216;cooperation&amp;#8217; that they control. So to behave like a hacker, you have to develop an instinctive hostility to censorship, secrecy, and the use of force or deception to compel responsible adults. And you have to be willing to act on that belief.&lt;/p&gt;
+&lt;a href='#' onclick='document.getElementById(&amp;apos;more&amp;apos;).style.display = &amp;apos;block&amp;apos;;'&gt;show source&lt;/a&gt;&lt;pre id='more' style='display:none'&gt;
+    Back to [Eric's FAQs Page]  Up to [Site Map]  $Date: 2000/03/24 21:01:28 $
+    Translations into: French Spanish Italian German Japanese Korean Swedish Portuguese Russian Bulgarian Danish Indonesian Dutch Chinese (Traditional) Chinese (Simplified)
+
+    How To Become A Hacker
+
+    Why This Document?
+
+    As editor of the Jargon File, I often get email requests from enthusiastic network newbies asking (in effect) &quot;how can I learn to be a wizard hacker?&quot;. Oddly enough there don't seem to be any FAQs or Web documents that address this vital question, so here's mine.
+    If you are reading a snapshot of this document offline, the current version lives at http://www.tuxedo.org/~esr/faqs/hacker-howto.html.
+
+
+    What Is A Hacker?
+
+    The Jargon File contains a bunch of definitions of the term `hacker', most having to do with technical adeptness and a delight in solving problems and overcoming limits. If you want to know how to become a hacker, though, only two are really relevant.
+    There is a community, a shared culture, of expert programmers and networking wizards that traces its history back through decades to the first time-sharing minicomputers and the earliest ARPAnet experiments. The members of this culture originated the term `hacker'. Hackers built the Internet. Hackers made the Unix operating system what it is today. Hackers run Usenet. Hackers make the World Wide Web work. If you are part of this culture, if you have contributed to it and other people in it know who you are and call you a hacker, you're a hacker.
+
+    The hacker mind-set is not confined to this software-hacker culture. There are people who apply the hacker attitude to other things, like electronics or music -- actually, you can find it at the highest levels of any science or art. Software hackers recognize these kindred spirits elsewhere and may call them &quot;hackers&quot; too -- and some claim that the hacker nature is really independent of the particular medium the hacker works in. But in the rest of this document we will focus on the skills and attitudes of software hackers, and the traditions of the shared culture that originated the term `hacker'.
+
+    There is another group of people who loudly call themselves hackers, but aren't. These are people (mainly adolescent males) who get a kick out of breaking into computers and phreaking the phone system. Real hackers call these people `crackers' and want nothing to do with them. Real hackers mostly think crackers are lazy, irresponsible, and not very bright, and object that being able to break security doesn't make you a hacker any more than being able to hotwire cars makes you an automotive engineer. Unfortunately, many journalists and writers have been fooled into using the word `hacker' to describe crackers; this irritates real hackers no end.
+
+    The basic difference is this: hackers build things, crackers break them.
+
+    If you want to be a hacker, keep reading. If you want to be a cracker, go read the alt.2600 newsgroup and get ready to do five to ten in the slammer after finding out you aren't as smart as you think you are. And that's all I'm going to say about crackers.
+
+
+    The Hacker Attitude
+
+    Hackers solve problems and build things, and they believe in freedom and voluntary mutual help. To be accepted as a hacker, you have to behave as though you have this kind of attitude yourself. And to behave as though you have the attitude, you have to really believe the attitude.
+    But if you think of cultivating hacker attitudes as just a way to gain acceptance in the culture, you'll miss the point. Becoming the kind of person who believes these things is important for you -- for helping you learn and keeping you motivated. As with all creative arts, the most effective way to become a master is to imitate the mind-set of masters -- not just intellectually but emotionally as well.
+
+    So, if you want to be a hacker, repeat the following things until you believe them:
+
+    1. The world is full of fascinating problems waiting to be solved.
+
+    Being a hacker is lots of fun, but it's a kind of fun that takes lots of effort. The effort takes motivation. Successful athletes get their motivation from a kind of physical delight in making their bodies perform, in pushing themselves past their own physical limits. Similarly, to be a hacker you have to get a basic thrill from solving problems, sharpening your skills, and exercising your intelligence.
+    If you aren't the kind of person that feels this way naturally, you'll need to become one in order to make it as a hacker. Otherwise you'll find your hacking energy is sapped by distractions like sex, money, and social approval.
+
+    (You also have to develop a kind of faith in your own learning capacity -- a belief that even though you may not know all of what you need to solve a problem, if you tackle just a piece of it and learn from that, you'll learn enough to solve the next piece -- and so on, until you're done.)
+
+
+    2. Nobody should ever have to solve a problem twice.
+
+    Creative brains are a valuable, limited resource. They shouldn't be wasted on re-inventing the wheel when there are so many fascinating new problems waiting out there.
+    To behave like a hacker, you have to believe that the thinking time of other hackers is precious -- so much so that it's almost a moral duty for you to share information, solve problems and then give the solutions away just so other hackers can solve new problems instead of having to perpetually re-address old ones.
+
+    (You don't have to believe that you're obligated to give all your creative product away, though the hackers that do are the ones that get most respect from other hackers. It's consistent with hacker values to sell enough of it to keep you in food and rent and computers. It's consistent to use your hacking skills to support a family or even get rich, as long as you don't forget you're a hacker while you're doing it.)
+
+
+    3. Boredom and drudgery are evil.
+
+    Hackers (and creative people in general) should never be bored or have to drudge at stupid repetitive work, because when this happens it means they aren't doing what only they can do -- solve new problems. This wastefulness hurts everybody. Therefore boredom and drudgery are not just unpleasant but actually evil.
+    To behave like a hacker, you have to believe this enough to want to automate away the boring bits as much as possible, not just for yourself but for everybody else (especially other hackers).
+
+    (There is one apparent exception to this. Hackers will sometimes do things that may seem repetitive or boring to an observer as a mind-clearing exercise, or in order to acquire a skill or have some particular kind of experience you can't have otherwise. But this is by choice -- nobody who can think should ever be forced into boredom.)
+
+
+    4. Freedom is good.
+
+    Hackers are naturally anti-authoritarian. Anyone who can give you orders can stop you from solving whatever problem you're being fascinated by -- and, given the way authoritarian minds work, will generally find some appallingly stupid reason to do so. So the authoritarian attitude has to be fought wherever you find it, lest it smother you and other hackers.
+    (This isn't the same as fighting all authority. Children need to be guided and criminals restrained. A hacker may agree to accept some kinds of authority in order to get something he wants more than the time he spends following orders. But that's a limited, conscious bargain; the kind of personal surrender authoritarians want is not on offer.)
+
+    Authoritarians thrive on censorship and secrecy. And they distrust voluntary cooperation and information-sharing -- they only like `cooperation' that they control. So to behave like a hacker, you have to develop an instinctive hostility to censorship, secrecy, and the use of force or deception to compel responsible adults. And you have to be willing to act on that belief.
+
+
+    5. Attitude is no substitute for competence.
+
+    To be a hacker, you have to develop some of these attitudes. But copping an attitude alone won't make you a hacker, any more than it will make you a champion athlete or a rock star. Becoming a hacker will take intelligence, practice, dedication, and hard work.
+    Therefore, you have to learn to distrust attitude and respect competence of every kind. Hackers won't let posers waste their time, but they worship competence -- especially competence at hacking, but competence at anything is good. Competence at demanding skills that few can master is especially good, and competence at demanding skills that involve mental acuteness, craft, and concentration is best.
+
+    If you revere competence, you'll enjoy developing it in yourself -- the hard work and dedication will become a kind of intense play rather than drudgery. And that's vital to becoming a hacker.
+
+
+    Basic Hacking Skills
+
+    The hacker attitude is vital, but skills are even more vital. Attitude is no substitute for competence, and there's a certain basic toolkit of skills which you have to have before any hacker will dream of calling you one.
+    This toolkit changes slowly over time as technology creates new skills and makes old ones obsolete. For example, it used to include programming in machine language, and didn't until recently involve HTML. But right now it pretty clearly includes the following:
+
+
+    1. Learn how to program.
+
+    This, of course, is the fundamental hacking skill. If you don't know any computer languages, I recommend starting with Python. It is cleanly designed, well documented, and relatively kind to beginners. Despite being a good first language, it is not just a toy; it is very powerful and flexible and well suited for large projects.
+    But be aware that you won't reach the skill level of a hacker or even merely a programmer if you only know one language -- you need to learn how to think about programming problems in a general way, independent of any one language. To be a real hacker, you need to have gotten to the point where you can learn a new language in days by relating what's in the manual to what you already know. This means you should learn several very different languages.
+
+    If you get into serious programming, you will have to learn C, the core language of Unix (though it's not the one to try learning first thing). Other languages of particular importance to hackers include Perl and LISP. Perl is worth learning for practical reasons; it's very widely used for active web pages and system administration, so that even if you never write Perl you should learn to read it. LISP is worth learning for the profound enlightenment experience you will have when you finally get it; that experience will make you a better programmer for the rest of your days, even if you never actually use LISP itself a lot.
+
+    It's best, actually, to learn all four of these (Python, C, Perl, and LISP). Besides being the most important hacking languages, they represent very different approaches to programming, and each will educate you in valuable ways.
+
+    I can't give complete instructions on how to learn to program here -- it's a complex skill. But I can tell you that books and courses won't do it (many, maybe most of the best hackers are self-taught). What will do it is (a) reading code and (b) writing code.
+
+    Learning to program is like learning to write good natural language. The best way to do it is to read some stuff written by masters of the form, write some things yourself, read a lot more, write a little more, read a lot more, write some more ... and repeat until your writing begins to develop the kind of strength and economy you see in your models.
+
+    Finding good code to read used to be hard, because there were few large programs available in source for fledgeling hackers to read and tinker with. This has changed dramatically; open-source software, programming tools, and operating systems (all built by hackers) are now widely available. Which brings me neatly to our next topic...
+
+    2. Get one of the open-source Unixes and learn to use and run it.
+
+    I'm assuming you have a personal computer or can get access to one (these kids today have it so easy :-)). The single most important step any newbie can take towards acquiring hacker skills is to get a copy of Linux or one of the BSD-Unixes, install it on a personal machine, and run it.
+    Yes, there are other operating systems in the world besides Unix. But they're distributed in binary -- you can't read the code, and you can't modify it. Trying to learn to hack on a DOS or Windows machine or under MacOS is like trying to learn to dance while wearing a body cast.
+
+    Besides, Unix is the operating system of the Internet. While you can learn to use the Internet without knowing Unix, you can't be an Internet hacker without understanding Unix. For this reason, the hacker culture today is pretty strongly Unix-centered. (This wasn't always true, and some old-time hackers still aren't happy about it, but the symbiosis between Unix and the Internet has become strong enough that even Microsoft's muscle doesn't seem able to seriously dent it.)
+
+    So, bring up a Unix -- I like Linux myself but there are other ways (and yes, you can run both Linux and DOS/Windows on the same machine). Learn it. Run it. Tinker with it. Talk to the Internet with it. Read the code. Modify the code. You'll get better programming tools (including C, Lisp, Python, and Perl) than any Microsoft operating system can dream of, you'll have fun, and you'll soak up more knowledge than you realize you're learning until you look back on it as a master hacker.
+
+    For more about learning Unix, see The Loginataka.
+
+    To get your hands on a Linux, see the Where can I get Linux.
+
+    You can find BSD Unix help and resources at www.bsd.org.
+
+    (Note: I don't really recommend installing either Linux or BSD as a solo project if you're a newbie. For Linux, find a local Linux user's group and ask for help; or contact the Linux Internet Support Co-Operative. LISC maintains IRC channels where you can get help.)
+
+    3. Learn how to use the World Wide Web and write HTML.
+
+    Most of the things the hacker culture has built do their work out of sight, helping run factories and offices and universities without any obvious impact on how non-hackers live. The Web is the one big exception, the huge shiny hacker toy that even politicians admit is changing the world. For this reason alone (and a lot of other good ones as well) you need to learn how to work the Web.
+    This doesn't just mean learning how to drive a browser (anyone can do that), but learning how to write HTML, the Web's markup language. If you don't know how to program, writing HTML will teach you some mental habits that will help you learn. So build a home page.
+
+    But just having a home page isn't anywhere near good enough to make you a hacker. The Web is full of home pages. Most of them are pointless, zero-content sludge -- very snazzy-looking sludge, mind you, but sludge all the same (for more on this see The HTML Hell Page).
+
+    To be worthwhile, your page must have content -- it must be interesting and/or useful to other hackers. And that brings us to the next topic...
+
+
+    Status in the Hacker Culture
+
+    Like most cultures without a money economy, hackerdom runs on reputation. You're trying to solve interesting problems, but how interesting they are, and whether your solutions are really good, is something that only your technical peers or superiors are normally equipped to judge.
+    Accordingly, when you play the hacker game, you learn to keep score primarily by what other hackers think of your skill (this is why you aren't really a hacker until other hackers consistently call you one). This fact is obscured by the image of hacking as solitary work; also by a hacker-cultural taboo (now gradually decaying but still potent) against admitting that ego or external validation are involved in one's motivation at all.
+
+    Specifically, hackerdom is what anthropologists call a gift culture. You gain status and reputation in it not by dominating other people, nor by being beautiful, nor by having things other people want, but rather by giving things away. Specifically, by giving away your time, your creativity, and the results of your skill.
+
+    There are basically five kinds of things you can do to be respected by hackers:
+
+
+    1. Write open-source software.
+
+    The first (the most central and most traditional) is to write programs that other hackers think are fun or useful, and give the program sources to the whole hacker culture to use.
+    (We used to call these works ``free software'', but this confused too many people who weren't sure exactly what ``free'' was supposed to mean. Many of us now prefer the term ``open-source'' software).
+
+    Hackerdom's most revered demigods are people who have written large, capable programs that met a widespread need and given them away, so that now everyone uses them.
+
+
+    2. Help test and debug open-source software
+
+    They also serve who stand and debug open-source software. In this imperfect world, we will inevitably spend most of our software development time in the debugging phase. That's why any open-source author who's thinking will tell you that good beta-testers (who know how to describe symptoms clearly, localize problems well, can tolerate bugs in a quickie release, and are willing to apply a few simple diagnostic routines) are worth their weight in rubies. Even one of these can make the difference between a debugging phase that's a protracted, exhausting nightmare and one that's merely a salutary nuisance.
+    If you're a newbie, try to find a program under development that you're interested in and be a good beta-tester. There's a natural progression from helping test programs to helping debug them to helping modify them. You'll learn a lot this way, and generate good karma with people who will help you later on.
+
+
+    3. Publish useful information.
+
+    Another good thing is to collect and filter useful and interesting information into Web pages or documents like FAQs (Frequently Asked Questions lists), and make those generally available.
+    Maintainers of major technical FAQs get almost as much respect as open-source authors.
+
+
+    4. Help keep the infrastructure working.
+
+    The hacker culture (and the engineering development of the Internet, for that matter) is run by volunteers. There's a lot of necessary but unglamorous work that needs done to keep it going -- administering mailing lists, moderating newsgroups, maintaining large software archive sites, developing RFCs and other technical standards.
+    People who do this sort of thing well get a lot of respect, because everybody knows these jobs are huge time sinks and not as much fun as playing with code. Doing them shows dedication.
+
+
+    5. Serve the hacker culture itself.
+
+    Finally, you can serve and propagate the culture itself (by, for example, writing an accurate primer on how to become a hacker :-)). This is not something you'll be positioned to do until you've been around for while and become well-known for one of the first four things.
+    The hacker culture doesn't have leaders, exactly, but it does have culture heroes and tribal elders and historians and spokespeople. When you've been in the trenches long enough, you may grow into one of these. Beware: hackers distrust blatant ego in their tribal elders, so visibly reaching for this kind of fame is dangerous. Rather than striving for it, you have to sort of position yourself so it drops in your lap, and then be modest and gracious about your status.
+
+
+    The Hacker/Nerd Connection
+
+    Contrary to popular myth, you don't have to be a nerd to be a hacker. It does help, however, and many hackers are in fact nerds. Being a social outcast helps you stay concentrated on the really important things, like thinking and hacking.
+    For this reason, many hackers have adopted the label `nerd' and even use the harsher term `geek' as a badge of pride -- it's a way of declaring their independence from normal social expectations. See The Geek Page for extensive discussion.
+
+    If you can manage to concentrate enough on hacking to be good at it and still have a life, that's fine. This is a lot easier today than it was when I was a newbie in the 1970s; mainstream culture is much friendlier to techno-nerds now. There are even growing numbers of people who realize that hackers are often high-quality lover and spouse material.
+
+    If you're attracted to hacking because you don't have a life, that's OK too -- at least you won't have trouble concentrating. Maybe you'll get one later.
+
+
+    Points For Style
+
+    Again, to be a hacker, you have to enter the hacker mindset. There are some things you can do when you're not at a computer that seem to help. They're not substitutes for hacking (nothing is) but many hackers do them, and feel that they connect in some basic way with the essence of hacking.
+
+    Read science fiction. Go to science fiction conventions (a good way to meet hackers and proto-hackers).
+    Study Zen, and/or take up martial arts. (The mental discipline seems similar in important ways.)
+    Develop an analytical ear for music. Learn to appreciate peculiar kinds of music. Learn to play some musical instrument well, or how to sing.
+    Develop your appreciation of puns and wordplay.
+    Learn to write your native language well. (A surprising number of hackers, including all the best ones I know of, are able writers.)
+    The more of these things you already do, the more likely it is that you are natural hacker material. Why these things in particular is not completely clear, but they're connected with a mix of left- and right-brain skills that seems to be important (hackers need to be able to both reason logically and step outside the apparent logic of a problem at a moment's notice).
+    Finally, a few things not to do.
+
+    Don't use a silly, grandiose user ID or screen name.
+    Don't get in flame wars on Usenet (or anywhere else).
+    Don't call yourself a `cyberpunk', and don't waste your time on anybody who does.
+    Don't post or email writing that's full of spelling errors and bad grammar.
+    The only reputation you'll make doing any of these things is as a twit. Hackers have long memories -- it could take you years to live your early blunders down enough to be accepted.
+    The problem with screen names or handles deserves some amplification. Concealing your identity behind a handle is a juvenile and silly behavior characteristic of crackers, warez d00dz, and other lower life forms. Hackers don't do this; they're proud of what they do and want it associated with their real names. So if you have a handle, drop it. In the hacker culture it will only mark you as a loser.
+
+
+    Other Resources
+
+    Peter Seebach maintains an excellent Hacker FAQ for managers who don't understand how to deal with hackers. If Peter's site doesn't respond, the following Excite search should find a copy.
+    The [Loginataka] has some things to say about the proper training and attitude of a Unix hacker.
+
+    I have also written [A Brief History Of Hackerdom].
+
+    I have written a paper, [ The Cathedral and the Bazaar], which explains a lot about how the Linux and open-source cultures work. I have addressed this topic even more directly in its sequel Homesteading the Noosphere.
+
+
+    Frequently Asked Questions
+
+    Q: Will you teach me how to hack?
+
+    Since first publishing this page, I've gotten several requests a week (often several a day) from people to &quot;teach me all about hacking&quot;. Unfortunately, I don't have the time or energy to do this; my own hacking projects take up 110% of my time.
+    Even if I did, hacking is an attitude and skill you basically have to teach yourself. You'll find that while real hackers want to help you, they won't respect you if you beg to be spoon-fed everything they know.
+
+    Learn a few things first. Show that you're trying, that you're capable of learning on your own. Then go to the hackers you meet with specific questions.
+
+
+    How can I get started, then?
+
+    The best way for you to get started would probably be to go to a LUG (Linux user group) meeting. You can find such groups on the LDP General Linux Information Page; there is probably one near you, possibly associated with a college or university. LUG members will probably give you a Linux if you ask, and will certainly help you install one and get started.
+
+    When do you have to start? Is it too late for me to learn?
+
+    Any age at which you are motivated to start is a good age. Most people seem to get interested between ages 15 and 20, but I know of exceptions in both directions.
+
+    How long will it take me to learn to hack?
+
+    The depends on how talented you are and how hard you work at it. Most people can acquire a respectable skill set in eighteen months to two years, if they concentrate. Don't think it ends there, though; if you are a real hacker, you will spend the rest of your life learning and perfecting your craft.
+
+    Are Visual Basic or Delphi good languages to start with?
+
+    No, because they're not portable. There are no open-source implementations of these languages, so you'd be locked into only those platforms the vendor chooses to support. Accepting that kind of monopoly situation is not the hacker way.
+    Visual Basic is especially awful. The fact that it's a proprietary Microsoft langage is enough to disqualify it, and like other Basics it's a poorly-designed language that will teach you bad programming habits.
+
+
+    Would you help me to crack a system, or teach me how to crack?
+
+    No. Anyone who can still ask such a question after reading this FAQ is too stupid to be educable even if I had the time for tutoring. Any emailed requests of this kind that I get will be ignored or answered with extreme rudeness.
+
+    I've been cracked. Will you help me fend off further attacks?
+
+    No. Every time I've been asked this question so far, it's been from somebody running Windows. It is not possible to effectively secure Windows systems against crack attacks; the code and architecture simply have too many flaws, it's like trying to bail out a boat with a sieve. The only reliable prevention is to switch to Linux or some other operating system with real security.
+
+    Where can I find some real hackers to talk with?
+
+    The best way is to find a Unix or Linux user's group local to you and go to their meetings (you can find links to several lists of user groups on the LDP site at Metalab).
+    (I used to say here that you wouldn't find any real hackers on IRC, but I'm given to understand this is changing. Apparently some real hacker communities, attached to things like GIMP and Perl, have IRC channels now.)
+
+
+    Can you recommend useful books about hacking-related subjects?
+
+    I maintain a Linux Reading List HOWTO that you may find helpful. The [Loginataka] may also be interesting.
+
+    What language should I learn first?
+
+    HTML, if you don't already know it. There are a lot of glossy, hype-intensive bad HTML books out there, and distressingly few good ones. The one I like best is HTML: The Definitive Guide.
+    But HTML is not a full programming language. When you're ready to start programming, I would recommend starting with Python. You will hear a lot of people recommending Perl, and Perl is still more popular than Python, but it's harder to learn and (in my opinion) less well designed. There are resources for programming beginners using Python in the Web.
+
+    C is really important, but it's also much more difficult than either Python or Perl. Don't try to learn it first.
+
+    Windows users, do not settle for Visual Basic. It will teach you bad habits, and it's not portable off Windows. Avoid.
+
+
+    Do I need to hate and bash Microsoft?
+
+    No, you don't. Not that Microsoft isn't loathsome, but there was a hacker culture long before Microsoft and there will still be one when Microsoft is history. Any energy you spend hating Microsoft would be better spent on loving your craft. Write good code -- that will bash Microsoft quite sufficiently without polluting your karma.
+
+    But won't open-source software leave programmers unable to make a living?
+
+    This seems unlikely -- so far, the open-source software industry seems to be creating jobs rather than taking them away. If having a program written is a net economic gain over not having it written, a programmer will get paid whether or not the program is going to be free after it's done. And, no matter how much &quot;free&quot; software gets written, there always seems to be more demand for new and customized applications. I've written more about this at the Open Source pages.
+
+    How can I get started? Where can I get a free Unix?
+
+    Elsewhere on this page I include pointers to where to get the most commonly used free Unix. To be a hacker you need motivation and initiative and the ability to educate yourself. Start now...
+    Back to Eric's FAQ Page Up to Site Map  $Date: 2000/03/24 21:01:28 $
+    Eric S. Raymond esr@snark.thyrsus.com
+&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Bellow (another notification gem)</title>
+   <link href="http://keyvanfatehi.github.io/blog/2013/05/14/Bellow"/>
+   <updated>2013-05-14T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/blog/2013/05/14/Bellow</id>
+   <content type="html">&lt;p&gt;It wraps the top Prowl and Notify My Android ruby gems and presents one method&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='https://github.com/keyvanfatehi/bellow'&gt;bellow on github&lt;/a&gt;&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='ruby'&gt;&lt;span class='c1'&gt;# People and API keys for each service (nma and prowl)&lt;/span&gt;
+&lt;span class='n'&gt;people&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+  &lt;span class='ss'&gt;:guillaume&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+    &lt;span class='ss'&gt;:prowl&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;f7a1879f0331667e0a993b501127a5f21ce7fbff&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
+    &lt;span class='ss'&gt;:nma&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;baa2ab11aa424a08945938a3df1e0341ce935d30704eca0b&amp;quot;&lt;/span&gt;
+  &lt;span class='p'&gt;},&lt;/span&gt;
+  &lt;span class='s1'&gt;&amp;#39;keyvan fatehi&amp;#39;&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+    &lt;span class='ss'&gt;:prowl&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;757e5b121f243d7309eafa041ba93f5d794336cd&amp;quot;&lt;/span&gt;
+  &lt;span class='p'&gt;},&lt;/span&gt;
+  &lt;span class='ss'&gt;:steve&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+    &lt;span class='ss'&gt;:prowl&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;85138c449bd3ee2f48039c8ca471f710c4257f70&amp;quot;&lt;/span&gt;
+  &lt;span class='p'&gt;}&lt;/span&gt;
+&lt;span class='p'&gt;}&lt;/span&gt;
+
+&lt;span class='c1'&gt;# Build your message&lt;/span&gt;
+&lt;span class='n'&gt;subject&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;McDonalds&amp;quot;&lt;/span&gt;
+&lt;span class='n'&gt;message&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;Hey guys I just ordered a Big Mac LOL&amp;quot;&lt;/span&gt;
+
+&lt;span class='c1'&gt;# Notify them all with Bellow&lt;/span&gt;
+&lt;span class='no'&gt;Bellow&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;notify&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;people&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;app&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;message&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href='http://www.prowlapp.com'&gt;ProwlApp&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://www.notifymyandroid.com'&gt;NMA&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Hello Jekyll Goodbye Tumblr</title>
+   <link href="http://keyvanfatehi.github.io/blog/2013/05/11/hello-jekyll-goodbye-tumblr"/>
+   <updated>2013-05-11T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/blog/2013/05/11/hello-jekyll-goodbye-tumblr</id>
+   <content type="html">&lt;p&gt;Migrating my posts from Tumblr and into Jekyll was not too difficult but I did need to write a little script to make this work.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='https://gist.github.com/keyvanfatehi/5562147'&gt;Gist&lt;/a&gt;&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='ruby'&gt;&lt;span class='c1'&gt;#!/usr/bin/env ruby&lt;/span&gt;
+
+&lt;span class='nb'&gt;require&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;rubygems&amp;#39;&lt;/span&gt;
+
+&lt;span class='c1'&gt;##&lt;/span&gt;
+&lt;span class='c1'&gt;# Monkeypatch to fix the following&lt;/span&gt;
+&lt;span class='c1'&gt;# tumblr.rb:73&lt;/span&gt;
+&lt;span class='c1'&gt;#   content = post.at[&amp;quot;audio-player&amp;quot;] + &amp;quot;&amp;lt;br/&amp;gt;&amp;quot; + post[&amp;quot;audio-caption&amp;quot;]&lt;/span&gt;
+&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;Hash&lt;/span&gt;
+  &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;at&lt;/span&gt;
+    &lt;span class='nb'&gt;self&lt;/span&gt;
+  &lt;span class='k'&gt;end&lt;/span&gt;
+&lt;span class='k'&gt;end&lt;/span&gt;
+
+&lt;span class='k'&gt;begin&lt;/span&gt;
+  &lt;span class='nb'&gt;require&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;jekyll/jekyll-import/tumblr&amp;#39;&lt;/span&gt;
+&lt;span class='k'&gt;rescue&lt;/span&gt;
+  &lt;span class='nb'&gt;puts&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;Missing jekyll-import gem. Do this: gem install jekyll-import --pre&amp;quot;&lt;/span&gt;
+  &lt;span class='nb'&gt;exit&lt;/span&gt; &lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;
+&lt;span class='k'&gt;end&lt;/span&gt;
+
+&lt;span class='ss'&gt;JekyllImport&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='ss'&gt;:Tumblr&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;process&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;http://slog.keyvanfatehi.com&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='kp'&gt;true&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>My latest gem: apple_manifest_rails</title>
+   <link href="http://keyvanfatehi.github.io/2013/05/08/my-latest-gem-apple_manifest_rails"/>
+   <updated>2013-05-08T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2013/05/08/my-latest-gem-apple_manifest_rails</id>
+   <content type="html">&lt;p&gt;A couple days ago I released &lt;a href=&quot;http://rubygems.org/gems/apple_manifest_rails&quot;&gt;apple_manifest_rails&lt;/a&gt;, a rails engine that simplifies the iOS application ad-hoc enroll / install process.&lt;/p&gt;
+
+&lt;p&gt;Usually you&amp;#8217;d use a service like &lt;a href=&quot;https://testflightapp.com/&quot;&gt;Testflight&lt;/a&gt; or &lt;a href=&quot;http://hockeyapp.net/&quot;&gt;Hockeyapp&lt;/a&gt;. These are fine choices, but history has shown that these services are too complicated for my team and result in too many mistakes and missteps (especially with Testflight&amp;#8217;s weird team/permission system). Why you need another layer of permissions when manual UDID provisioning forces permissions already is beyond me.&lt;/p&gt;
+
+&lt;p&gt;Rolling my own solution has ended up being easier for them, so I&amp;#8217;ve packaged it up as a gem.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/keyvanfatehi/apple_manifest_rails&quot;&gt;Also available on Github&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Add local node_modules binaries to your PATH</title>
+   <link href="http://keyvanfatehi.github.io/2013/04/26/add-local-node_modules-binaries-to-your-path"/>
+   <updated>2013-04-26T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2013/04/26/add-local-node_modules-binaries-to-your-path</id>
+   <content type="html">&lt;p&gt;This was easier, and more straightforward than I&amp;#8217;d anticipated. All you gotta do is add this to your shell&amp;#8217;s rc file:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;export PATH=&quot;./node_modules/.bin:$PATH&quot;&lt;/code&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Great Testing Tips</title>
+   <link href="http://keyvanfatehi.github.io/2013/04/24/great-testing-tips"/>
+   <updated>2013-04-24T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2013/04/24/great-testing-tips</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://eggsonbread.com/2010/09/06/my-cucumber-best-practices-and-tips/&quot;&gt;Cucumber&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://eggsonbread.com/2010/03/28/my-rspec-best-practices-and-tips/&quot;&gt;RSpec&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Fixing the "Nokogiri built against LibXML..." warning</title>
+   <link href="http://keyvanfatehi.github.io/2013/04/15/fixing-the-nokogiri-built-against-libxml-warning"/>
+   <updated>2013-04-15T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2013/04/15/fixing-the-nokogiri-built-against-libxml-warning</id>
+   <content type="html">&lt;p&gt;Just installed Mountain Lion 10.8 fresh on my Mac Mini with a new SSD. As I get my rails environment up and running I ran into this common problem:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;WARNING: Nokogiri was built against LibXML version 2.9.0, but has dynamically loaded 2.7.8&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;I had installed nokogiri with bundler. Unfortunately I don&amp;#8217;t know which of these things quite resolved my issue, but this is what I did:&lt;/p&gt;
+
+&lt;pre&gt;
+gem uninstall nokogiri
+brew update
+brew uninstall libxml2
+brew install libxml2 --with-xml2-config
+bundle exec gem pristine nokogiri
+&lt;/pre&gt;
+
+&lt;p&gt;After all this, the warning was gone. I wish I knew which of these was extraneous, if any, but I guess I&amp;#8217;ll find out next time assuming this common problem doesn&amp;#8217;t get smoothed out upstream.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Sources:&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/devpuppy/1349681&quot;&gt;https://gist.github.com/devpuppy/1349681&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/6802410/warning-nokogiri-was-built-against-libxml-version-2-7-8-but-has-dynamically-lo&quot;&gt;http://stackoverflow.com/questions/6802410/warning-nokogiri-was-built-against-libxml-version-2-7-8-but-has-dynamically-lo&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Clever Device Agnostic Remote Debugging</title>
+   <link href="http://keyvanfatehi.github.io/2013/04/15/clever-device-agnostic-remote-debugging"/>
+   <updated>2013-04-15T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2013/04/15/clever-device-agnostic-remote-debugging</id>
+   <content type="html">&lt;p&gt;iOS provides a convenient way to remote-debug web apps with Mobile Safari. Perhaps I&amp;#8217;ve not yet discovered the equivalent in Android, but a little googling revealed a damn cool tool:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jsconsole.com/remote-debugging.html&quot;&gt;http://jsconsole.com/remote-debugging.html&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>bike pic: cahuenga pass</title>
+   <link href="http://keyvanfatehi.github.io/2013/03/09/bike-pic-cahuenga-pass"/>
+   <updated>2013-03-09T00:00:00-08:00</updated>
+   <id>http://keyvanfatehi.github.io/2013/03/09/bike-pic-cahuenga-pass</id>
+   <content type="html">behind some of the almost rich houses in the caheunga pass area, I believe this is mulholland
+&lt;img src=&quot;http://25.media.tumblr.com/6fd0c80568d379f7541b935b6efe854a/tumblr_mje87gcE1q1ql6q2so1_1280.jpg&quot;/&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Source: </title>
+   <link href="http://keyvanfatehi.github.io/2013/02/24/source"/>
+   <updated>2013-02-24T00:00:00-08:00</updated>
+   <id>http://keyvanfatehi.github.io/2013/02/24/source</id>
+   <content type="html">&lt;img src=&quot;http://24.media.tumblr.com/059694fc9032a224b5f1b1c0a504312f/tumblr_mirmsfbXUs1ql6q2so1_1280.png&quot;/&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rails 3 Passenger Nginx send_file with X-Accel-Redirect and X-Accel-Mapping</title>
+   <link href="http://keyvanfatehi.github.io/2012/12/11/rails-3-passenger-nginx-send_file-with-x-accel-redirect-and-x-accel-mapping"/>
+   <updated>2012-12-11T00:00:00-08:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/12/11/rails-3-passenger-nginx-send_file-with-x-accel-redirect-and-x-accel-mapping</id>
+   <content type="html">&lt;p&gt;After a lot of searching as to why range headers were not working despite thinking that I had X-Accel-Redirect configured properly, I realized that I was missing something in my nginx config and so send_file was still sending via rails rather than nginx, causing range headers to fail.&lt;/p&gt;
+
+&lt;p&gt;In order to fix this, I had to add a bit more to my nginx config:&lt;/p&gt;
+
+&lt;pre&gt;
+    server {
+      listen 80;
+      server_name example.com;
+      root /home/keyvan/example_app/public;
+      passenger_enabled on;
+      passenger_set_cgi_param HTTP_X_ACCEL_MAPPING /=/sec/;
+      passenger_pass_header X-Accel-Redirect;
+
+      location /sec/ {
+        alias /;
+        internal;
+      }
+    }
+&lt;/pre&gt;
+
+&lt;p&gt;Now it works!&lt;/p&gt;
+
+&lt;hr&gt;&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/6237016/message-x-accel-mapping-header-missing-in-nginx-error-log&quot;&gt;http://stackoverflow.com/questions/6237016/message-x-accel-mapping-header-missing-in-nginx-error-log&lt;/a&gt;
+&lt;a href=&quot;http://airbladesoftware.com/notes/rails-nginx-x-accel-mapping&quot;&gt;http://airbladesoftware.com/notes/rails-nginx-x-accel-mapping&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Explain the concept of a ruby gem (#ruby on Freenode)</title>
+   <link href="http://keyvanfatehi.github.io/2012/11/02/explain-the-concept-of-a-ruby-gem-ruby-on-freenode"/>
+   <updated>2012-11-02T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/11/02/explain-the-concept-of-a-ruby-gem-ruby-on-freenode</id>
+   <content type="html">&lt;section&gt;&lt;dialog&gt;&lt;dt&gt;jake_:&lt;/dt&gt;&lt;dd&gt;could someone explain a gem to me?  is it the same as a python module? or it more like a package that gets installed that contains modules?&lt;/dd&gt;&lt;dt&gt;shevy3:&lt;/dt&gt;&lt;dd&gt;jake_: not sure how python does it&lt;/dd&gt;&lt;dt&gt;shevy3:&lt;/dt&gt;&lt;dd&gt;a .gem file is basically a kind of archive, with different files in it, mostly .rb files&lt;/dd&gt;&lt;dt&gt;shevy3:&lt;/dt&gt;&lt;dd&gt;so you install it via &quot;gem install name&quot; it gets downloaded and installed into [value of INSTALLATION DIRECTORY returned by `gem env`]&lt;/dd&gt;&lt;dt&gt;shevy3:&lt;/dt&gt;&lt;dd&gt;most often, the gem has some kind of main module, the main namespace&lt;/dd&gt;&lt;dt&gt;shevy3:&lt;/dt&gt;&lt;dd&gt;like foobar-1.0.gem would usually have the main namespace module Foobar; end&lt;/dd&gt;&lt;/section&gt;&lt;/dialog&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Mobile Safari Debugging & jQuery live() workaround</title>
+   <link href="http://keyvanfatehi.github.io/2012/10/17/mobile-safari-debugging--jquery-live-workaround"/>
+   <updated>2012-10-17T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/10/17/mobile-safari-debugging--jquery-live-workaround</id>
+   <content type="html">&lt;h2&gt;Mobile Safari Debugging&lt;/h2&gt;
+
+&lt;p&gt;In order to view the browser inspector for the Safari session on your iPad, go to Settings-&amp;gt;Safari-&amp;gt;Advanced and enable Web Inspector&lt;/p&gt;
+
+&lt;p&gt;Next, connect the iPad to your Mac and open Safari. Choose Develop from the menu bar and you will see the connected iPad and be able to open the console session.&lt;/p&gt;
+
+&lt;h2&gt;jQuery live()&lt;/h2&gt;
+
+&lt;p&gt;On Mobile Safari, $(element).live() appears not to work. The workaround is to add the attribute &amp;#8216;onclick&amp;#8217; to the element. Now it works.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Cucumber, Capybara, and Rails Asset Pipeline in debug mode</title>
+   <link href="http://keyvanfatehi.github.io/2012/09/27/cucumber-capybara-and-rails-asset-pipeline-in-debug-mode"/>
+   <updated>2012-09-27T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/09/27/cucumber-capybara-and-rails-asset-pipeline-in-debug-mode</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;features/support/env.rb&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;
+Capybara.server_port = 3001
+Capybara.app_host = &quot;http://localhost:3001&quot;
+
+ActionController::Base.asset_host = Capybara.app_host
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;config/environments/cucumber.rb&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;
+config.assets.enabled = true
+config.assets.debug = true
+&lt;/pre&gt;
+
+&lt;hr&gt;&lt;p&gt;Source: &lt;a href=&quot;http://johnbintz.github.com/blog/2012/01/07/cucumber-capybara-asset-pipeline-debug-mode/&quot;&gt;http://johnbintz.github.com/blog/2012/01/07/cucumber-capybara-asset-pipeline-debug-mode/&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Install ntop in CentOS 6</title>
+   <link href="http://keyvanfatehi.github.io/2012/09/13/install-ntop-in-centos-6"/>
+   <updated>2012-09-13T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/09/13/install-ntop-in-centos-6</id>
+   <content type="html">&lt;pre&gt;
+yum install cairo-devel libxml2-devel pango-devel pango libpng-devel
+yum install freetype freetype-devel libart_lgpl-devel wget gcc make
+yum install perl-ExtUtils-MakeMaker
+cd /opt
+wget &lt;a href=&quot;http://oss.oetiker.ch/rrdtool/pub/rrdtool-1.4.5.tar.gz&quot;&gt;http://oss.oetiker.ch/rrdtool/pub/rrdtool-1.4.5.tar.gz&lt;/a&gt;
+tar -zxvf rrdtool-1.4.5.tar.gz
+cd rrdtool-1.4.5
+./configure –prefix=/usr/local/rrdtool
+make
+make install
+
+yum install libpcap libpcap-devel gdbm gdbm-devel
+yum install libevent libevent-devel
+wget &lt;a href=&quot;http://geolite.maxmind.com/download/geoip/api/c/GeoIP-1.4.8.tar.gz&quot;&gt;http://geolite.maxmind.com/download/geoip/api/c/GeoIP-1.4.8.tar.gz&lt;/a&gt;
+tar -zxvf GeoIP-1.4.8.tar.gz
+cd GeoIP-1.4.8
+./configure
+make
+make install
+
+yum install libtool automake autoconf
+wget &lt;a href=&quot;http://downloads.sourceforge.net/project/ntop/ntop/Stable/ntop-4.1.0.tar.gz&quot;&gt;http://downloads.sourceforge.net/project/ntop/ntop/Stable/ntop-4.1.0.tar.gz&lt;/a&gt;
+tar zxvf ntop-4.1.0.tar.gz
+cd ntop-4.1.0
+./autogen.sh -prefix=/usr/local/ntop
+make
+make install
+
+useradd -M -s /sbin/nologin -r ntop
+chown ntop:root /usr/local/ntop
+chown ntop:ntop /usr/local/ntop/share/ntop
+
+cd /usr/local/ntop/bin/
+ntop -A
+
+ntop -d -L -u ntop -P /usr/local/ntop –-skip-version-check –-use-syslog=daemon
+&lt;/pre&gt;
+
+&lt;hr&gt;&lt;p&gt;Source: &lt;a href=&quot;https://ryanwoon.wordpress.com/2011/08/20/install-ntop-in-centos-6/&quot;&gt;https://ryanwoon.wordpress.com/2011/08/20/install-ntop-in-centos-6/&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Kill stuck screen sharing vnc login window </title>
+   <link href="http://keyvanfatehi.github.io/2012/08/25/kill-stuck-screen-sharing-vnc-login-window"/>
+   <updated>2012-08-25T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/08/25/kill-stuck-screen-sharing-vnc-login-window</id>
+   <content type="html">&lt;a href=&quot;http://forums.macrumors.com/showthread.php?t=441030&quot;&gt;Kill stuck screen sharing vnc login window &lt;/a&gt;&lt;br/&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Vendoring/Unpacking/Freezing gems in Ruby (not Rails, no Bundler)</title>
+   <link href="http://keyvanfatehi.github.io/2012/08/13/vendoringunpackingfreezing-gems-in-ruby-not-rails-no-bundler"/>
+   <updated>2012-08-13T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/08/13/vendoringunpackingfreezing-gems-in-ruby-not-rails-no-bundler</id>
+   <content type="html">&lt;p&gt;I&amp;#8217;ve been writing a lot of utility scripts lately using &lt;a href=&quot;http://mstratman.github.com/cocoadialog/&quot;&gt;CocoaDialog&lt;/a&gt; and its &lt;a href=&quot;https://github.com/mikedamage/ruby-cocoa-dialog&quot;&gt;ruby wrapper&lt;/a&gt; to produce nice dialogs and &lt;a href=&quot;http://sveinbjorn.org/platypus&quot;&gt;Platypus&lt;/a&gt; to package them as simple Mac droplets.&lt;/p&gt;
+
+&lt;p&gt;Since the users of the droplets will not have any gems installed, they need to be unpacked and added to your project:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;gem unpack NAME&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Be sure to do this for all dependencies of the given gem(s). Bundler helps quite a bit in figuring out what those are (e.g. &lt;code&gt;bundle package&lt;/code&gt;), however &lt;code&gt;bundle package&lt;/code&gt; provides you the &lt;code&gt;.gem&lt;/code&gt; files and not the actual ruby scripts, so I use &lt;code&gt;gem unpack&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, put the unpacked gems within your project, e.g. &lt;code&gt;vendor/gems&lt;/code&gt; and add this to your script:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Dir.glob(File.join(File.dirname(__FILE__), &quot;vendor&quot;, &quot;gems&quot;, &quot;*&quot;, &quot;lib&quot;)).each do |lib|
+  $LOAD_PATH.unshift File.expand_path(lib)
+end
+require 'GEMNAME' # they are in your load path now!&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;I do NOT require rubygems in these scripts, however if you will be doing this, or you suspect a gem might be doing this, you&amp;#8217;ll want to prepare in advance, with a slight mod to the above:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;require 'rubygems'
+Dir.glob(File.join(File.dirname(__FILE__), &quot;vendor&quot;, &quot;gems&quot;, &quot;*&quot;, &quot;lib&quot;)).each do |lib|
+  $LOAD_PATH.unshift File.expand_path(lib)
+  Gem.path.unshift File.expand_path(lib)
+end
+require 'GEMNAME' # they are in your load path now! They'll also be known to rubygems within the context of your application&lt;/code&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>DNSSD RubyGem dependencies on Debian</title>
+   <link href="http://keyvanfatehi.github.io/2012/08/05/dnssd-rubygem-dependencies-on-debian"/>
+   <updated>2012-08-05T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/08/05/dnssd-rubygem-dependencies-on-debian</id>
+   <content type="html">&lt;p&gt;&lt;code&gt;root@debian:~# aptitude install libavahi-compat-libdnssd-dev libavahi-compat-libdnssd1&lt;/code&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Find and mount CDROM drive on CentOS Linux</title>
+   <link href="http://keyvanfatehi.github.io/2012/08/03/find-and-mount-cdrom-drive-on-centos-linux"/>
+   <updated>2012-08-03T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/08/03/find-and-mount-cdrom-drive-on-centos-linux</id>
+   <content type="html">&lt;p&gt;Detect the device using &lt;code&gt;wodim --devices&lt;/code&gt; and remember the drive name, I&amp;#8217;ll assume it was &lt;code&gt;/dev/scd0&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Make a directory to mount the device on with &lt;code&gt;mkdir /media/cdrom&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Mount it with &lt;code&gt;mount -t iso9660 /dev/scd0  /media/cdrom&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Drive contents can now be found at &lt;code&gt;/media/cdrom&lt;/code&gt;. Unmount with &lt;code&gt;umount /dev/sda0&lt;/code&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>SFTP/SSH Jail</title>
+   <link href="http://keyvanfatehi.github.io/2012/08/02/sftpssh-jail"/>
+   <updated>2012-08-02T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/08/02/sftpssh-jail</id>
+   <content type="html">&lt;a href=&quot;http://www.techrepublic.com/blog/opensource/chroot-users-with-openssh-an-easier-way-to-confine-users-to-their-home-directories/229&quot;&gt;SFTP/SSH Jail&lt;/a&gt;&lt;br/&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Quick Secure SSH VNC Tunnel Bash/Ruby Scriptlet</title>
+   <link href="http://keyvanfatehi.github.io/2012/08/02/quick-secure-ssh-vnc-tunnel-bashruby-scriptlet"/>
+   <updated>2012-08-02T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/08/02/quick-secure-ssh-vnc-tunnel-bashruby-scriptlet</id>
+   <content type="html">&lt;a href=&quot;https://gist.github.com/3237365&quot;&gt;Quick Secure SSH VNC Tunnel Bash/Ruby Scriptlet&lt;/a&gt;&lt;br/&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>[CentOS KVM] Shrinking a virtual drive with virt-resize</title>
+   <link href="http://keyvanfatehi.github.io/2012/08/02/centos-kvm-shrinking-a-virtual-drive-with-virt-resize"/>
+   <updated>2012-08-02T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/08/02/centos-kvm-shrinking-a-virtual-drive-with-virt-resize</id>
+   <content type="html">&lt;a href=&quot;https://rwmj.wordpress.com/2010/09/27/virt-resize-shrink-now-works/&quot;&gt;[CentOS KVM] Shrinking a virtual drive with virt-resize&lt;/a&gt;&lt;br/&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>zlib error on gem install on Debian Squeeze</title>
+   <link href="http://keyvanfatehi.github.io/2012/07/31/zlib-error-on-gem-install-on-debian-squeeze"/>
+   <updated>2012-07-31T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/07/31/zlib-error-on-gem-install-on-debian-squeeze</id>
+   <content type="html">&lt;p&gt;Despite having all libzlib dependencies installed, I would still get an error when trying to use &lt;code&gt;gem install&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;As it turns out you need to do an additional step to solve this problem, using your ruby source.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;cd &amp;lt;ruby_source&amp;gt;/ext/zlib&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;make&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;make install&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now &lt;code&gt;gem install&lt;/code&gt; will work fine.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>CentOS VNC Autostart (chkconfig)</title>
+   <link href="http://keyvanfatehi.github.io/2012/07/31/centos-vnc-autostart-chkconfig"/>
+   <updated>2012-07-31T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/07/31/centos-vnc-autostart-chkconfig</id>
+   <content type="html">&lt;p&gt;Ensure the VNC server (the daemon or server process) is set to autorun on system boots to your runlevel. For example,&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;chkconfig ––list | grep vnc&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Which returns output like this&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;vncserver 0:off 1:off 2:off 3:off 4:off 5:on 6:off&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The ––list option of chkconfig shows VNC server is set to auto run in Linux runlevel 5 (the default multi-user runlevel with Linux Desktop console). To configure VNC server to auto run when Linux boots into runlevel 5, use the ––level with on option switch:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;chkconfig --level 5 vncserver on&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To check if this configuration works, you can reboot the computer&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;shutdown -r now&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Tested and worked: April 20, 2010 on Red Hat Enterprise Linux 5.3 and CentOS 5.4 and today July 31, 2012 on CentOS 6.3&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Example rails env setup on vagrant (vagrantup)</title>
+   <link href="http://keyvanfatehi.github.io/2012/07/25/example-rails-env-setup-on-vagrant-vagrantup"/>
+   <updated>2012-07-25T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/07/25/example-rails-env-setup-on-vagrant-vagrantup</id>
+   <content type="html">&lt;a href=&quot;http://www.42.mach7x.com/2012/03/16/creating-a-vagrant-box-with-debian-lenny-32-rvm-and-ruby-1-9-3/&quot;&gt;Example rails env setup on vagrant (vagrantup)&lt;/a&gt;&lt;br/&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Fixing gcc on Mountain Lion for gem install</title>
+   <link href="http://keyvanfatehi.github.io/2012/07/08/fixing-gcc-on-mountain-lion-for-gem-install"/>
+   <updated>2012-07-08T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/07/08/fixing-gcc-on-mountain-lion-for-gem-install</id>
+   <content type="html">&lt;p&gt;When you install Mountain Lion, you will no longer have build tools such as `gcc` or `make`&lt;/p&gt;
+&lt;p&gt;Step 1, get the latest Xcode, and install Command Line Tools, granting you `make` and `gcc`&lt;/p&gt;
+&lt;p&gt;Step 2, create the symlink so that your bundler/gem commands will locate `gcc` correctly&amp;#160;: `sudo ln -s /usr/bin/gcc /usr/bin/gcc-4.2`&lt;/p&gt;
+&lt;p&gt;Step 3, done! You don&amp;#8217;t need MacPorts or a special version of `gcc`, the one installed by Xcode4.5 Developer Preview 2 is just fine and compiles native extensions for me successfully.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Mountains are merely mountains.</title>
+   <link href="http://keyvanfatehi.github.io/2012/07/03/mountains-are-merely-mountains"/>
+   <updated>2012-07-03T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/07/03/mountains-are-merely-mountains</id>
+   <content type="html">&lt;p&gt;Since August 2011, I belong to a group with the intent of developing a game, someday, someway. It started with a handful of people and has grown, morphed, contracted, shuffled and perhaps finally stabilized enough to talk about.&lt;/p&gt;
+&lt;p&gt;It&amp;#8217;s very low pressure (no bosses really, very little drama or heat) and, from my perspective, is mainly a place for folks to determine where they&amp;#8217;d fit in within a game development team, and learn how to be productive towards a common goal.&lt;/p&gt;
+&lt;p&gt;I believe pulling off a successful campaign of ordered collaboration, on this magnitude, is on the same plane of accomplishment as a something of a movie heist. It would be pretty great to see it work! We are all fairly sure that by putting our minds together, regardless of our distance, we can accomplish something like developing a game, but the group as a whole has had its share of challenges in figuring out how to really focus and start being in a stable state of production&amp;#8230;&lt;/p&gt;
+&lt;p&gt;&lt;!-- more --&gt;&lt;/p&gt;
+&lt;p&gt;One of the first things we would run into is the sheer scale of our ambitions&amp;#8230; By this I am referring to actual programming (Mt.)Everest that is required to truly build &amp;amp; develop the games ideated through the group&amp;#8217;s brainstorming. The same goes for the artwork and other visuals.&lt;/p&gt;
+&lt;p&gt;The group soon realized truly what a mountain this was&amp;#8230; the mountains of reality started to become visible through the brainstorms quicker and quicker&amp;#8230; The more ideas we tried to chase after&amp;#8212;and flew into mountains, the more sharp our sense for accurately considering the magnitude of our ambitions became.&lt;/p&gt;
+&lt;p&gt;Programmers have a sharper sense than most people, and the mountain is clearly made visible as you describe your spec. If the mountain looks like a hill &amp;#8212; it is usually a red flag that some information is left completely vague or is missing. The red flag is made apparent by uncertainty about how much work this is really going to be, ultimately how much it will cost you and how long it will take. Giving estimates is a pain and to do it honestly and accurately, this sense must be very strong. Being able to deliver something on time (per your estimate) is a fundamental requirement to business! In fact I think this failure to deliver is what makes people (such as in my group) not take certain responsibilities. After all, fear of failure can be like an indefinite paralysis.&lt;/p&gt;
+&lt;p&gt;We can make the mountains be hills by adjusting our expectations or specification of the idea, or we can really try to scale the mountain.&lt;/p&gt;
+&lt;p&gt;Both of these take special skills&amp;#8230; I still hope we will produce something great together in the future.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Step definition reuse</title>
+   <link href="http://keyvanfatehi.github.io/2012/06/27/is-it-ok-to-reuse-your-step-definitions-created-in-a-different-features-steps-file"/>
+   <updated>2012-06-27T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/06/27/is-it-ok-to-reuse-your-step-definitions-created-in-a-different-features-steps-file</id>
+   <content type="html">&lt;p&gt;&lt;em&gt;From irc.freenode.net #rubyonrails&lt;br/&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;17:17 keyvan: hey guys, is it proper to reuse cucumber step definitions created for a different feature?&lt;br/&gt;17:18 keyvan: for example &amp;#8220;given I am not authenticated&amp;#8221;&lt;br/&gt;17:18 keyvan: or Given i have logged in as user &amp;#8220;foo&amp;#8221;&lt;br/&gt;17:18 Radar: keyvan: yes&lt;br/&gt;17:18 keyvan: thanks radar&lt;br/&gt;17:19 keyvan: hope all is well btw :] finally learned BDD/TDD and it has literally changed my life :]&lt;br/&gt;17:20 Radar: keyvan: Yup, everything&amp;#8217;s just peachy.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;You can find Radar&amp;#8217;s blog at &lt;a href=&quot;http://ryanbigg.com/&quot;&gt;http://ryanbigg.com/&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Just replaced Vibrant Ink with Tomorrow Theme</title>
+   <link href="http://keyvanfatehi.github.io/2012/06/22/just-replaced-vibrant-ink-with-tomorrow-theme"/>
+   <updated>2012-06-22T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/06/22/just-replaced-vibrant-ink-with-tomorrow-theme</id>
+   <content type="html">&lt;a href=&quot;https://github.com/chriskempson/tomorrow-theme&quot;&gt;Just replaced Vibrant Ink with Tomorrow Theme&lt;/a&gt;&lt;br/&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Converting 2.3 style rails plugins to rails 3</title>
+   <link href="http://keyvanfatehi.github.io/2012/06/22/converting-23-style-rails-plugins-to-rails-3"/>
+   <updated>2012-06-22T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/06/22/converting-23-style-rails-plugins-to-rails-3</id>
+   <content type="html">&lt;a href=&quot;http://code.coneybeare.net/how-to-convert-simple-rails-23-style-plugins&quot;&gt;Converting 2.3 style rails plugins to rails 3&lt;/a&gt;&lt;br/&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Simple github workflow</title>
+   <link href="http://keyvanfatehi.github.io/2012/06/20/simple-github-workflow"/>
+   <updated>2012-06-20T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/06/20/simple-github-workflow</id>
+   <content type="html">A github workflow drawing I scrawled describing, step by step, how to use git
+to collaborate effectively on projects hosted on github, using branches for features, as described in other places on the internet.
+
+&lt;img src=&quot;http://24.media.tumblr.com/tumblr_m5x4qavuva1ql6q2so1_r1_1280.jpg&quot;/&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>OctopusCI is simple and effective continuous integration</title>
+   <link href="http://keyvanfatehi.github.io/2012/06/20/octopusci-simple-and-effective-continuous-integration"/>
+   <updated>2012-06-20T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/06/20/octopusci-simple-and-effective-continuous-integration</id>
+   <content type="html">&lt;a href=&quot;http://octopusci.com/&quot;&gt;OctopusCI, simple and effective continuous integration&lt;/a&gt;&lt;br/&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Apache vhosts and control on Mac OS X 10.7 Lion</title>
+   <link href="http://keyvanfatehi.github.io/2012/06/08/apache-hosts-virtual--virtualhosts-and-control--ctl-on-mac-os-x-107-lion"/>
+   <updated>2012-06-08T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/06/08/apache-hosts-virtual--virtualhosts-and-control--ctl-on-mac-os-x-107-lion</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;https://rapd.wordpress.com/2008/06/09/apache2-vhosts-for-multi-host-names/&quot;&gt;https://rapd.wordpress.com/2008/06/09/apache2-vhosts-for-multi-host-names/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Indeed, I forget as well. Thanks.&lt;/p&gt;
+&lt;p&gt;Here&amp;#8217;s info on apachectl, used to stop, start, restart your apache2 httpd server&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.cyberciti.biz/faq/restarting-apache-under-oxs-commandline/&quot;&gt;http://www.cyberciti.biz/faq/restarting-apache-under-oxs-commandline/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Still having issues? Did you remember to uncomment &lt;/p&gt;
+&lt;p&gt;# Virtual hosts&lt;/p&gt;
+&lt;p&gt;# Include /private/etc/apache2/extra/httpd-vhosts.conf&lt;/p&gt;
+&lt;p&gt;in the httpd.conf file?&lt;/p&gt;
+&lt;p&gt;Still pretty relevant even though it&amp;#8217;s old: &lt;a href=&quot;http://www.fuzzylizard.com/archives/2008/05/29/947/&quot;&gt;http://www.fuzzylizard.com/archives/2008/05/29/947/&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>jruby and swing for gui applications</title>
+   <link href="http://keyvanfatehi.github.io/2012/04/01/rvm-install-jruby-o-hai-java"/>
+   <updated>2012-04-01T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2012/04/01/rvm-install-jruby-o-hai-java</id>
+   <content type="html">&lt;p&gt;In the past when creating GUI applications, I&amp;#8217;d use Qt. However I&amp;#8217;ve been exploring JRuby a lot more lately so I decided to try using Java&amp;#8217;s Swing libraries for GUI programming.&lt;/p&gt;
+&lt;p&gt;In JRuby, everything from Java becomes available by making a single require: require &amp;#8216;java&amp;#8217;&lt;/p&gt;
+&lt;p&gt;I quickly looked for the best quality Java tutorials on the net&amp;#8230; Caveofprogramming.com delivered and I ended up with a Ruby translation for &lt;a href=&quot;http://www.caveofprogramming.com/java/java-swing-gridbaglayou-video-tutorial-part-4/&quot; target=&quot;_blank&quot;&gt;Java Swing: GridBagLayout Video Tutorial Part 4&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;Click through to his site to get to the Ruby code (or &lt;a href=&quot;http://www.2shared.com/file/Cxi9Cr1w/caveofprogrammingswingpart4jru.html&quot;&gt;click here for tar.gz&lt;/a&gt;)&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>the dangerous effects of reading</title>
+   <link href="http://keyvanfatehi.github.io/2011/12/30/httpblogdavidtateorg201112the-dangerous-effects-of-reading"/>
+   <updated>2011-12-30T00:00:00-08:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/12/30/httpblogdavidtateorg201112the-dangerous-effects-of-reading</id>
+   <content type="html">&lt;a href=&quot;http://blog.davidtate.org/2011/12/the-dangerous-effects-of-reading/&quot;&gt;http://blog.davidtate.org/2011/12/the-dangerous-effects-of-reading/&lt;/a&gt;&lt;br/&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Jekyll Introduction</title>
+   <link href="http://keyvanfatehi.github.io/lessons/2011/12/29/jekyll-introduction"/>
+   <updated>2011-12-29T00:00:00-08:00</updated>
+   <id>http://keyvanfatehi.github.io/lessons/2011/12/29/jekyll-introduction</id>
+   <content type="html">&lt;p&gt;This Jekyll introduction will outline specifically what Jekyll is and why you would want to use it. Directly following the intro we&amp;#8217;ll learn exactly &lt;em&gt;how&lt;/em&gt; Jekyll does what it does.&lt;/p&gt;
+
+&lt;h2 id='overview'&gt;Overview&lt;/h2&gt;
+
+&lt;h3 id='what_is_jekyll'&gt;What is Jekyll?&lt;/h3&gt;
+
+&lt;p&gt;Jekyll is a parsing engine bundled as a ruby gem used to build static websites from dynamic components such as templates, partials, liquid code, markdown, etc. Jekyll is known as &amp;#8220;a simple, blog aware, static site generator&amp;#8221;.&lt;/p&gt;
+
+&lt;h3 id='examples'&gt;Examples&lt;/h3&gt;
+
+&lt;p&gt;This website is created with Jekyll. &lt;a href='https://github.com/mojombo/jekyll/wiki/Sites'&gt;Other Jekyll websites&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id='what_does_jekyll_do'&gt;What does Jekyll Do?&lt;/h3&gt;
+
+&lt;p&gt;Jekyll is a ruby gem you install on your local system. Once there you can call &lt;code&gt;jekyll --server&lt;/code&gt; on a directory and provided that directory is setup in a way jekyll expects, it will do magic stuff like parse markdown/textile files, compute categories, tags, permalinks, and construct your pages from layout templates and partials.&lt;/p&gt;
+
+&lt;p&gt;Once parsed, Jekyll stores the result in a self-contained static &lt;code&gt;_site&lt;/code&gt; folder. The intention here is that you can serve all contents in this folder statically from a plain static web-server.&lt;/p&gt;
+
+&lt;p&gt;You can think of Jekyll as a normalish dynamic blog but rather than parsing content, templates, and tags on each request, Jekyll does this once &lt;em&gt;beforehand&lt;/em&gt; and caches the &lt;em&gt;entire website&lt;/em&gt; in a folder for serving statically.&lt;/p&gt;
+
+&lt;h3 id='jekyll_is_not_blogging_software'&gt;Jekyll is Not Blogging Software&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Jekyll is a parsing engine.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Jekyll does not come with any content nor does it have any templates or design elements. This is a common source of confusion when getting started. Jekyll does not come with anything you actually use or see on your website - you have to make it.&lt;/p&gt;
+
+&lt;h3 id='why_should_i_care'&gt;Why Should I Care?&lt;/h3&gt;
+
+&lt;p&gt;Jekyll is very minimalistic and very efficient. The most important thing to realize about Jekyll is that it creates a static representation of your website requiring only a static web-server. Traditional dynamic blogs like Wordpress require a database and server-side code. Heavily trafficked dynamic blogs must employ a caching layer that ultimately performs the same job Jekyll sets out to do; serve static content.&lt;/p&gt;
+
+&lt;p&gt;Therefore if you like to keep things simple and you prefer the command-line over an admin panel UI then give Jekyll a try.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Developers like Jekyll because we can write content like we write code:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ability to write content in markdown or textile in your favorite text-editor.&lt;/li&gt;
+
+&lt;li&gt;Ability to write and preview your content via localhost.&lt;/li&gt;
+
+&lt;li&gt;No internet connection required.&lt;/li&gt;
+
+&lt;li&gt;Ability to publish via git.&lt;/li&gt;
+
+&lt;li&gt;Ability to host your blog on a static web-server.&lt;/li&gt;
+
+&lt;li&gt;Ability to host freely on GitHub Pages.&lt;/li&gt;
+
+&lt;li&gt;No database required.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id='how_jekyll_works'&gt;How Jekyll Works&lt;/h1&gt;
+
+&lt;p&gt;The following is a complete but concise outline of exactly how Jekyll works.&lt;/p&gt;
+
+&lt;p&gt;Be aware that core concepts are introduced in rapid succession without code examples. This information is not intended to specifically teach you how to do anything, rather it is intended to give you the &lt;em&gt;full picture&lt;/em&gt; relative to what is going on in Jekyll-world.&lt;/p&gt;
+
+&lt;p&gt;Learning these core concepts should help you avoid common frustrations and ultimately help you better understand the code examples contained throughout Jekyll-Bootstrap.&lt;/p&gt;
+
+&lt;h2 id='initial_setup'&gt;Initial Setup&lt;/h2&gt;
+
+&lt;p&gt;After &lt;a href='/index.html#start-now'&gt;installing jekyll&lt;/a&gt; you&amp;#8217;ll need to format your website directory in a way jekyll expects. Jekyll-bootstrap conveniently provides the base directory format.&lt;/p&gt;
+
+&lt;h3 id='the_jekyll_application_base_format'&gt;The Jekyll Application Base Format&lt;/h3&gt;
+
+&lt;p&gt;Jekyll expects your website directory to be laid out like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.
+|-- _config.yml
+|-- _includes
+|-- _layouts
+|   |-- default.html
+|   |-- post.html
+|-- _posts
+|   |-- 2011-10-25-open-source-is-good.markdown
+|   |-- 2011-04-26-hello-world.markdown
+|-- _site
+|-- index.html
+|-- assets
+    |-- css
+        |-- style.css
+    |-- javascripts&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;_config.yml&lt;/strong&gt;&lt;br /&gt;Stores configuration data.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;_includes&lt;/strong&gt;&lt;br /&gt;This folder is for partial views.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;_layouts&lt;/strong&gt; &lt;br /&gt;This folder is for the main templates your content will be inserted into. You can have different layouts for different pages or page sections.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;_posts&lt;/strong&gt;&lt;br /&gt;This folder contains your dynamic content/posts. the naming format is required to be &lt;code&gt;@YEAR-MONTH-DATE-title.MARKUP@&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;_site&lt;/strong&gt;&lt;br /&gt;This is where the generated site will be placed once Jekyll is done transforming it.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;assets&lt;/strong&gt;&lt;br /&gt;This folder is not part of the standard jekyll structure. The assets folder represents &lt;em&gt;any generic&lt;/em&gt; folder you happen to create in your root directory. Directories and files not properly formatted for jekyll will be left untouched for you to serve normally.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(read more: &lt;a href='https://github.com/mojombo/jekyll/wiki/Usage'&gt;https://github.com/mojombo/jekyll/wiki/Usage&lt;/a&gt;)&lt;/p&gt;
+
+&lt;h3 id='jekyll_configuration'&gt;Jekyll Configuration&lt;/h3&gt;
+
+&lt;p&gt;Jekyll supports various configuration options that are fully outlined here: &lt;a href='https://github.com/mojombo/jekyll/wiki/Configuration'&gt;https://github.com/mojombo/jekyll/wiki/Configuration&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id='content_in_jekyll'&gt;Content in Jekyll&lt;/h2&gt;
+
+&lt;p&gt;Content in Jekyll is either a post or a page. These content &amp;#8220;objects&amp;#8221; get inserted into one or more templates to build the final output for its respective static-page.&lt;/p&gt;
+
+&lt;h3 id='posts_and_pages'&gt;Posts and Pages&lt;/h3&gt;
+
+&lt;p&gt;Both posts and pages should be written in markdown, textile, or HTML and may also contain Liquid templating syntax. Both posts and pages can have meta-data assigned on a per-page basis such as title, url path, as well as arbitrary custom meta-data.&lt;/p&gt;
+
+&lt;h3 id='working_with_posts'&gt;Working With Posts&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Creating a Post&lt;/strong&gt; &lt;br /&gt;Posts are created by properly formatting a file and placing it the &lt;code&gt;_posts&lt;/code&gt; folder.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;&lt;br /&gt;A post must have a valid filename in the form &lt;code&gt;YEAR-MONTH-DATE-title.MARKUP&lt;/code&gt; and be placed in the &lt;code&gt;_posts&lt;/code&gt; directory. If the data format is invalid Jekyll will not recognize the file as a post. The date and title are automatically parsed from the filename of the post file. Additionally, each file must have &lt;a href='https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter'&gt;YAML Front-Matter&lt;/a&gt; prepended to its content. YAML Front-Matter is a valid YAML syntax specifying meta-data for the given file.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Order&lt;/strong&gt;&lt;br /&gt;Ordering is an important part of Jekyll but it is hard to specify a custom ordering strategy. Only reverse chronological and chronological ordering is supported in Jekyll.&lt;/p&gt;
+
+&lt;p&gt;Since the date is hard-coded into the filename format, to change the order, you must change the dates in the filenames.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tags&lt;/strong&gt; &lt;br /&gt;Posts can have tags associated with them as part of their meta-data. Tags may be placed on posts by providing them in the post&amp;#8217;s YAML front matter. You have access to the post-specific tags in the templates. These tags also get added to the sitewide collection.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Categories&lt;/strong&gt; &lt;br /&gt;Posts may be categorized by providing one or more categories in the YAML front matter. Categories offer more significance over tags in that they can be reflected in the URL path to the given post. Note categories in Jekyll work in a specific way. If you define more than one category you are defining a category hierarchy &amp;#8220;set&amp;#8221;. Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+title :  Hello World
+categories : [lessons, beginner]
+---&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This defines the category hierarchy &amp;#8220;lessons/beginner&amp;#8221;. Note this is &lt;em&gt;one category&lt;/em&gt; node in Jekyll. You won&amp;#8217;t find &amp;#8220;lessons&amp;#8221; and &amp;#8220;beginner&amp;#8221; as two separate categories unless you define them elsewhere as singular categories.&lt;/p&gt;
+
+&lt;h3 id='working_with_pages'&gt;Working With Pages&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Creating a Page&lt;/strong&gt;&lt;br /&gt;Pages are created by properly formatting a file and placing it anywhere in the root directory or subdirectories that do &lt;em&gt;not&lt;/em&gt; start with an underscore.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;&lt;br /&gt;In order to register as a Jekyll page the file must contain &lt;a href='https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter'&gt;YAML Front-Matter&lt;/a&gt;. Registering a page means 1) that Jekyll will process the page and 2) that the page object will be available in the &lt;code&gt;site.pages&lt;/code&gt; array for inclusion into your templates.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Categories and Tags&lt;/strong&gt;&lt;br /&gt;Pages do not compute categories nor tags so defining them will have no effect.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sub-Directories&lt;/strong&gt;&lt;br /&gt;If pages are defined in sub-directories, the path to the page will be reflected in the url. Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.
+|-- people
+    |-- bob
+        |-- essay.html&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This page will be available at &lt;code&gt;http://yourdomain.com/people/bob/essay.html&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Recommended Pages&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;index.html&lt;/strong&gt;&lt;br /&gt;You will always want to define the root index.html page as this will display on your root URL.&lt;/li&gt;
+
+&lt;li&gt;&lt;strong&gt;404.html&lt;/strong&gt;&lt;br /&gt;Create a root 404.html page and GitHub Pages will serve it as your 404 response.&lt;/li&gt;
+
+&lt;li&gt;&lt;strong&gt;sitemap.html&lt;/strong&gt;&lt;br /&gt;Generating a sitemap is good practice for SEO.&lt;/li&gt;
+
+&lt;li&gt;&lt;strong&gt;about.html&lt;/strong&gt;&lt;br /&gt;A nice about page is easy to do and gives the human perspective to your website.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id='templates_in_jekyll'&gt;Templates in Jekyll&lt;/h2&gt;
+
+&lt;p&gt;Templates are used to contain a page&amp;#8217;s or post&amp;#8217;s content. All templates have access to a global site object variable: &lt;code&gt;site&lt;/code&gt; as well as a page object variable: &lt;code&gt;page&lt;/code&gt;. The site variable holds all accessible content and metadata relative to the site. The page variable holds accessible data for the given page or post being rendered at that point.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Create a Template&lt;/strong&gt;&lt;br /&gt;Templates are created by properly formatting a file and placing it in the &lt;code&gt;_layouts&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;&lt;br /&gt;Templates should be coded in HTML and contain YAML Front Matter. All templates can contain Liquid code to work with your site&amp;#8217;s data.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rending Page/Post Content in a Template&lt;/strong&gt;&lt;br /&gt;There is a special variable in all templates named : &lt;code&gt;content&lt;/code&gt;. The &lt;code&gt;content&lt;/code&gt; variable holds the page/post content including any sub-template content previously defined. Render the content variable wherever you want your main content to be injected into your template:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;...
+&amp;lt;body&amp;gt;
+  &amp;lt;div id=&quot;sidebar&quot;&amp;gt; ... &amp;lt;/div&amp;gt;
+  &amp;lt;div id=&quot;main&quot;&amp;gt;
+    &amp;#123;{content}&amp;#125;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/body&amp;gt;
+...&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id='subtemplates'&gt;Sub-Templates&lt;/h3&gt;
+
+&lt;p&gt;Sub-templates are exactly templates with the only difference being they define another &amp;#8220;root&amp;#8221; layout/template within their YAML Front Matter. This essentially means a template will render inside of another template.&lt;/p&gt;
+
+&lt;h3 id='includes'&gt;Includes&lt;/h3&gt;
+
+&lt;p&gt;In Jekyll you can define include files by placing them in the &lt;code&gt;_includes&lt;/code&gt; folder. Includes are NOT templates, rather they are just code snippets that get included into templates. In this way, you can treat the code inside includes as if it was native to the parent template.&lt;/p&gt;
+
+&lt;p&gt;Any valid template code may be used in includes.&lt;/p&gt;
+
+&lt;h2 id='using_liquid_for_templating'&gt;Using Liquid for Templating&lt;/h2&gt;
+
+&lt;p&gt;Templating is perhaps the most confusing and frustrating part of Jekyll. This is mainly due to the fact that Jekyll templates must use the Liquid Templating Language.&lt;/p&gt;
+
+&lt;h3 id='what_is_liquid'&gt;What is Liquid?&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href='https://github.com/Shopify/liquid'&gt;Liquid&lt;/a&gt; is a secure templating language developed by &lt;a href='http://shopify.com'&gt;Shopify&lt;/a&gt;. Liquid is designed for end-users to be able to execute logic within template files without imposing any security risk on the hosting server.&lt;/p&gt;
+
+&lt;p&gt;Jekyll uses Liquid to generate the post content within the final page layout structure and as the primary interface for working with your site and post/page data.&lt;/p&gt;
+
+&lt;h3 id='why_do_we_have_to_use_liquid'&gt;Why Do We Have to Use Liquid?&lt;/h3&gt;
+
+&lt;p&gt;GitHub uses Jekyll to power &lt;a href='http://pages.github.com/'&gt;GitHub Pages&lt;/a&gt;. GitHub cannot afford to run arbitrary code on their servers so they lock developers down via Liquid.&lt;/p&gt;
+
+&lt;h3 id='liquid_is_not_programmerfriendly'&gt;Liquid is Not Programmer-Friendly.&lt;/h3&gt;
+
+&lt;p&gt;The short story is liquid is not real code and its not intended to execute real code. The point being you can&amp;#8217;t do jackshit in liquid that hasn&amp;#8217;t been allowed explicitly by the implementation. What&amp;#8217;s more you can only access data-structures that have been explicitly passed to the template.&lt;/p&gt;
+
+&lt;p&gt;In Jekyll&amp;#8217;s case it is not possible to alter what is passed to Liquid without hacking the gem or running custom plugins. Both of which cannot be supported by GitHub Pages.&lt;/p&gt;
+
+&lt;p&gt;As a programmer - this is very frustrating.&lt;/p&gt;
+
+&lt;p&gt;But rather than look a gift horse in the mouth we are going to suck it up and view it as an opportunity to work around limitations and adopt client-side solutions when possible.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Aside&lt;/strong&gt; &lt;br /&gt;My personal stance is to not invest time trying to hack liquid. It&amp;#8217;s really unnecessary &lt;em&gt;from a programmer&amp;#8217;s&lt;/em&gt; perspective. That is to say if you have the ability to run custom plugins (i.e. run arbitrary ruby code) you are better off sticking with ruby. Toward that end I&amp;#8217;ve built &lt;a href='http://github.com/plusjade/mustache-with-jekyll'&gt;Mustache-with-Jekyll&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id='static_assets'&gt;Static Assets&lt;/h2&gt;
+
+&lt;p&gt;Static assets are any file in the root or non-underscored subfolders that are not pages. That is they have no valid YAML Front Matter and are thus not treated as Jekyll Pages.&lt;/p&gt;
+
+&lt;p&gt;Static assets should be used for images, css, and javascript files.&lt;/p&gt;
+
+&lt;h2 id='how_jekyll_parses_files'&gt;How Jekyll Parses Files&lt;/h2&gt;
+
+&lt;p&gt;Remember Jekyll is a processing engine. There are two main types of parsing in Jekyll.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Content parsing.&lt;/strong&gt; &lt;br /&gt;This is done with textile or markdown.&lt;/li&gt;
+
+&lt;li&gt;&lt;strong&gt;Template parsing.&lt;/strong&gt; &lt;br /&gt;This is done with the liquid templating language.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And thus there are two main types of file formats needed for this parsing.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Post and Page files.&lt;/strong&gt;&lt;br /&gt;All content in Jekyll is either a post or a page so valid posts and pages are parsed with markdown or textile.&lt;/li&gt;
+
+&lt;li&gt;&lt;strong&gt;Template files.&lt;/strong&gt; &lt;br /&gt;These files go in &lt;code&gt;_layouts&lt;/code&gt; folder and contain your blogs &lt;strong&gt;templates&lt;/strong&gt;. They should be made in HTML with the help of Liquid syntax. Since include files are simply injected into templates they are essentially parsed as if they were native to the template.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Arbitrary files and folders.&lt;/strong&gt; &lt;br /&gt;Files that &lt;em&gt;are not&lt;/em&gt; valid pages are treated as static content and pass through Jekyll untouched and reside on your blog in the exact structure and format they originally existed in.&lt;/p&gt;
+
+&lt;h3 id='formatting_files_for_parsing'&gt;Formatting Files for Parsing.&lt;/h3&gt;
+
+&lt;p&gt;We&amp;#8217;ve outlined the need for valid formatting using &lt;strong&gt;YAML Front Matter&lt;/strong&gt;. Templates, posts, and pages all need to provide valid YAML Front Matter even if the Matter is empty. This is the only way Jekyll knows you want the file processed.&lt;/p&gt;
+
+&lt;p&gt;YAML Front Matter must be prepended to the top of template/post/page files:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+layout: post
+category : pages
+tags : [how-to, jekyll]
+---
+
+... contents ...&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Three hyphens on a new line start the Front-Matter block and three hyphens on a new line end the block. The data inside the block must be valid YAML.&lt;/p&gt;
+
+&lt;p&gt;Configuration parameters for YAML Front-Matter is outlined here: &lt;a href='https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter'&gt;A comprehensive explanation of YAML Front Matter&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id='defining_layouts_for_posts_and_templates_parsing'&gt;Defining Layouts for Posts and Templates Parsing.&lt;/h4&gt;
+
+&lt;p&gt;The &lt;code&gt;layout&lt;/code&gt; parameter in the YAML Front Matter defines the template file for which the given post or template should be injected into. If a template file specifies its own layout, it is effectively being used as a &lt;code&gt;sub-template.&lt;/code&gt; That is to say loading a post file into a template file that refers to another template file with work in the way you&amp;#8217;d expect; as a nested sub-template.&lt;/p&gt;
+
+&lt;h2 id='how_jekyll_generates_the_final_static_files'&gt;How Jekyll Generates the Final Static Files.&lt;/h2&gt;
+
+&lt;p&gt;Ultimately, Jekyll&amp;#8217;s job is to generate a static representation of your website. The following is an outline of how that&amp;#8217;s done:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Jekyll collects data.&lt;/strong&gt; &lt;br /&gt;Jekyll scans the posts directory and collects all posts files as post objects. It then scans the layout assets and collects those and finally scans other directories in search of pages.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Jekyll computes data.&lt;/strong&gt; &lt;br /&gt;Jekyll takes these objects, computes metadata (permalinks, tags, categories, titles, dates) from them and constructs one big &lt;code&gt;site&lt;/code&gt; object that holds all the posts, pages, layouts, and respective metadata. At this stage your site is one big computed ruby object.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Jekyll liquifies posts and templates.&lt;/strong&gt;&lt;br /&gt;Next jekyll loops through each post file and converts (through markdown or textile) and &lt;strong&gt;liquifies&lt;/strong&gt; the post inside of its respective layout(s). Once the post is parsed and liquified inside the the proper layout structure, the layout itself is &amp;#8220;liquified&amp;#8221;. &lt;br /&gt;&lt;strong&gt;Liquification&lt;/strong&gt; is defined as follows: Jekyll initiates a Liquid template, and passes a simpler hash representation of the ruby site object as well as a simpler hash representation of the ruby post object. These simplified data structures are what you have access to in the templates.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Jekyll generates output.&lt;/strong&gt; &lt;br /&gt;Finally the liquid templates are &amp;#8220;rendered&amp;#8221;, thereby processing any liquid syntax provided in the templates and saving the final, static representation of the file.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Notes.&lt;/strong&gt;&lt;br /&gt;Because Jekyll computes the entire site in one fell swoop, each template is given access to a global &lt;code&gt;site&lt;/code&gt; hash that contains useful data. It is this data that you&amp;#8217;ll iterate through and format using the Liquid tags and filters in order to render it onto a given page.&lt;/p&gt;
+
+&lt;p&gt;Remember, in Jekyll you are an end-user. Your API has only two components:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;The manner in which you setup your directory.&lt;/li&gt;
+
+&lt;li&gt;The liquid syntax and variables passed into the liquid templates.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;All the data objects available to you in the templates via Liquid are outlined in the &lt;strong&gt;API Section&lt;/strong&gt; of Jekyll-Bootstrap. You can also read the original documentation here: &lt;a href='https://github.com/mojombo/jekyll/wiki/Template-Data'&gt;https://github.com/mojombo/jekyll/wiki/Template-Data&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id='conclusion'&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I hope this paints a clearer picture of what Jekyll is doing and why it works the way it does. As noted, our main programming constraint is the fact that our API is limited to what is accessible via Liquid and Liquid only.&lt;/p&gt;
+
+&lt;p&gt;Jekyll-bootstrap is intended to provide helper methods and strategies aimed at making it more intuitive and easier to work with Jekyll =)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Thank you&lt;/strong&gt; for reading this far.&lt;/p&gt;
+
+&lt;h2 id='next_steps'&gt;Next Steps&lt;/h2&gt;
+
+&lt;p&gt;Please take a look at &lt;a href='' /&gt; or jump right into &lt;a href=''&gt;Usage&lt;/a&gt; if you&amp;#8217;d like.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>unnamed</title>
+   <link href="http://keyvanfatehi.github.io/2011/12/16/unnamed"/>
+   <updated>2011-12-16T00:00:00-08:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/12/16/unnamed</id>
+   <content type="html">&lt;blockquote&gt;
+
+&lt;p&gt;&lt;span&gt;Such an attack could come without warning. Suddenly, computers and cell phones will cease to function, cash-dispensing and banking machine screens will stare blankly at customers, air traffic control, railroad and motor traffic systems will leave highways, bridges and waterways in chaos and perishable goods stranded far from hungry populations. With the loss of electricity, hospitals, houses, shopping centres, whole communities will tumble into darkness. Government authorities will be unable to take stock of the damage, communicate with the rest of the world to spread word of the crisis or protect their vulnerable citizenry from subsequent attacks. This is the intractable plight of a community paralysed by the instantaneous loss of digital networks. This is the potential devastation of a new kind of war, a “Cyberwar.” &lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span&gt;Full pdf: &lt;a href=&quot;http://www.itu.int/dms_pub/itu-s/opb/gen/S-GEN-WFS.01-1-2011-PDF-E.pdf&quot; title=&quot;The Quest for Cyber Peace&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;http://www.itu.int/dms_pub/itu-s/opb/gen/S-GEN-WFS.01-1-2011-PDF-E.pdf&quot;&gt;http://www.itu.int/dms_pub/itu-s/opb/gen/S-GEN-WFS.01-1-2011-PDF-E.pdf&lt;/a&gt;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>programming motherfucker</title>
+   <link href="http://keyvanfatehi.github.io/2011/12/10/httpprogramming-motherfuckercom"/>
+   <updated>2011-12-10T00:00:00-08:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/12/10/httpprogramming-motherfuckercom</id>
+   <content type="html">&lt;a href=&quot;http://programming-motherfucker.com/&quot;&gt;http://programming-motherfucker.com/&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Zed Shaw&amp;#8217;s manifesto, books, and a t-shirt!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>a quick drawing for all you idea guys out there</title>
+   <link href="http://keyvanfatehi.github.io/2011/11/19/a-quick-drawing-for-all-you-idea-guys-out-there"/>
+   <updated>2011-11-19T00:00:00-08:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/11/19/a-quick-drawing-for-all-you-idea-guys-out-there</id>
+   <content type="html">&lt;img src=&quot;http://24.media.tumblr.com/tumblr_luwkm4X60S1ql6q2so1_1280.png&quot;/&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>The fast track.</title>
+   <link href="http://keyvanfatehi.github.io/2011/10/29/the-fast-track"/>
+   <updated>2011-10-29T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/10/29/the-fast-track</id>
+   <content type="html">&lt;p&gt;This blog was intended to be cut &amp;amp; dry programming and no commentary as I began to explore iOS development for the first time (I now work full time as an iOS developer for a company in LA). However, I&amp;#8217;ve mindfully gone through what I think is an important transformation over the years that could be of benefit to the slightly younger generation of would-be coders.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Background&lt;br/&gt;&lt;/strong&gt;In the past few years, I&amp;#8217;ve risen fairly quickly to being considered &amp;#8220;highly skilled&amp;#8221; and &amp;#8220;very fast&amp;#8221; as a software engineer. I get nothing but praise and surprise from clients, employers, peers, mentors. I did not start out this way. 2 years ago I could definitely not do the things I am doing today. I didn&amp;#8217;t go to school in order to achieve this level of competence &amp;#8212; that was too slow for me&amp;#8230; Instead, I took the fast track, which I would like to now describe:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Decision&lt;br/&gt;&lt;/strong&gt;The first thing I had to do when I couldn&amp;#8217;t code for shit and wasn&amp;#8217;t sure what I would do with my life was to take some time to seriously decide on a path for my life. If you never take the time to seriously contemplate your life &amp;amp; your future, you&amp;#8217;re not pushing yourself hard enough. Decide on a path and go. Worst case scenario you find that you made the wrong choice and you go into a different field and excel there instead.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sacrifice &amp;amp; Commitment&lt;br/&gt;&lt;/strong&gt;Once I knew I wanted to be great with software&amp;#8212;I knew that it would take a huge amount of time investment. I only became good at playing Tribes 1 back in the day because I would invest 6+ hours per day at it. I knew it would take this type of commitment to become a great coder. This means you must sacrifice the things you would be doing otherwise. The fast track isn&amp;#8217;t necessarily healthy, or easy. But once you&amp;#8217;re great, you can take your life back. You never lose the skills you gain. It changes you and technology just becomes easier and easier to work with.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Motivation&lt;br/&gt;&lt;/strong&gt;Remind yourself why you&amp;#8217;re doing this. You want to make money? You want to be secure &amp;amp; in control of your life? You just want to respect yourself? It was all three and more for me. If I didn&amp;#8217;t become highly skilled as soon as possible, I&amp;#8217;d imagine my life soon careening out of control and crashing and burning. You need to care.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;You&amp;#8217;re not Alone&lt;br/&gt;&lt;/strong&gt;There are hundreds of people in your position, accessible at any time on IRC (in the case of programming) @ irc.freenode.net. Whatever programming language you&amp;#8217;re into (or all of them, as you should be a polyglot). Be kind and courteous and you&amp;#8217;ll find that you&amp;#8217;ll get all the help you need.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Peers &amp;amp; Mentors&lt;br/&gt;&lt;/strong&gt;Coding in your room is a lonely affair. Creating products and having nobody giving feedback sucks, you might be doing things in an awful way and not realize you&amp;#8217;re developing bad habits. Find yourself people. Open source communities are great for this. Contribute to small open-source projects and you&amp;#8217;ll find that you&amp;#8217;ll be rewarded. Even peers that know less than you can help you become awesome. Every time you teach some concept, it solidifies even more in your mind. Connect yourself with a few motivated people like yourself and you&amp;#8217;ll find yourself in what seems like a cyclicly redundant knowledge aggregate. Reap the benefits.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Self-direction&lt;br/&gt;&lt;/strong&gt;You cannot depend on others to take you to greatness. If you cannot be self-directed you won&amp;#8217;t achieve greatness. You might become &amp;#8220;good,&amp;#8221; but you&amp;#8217;ll never be great unless you can determine what you need to do next in order to progress yourself. Don&amp;#8217;t expect anyone to give a shit about your growth except yourself. Start giving a shit! A big shit! You are your only hope.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Start a Business&lt;br/&gt;&lt;/strong&gt;My consulting company, Mindynamics, was born out of myself and a colleague who decided &amp;#8220;Hey we&amp;#8217;re good enough to make money doing this. Let&amp;#8217;s start a company&amp;#8221;. Now, I was not very good at that time, I had very little coding skills and only a little bit of prior business saavy though past startup attempts and some common sense. But together, we were able to determine each others shortcomings and work on them in a focused sense. When you start a business and take it seriously, you&amp;#8217;re definitely on the fast track.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ditch Fear &amp;amp; Lack of Confidence&lt;br/&gt;&lt;/strong&gt;It is not to say that being blindly overconfident is good. I don&amp;#8217;t believe you should be factoring emotions into your work in the first place. That is the point of ditching fear and not being unconfident. These negative emotional cues will always get in the way of your work.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Have fun, be highly interested, be a polyglot&lt;br/&gt;&lt;/strong&gt;Finally, if you&amp;#8217;re not enjoying this, you shouldn&amp;#8217;t do it. If you&amp;#8217;re not impressed and excited as a Ruby on Rails programmer when you discover Node.js and its minimal, asynchronous architecture and don&amp;#8217;t instantly think of all the ways you can leverage this new tech to enhance your power as a web architect, something is wrong.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Understand the World&lt;br/&gt;&lt;/strong&gt;Learn about NNTP, IRC, TCP, UNIX. Understand the world around you&amp;#8212;only then, can you effectively manipulate it. This is MUCH easier than it was back when I was a kid. All you need to do is point yourself to some article on wikipedia (UNIX, for example) and follow all the links you see that pertain to these topics.&lt;/p&gt;
+&lt;p&gt;I could keep going&amp;#8230; If you&amp;#8217;ve read this far I imagine you get the picture. Ultimately the responsibility rests on your shoulders and you&amp;#8217;ll discover the missing pieces as I did during your journey.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;I can be found on freenode as keyvan&lt;/em&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>New Focus</title>
+   <link href="http://keyvanfatehi.github.io/2011/10/16/new-focus"/>
+   <updated>2011-10-16T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/10/16/new-focus</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;http://media.tumblr.com/tumblr_ltuis8cNRx1qjx8e2.jpg&quot;/&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Sublime Text 2 Mini Review</title>
+   <link href="http://keyvanfatehi.github.io/2011/08/29/sublime-text-2-mini-review"/>
+   <updated>2011-08-29T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/08/29/sublime-text-2-mini-review</id>
+   <content type="html">&lt;p&gt;I&amp;#8217;m a TextMate user. But recently I&amp;#8217;ve had to work in all 3 platforms at once (Main computer running Windows, with RoR running in a VM, accessed by means of a text editor+&lt;a target=&quot;_blank&quot; href=&quot;http://www.expandrive.com/&quot;&gt;ExpanDrive&lt;/a&gt; and FireFox in the Windows host. Macbook Air as an auxiliary service, watching more logs or using Sequel Pro to mess with the database. &lt;a target=&quot;_blank&quot; href=&quot;http://synergy-foss.org/&quot;&gt;Synergy&lt;/a&gt; ties the mouse &amp;amp; keyboard together on the two physical machines.).&lt;/p&gt;
+&lt;p&gt;To those interested, I am in this Windows-dominant environment now because I&amp;#8217;m working with the CryENGINE3, my development team can be found &lt;a target=&quot;_blank&quot; href=&quot;http://cry.li&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So what editor am I using if I can&amp;#8217;t have my beautiful TextMate running at 1080p?&lt;/p&gt;
+&lt;p&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://www.sublimetext.com/blog/articles/sublime-text-2-beta&quot;&gt;Sublime Text 2&lt;/a&gt;, of course! It supports TextMate themes&amp;#8230; First thing I did was install VibrantInk.tmTheme. &lt;strong&gt;It is native cross-platform software!&lt;/strong&gt; No nasty Java, or worse, JRuby (*cough* redcar *cough*)&lt;/p&gt;
+&lt;p&gt;I love the split pane feature, which you&amp;#8217;d come to expect after working with &lt;a target=&quot;_blank&quot; href=&quot;http://www.tenshu.net/p/terminator.html&quot;&gt;Terminator&lt;/a&gt; or &lt;a target=&quot;_blank&quot; href=&quot;http://www.iterm2.com/&quot;&gt;iTerm2&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Why are you still reading this? Go download Sublime Text 2 and if you like it, support the developers (buy a license).&lt;/p&gt;
+&lt;p&gt;(I have no affiliation with them, I just think the editor is awesome and I want it to continue to be improved)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;If there is one missing feature it would be a better split-pane system such as that of iTerm2, e.g. 2 panes on the left, one on the right, etc&lt;/strong&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>unnamed</title>
+   <link href="http://keyvanfatehi.github.io/2011/08/08/unnamed"/>
+   <updated>2011-08-08T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/08/08/unnamed</id>
+   <content type="html">&lt;img src=&quot;http://24.media.tumblr.com/tumblr_lpltelmUBr1ql6q2so1_1280.png&quot;/&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Asynchronous C programs: an event loop and Ncurses</title>
+   <link href="http://keyvanfatehi.github.io/2011/08/03/asynchronous-c-programs-an-event-loop-and-ncurses"/>
+   <updated>2011-08-03T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/08/03/asynchronous-c-programs-an-event-loop-and-ncurses</id>
+   <content type="html">&lt;p&gt;You may wonder how you can use ncurses in an asynchronous fashion in your program. Doesn&amp;#8217;t ncurses block on getch(), thus forcing your program out of any of your asnychronous hopes and dreams?&lt;/p&gt;
+&lt;p&gt;Well, no, you don&amp;#8217;t HAVE to use getch() to get characters, and as long as you do not call any of these blocking functions, and find another way to get input in an asynchronous fashion, you can very well use the keyboard event of a character to drive your ncurses gui.&lt;/p&gt;
+&lt;p&gt;You can also have events happening on other file descriptors at the same time. This is the nature of asynchronous programming&amp;#8212;things are happening at the same time, all functions are returning as soon as possible, and nothing is waiting for anything else.&lt;/p&gt;
+&lt;p&gt;Your program spends most of its time in the &amp;#8220;event loop&amp;#8221; where it waits for &amp;#8220;something to happen&amp;#8221; (e.g. data just came in on the standard input, or data just came in on a TCP socket), after which it will fire off the &amp;#8220;callback&amp;#8221; in which you&amp;#8217;ve described what work should be done in the event of such an occurrence.&lt;/p&gt;
+&lt;p&gt;The following is what the code for this looks like if you were to use poll(). Keep in mind there are other functions, such as select(), that do the same thing, but are used in a slightly different way.&lt;/p&gt;
+&lt;pre&gt;#include &amp;lt;sys/poll.h&amp;gt; // poll() is of course made available by this header file
+#include &amp;lt;unistd.h&amp;gt;      // STDIN_FILENO is defined in here, and close() for sockets
+#include &amp;lt;ncurses.h&amp;gt;
+
+int main() {
+  struct pollfd ufds[2]; // Data structure we later pass to poll() for monitoring
+  int sockfd;            // File descriptor for the TCP socket
+  int STDIN_FILENO       // this is just 0
+
+  initscr();             // Start ncurses
+
+  connect(sockfd, ..., ...);   // Connecting a unix socket has a few more steps
+                               // see links at the end for more info
+  pUfds[0].fd = sockfd;        // Pack our connected TCP socket file descriptor in.
+  pUfds[0].events = POLLIN;    // we only care if the socket is ready for read (Has data)
+  pUfds[1].fd = STDIN_FILENO;  // Pack our standard input file descriptor in.
+  pUfds[1].events = POLLIN;    // Again, we only care when there's data for reading.
+
+  do {
+    switch(poll(ufds, 2, -1)) {
+      case -1:{ refresh(); break;} // resizing the terminal causes poll() to return -1 (error)
+      default:{                    // So I simply refresh() the ncurses view when that happens
+        if (ufds[0].revents &amp;amp; POLLIN)  
+          onSocketData();              // my callback for socket activity 
+        if (ufds[1].revents &amp;amp; POLLIN)
+          onKeyData();                 // my callback for keyboard activity
+      }
+    }
+  } while(Running); // this variable serves as a killswitch
+
+  endwin(); // End ncurses
+  close(sockfd);
+  return 0;
+}
+&lt;/pre&gt;
+&lt;p&gt;The above is chopped and sliced out of a program I&amp;#8217;ve been working on:&lt;/p&gt;
+&lt;p&gt;&lt;a title=&quot;Network Vim&quot; target=&quot;_blank&quot; href=&quot;http://github.com/keyvanfatehi/nim%20%20&quot;&gt;&lt;a href=&quot;http://github.com/keyvanfatehi/nim&quot;&gt;http://github.com/keyvanfatehi/nim&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you are interested in Unix socket and network programming, I highly recommend this resource:&lt;/p&gt;
+&lt;p&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://beej.us/guide/bgnet/&quot;&gt;&lt;a href=&quot;http://beej.us/guide/bgnet/&quot;&gt;http://beej.us/guide/bgnet/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ImageMagick and its delegate libraries</title>
+   <link href="http://keyvanfatehi.github.io/2011/07/18/imagemagick-and-its-delegate-libraries"/>
+   <updated>2011-07-18T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/07/18/imagemagick-and-its-delegate-libraries</id>
+   <content type="html">&lt;p&gt;You need ImageMagick in order to get ruby gems such as Paperclip, or Rmagick, etc to work properly. ImageMagick is one of the most feared dependencies since even if you correctly install it, you may still get errors like:&lt;/p&gt;
+&lt;pre&gt;&quot;is not recognized by the 'identify' command&quot;&lt;/pre&gt;
+&lt;p&gt;This is because &amp;#8220;identify&amp;#8221;, a command that comes in the ImageMagick suite (in addition to &amp;#8220;convert&amp;#8221;), requires special libraries to understand different image formats. These special libraries are called &amp;#8220;delegates&amp;#8221;.&lt;/p&gt;
+&lt;p&gt;You can see all the delegates set up to work with your current ImageMagick with this command:&lt;/p&gt;
+&lt;pre&gt;convert -list configure&lt;/pre&gt;
+&lt;p&gt;&lt;span&gt;&lt;span&gt;All the delegates are available at this link:&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span&gt;&lt;span&gt;&lt;a href=&quot;http://www.imagemagick.org/download/delegates/&quot;&gt;http://www.imagemagick.org/download/delegates/&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span&gt;&lt;span&gt;There are 2 that you need for jpeg: &lt;/span&gt;&lt;/span&gt;Jasper and Jpeg&lt;/p&gt;
+&lt;p&gt;Grab any that you need, ./configure, make, sudo make install &lt;/p&gt;
+&lt;p&gt;Now you need to recompile ImageMagick and make sure it works with these delegate libraries:&lt;/p&gt;
+&lt;pre&gt;./configure --enable-delegate-build --enable-shared --disable-static \
+--with-modules --with-quantum-depth=16 --without-wmf \
+--enable-libtool-verbose --disable-dependency-tracking \
+--with-gs-font-dir=/usr/local/share/ghostscript/fonts/ --with-lqr
+make
+sudo make install
+&lt;/pre&gt;
+&lt;p&gt;You should hopefully see your delegates&amp;#8212;if not at least you know about them now and can troubleshoot further&amp;#8212;enjoy.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>AppleScript for launching, resizing, positioning my terminal windows.</title>
+   <link href="http://keyvanfatehi.github.io/2011/07/11/applescript-for-launching-resizing-positioning-my-terminal-windows"/>
+   <updated>2011-07-11T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/07/11/applescript-for-launching-resizing-positioning-my-terminal-windows</id>
+   <content type="html">&lt;p&gt;On my primary computer, I have 3 monitors. I always have one monitor dedicated to terminal windows. I then realized I can just use an applescript to fill the monitor up with 5 packed in terminals of different dimensions automatically. This is so convenient&amp;#8212;there&amp;#8217;s a lot of power in applescripts that many people don&amp;#8217;t bother tapping into.&lt;/p&gt;
+&lt;p&gt;Here&amp;#8217;s the source:&lt;/p&gt;
+&lt;pre&gt;(* (x,y) positions from top left of main monitor:
+	topleft-corner of window, bottom-right corner
+	Search for CursorCoordinates in the Mac App Store		
+*)
+	
+tell application &quot;iTerm&quot;
+	activate
+	try
+		repeat 5 times
+			tell i term application &quot;System Events&quot; to key code 13 using command down
+		end repeat
+	end try
+	
+	repeat 5 times
+		tell i term application &quot;System Events&quot; to key code 45 using command down
+	end repeat
+	
+	set the bounds of window 1 to {-1920, 0, -965, 540}
+	set the bounds of window 2 to {-967, 0, 0, 540}
+	set the bounds of window 3 to {-1921, 540, -1280, 1080}
+	set the bounds of window 4 to {-1280, 540, 0, 831}
+	set the bounds of window 5 to {-1280, 830, 0, 1080}
+	
+	
+end tell
+&lt;/pre&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Writing your own kext (Kernel Extension) for Mac OS X</title>
+   <link href="http://keyvanfatehi.github.io/2011/06/12/writing-your-own-kext-kernel-extension-for-mac-os-x"/>
+   <updated>2011-06-12T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/06/12/writing-your-own-kext-kernel-extension-for-mac-os-x</id>
+   <content type="html">&lt;p&gt;Direct copypasta of &lt;a href=&quot;http://unixjunkie.blogspot.com/2006/12/kernel-extension-by-hand.html&quot;&gt;&lt;a href=&quot;http://unixjunkie.blogspot.com/2006/12/kernel-extension-by-hand.html&quot;&gt;http://unixjunkie.blogspot.com/2006/12/kernel-extension-by-hand.html&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;I generally like using Xcode. It typically does the job, and usually even makes the job easier. It shields the user from having to worry about mundane details that are all too common when building software. However, for the same reason it can increase a developer&amp;#8217;s productivity, it can also make it more difficult to understand what&amp;#8217;s actually going on. For example, Xcode has a template to create a Generic Kernel Extension. The template compiles &lt;em&gt;with no modifications&lt;/em&gt;. The resulting kernel extension (KEXT) can then be loaded and unloaded without having to write one line of code. This is super cool, but it also hides some of the details of what a KEXT really is. So, today we&amp;#8217;ll write a &amp;#8220;Hello, World&amp;#8221; KEXT from scratch without the help of Xcode&lt;br/&gt;&lt;br/&gt;&lt;em&gt;(note the issues above do not apply to Xcode alone, rather they apply to almost all IDEs)&lt;/em&gt;&lt;br/&gt;&lt;br/&gt;Well, let&amp;#8217;s just jump right in. Basically, a KEXT is a bundle on Mac OS X (it&amp;#8217;s also a &amp;#8220;package&amp;#8221;), which means it is a directory structure with some predefined form and an Info.plist file. Our sample KEXT will be named &amp;#8220;MyKext.kext&amp;#8221;, and it will be in a directory structure that looks like this:&lt;/p&gt;
+&lt;pre&gt;$ &lt;strong&gt;find MyKext.kext&lt;/strong&gt;&lt;br/&gt;MyKext.kext&lt;br/&gt;MyKext.kext/Contents&lt;br/&gt;MyKext.kext/Contents/Info.plist&lt;br/&gt;MyKext.kext/Contents/MacOS&lt;br/&gt;MyKext.kext/Contents/MacOS/MyKext&lt;br/&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br/&gt;&lt;br/&gt;To start off, we need to make the basic directory structure.&lt;/p&gt;
+&lt;pre&gt;$ &lt;strong&gt;cd&lt;/strong&gt;&lt;br/&gt;$ &lt;strong&gt;mkdir -p MyKext.kext/Contents/MacOS&lt;/strong&gt;&lt;br/&gt;$ &lt;strong&gt;cd MyKext.kext/Contents/MacOS&lt;/strong&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br/&gt;&lt;br/&gt;Now we can start writing our code. Our code will contain two main routines: &lt;code&gt;MyKextStart()&lt;/code&gt; and &lt;code&gt;MyKextStop()&lt;/code&gt;, which are called when the KEXT is loaded and unloaded respectively. It will also contain some required bookkeeping code that&amp;#8217;s needed in order to make our compiled binary proper. Our start and stop routines look like:&lt;/p&gt;
+&lt;pre&gt;// File: mykext.c&lt;br/&gt;#include &amp;lt;libkern/libkern.h&amp;gt;&lt;br/&gt;#include &amp;lt;mach/mach_types.h&amp;gt;&lt;br/&gt;&lt;br/&gt;kern_return_t MyKextStart(kmod_info_t *ki, void *d) {&lt;br/&gt;  printf(&quot;Hello, World!\n&quot;);&lt;br/&gt;  return KERN_SUCCESS;&lt;br/&gt;}&lt;br/&gt;&lt;br/&gt;kern_return_t MyKextStop(kmod_info_t *ki, void *d) {&lt;br/&gt;  printf(&quot;Goodbye, World!\n&quot;);&lt;br/&gt;  return KERN_SUCCESS;&lt;br/&gt;}&lt;br/&gt;&lt;br/&gt;... more to come in a minute&lt;br/&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br/&gt;&lt;br/&gt;After these two methods (in the same &lt;code&gt;mykext.c&lt;/code&gt; file) we need to put the required bookkeeping stuff.&lt;/p&gt;
+&lt;pre&gt;extern kern_return_t _start(kmod_info_t *ki, void *data);&lt;br/&gt;extern kern_return_t _stop(kmod_info_t *ki, void *data);&lt;br/&gt;&lt;br/&gt;KMOD_EXPLICIT_DECL(net.unixjunkie.kext.MyKext, &quot;1.0.0d1&quot;, _start, _stop)&lt;br/&gt;__private_extern__ kmod_start_func_t *_realmain = MyKextStart;&lt;br/&gt;__private_extern__ kmod_stop_func_t *_antimain = MyKextStop;&lt;br/&gt;__private_extern__ int _kext_apple_cc = __APPLE_CC__;&lt;/pre&gt;
+&lt;p&gt;&lt;br/&gt;&lt;br/&gt;This stuff basically declares some needed structures, and it also sets up our routines (&lt;code&gt;MyKextStart()&lt;/code&gt; and&lt;code&gt;MyKextStop()&lt;/code&gt;) so that they&amp;#8217;re called on load and unload, by assigning them to the &lt;code&gt;_realmain&lt;/code&gt; and &lt;code&gt;_antimain&lt;/code&gt;symbols respectively.&lt;br/&gt;&lt;br/&gt;OK, now comes the tricky part: the compile. KEXTs are compiled statically, they can only use certain headers that are available in the kernel, and they can&amp;#8217;t link with the standard C library. These requirements basically translate into a &lt;code&gt;gcc&lt;/code&gt; command like the following:&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;$ &lt;strong&gt;gcc -static &lt;em&gt;mykext.c&lt;/em&gt; -o &lt;em&gt;MyKext&lt;/em&gt; -fno-builtin -nostdlib -lkmod -r -mlong-branch -I/System/Library/Frameworks/Kernel.framework/Headers -Wall&lt;/strong&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br/&gt;&lt;br/&gt;If the planets are properly aligned, you won&amp;#8217;t get any errors or warnings, and you&amp;#8217;ll end up with a Mach-O object file in the current directory named &lt;code&gt;MyKext&lt;/code&gt;. This is your actual compiled KEXT. (At this point, it&amp;#8217;s fun to inspect this file using &lt;code&gt;otool&lt;/code&gt;. For example, &lt;code&gt;otool -hV MyKext&lt;/code&gt;, and &lt;code&gt;otool -l MyKext&lt;/code&gt;. Read the man page for &lt;code&gt;otool(1)&lt;/code&gt; for more details here.)&lt;br/&gt;&lt;br/&gt;Now, the last thing we need to do (before we actually load this thing up) is to give our KEXT an Info.plist. The easiest way to do this is to copy another KEXT&amp;#8217;s Info.plist file, and change the names of a few things. For this example, I&amp;#8217;m going to copy &lt;code&gt;/System/Library/Extensions/webdav_fs.kext/Contents/Info.plist&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;$ &lt;strong&gt;cd ..&lt;/strong&gt;&lt;br/&gt;$ &lt;strong&gt;pwd&lt;/strong&gt;&lt;br/&gt;/Users/jgm/MyKext.kext/Contents&lt;br/&gt;$ &lt;strong&gt;cp /System/Library/Extensions/webdav_fs.kext/Contents/Info.plist .&lt;/strong&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br/&gt;&lt;br/&gt;Now, you&amp;#8217;ll need to edit the file and change the value of the &amp;#8220;CFBundleExecutable&amp;#8221; key to &lt;strong&gt;MyKext&lt;/strong&gt;, and the value of &amp;#8220;CFBundleIdentifier&amp;#8221; to &lt;strong&gt;net.unixjunkie.kext.MyKext&lt;/strong&gt; (or whatever you set that value to in your &lt;code&gt;mykext.c&lt;/code&gt; file).&lt;br/&gt;&lt;br/&gt;Okay, it&amp;#8217;s show time. To load any KEXT, all files in the KEXT must be owned by &lt;code&gt;root&lt;/code&gt; and be in group &lt;code&gt;wheel&lt;/code&gt;. The files must also have certain permissions in order to load. Here&amp;#8217;s the steps to load the KEXT.&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;$ &lt;strong&gt;cd /tmp&lt;/strong&gt;&lt;br/&gt;$ &lt;strong&gt;sudo -s&lt;/strong&gt;&lt;br/&gt;# &lt;strong&gt;cp -rp ~/MyKext.kext .&lt;/strong&gt;&lt;br/&gt;# &lt;strong&gt;chown -R root:wheel MyKext.kext&lt;/strong&gt;&lt;br/&gt;# &lt;strong&gt;chmod -R 0644 MyKext.kext&lt;/strong&gt;&lt;br/&gt;# &lt;strong&gt;kextload -v MyKext.kext&lt;/strong&gt;&lt;br/&gt;kextload: extension MyKext.kext appears to be valid&lt;br/&gt;kextload: loading extension MyKext.kext&lt;br/&gt;kextload: sending 1 personality to the kernel&lt;br/&gt;kextload: MyKext.kext loaded successfully&lt;br/&gt;# &lt;strong&gt;tail -1 /var/log/system.log&lt;/strong&gt;&lt;br/&gt;Dec 15 20:15:47 jgm-mac kernel[0]: Hello, World!&lt;/pre&gt;
+&lt;p&gt;&lt;br/&gt;&lt;br/&gt;We can see that our &lt;code&gt;MyKextStart()&lt;/code&gt; was called. Now let&amp;#8217;s unload it and see what happens.&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;# &lt;strong&gt;kextunload -v MyKext.kext&lt;/strong&gt;&lt;br/&gt;kextunload: unload kext MyKext.kext succeeded&lt;/pre&gt;
+&lt;p&gt;&lt;br/&gt;&lt;br/&gt;Wahoo! It looks like we made a kernel extension with our own 10 fingers, and it worked! :-) &lt;br/&gt;&lt;br/&gt;That was fun. Check out Amit Singh&amp;#8217;s &lt;a href=&quot;http://www.amazon.com/Mac-OS-Internals-Systems-Approach/dp/0321278542/sr=8-1/qid=1166243235/ref=pd_bbs_sr_1/104-7596969-4623161?ie=UTF8&amp;amp;s=books&quot;&gt;Mac OS X Internals&lt;/a&gt; book for more cool bits about what that required &amp;#8220;bookkeeping&amp;#8221; stuff was in our source file, and why it&amp;#8217;s required.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Using Spark on your hackintosh for volume key binding</title>
+   <link href="http://keyvanfatehi.github.io/2011/06/12/using-spark-on-your-hackintosh-for-volume-key-binding--a-voodoohda-prefpane-applescript"/>
+   <updated>2011-06-12T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/06/12/using-spark-on-your-hackintosh-for-volume-key-binding--a-voodoohda-prefpane-applescript</id>
+   <content type="html">&lt;p&gt;I had 2 more issues with my hackintosh.&lt;/p&gt;
+&lt;p&gt;1) I want the standard volume control buttons on my laptop to control the volume like a normal macbook.&lt;/p&gt;
+&lt;p&gt;2) I want to be able to open up VoodooHDA pref pane so I can adjust mixer settings. This will be the function key right next to the volume controls.&lt;/p&gt;
+&lt;p&gt;How to do awesome keybinding has been something I&amp;#8217;ve been looking for a long time, and I found it: An awesome open source key bind program called &lt;a href=&quot;http://www.shadowlab.org/Software/spark.php&quot;&gt;Spark&lt;/a&gt;. It does exactly what you&amp;#8217;d expect and much, much more.&lt;/p&gt;
+&lt;p&gt;With spark, problem 1 is quickly solved.&lt;/p&gt;
+&lt;p&gt;Problem 2 requires binding the key to an applescript to pop open the pref pane, which I&amp;#8217;ve pasted below:&lt;/p&gt;
+&lt;pre&gt;tell application &quot;System Preferences&quot;
+	activate
+	set current pane to pane &quot;org.voodoo.VoodooHDA&quot;
+end tell
+&lt;/pre&gt;
+&lt;p&gt;And problem 2 is solved now as well. Hell yeah!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hackintosh laptop is complete. Here&amp;#8217;s a photo:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;img src=&quot;http://keyvanfatehi.com/up/asusosx86.jpg&quot; width=&quot;510&quot; height=&quot;585&quot;/&gt;&lt;br/&gt;&lt;/strong&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Hackintosh solution to disabled tilde and backtick.</title>
+   <link href="http://keyvanfatehi.github.io/2011/06/12/after-hackintosh-i-have-lost-my-tilde--and-backtick---solution"/>
+   <updated>2011-06-12T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/06/12/after-hackintosh-i-have-lost-my-tilde--and-backtick---solution</id>
+   <content type="html">&lt;p&gt;When you&amp;#8217;re doing  work in the terminal or doing programming work, you use these two characters quite a lot. It is habitual to just type ~ and get the home directly. After &lt;a href=&quot;http://www.tonymacx86.com/&quot;&gt;hackintoshin&lt;/a&gt;&amp;#8217; my new laptop I lost those keys. Here&amp;#8217;s the fix:&lt;/p&gt;
+&lt;p&gt;The fix is a new keyboard layout (like a foreign language keyboard layout) custom-made &lt;a href=&quot;http://www.myhpmini.com/forum/tilde-key-issues-%5Bfix%5D-t974.html#post32696&quot;&gt;by a guy Jopari on myhpmini.com forums&lt;/a&gt;. A download link is provided at the end of this post. Here are his original instructions for installing it:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Unzip it and stick HP Mini.keylayout in ~/Library/Keyboard Layouts or /Library/Keyboard Layouts (if you want it to be available across all user accounts). Reboot your computer and then open System Preferences -&amp;gt; International -&amp;gt; Input Menu. Select &amp;#8220;HP Mini&amp;#8221;; the Input menu should appear on your menu bar. Select &amp;#8220;HP Mini&amp;#8221; from the input menu and you should be in business (you can then remove the input source menu from your menu bar if you&amp;#8217;d like).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Download: &lt;/strong&gt;&lt;a href=&quot;http://bit.ly/jbXlCe&quot;&gt;HP Mini.keylayout.zip&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>How to design iOS interfaces without using Interface Builder</title>
+   <link href="http://keyvanfatehi.github.io/2011/06/10/how-to-design-ios-interfaces-without-using-interface-builder"/>
+   <updated>2011-06-10T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/06/10/how-to-design-ios-interfaces-without-using-interface-builder</id>
+   <content type="html">&lt;p&gt;Now that my app has achieved the functionality requested by my client&amp;#8212;naturally he begins to talk about interface design.&lt;/p&gt;
+&lt;p&gt;I am a coder, but I am not a graphic designer. So how can we allow the budget-client, who may not be using Mac&amp;#8212;and doesn&amp;#8217;t want to figure out how to use Interface Builder anyway&amp;#8212;to create great interfaces?&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A whiteboard&lt;/li&gt;
+&lt;li&gt;21 other options: &lt;a href=&quot;http://iphoneized.com/2009/11/21-prototyping-mockup-wireframing-tools-iphone-app-development/&quot;&gt;&lt;a href=&quot;http://iphoneized.com/2009/11/21-prototyping-mockup-wireframing-tools-iphone-app-development/&quot;&gt;http://iphoneized.com/2009/11/21-prototyping-mockup-wireframing-tools-iphone-app-development/&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;More: &lt;a href=&quot;https://pidoco.com/en/lp/mockup/mockups?piwik_campaign=en_mockups_generic_new&amp;amp;piwik_kwd=mockup&quot;&gt;&lt;a href=&quot;https://pidoco.com/en/lp/mockup/mockups?piwik_campaign=en_mockups_generic_new&amp;amp;piwik_kwd=mockup&quot;&gt;https://pidoco.com/en/lp/mockup/mockups?piwik_campaign=en_mockups_generic_new&amp;amp;piwik_kwd=mockup&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Another: &lt;a href=&quot;http://iphonemockup.lkmc.ch/&quot;&gt;&lt;a href=&quot;http://iphonemockup.lkmc.ch/&quot;&gt;http://iphonemockup.lkmc.ch/&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Photoshop PSD&amp;#8217;s &lt;a href=&quot;http://www.google.com/search?client=safari&amp;amp;rls=en&amp;amp;q=iphone+psd&amp;amp;ie=UTF-8&amp;amp;oe=UTF-8&quot;&gt;&lt;a href=&quot;http://www.google.com/search?client=safari&amp;amp;rls=en&amp;amp;q=iphone+psd&amp;amp;ie=UTF-8&amp;amp;oe=UTF-8&quot;&gt;http://www.google.com/search?client=safari&amp;amp;rls=en&amp;amp;q=iphone+psd&amp;amp;ie=UTF-8&amp;amp;oe=UTF-8&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>How to access the contents of the iPhone hard disk drive</title>
+   <link href="http://keyvanfatehi.github.io/2011/06/10/how-to-access-the-contents-of-the-iphone-hard-disk-drive"/>
+   <updated>2011-06-10T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/06/10/how-to-access-the-contents-of-the-iphone-hard-disk-drive</id>
+   <content type="html">&lt;p&gt;You may want to see and access the files you&amp;#8217;re creating in your Documents or tmp directories while coding with iOS. Directly accessing those folders with Finder turns out to be rather difficult.&lt;/p&gt;
+&lt;p&gt;It was recommended to me in #iphonedev (freenode) to do the following in order to view the files in iTunes:&lt;/p&gt;
+&lt;p&gt;1) In Xcode, open up your &amp;lt;appname&amp;gt;-Info.plist file and add a new string by Ctrl-clicking an existing row and clicking &amp;#8220;add row&amp;#8221;:&lt;/p&gt;
+&lt;p&gt;The string should be set to: &amp;#8221;Application supports iTunes file sharing&amp;#8221;, it should be a Boolean, and the value should be YES&lt;/p&gt;
+&lt;p&gt;2) Open up iTunes and access it from the Apps section of your device.&lt;/p&gt;
+
+&lt;p&gt;So I was doing it this way, and received this dreaded message: &lt;/p&gt;
+&lt;p&gt;&lt;img height=&quot;150&quot; width=&quot;466&quot; alt=&quot;iTunes you will be the death of me.&quot; src=&quot;http://f.cl.ly/items/1t333i2z2D3t0g1V0m1e/Screen%20shot%202011-06-10%20at%208.45.45%20AM.png&quot;/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;My iPhone is associated with a different mac&amp;#8230; And I don&amp;#8217;t want to delete everything just to access it from my development machine. To get around this, you will need to spend money on an application called Phone Disk.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Phone Disk gives you direct access to your root directory of your iPhone. It worked perfectly for what I needed.&lt;/p&gt;
+&lt;p&gt;The trial allows you to transfer up to 100MB. A license is $9.99. You can find it here: &lt;a href=&quot;http://www.macroplant.com/phonedisk/&quot;&gt;&lt;a href=&quot;http://www.macroplant.com/phonedisk/&quot;&gt;http://www.macroplant.com/phonedisk/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>iOS get current date time</title>
+   <link href="http://keyvanfatehi.github.io/2011/06/08/ios-get-current-date-time"/>
+   <updated>2011-06-08T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/06/08/ios-get-current-date-time</id>
+   <content type="html">&lt;p&gt;&lt;span&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Source code says it all:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span&gt;NSCalendar&lt;span class=&quot;s1&quot;&gt; *calendar = [[&lt;/span&gt;NSCalendar&lt;span class=&quot;s1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;alloc&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;] &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;initWithCalendarIdentifier&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;:&lt;/span&gt;NSGregorianCalendar&lt;span class=&quot;s1&quot;&gt;];&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p class=&quot;p2&quot;&gt;&lt;span class=&quot;s3&quot;&gt;NSCalendarUnit&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt; unitFlags = &lt;/span&gt;NSYearCalendarUnit&lt;span class=&quot;s1&quot;&gt; | &lt;/span&gt;NSMonthCalendarUnit&lt;span class=&quot;s1&quot;&gt;| &lt;/span&gt;NSWeekCalendarUnit&lt;span class=&quot;s1&quot;&gt; |&lt;/span&gt;NSDayCalendarUnit&lt;span class=&quot;s1&quot;&gt; | &lt;/span&gt;NSHourCalendarUnit&lt;span class=&quot;s1&quot;&gt; | &lt;/span&gt;NSMinuteCalendarUnit&lt;span class=&quot;s1&quot;&gt; | &lt;/span&gt;NSSecondCalendarUnit&lt;span class=&quot;s1&quot;&gt;;&lt;/span&gt;&lt;/p&gt;
+&lt;p class=&quot;p3&quot;&gt;&lt;span class=&quot;s3&quot;&gt;NSDate&lt;/span&gt; *date = [&lt;span class=&quot;s3&quot;&gt;NSDate&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;date&lt;/span&gt;];&lt;/p&gt;
+&lt;p class=&quot;p3&quot;&gt;&lt;span class=&quot;s3&quot;&gt;NSDateComponents&lt;/span&gt; *dateComponents = [calendar &lt;span class=&quot;s2&quot;&gt;components&lt;/span&gt;:unitFlags &lt;span class=&quot;s2&quot;&gt;fromDate&lt;/span&gt;:date];&lt;/p&gt;
+&lt;p class=&quot;p3&quot;&gt;&lt;span class=&quot;s3&quot;&gt;NSInteger&lt;/span&gt; year = [dateComponents &lt;span class=&quot;s2&quot;&gt;year&lt;/span&gt;];&lt;/p&gt;
+&lt;p class=&quot;p3&quot;&gt;&lt;span class=&quot;s3&quot;&gt;NSInteger&lt;/span&gt; month = [dateComponents &lt;span class=&quot;s2&quot;&gt;month&lt;/span&gt;];&lt;/p&gt;
+&lt;p class=&quot;p3&quot;&gt;&lt;span class=&quot;s3&quot;&gt;NSInteger&lt;/span&gt; week = [dateComponents &lt;span class=&quot;s2&quot;&gt;week&lt;/span&gt;];&lt;/p&gt;
+&lt;p class=&quot;p3&quot;&gt;&lt;span class=&quot;s3&quot;&gt;NSInteger&lt;/span&gt; day = [dateComponents &lt;span class=&quot;s2&quot;&gt;day&lt;/span&gt;];&lt;/p&gt;
+&lt;p class=&quot;p3&quot;&gt;&lt;span class=&quot;s3&quot;&gt;NSInteger&lt;/span&gt; hour = [dateComponents &lt;span class=&quot;s2&quot;&gt;hour&lt;/span&gt;];&lt;/p&gt;
+&lt;p class=&quot;p3&quot;&gt;&lt;span class=&quot;s3&quot;&gt;NSInteger&lt;/span&gt; minute = [dateComponents &lt;span class=&quot;s2&quot;&gt;minute&lt;/span&gt;];&lt;/p&gt;
+&lt;p class=&quot;p3&quot;&gt;&lt;span class=&quot;s3&quot;&gt;NSInteger&lt;/span&gt; second = [dateComponents &lt;span class=&quot;s2&quot;&gt;second&lt;/span&gt;];&lt;/p&gt;
+&lt;p class=&quot;p3&quot;&gt;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&amp;#8212;&lt;/p&gt;
+&lt;p&gt;This was copied directly from a &lt;a href=&quot;http://www.dotnetishere.com/post/Objective-C-iOS-get-current-date-time-with-formatted.aspx&quot;&gt;blog post of Murat Yilmaz&lt;/a&gt; &lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>How to change an interface button title from within iOS code</title>
+   <link href="http://keyvanfatehi.github.io/2011/06/08/how-to-change-an-interface-button-title-from-within-ios-code"/>
+   <updated>2011-06-08T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/06/08/how-to-change-an-interface-button-title-from-within-ios-code</id>
+   <content type="html">&lt;p&gt;1) Open your Nib file (.xib) for your view controller.&lt;/p&gt;
+&lt;p&gt;2) Click on the button that you want to be able to change the label for, and from the Utilities panel (Appears on the far right when you enable it in Xcode view) and go to the connections section.&lt;/p&gt;
+&lt;p&gt;3) You probably already have a connection (Touch Up Inside or something else) to some method in your File&amp;#8217;s Owner (Your controller class). In order to be able to access the attributes of the button itself from within the class, &lt;strong&gt;we need to make a new Referencing Outlet to this button&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;To create a new referencing outlet for this button, click inside the circle for &amp;#8220;New Referencing Outlet&amp;#8221; and drag (connect) to your controller&amp;#8217;s header file. Give it a name, like myButton.&lt;/p&gt;
+&lt;p&gt;Congratulations! You can now access and potentially modify the attributes of your button from within your iOS program.&lt;/p&gt;
+&lt;p&gt;4) You can now make use of the following source code, to change the button title (when an action is hit, for example):&lt;/p&gt;
+&lt;p&gt;[myButton setTitle:@&amp;#8221;New Label&amp;#8221; forState:UIControlStateNormal];&lt;/p&gt;
+&lt;p&gt;There are other UIControl states that you can use, but this was sufficient for me.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Upgraded to Xcode 4: Could not insert new outlet ...</title>
+   <link href="http://keyvanfatehi.github.io/2011/06/07/upgraded-to-xcode-4-could-not-insert-new-outlet-"/>
+   <updated>2011-06-07T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/06/07/upgraded-to-xcode-4-could-not-insert-new-outlet-</id>
+   <content type="html">&lt;p&gt;Are you following along on Apple&amp;#8217;s &amp;#8220;Your First iOS Application&amp;#8221; guide, found &lt;a title=&quot;iOS Developer Library: Your First iOS Application&quot; target=&quot;_blank&quot; href=&quot;http://developer.apple.com/library/ios/#documentation/iPhone/Conceptual/iPhone101/Articles/05_ConfiguringView.html&quot;&gt;here&lt;/a&gt;&amp;#160;?&lt;/p&gt;
+&lt;p&gt;Did you upgrade to Xcode 4 mid way? Now when you try to create an outlet, and it says it &amp;#8220;could not insert new outlet&amp;#8221; in scary red letters; something about not know what class you are looking for.&lt;/p&gt;
+&lt;p&gt;But&amp;#8230; my application builds! What the hell?&lt;/p&gt;
+&lt;p&gt;Confusing, yes, but this worked for me:&lt;/p&gt;
+&lt;p&gt;1) Go to your helloWorldAppDelegate.m file&lt;/p&gt;
+&lt;p&gt;2) You&amp;#8217;ll see this code:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;@synthesize myViewController;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;or you might see&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;@synthesize myViewController=_myViewController;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;3) If it is like the first example, change it to look like the 2nd one. If it is like the 2nd one, change it to look like the first.&lt;/p&gt;
+&lt;p&gt;4) Make sure the memory release is correct in your dealloc method at the bottom of the same file. If you changed the @synthesize to look like the 2nd example, make sure the release looks as such:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[_myViewController release];&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And vice versa.&lt;/p&gt;
+&lt;p&gt;5) Build, simulate. If it works, try making the connection again from your nib file to your header file. At this point it worked for me.&lt;/p&gt;
+&lt;p&gt;Oddly enough, once it worked, I was able to reverse the changes in the helloWordAppDelegate.m file without any problems. Clearly this was just a bug in transitioning from Xcode 3 to Xcode 4.&lt;/p&gt;
+&lt;p&gt;Keep in mind that the two different ways of synthesizing that class variable is simply a matter of stylistic concern. In the earlier pages of the guide, it is explained that the underscore in _myViewController is to &amp;#8220;remind you that you&amp;#8217;re not supposed to access class variables directly &amp;#8220;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>How to add a framework to your project in Xcode 4</title>
+   <link href="http://keyvanfatehi.github.io/2011/06/07/how-to-add-a-framework-to-your-project-in-xcode-4"/>
+   <updated>2011-06-07T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/06/07/how-to-add-a-framework-to-your-project-in-xcode-4</id>
+   <content type="html">&lt;p&gt;When I googled for this, I got false information &amp;#8212; so here is how you do it:&lt;/p&gt;
+&lt;p&gt;1) First click the Blue Xcode icon signifying your project on the lefthand navigation pane.&lt;/p&gt;
+&lt;p&gt;Confused? The highlighted thing: &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://f.cl.ly/items/0G1j2K2O1w1d462j2s17/Screen%20shot%202011-06-07%20at%204.19.46%20AM.png&quot; width=&quot;383&quot; height=&quot;292&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;2) Now look right, to the next pane. Make sure the project name under TARGETS is selected, not PROJECTS.&lt;/p&gt;
+&lt;p&gt;Looks like this: &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://f.cl.ly/items/3x3i0K440h1j0W0O3v1F/Screen%20shot%202011-06-07%20at%204.21.40%20AM.png&quot; width=&quot;425&quot; height=&quot;334&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;3) Next pane on the right, you&amp;#8217;ll see a few things at the top, &amp;#8220;Summary&amp;#8221;, &amp;#8220;Info&amp;#8221;, &amp;#8220;Build Settings&amp;#8221;, &amp;#8220;Build Phases&amp;#8221;, &amp;#8220;Build Rules&amp;#8221; &amp;#8230; You want to click on &lt;strong&gt;Build Phases&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;You will see a few expandable sections now.&lt;/p&gt;
+&lt;p&gt;4) Expand the section labeled &lt;strong&gt;Link Binary With Libraries&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You should now be seeing something that looks like this:&lt;/p&gt;
+&lt;p&gt;&lt;img height=&quot;425&quot; width=&quot;614&quot; src=&quot;http://f.cl.ly/items/3B1c042p1R3q0q3f3s1L/Screen%20shot%202011-06-07%20at%204.36.55%20AM.png&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;5) Click the + button at the bottom-left of that &lt;strong&gt;Link Binary With Libraries &lt;/strong&gt;section&lt;/p&gt;
+&lt;p&gt;Select the library you want, for example, AVFoundation.framework and click &lt;strong&gt;Add&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;You&amp;#8217;ll notice the library/framework has appeared in your navigation pane at the left.&lt;/p&gt;
+&lt;p&gt;You can go ahead and drag that into the Frameworks folder.&lt;/p&gt;
+&lt;p&gt;6) In order to utilize the framework, you will need to &lt;em&gt;#import&lt;/em&gt; it into your source code.&lt;/p&gt;
+&lt;p&gt;For AVFoundation.framework, I simply put the following line in my main.m, right under the existing &lt;em&gt;#import&lt;/em&gt; for UIKit&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;#import &amp;lt;AVFoundation/AVFoundation.h&amp;gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And that worked for me.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Learning iOS Development for Free</title>
+   <link href="http://keyvanfatehi.github.io/2011/06/06/learning-ios-development-for-free"/>
+   <updated>2011-06-06T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2011/06/06/learning-ios-development-for-free</id>
+   <content type="html">&lt;a href=&quot;http://mahipal.org/post/3456857242&quot;&gt;Learning iOS Development for Free&lt;/a&gt;&lt;br/&gt;&lt;p&gt;There are a lot of great lectures on learning iOS development on the iTunesU network free for download. But it&amp;#8217;s slow going and I&amp;#8217;d rather code than watch lectures about it.&lt;/p&gt;
+&lt;p&gt;This guy has a bunch of links and this is where I&amp;#8217;ve started a few days ago with iOS.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://mahipal.org/post/3456857242&quot;&gt;mahipal&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Can you recommend a good book for getting started with Objective-C?”&lt;/p&gt;
+&lt;p&gt;I get this question a lot, but there’s no need to spend any money or even to spend time digesting an entire book. I always point people to the Apple docs — the documentation is very modular and (mostly) very reliable.&lt;/p&gt;
+&lt;p&gt;But the&amp;#8230;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+ </entry>
+ 
+ 
+</feed>

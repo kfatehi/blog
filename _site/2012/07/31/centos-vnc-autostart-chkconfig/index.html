@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CentOS VNC Autostart (chkconfig)</title>
+    
+    <meta name="author" content="Keyvan Fatehi">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">Keyvan's Log</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>CentOS VNC Autostart (chkconfig) </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>31 July 2012</span>
+    </div>
+    <div class="content">
+      <p>Ensure the VNC server (the daemon or server process) is set to autorun on system boots to your runlevel. For example,</p>
+
+<p><code>chkconfig ––list | grep vnc</code></p>
+
+<p>Which returns output like this</p>
+
+<p><code>vncserver 0:off 1:off 2:off 3:off 4:off 5:on 6:off</code></p>
+
+<p>The ––list option of chkconfig shows VNC server is set to auto run in Linux runlevel 5 (the default multi-user runlevel with Linux Desktop console). To configure VNC server to auto run when Linux boots into runlevel 5, use the ––level with on option switch:</p>
+
+<p><code>chkconfig --level 5 vncserver on</code></p>
+
+<p>To check if this configuration works, you can reboot the computer</p>
+
+<p><code>shutdown -r now</code></p>
+
+<p>Tested and worked: April 20, 2010 on Red Hat Enterprise Linux 5.3 and CentOS 5.4 and today July 31, 2012 on CentOS 6.3</p>
+
+    </div>
+
+    
+
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2012/07/25/example-rails-env-setup-on-vagrant-vagrantup" title="Example rails env setup on vagrant (vagrantup)">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/2012/07/31/zlib-error-on-gem-install-on-debian-squeeze" title="zlib error on gem install on Debian Squeeze">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2013 Keyvan Fatehi
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+<link rel="stylesheet" href="/assets/css/pygments.css">

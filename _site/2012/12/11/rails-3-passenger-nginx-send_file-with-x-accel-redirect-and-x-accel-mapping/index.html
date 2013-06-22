@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Rails 3 Passenger Nginx send_file with X-Accel-Redirect and X-Accel-Mapping</title>
+    
+    <meta name="author" content="Keyvan Fatehi">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">Keyvan's Log</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Rails 3 Passenger Nginx send_file with X-Accel-Redirect and X-Accel-Mapping </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>11 December 2012</span>
+    </div>
+    <div class="content">
+      <p>After a lot of searching as to why range headers were not working despite thinking that I had X-Accel-Redirect configured properly, I realized that I was missing something in my nginx config and so send_file was still sending via rails rather than nginx, causing range headers to fail.</p>
+
+<p>In order to fix this, I had to add a bit more to my nginx config:</p>
+
+<pre>
+    server {
+      listen 80;
+      server_name example.com;
+      root /home/keyvan/example_app/public;
+      passenger_enabled on;
+      passenger_set_cgi_param HTTP_X_ACCEL_MAPPING /=/sec/;
+      passenger_pass_header X-Accel-Redirect;
+
+      location /sec/ {
+        alias /;
+        internal;
+      }
+    }
+</pre>
+
+<p>Now it works!</p>
+
+<hr><p><a href="http://stackoverflow.com/questions/6237016/message-x-accel-mapping-header-missing-in-nginx-error-log">http://stackoverflow.com/questions/6237016/message-x-accel-mapping-header-missing-in-nginx-error-log</a>
+<a href="http://airbladesoftware.com/notes/rails-nginx-x-accel-mapping">http://airbladesoftware.com/notes/rails-nginx-x-accel-mapping</a></p>
+
+    </div>
+
+    
+
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2012/11/02/explain-the-concept-of-a-ruby-gem-ruby-on-freenode" title="Explain the concept of a ruby gem (#ruby on Freenode)">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/2013/02/24/source" title="Source: ">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2013 Keyvan Fatehi
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+<link rel="stylesheet" href="/assets/css/pygments.css">

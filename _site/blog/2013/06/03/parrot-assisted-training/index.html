@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Parrot Assisted Training</title>
+    
+    <meta name="author" content="Keyvan Fatehi">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">Keyvan's Log</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Parrot Assisted Training </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>03 June 2013</span>
+    </div>
+    <div class="content">
+      <h1 id='paratrain'>PARATRAIN</h1>
+
+<p>Paratrain is a new app I&#8217;m developing for audio, language, and animal research. It stands for something along the lines of parrot-assist training,</p>
+
+<h2 id='artificial_intelligence'>Artificial Intelligence</h2>
+
+<h3 id='carrot'>CARROT</h3>
+
+<p>In Chicago last week I purchased CARROT on the Apple App Store while in line for Shedd Aquarium. Animals, ooh, I forgot all about them while developing software all the time. My legs fucking hurt too until the final Day there wherein my muscles finally remembered they can regenerate.</p>
+
+<p>Food and drugs doesn&#8217;t fix long-term atrophy, exercise is necessary. Some people get dogs, like my older brother, which makes him more be more active.</p>
+
+<p>One could assert by this that this is a <strong>use case</strong> for having a kid <em>oof</em> i mean pet.</p>
+
+<p>It is a selfish reason, but a reason no less.</p>
+
+<h3 id='paratrain'>PARATRAIN</h3>
+
+<p>This is <a href='https://github.com/keyvanfatehi/paratrain'>my accidental AI project</a>&#8230; (the rapidly iterative README as of today)</p>
+
+<h4 id='paratrain_readme'>Paratrain README</h4>
+
+<h2 id='paratrain'>Paratrain</h2>
+
+<ol>
+<li>Purchase Paratrain from the Apple App Store</li>
+
+<li>Make sure you&#8217;re connected to wifi and have a lot of battery</li>
+
+<li>Open the app and create a profile for the learner</li>
+
+<li>Setup some options in the the profile and enable the algorithm</li>
+
+<li>Ensure the iphone and the learner are within earshot of each other.</li>
+
+<li>Optionally set up a 2nd screen to provide visual data for the learner (See the API by version 1)</li>
+
+<li>Optionally place wireless nodes around for the learner to activate. Custom-configuration possible. (See the API by version 2)</li>
+
+<li>Optionally enable camera and the &#8220;Paratrainer&#8221; for strategies of increased awareness between learner and AI (See the API by version 3) * The paratrainer avatar can be invoked remotely by you (See facially emotive API by version 4)</li>
+</ol>
+
+<p>I don&#8217;t expect anything like Version 4 for at least another 3 years.</p>
+
+<p>I intend to complete Version 1 by the end of June. The rest is futurestory, or as I like to call them, user stories&#8230;</p>
+
+<h2 id='paratrain_ai_subsystems'>Paratrain AI Subsystems</h2>
+
+<h1 id='system_1_listening_mode'>System 1 Listening Mode</h1>
+
+<p>System 1 can be toggled on or off. It&#8217;s Paratrain&#8217;s &#8220;Listening Mode&#8221;. This is how it affects Paratrain&#8217;s behavior:</p>
+
+<pre><code>It collect words the that it &quot;hears&quot;.
+When it hears a new word, it will verify that it&#39;s a word by converting the audio to text.
+  consider the confidence of the conversion
+  unconfident? then forget it
+  confident? then do this:
+    consider whether we&#39;ve heard this word before
+    we have?
+      take note that we just heard this word again.
+      store this unique utterance (Word has_many Utterances)
+    we haven&#39;t?
+      fetch media for the word (definitions, thesaurus, audio, images, video)
+      store all this in the database
+    Check if System 2 is enabled, if so, notify it that we&#39;ve just now heard this word [id] for the [count] time
+  not sure?
+    store it in the app, let the user choose to:
+      * listen to the sample
+      * convert it to text manually and save with that audio
+      * adjust the confidence threshold</code></pre>
+
+<p>System 1 will start to be implemented once <a href='https://github.com/keyvanfatehi/paratrain/issues/6'>#6</a> is complete.</p>
+
+<h2 id='system_2_learning_mode'>System 2 Learning Mode</h2>
+
+<p>Responsible for matters related to the exposure of the iphone&#8217;s existence to the learner.</p>
+
+<h3 id='engagement'>Engagement</h3>
+
+<p>Engagement controls if and how the iphone speaks to nearby listeners There are several aspects of engagement exposed by System 2</p>
+
+<ul>
+<li>persistence 0-100</li>
+
+<li>aggression 0-100</li>
+
+<li>boredom 0-100</li>
+
+<li>rewards</li>
+
+<li>content</li>
+</ul>
+
+<h2 id='second_screen'>Second Screen</h2>
+
+<p>If a second screen is available (Apple TV), the <strong>Visual Association Toggle</strong> becomes available. It works like this:</p>
+
+<h4 id='vatsystem_1'>VAT:System 1</h4>
+
+<pre><code>As someone learning a language
+When my artificial intelligence hears a word
+In order that I be more likely to learn the word
+I prefer an associative visual element appear onscreen</code></pre>
+
+<h4 id='vatsystem_2'>VAT:System 2</h4>
+
+<pre><code>As someone learning a language
+When I am engaged by my artificial intelligence
+In order that I be more likely to learn the word
+I prefer an associative visual element appear onscreen</code></pre>
+<hr />
+<h1 id='goal'>Goal</h1>
+
+<p>Design a system good enough to teach an African Grey parrot at least 500 words before the age of 6, without inflicting emotional damage.</p>
+
+<p>If successful, it can be used for small children, and eventually turn into an effective &#8220;knowledge download&#8221; tool. Might as well dream big; but it&#8217;s mainly to distract me from immediately buying a Grey before I&#8217;m really ready.</p>
+
+<h2 id='no_impulsebuy'>No impulse-buy</h2>
+
+<p>Only a few days ago, my brother suggested I get a parrot. I didn&#8217;t speak or think of parrots for maybe 7 years; It was something I could just never have, and so put away mentally &#8230; too expensive &#8230; with luck, becoming a competent developer has allowed me to break that financial barrier.</p>
+
+<blockquote>
+<p>Resisting the impulse buy the African Grey is hard, but it&#8217;s a huge responsibility &#8211; I am older and the facts of the matters make resistance easy</p>
+
+<p>I always wanted a parrot as a kid, but needed to wait until I knew I could take care of it correctly (and afford one). I&#8217;ve had pets that died, and as a small kid, it can be traumatic. Failing to train a Grey well would be almost criminal.</p>
+
+<p>I&#8217;m 24 and I feel like this parrot thing is now is making me face it, and the other big questions, all at once.</p>
+</blockquote>
+
+<p>This was a small thing for him, I think, but for me it begins to feel as though it has stirred up a great spirit that been asleep inside me. All this time I&#8217;ve been secluding myself, perhaps buried under a lot of old guilt from the pets that I&#8217;ve had that have died &#8212; not getting any more pets so as not to &#8220;kill it again&#8221;. Perhaps this is one of those latent and hard-to-understand better-to-avoid reasons I am so keen to remain single&#8230; err&#8230;</p>
+
+<p>Uhm, in any case: I have a long history with avians and would rather get the bird when I have a house, to build a proper aviary again.</p>
+
+<p>But I can start <a href='https://github.com/keyvanfatehi/paratrain'>developing software</a> and <a href='https://github.com/keyvanfatehi/paratrain/issues/5'>doing research</a>. It has proven fruitful so far.</p>
+
+<p>I feel that <strong>buying the parrot right now would be a big mistake</strong></p>
+
+<p>The matured scientist in me is eagerly awaiting pending discoveries into learning and intelligence &#8230; and wants to ensure readiness &#8230; once this turns into design, and then <em>implementation</em>, I am ready.</p>
+
+<h1 id='caged_bird'>Caged Bird</h1>
+
+<p>I will be waiting until the software <em>AND</em> hardware is ready. I need an indoor cage. I&#8217;m opting not to build it with wood as I did for the doves I owned as a small child (these pets created life&#8230; they are not a memory of death like some later animals I had; but one of but birth and life; contentment and prosperity)</p>
+
+<p>Consequently, software and hardware for a parrot equates to massive amounts of learning by the undertaker <span>me</span>.</p>
+
+<h2 id='3d_printer__solidworks__technique___habitat_'>3d Printer + Solidworks + Technique &#8230; = Habitat ?</h2>
+
+<p>My <a href='http://pirate3d.com/'>Pirate3d 3d Printer, the Buccaneer</a>, arrives in Dec 2013.</p>
+
+<p>Now I have a real reason to properly learn <strong>SOLIDWORKS</strong> again.</p>
+
+<p>I need a chop-up-big-stuff algorithm for this. I am looking into <span>aluminum</span> extrusion/profile interlock systems for this.</p>
+
+<h2 id='space_i_see_you_baby'>Space, I see you baby</h2>
+
+<p>All I need to do now is ensure I learn electronics too and perhaps my Space 2022 ambitions will indeed become true on time.</p>
+
+<p>If something like paratrain can be pulled off as quickly as it looks, then building the micro-agriculture systems I&#8217;ve envisioned should be less sweat too.</p>
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#blog-ref">
+    		blog <span>10</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#parrot-ref">parrot <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#ai-ref">ai <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#paratrain-ref">paratrain <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#ios-ref">ios <span>7</span></a></li>
+     
+    	<li><a href="/tags.html#objective-c-ref">objective-c <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#audio queue services-ref">audio queue services <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#3d printing-ref">3d printing <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/blog/2013/06/03/bountysource" title="Bountysource">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/blog/2013/06/17/leaderless" title="Leaderless">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2013 Keyvan Fatehi
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+<link rel="stylesheet" href="/assets/css/pygments.css">
