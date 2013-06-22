@@ -4,7 +4,7 @@
  <title>Keyvan's Log</title>
  <link href="http://keyvanfatehi.github.io/" rel="self"/>
  <link href="http://keyvanfatehi.github.io"/>
- <updated>2013-06-22T03:21:17-07:00</updated>
+ <updated>2013-06-22T03:25:46-07:00</updated>
  <id>http://keyvanfatehi.github.io</id>
  <author>
    <name>Keyvan Fatehi</name>
@@ -67,12 +67,7 @@ Dump all activity (images, video, events) into ES/MD w/ odata&lt;/code&gt;&lt;/p
 &lt;p&gt;Fun Links:&lt;/p&gt;
 
 &lt;p&gt;&lt;a href='http://services.odata.org/ODataAPIExplorer/ODataAPIExplorer.html'&gt;OData API Explorer&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;iframe width=&amp;quot;560&amp;quot; 
-        height=&amp;quot;315&amp;quot; 
-        src=&amp;quot;http://www.youtube.com/embed/XfIU9DqPTl8&amp;quot;
-        frameborder=&amp;quot;0&amp;quot; allowfullscreen&amp;gt;
-&amp;lt;/iframe&amp;gt;&lt;/code&gt;&lt;/pre&gt;</content>
+&lt;iframe height='315' src='http://www.youtube.com/embed/XfIU9DqPTl8' width='560' /&gt;</content>
  </entry>
  
  <entry>
