@@ -1,5 +1,5 @@
 ---
-title: 'How to build a telescope server'
+title: 'How to build a telescope service'
 layout: post
 category : blog
 tags : ['song', 'telescope', 'ai', 'cameras']

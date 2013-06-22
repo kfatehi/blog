@@ -5,13 +5,13 @@
         <description>Keyvan's Log - Keyvan Fatehi</description>
         <link>http://keyvanfatehi.github.io</link>
         <link>http://keyvanfatehi.github.io</link>
-        <lastBuildDate>2013-06-22T03:10:07-07:00</lastBuildDate>
-        <pubDate>2013-06-22T03:10:07-07:00</pubDate>
+        <lastBuildDate>2013-06-22T03:21:17-07:00</lastBuildDate>
+        <pubDate>2013-06-22T03:21:17-07:00</pubDate>
         <ttl>1800</ttl>
 
 
         <item>
-                <title>How to build a telescope server</title>
+                <title>How to build a telescope service</title>
                 <description>&lt;p&gt;Wish you collected more cool data? Want to bring proper streaming telescope services to the masses from inside the browser? It&amp;#8217;s due time we get this right, by building the first well-done telescope service.&lt;/p&gt;
 
 &lt;p&gt;Here&amp;#8217;s how you might do it:&lt;/p&gt;
@@ -62,9 +62,14 @@ Dump all activity (images, video, events) into ES/MD w/ odata&lt;/code&gt;&lt;/p
 &lt;p&gt;Fun Links:&lt;/p&gt;
 
 &lt;p&gt;&lt;a href='http://services.odata.org/ODataAPIExplorer/ODataAPIExplorer.html'&gt;OData API Explorer&lt;/a&gt;&lt;/p&gt;
-&lt;iframe height='420' src='http://www.youtube.com/embed/XfIU9DqPTl8' width='560' /&gt;</description>
-                <link>http://keyvanfatehi.github.io/blog/2013/06/22/break-down</link>
-                <guid>http://keyvanfatehi.github.io/blog/2013/06/22/break-down</guid>
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;iframe width=&amp;quot;560&amp;quot; 
+        height=&amp;quot;315&amp;quot; 
+        src=&amp;quot;http://www.youtube.com/embed/XfIU9DqPTl8&amp;quot;
+        frameborder=&amp;quot;0&amp;quot; allowfullscreen&amp;gt;
+&amp;lt;/iframe&amp;gt;&lt;/code&gt;&lt;/pre&gt;</description>
+                <link>http://keyvanfatehi.github.io/blog/2013/06/22/how-to-build-a-telescope-service</link>
+                <guid>http://keyvanfatehi.github.io/blog/2013/06/22/how-to-build-a-telescope-service</guid>
                 <pubDate>2013-06-22T00:00:00-07:00</pubDate>
         </item>
 
