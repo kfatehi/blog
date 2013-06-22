@@ -4,13 +4,7 @@ title: "JBOD"
 tagline: "Just a Bunch of Documents"
 ---
 {% include JB/setup %}
-
-Hi I'm Keyvan
-
-I'm a software developer working with [motion picture experts](http://digitalfilmtree.com), living in Los Angeles.
-I appear to be writing ruby and coffeescript the most, with objective-c close in third.
-
-When in doubt, you'll probably know firstly if I'm still alive by checking my [github](https://github.com/keyvanfatehi)
+{% include cleverbot.html %}
 
 <script>
 // I'm being silly :3
@@ -34,12 +28,28 @@ function toggle_more(el) {
     el.style.display = 'none';
   }
 }
+
+function poke() {
+  document.getElementById('bio').style.display = 'block';
+  setTimeout(function(){
+    this.onclick = function(){
+      alert('what?');
+    }
+  }, 500)
+}
 </script>
 
-<a id="toggle" href="#" onclick="toggle_more(this)">contact</a>
-<pre id="more" style="display:none">
-</pre>
 
+<a href="#" onclick="poke(this)">Keyvan</a>
+<div id="bio" style="display:none">
+  I'm a software developer working with <a href="http://digitalfilmtree.com">motion picture experts</a> and living in Los Angeles.
+  I appear to be writing ruby and coffeescript the most, with objective-c close in third.
+
+  When in doubt, you'll probably know firstly if I'm still alive by checking my <a href="https://github.com/keyvanfatehi">github</a>
+  <a href="#" onclick="toggle_more(this)">contact</a>
+  <pre id="more" style="display:none">
+  </pre>
+</div>
 ---
 
 The purpose of this blog site is threefold:
@@ -50,3 +60,16 @@ The purpose of this blog site is threefold:
 ---
 
 For more of a .NET twist, try [http://www.netaddict.co.za/](http://www.netaddict.co.za/)
+
+{% assign post = site.posts.first %}
+
+---
+<center>
+  <b>The newest post is beneath and was created on {{ post.date | date_to_long_string}}</b>
+</center>
+---
+
+<div class="blog-index">  
+  {% assign content = post.content %}
+  {% include post_detail.html %}
+</div>

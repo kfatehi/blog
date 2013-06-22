@@ -111,12 +111,7 @@
 
 <div class="row-fluid">
   <div class="span12">
-    <p>Hi I&#8217;m Keyvan</p>
-
-<p>I&#8217;m a software developer working with <a href='http://digitalfilmtree.com'>motion picture experts</a>, living in Los Angeles. I appear to be writing ruby and coffeescript the most, with objective-c close in third.</p>
-
-<p>When in doubt, you&#8217;ll probably know firstly if I&#8217;m still alive by checking my <a href='https://github.com/keyvanfatehi'>github</a></p>
-<script>
+    <script>
 // I'm being silly :3
 info = "p"+"h"+"o"+"n"+"e"+":"+" "+"["+"1"+"]"+"-"+"["+"7"+"2"+"7"+"]"+"-"+"["+"7"+"5"+"3"+"]"+"-"+"["+"9"+"8"+"2"+"6"+"]";
 info += "\n"+"e"+"m"+"a"+"i"+"l"+":"+" "+"k"+"e"+"y"+"v"+"a"+"n"+"f"+"a"+"t"+"e"+"h"+"i"+"@"+"g"+"m"+"a"+"i"+"l"+"."+"c"+"o"+"m";
@@ -138,8 +133,24 @@ function toggle_more(el) {
     el.style.display = 'none';
   }
 }
-</script><a href='#' id='toggle' onclick='toggle_more(this)'>contact</a><pre id='more' style='display:none'>
-</pre><hr />
+
+function poke() {
+  document.getElementById('bio').style.display = 'block';
+  setTimeout(function(){
+    this.onclick = function(){
+      alert('what?');
+    }
+  }, 500)
+}
+</script><a href='#' onclick='poke(this)'>Keyvan</a><div id='bio' style='display:none'>
+  I'm a software developer working with <a href='http://digitalfilmtree.com'>motion picture experts</a> and living in Los Angeles.
+  I appear to be writing ruby and coffeescript the most, with objective-c close in third.
+
+  When in doubt, you'll probably know firstly if I'm still alive by checking my <a href='https://github.com/keyvanfatehi'>github</a>
+  <a href='#' onclick='toggle_more(this)'>contact</a>
+  <pre id='more' style='display:none'>
+  </pre>
+</div><hr />
 <p>The purpose of this blog site is threefold:</p>
 
 <ul>
@@ -151,6 +162,67 @@ function toggle_more(el) {
 </ul>
 <hr />
 <p>For more of a .NET twist, try <a href='http://www.netaddict.co.za/'>http://www.netaddict.co.za/</a></p>
+<hr /><center>
+  <b>The newest post is beneath and was created on 22 June 2013</b>
+</center><hr /><div class='blog-index'>  
+  
+  <h1 class='entry-title'>
+
+    <a href='/blog/2013/06/22/how-to-build-a-telescope-service'>How to build a telescope service</a>
+
+</h1>
+<div class='entry-content'><p>Wish you collected more cool data? Want to bring proper streaming telescope services to the masses from inside the browser? It&#8217;s due time we get this right, by building the first well-done telescope service.</p>
+
+<p>Here&#8217;s how you might do it:</p>
+
+<h2 id='hardware'>Hardware</h2>
+
+<p>Buy a good telescope</p>
+
+<ul>
+<li><a href='http://www.celestron.com/astronomy/series/advanced-series-gt-computerized-telescopes/'>Must have GoTo feature</a></li>
+
+<li><a href='http://www.celestron.com/astronomy/celestron-nexstar-5se.html'>Something about nexstar?</a> Not sure, see github repo link below.</li>
+</ul>
+
+<p>Mount on a high-altitude home in the Hollywood Hills (avoid smog and light pollution) with a high speed connection</p>
+
+<p>Attach telescope lens to android device at the camera <a href='http://www.htc.com/us/smartphones/htc-one/?PS=1&amp;cid=sem157p174347&amp;gclid=COf2jK2u97cCFRHhQgodhwoAGg'>HTC One</a></p>
+
+<p>I would recommend designing this in solidworks and printing the mount for the best results.</p>
+
+<p>Use a Raspberry Pi the basis of your compute platform.</p>
+
+<p>Design and supply over USB an API to the weather protector</p>
+
+<p>Suppply over USB ambient temperature and weather sensor data</p>
+
+<h2 id='software'>Software</h2>
+
+<p>Setup https://github.com/fcsonline/node-telescope-server</p>
+
+<p>Build a IRC-like single-operator chatroom system</p>
+
+<p>Implement (port?) <a href='http://www.stellarium.org/'>Stellarium</a>-like system in the browser.</p>
+
+<p>Display camera live feed.</p>
+
+<p>Allow capture of the Android camera&#8217;s feed to LocalStorage.</p>
+
+<p>Allow operators to implement and run scripts from the web browser, a la:</p>
+
+<pre><code>Keep a video running with a high speed camera sensor
+Constantly adjust focus to detect movers
+When detected, focus in on the mover and follow it
+Repeat
+
+Dump all activity (images, video, events) into ES/MD w/ odata</code></pre>
+
+<p>Fun Links:</p>
+
+<p><a href='http://services.odata.org/ODataAPIExplorer/ODataAPIExplorer.html'>OData API Explorer</a></p>
+<iframe height='315' src='http://www.youtube.com/embed/XfIU9DqPTl8' width='560' /></div>
+</div>
   </div>
 </div>
 
