@@ -5,10 +5,58 @@
         <description>Keyvan's Log - Keyvan Fatehi</description>
         <link>http://keyvanfatehi.github.io</link>
         <link>http://keyvanfatehi.github.io</link>
-        <lastBuildDate>2013-06-22T03:58:38-07:00</lastBuildDate>
-        <pubDate>2013-06-22T03:58:38-07:00</pubDate>
+        <lastBuildDate>2013-07-03T22:28:11-07:00</lastBuildDate>
+        <pubDate>2013-07-03T22:28:11-07:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Influenceometer</title>
+                <description>&lt;p&gt;Are you still influenced by this person? How much? Engagement platform. Platform API Interchange =&amp;gt; MD/DB&lt;/p&gt;
+
+&lt;h2 id='links'&gt;Links&lt;/h2&gt;
+
+&lt;p&gt;http://themyndset.com/2013/04/sphere-of-influence-influential-topic/ https://www.google.com/search?q=kred+api https://www.google.com/search?q=klout+api https://www.google.com/search?q=peerindex+api&lt;/p&gt;</description>
+                <link>http://keyvanfatehi.github.io/apps/2013/07/03/influenceometer</link>
+                <guid>http://keyvanfatehi.github.io/apps/2013/07/03/influenceometer</guid>
+                <pubDate>2013-07-03T00:00:00-07:00</pubDate>
+        </item>
+
+        <item>
+                <title>Lobbyist</title>
+                <description>&lt;p&gt;Developed while watching Netflix documentary &amp;#8220;Park Avenue: Money, Power and the American Dream&amp;#8221; 2012&lt;/p&gt;
+
+&lt;p&gt;It appears evident that the US government does not work as the 70&amp;#8217;s cartoon character, Bill, would have you think.&lt;/p&gt;
+
+&lt;p&gt;Corporations, through the tool used by lobbyists (campaign donations) buy the direction of our great nation in ways evidenced by the manifestation of all the shit in our planet and the correlative, progressive worsening of other aspects of our society.&lt;/p&gt;
+
+&lt;p&gt;This bill serves hereunto for the purpose of implementing a grand transparent design of the above processes.&lt;/p&gt;
+
+&lt;p&gt;In this way, we will better understand at a higher level of intelligence, the patterns of destruction such that we can have constructive, forward-moving progress in their adjustment towards a better future.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='ruby'&gt;&lt;span class='n'&gt;describe&lt;/span&gt; &lt;span class='no'&gt;Lobbyist&lt;/span&gt; &lt;span class='k'&gt;do&lt;/span&gt;
+  &lt;span class='n'&gt;it&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;influences politicians&amp;quot;&lt;/span&gt; &lt;span class='k'&gt;do&lt;/span&gt;
+    &lt;span class='n'&gt;politician&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;lobbied_by&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;lobbyist&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;should_cause&lt;/span&gt; &lt;span class='n'&gt;politicion&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;to_be&lt;/span&gt; &lt;span class='ss'&gt;:influenced&lt;/span&gt;
+  &lt;span class='k'&gt;end&lt;/span&gt;
+&lt;span class='k'&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='gherkin'&gt;&lt;span class='k'&gt;Given &lt;/span&gt;&lt;span class='nf'&gt;that I am a lobbyist&lt;/span&gt;
+&lt;span class='k'&gt;When &lt;/span&gt;&lt;span class='nf'&gt;I lobby a politician&lt;/span&gt;
+&lt;span class='k'&gt;And &lt;/span&gt;&lt;span class='nf'&gt;I succeeded in lobbying the politican&lt;/span&gt;
+&lt;span class='k'&gt;Then &lt;/span&gt;&lt;span class='nf'&gt;I get a bigger payout&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='gherkin'&gt;&lt;span class='k'&gt;Given &lt;/span&gt;&lt;span class='nf'&gt;that I am a&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Presidents are politicans.&lt;/p&gt;
+
+&lt;p&gt;They talk to the powerful people to get more money. We must make all this so much less tedious and easier to do with technology (apps/mobile/web) that it becomes more transparent and well known.&lt;/p&gt;
+
+&lt;p&gt;It must be a game in order that the players, my fellow Americans, become more aware of the comedic nature of this bold-faced lie we thought of government &amp;#8211; when we learned of this land we were born into, America, as children.&lt;/p&gt;
+
+&lt;h2 id='links'&gt;Links&lt;/h2&gt;
+
+&lt;p&gt;http://www.opensecrets.org/about/ http://www.opensecrets.org/politicians/summary.php?cid=n00001093&lt;/p&gt;</description>
+                <link>http://keyvanfatehi.github.io/apps/2013/07/01/lobbyist</link>
+                <guid>http://keyvanfatehi.github.io/apps/2013/07/01/lobbyist</guid>
+                <pubDate>2013-07-01T00:00:00-07:00</pubDate>
+        </item>
 
         <item>
                 <title>How to build a telescope service</title>

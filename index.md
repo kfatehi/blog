@@ -4,7 +4,6 @@ title: "JBOD"
 tagline: "Just a Bunch of Documents"
 ---
 {% include JB/setup %}
-{% include cleverbot.html %}
 
 <script>
 // I'm being silly :3
