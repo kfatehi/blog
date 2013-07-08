@@ -8,6 +8,7 @@ http://keyvanfatehi.github.io/rss.xml
 http://keyvanfatehi.github.io/sitemap.txt
 http://keyvanfatehi.github.io/tags.html
 
+http://keyvanfatehi.github.io/blog/2013/07/08/rubygems-mirror
 http://keyvanfatehi.github.io/apps/2013/07/03/influenceometer
 http://keyvanfatehi.github.io/apps/2013/07/01/lobbyist
 http://keyvanfatehi.github.io/blog/2013/06/22/how-to-build-a-telescope-service

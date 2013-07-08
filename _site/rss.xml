@@ -5,10 +5,18 @@
         <description>Keyvan's Log - Keyvan Fatehi</description>
         <link>http://keyvanfatehi.github.io</link>
         <link>http://keyvanfatehi.github.io</link>
-        <lastBuildDate>2013-07-03T22:28:11-07:00</lastBuildDate>
-        <pubDate>2013-07-03T22:28:11-07:00</pubDate>
+        <lastBuildDate>2013-07-08T03:51:05-07:00</lastBuildDate>
+        <pubDate>2013-07-08T03:51:05-07:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Rubygems Mirror</title>
+                <description>&lt;p&gt;Now that I have openstack, of course I am setting up a rubygems mirror &amp;#8211; this turned out to be super simple thanks to a StackOverflow answer: http://stackoverflow.com/a/8411230/511621&lt;/p&gt;</description>
+                <link>http://keyvanfatehi.github.io/blog/2013/07/08/rubygems-mirror</link>
+                <guid>http://keyvanfatehi.github.io/blog/2013/07/08/rubygems-mirror</guid>
+                <pubDate>2013-07-08T00:00:00-07:00</pubDate>
+        </item>
 
         <item>
                 <title>Influenceometer</title>
