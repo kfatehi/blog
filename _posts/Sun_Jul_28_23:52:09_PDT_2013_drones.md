@@ -1,0 +1,1 @@
+Some Ruby on a Raspberry Pi jacked into a Parrot AR drone type design + 4G streaming server
