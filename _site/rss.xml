@@ -5,14 +5,16 @@
         <description>Keyvan's Log - Keyvan Fatehi</description>
         <link>http://keyvanfatehi.github.io</link>
         <link>http://keyvanfatehi.github.io</link>
-        <lastBuildDate>2013-07-28T23:55:55-07:00</lastBuildDate>
-        <pubDate>2013-07-28T23:55:55-07:00</pubDate>
+        <lastBuildDate>2013-08-04T02:32:46-07:00</lastBuildDate>
+        <pubDate>2013-08-04T02:32:46-07:00</pubDate>
         <ttl>1800</ttl>
 
 
         <item>
                 <title>Drones</title>
-                <description>&lt;p&gt;Some Ruby on a Raspberry Pi jacked into a Parrot AR drone type design + 4G streaming server&lt;/p&gt;</description>
+                <description>&lt;p&gt;Ruby on RPi on a Parrot AR drone &amp;amp; 4G receiver&lt;/p&gt;
+
+&lt;p&gt;helpful software: https://github.com/nixterrimus/spirit&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/2013/07/28/drones</link>
                 <guid>http://keyvanfatehi.github.io/2013/07/28/drones</guid>
                 <pubDate>2013-07-28T00:00:00-07:00</pubDate>
