@@ -5,10 +5,18 @@
         <description>Keyvan's Log - Keyvan Fatehi</description>
         <link>http://keyvanfatehi.github.io</link>
         <link>http://keyvanfatehi.github.io</link>
-        <lastBuildDate>2013-08-04T02:33:17-07:00</lastBuildDate>
-        <pubDate>2013-08-04T02:33:17-07:00</pubDate>
+        <lastBuildDate>2013-08-05T03:57:26-07:00</lastBuildDate>
+        <pubDate>2013-08-05T03:57:26-07:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Issue Branching Workflow</title>
+                <description>&lt;p&gt;I decided to automate this part of my git workflow. See the &lt;a href='https://gist.github.com/keyvanfatehi/6155048'&gt;gist&lt;/a&gt; for the source.&lt;/p&gt;</description>
+                <link>http://keyvanfatehi.github.io/2013/08/05/issue-branching-workflow</link>
+                <guid>http://keyvanfatehi.github.io/2013/08/05/issue-branching-workflow</guid>
+                <pubDate>2013-08-05T00:00:00-07:00</pubDate>
+        </item>
 
         <item>
                 <title>Drones</title>

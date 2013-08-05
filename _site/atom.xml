@@ -4,13 +4,21 @@
  <title>Keyvan's Log</title>
  <link href="http://keyvanfatehi.github.io/" rel="self"/>
  <link href="http://keyvanfatehi.github.io"/>
- <updated>2013-08-04T02:33:17-07:00</updated>
+ <updated>2013-08-05T03:57:26-07:00</updated>
  <id>http://keyvanfatehi.github.io</id>
  <author>
    <name>Keyvan Fatehi</name>
    <email>keyvanfatehi@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Issue Branching Workflow</title>
+   <link href="http://keyvanfatehi.github.io/2013/08/05/issue-branching-workflow"/>
+   <updated>2013-08-05T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2013/08/05/issue-branching-workflow</id>
+   <content type="html">&lt;p&gt;I decided to automate this part of my git workflow. See the &lt;a href='https://gist.github.com/keyvanfatehi/6155048'&gt;gist&lt;/a&gt; for the source.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Drones</title>
