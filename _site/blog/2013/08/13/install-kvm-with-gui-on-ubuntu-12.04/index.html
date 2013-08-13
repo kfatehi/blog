@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Hello Jekyll Goodbye Tumblr</title>
+    <title>Install Kvm With Gui On Ubuntu 12.04</title>
     
     <meta name="author" content="Keyvan Fatehi">
 
@@ -106,41 +106,22 @@
       <div class="content">
         
 <div class="page-header">
-  <h1>Hello Jekyll Goodbye Tumblr </h1>
+  <h1>Install Kvm With Gui On Ubuntu 12.04 </h1>
 </div>
 
 <div class="row-fluid post-full">
   <div class="span12">
     <div class="date">
-      <span>11 May 2013</span>
+      <span>13 August 2013</span>
     </div>
     <div class="content">
-      <p>Migrating my posts from Tumblr and into Jekyll was not too difficult but I did need to write a little script to make this work.</p>
+      <p>Install KVM:</p>
 
-<p><a href='https://gist.github.com/keyvanfatehi/5562147'>Gist</a></p>
-<div class='highlight'><pre><code class='ruby'><span class='c1'>#!/usr/bin/env ruby</span>
+<p><code>sudo apt-get install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils</code></p>
 
-<span class='nb'>require</span> <span class='s1'>&#39;rubygems&#39;</span>
+<p>Install the graphical interface:</p>
 
-<span class='c1'>##</span>
-<span class='c1'># Monkeypatch to fix the following</span>
-<span class='c1'># tumblr.rb:73</span>
-<span class='c1'>#   content = post.at[&quot;audio-player&quot;] + &quot;&lt;br/&gt;&quot; + post[&quot;audio-caption&quot;]</span>
-<span class='k'>class</span> <span class='nc'>Hash</span>
-  <span class='k'>def</span> <span class='nf'>at</span>
-    <span class='nb'>self</span>
-  <span class='k'>end</span>
-<span class='k'>end</span>
-
-<span class='k'>begin</span>
-  <span class='nb'>require</span> <span class='s1'>&#39;jekyll/jekyll-import/tumblr&#39;</span>
-<span class='k'>rescue</span>
-  <span class='nb'>puts</span> <span class='s2'>&quot;Missing jekyll-import gem. Do this: gem install jekyll-import --pre&quot;</span>
-  <span class='nb'>exit</span> <span class='o'>-</span><span class='mi'>1</span>
-<span class='k'>end</span>
-
-<span class='ss'>JekyllImport</span><span class='p'>:</span><span class='ss'>:Tumblr</span><span class='o'>.</span><span class='n'>process</span><span class='p'>(</span><span class='s2'>&quot;http://slog.keyvanfatehi.com&quot;</span><span class='p'>,</span> <span class='kp'>true</span><span class='p'>)</span>
-</code></pre></div>
+<p><code>sudo apt-get install virt-manager</code></p>
     </div>
 
   
@@ -162,17 +143,33 @@
     </ul>
     
 
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#kvm ubuntu-ref">kvm ubuntu <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
     
 
     <hr>
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/2013/05/08/my-latest-gem-apple_manifest_rails" title="My latest gem: apple_manifest_rails">&larr; Previous</a></li>
+        <li class="prev"><a href="/2013/08/05/issue-branching-workflow" title="Issue Branching Workflow">&larr; Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/blog/2013/05/14/Bellow" title="Bellow (another notification gem)">Next &rarr;</a></li>
+        <li class="next disabled"><a>Next &rarr;</a>
       
       </ul>
     </div>

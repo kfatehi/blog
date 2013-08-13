@@ -8,6 +8,7 @@ http://keyvanfatehi.github.io/rss.xml
 http://keyvanfatehi.github.io/sitemap.txt
 http://keyvanfatehi.github.io/tags.html
 
+http://keyvanfatehi.github.io/blog/2013/08/13/install-kvm-with-gui-on-ubuntu-12.04
 http://keyvanfatehi.github.io/2013/08/05/issue-branching-workflow
 http://keyvanfatehi.github.io/2013/07/28/drones
 http://keyvanfatehi.github.io/blog/2013/07/08/rubygems-mirror

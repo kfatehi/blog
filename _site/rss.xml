@@ -5,10 +5,24 @@
         <description>Keyvan's Log - Keyvan Fatehi</description>
         <link>http://keyvanfatehi.github.io</link>
         <link>http://keyvanfatehi.github.io</link>
-        <lastBuildDate>2013-08-05T03:58:43-07:00</lastBuildDate>
-        <pubDate>2013-08-05T03:58:43-07:00</pubDate>
+        <lastBuildDate>2013-08-13T15:06:07-07:00</lastBuildDate>
+        <pubDate>2013-08-13T15:06:07-07:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Install Kvm With Gui On Ubuntu 12.04</title>
+                <description>&lt;p&gt;Install KVM:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo apt-get install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Install the graphical interface:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo apt-get install virt-manager&lt;/code&gt;&lt;/p&gt;</description>
+                <link>http://keyvanfatehi.github.io/blog/2013/08/13/install-kvm-with-gui-on-ubuntu-12.04</link>
+                <guid>http://keyvanfatehi.github.io/blog/2013/08/13/install-kvm-with-gui-on-ubuntu-12.04</guid>
+                <pubDate>2013-08-13T00:00:00-07:00</pubDate>
+        </item>
 
         <item>
                 <title>Issue Branching Workflow</title>
