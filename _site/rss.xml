@@ -5,10 +5,44 @@
         <description>Keyvan's Log - Keyvan Fatehi</description>
         <link>http://keyvanfatehi.github.io</link>
         <link>http://keyvanfatehi.github.io</link>
-        <lastBuildDate>2013-08-13T15:07:05-07:00</lastBuildDate>
-        <pubDate>2013-08-13T15:07:05-07:00</pubDate>
+        <lastBuildDate>2013-09-06T06:16:15-07:00</lastBuildDate>
+        <pubDate>2013-09-06T06:16:15-07:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Cucumber And Html5 And Microsoft</title>
+                <description>&lt;p&gt;At work we have built a product that is comprised of 3 parts: a backend written in Ruby on Rails, a web interface that is served by rails and uses the rails controllers as usual, and an iOS app that interacts with the Grape API mounted to the Rails app.&lt;/p&gt;
+
+&lt;p&gt;For the purpose of this article, a &amp;#8220;feature file&amp;#8221; describes a feature, written in Gherkin, the start point for behavior driven development using cucumber.&lt;/p&gt;
+
+&lt;p&gt;The rails application, or rather the interactions from the served HTML, have feature files. This makes me feel good because if I would transition to an HTML5 app, separated from the rails controllers, that uses the Grape API just as the iOS app does, the feature file can be taken and placed into a new project (say, one generated with Brunch), and cucumber.js can be used to behavior-drive the remaning functionality with javascript or coffeescript.&lt;/p&gt;
+
+&lt;p&gt;What does this have to do with microsoft? Well it seems like folks are doubtful that microsoft will be able to contend on the mobile marketplace against the Apple and Google platforms. The most common argument I have heard is that &amp;#8220;windows phone doesn&amp;#8217;t have apps&amp;#8221; but if you think about it, neither did iOS or Android at one time.&lt;/p&gt;
+
+&lt;p&gt;Building iOS and Android apps is harder than building an HTML5/Javascript app for many reasons. Developers are impeded on two major, fundamental fronts:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Learning curve (brand new language, low level)&lt;/li&gt;
+
+&lt;li&gt;Platform/SDK/Tools (must be on Mac for iOS, must learn Xcode, must learn android tools)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As technologies like Apache Cordova improve alongside HTML5/CSS3, and the javascript ecosystem becomes richer, prototyping on the web is the obvious choice.&lt;/p&gt;
+
+&lt;p&gt;So back to the project at my work&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;The iOS application had no feature files at all &amp;#8211; it was terrifying for a test-driven developer like me to have to maintain that and manage its developers&amp;#8230; they were like cowboys and you never knew if they would ship with regression. Thanks to our iOS tester we catch most bugs quickly, but the risks are unnecessary.&lt;/p&gt;
+
+&lt;p&gt;Luckily we found Calabash which is based on cucumber and uses the same format for feature files. Some overlap with the web application and work differently, and thus have different steps, but the same feature. However the point is that now these feature files can be extracted and placed into a new application.&lt;/p&gt;
+
+&lt;p&gt;This new application can be purely HTML5/CSS/Javascript and ship to Windows, Mac, iOS, Android, the platform is not relevant as long as the app is written in a responsive manner and has the appropriate bindings to the OS, provided by PhoneGap, Microsoft, Qt, or whatever hackery you&amp;#8217;re doing to deploy your HTML5 app to the target platform.&lt;/p&gt;
+
+&lt;p&gt;In the future this hackery will reduce, and hardware will be exposed directly (e.g. getUserMedia()) in a device-compatible way, and Microsoft is just as relevant as any other. Microsoft will have all the same apps when it costs very little to get onto the platform in the first place &amp;#8211; and for us, it does not cost much to get on Windows and Windows Phone. I imagine other development shops see this too and will also target the Microsoft platform offerings.&lt;/p&gt;</description>
+                <link>http://keyvanfatehi.github.io/blog/2013/09/06/cucumber-and-html5-and-microsoft</link>
+                <guid>http://keyvanfatehi.github.io/blog/2013/09/06/cucumber-and-html5-and-microsoft</guid>
+                <pubDate>2013-09-06T00:00:00-07:00</pubDate>
+        </item>
 
         <item>
                 <title>Install Kvm With Gui On Ubuntu 12.04</title>
