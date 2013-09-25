@@ -1,16 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>Keyvan's Log</title>
+ <title>logbay of eyvankay</title>
  <link href="http://keyvanfatehi.github.io/" rel="self"/>
  <link href="http://keyvanfatehi.github.io"/>
- <updated>2013-09-06T06:16:15-07:00</updated>
+ <updated>2013-09-25T02:05:15-07:00</updated>
  <id>http://keyvanfatehi.github.io</id>
  <author>
    <name>Keyvan Fatehi</name>
    <email>keyvanfatehi@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>is it possible to hear every song?</title>
+   <link href="http://keyvanfatehi.github.io/2013/09/25/is-it-possible-to-hear-every-song%3F"/>
+   <updated>2013-09-25T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2013/09/25/is-it-possible-to-hear-every-song?</id>
+   <content type="html">&lt;p&gt;/google &amp;#8220;more music than you can possibly consume in a lifetime&amp;#8221; About 5,420,000 results (0.43 seconds)&lt;/p&gt;
+
+&lt;p&gt;/retry &amp;#8220;is it possible to hear every song&amp;#8221; About 2,760,000,000 results (0.39 seconds)&lt;/p&gt;
+
+&lt;p&gt;Is it possible to hear every song that has ever been &amp;#8230; 5 hours ago - e.g. How to make Sushi? • Where to buy the best ground coffee? • Which is the best phase of a relationship? Your New Answers Experience!&lt;/p&gt;
+
+&lt;p&gt;/clicky http://answers.yahoo.com/question/index?qid=20130924193110AA4yvRy&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Is it possible to hear every song that has ever been professionally recorded in one&amp;#8217;s life?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;blue pixie asked 6 hrs ago - 4 days left to answer&lt;/p&gt;
+
+&lt;p&gt;Prism answered 6 hrs ago&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Lol no&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;el Águila answered 5 hrs ago&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Yes; if you listen to, like, 100 songs at once. So, get 100 albums on 100 record players and play them all at once, replacing albums as necessary. * 1 person rated this as good&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;/answer&lt;/p&gt;
+
+&lt;p&gt;Not meaningfully, but why do you want to do this?&lt;/p&gt;
+
+&lt;p&gt;Well, perhaps with brain computer interfaces, and an API (e.g. http://developer.echonest.com/), you could perhaps achieve whatever your reason is&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;Math-wise, you&amp;#8217;d need to find out how many songs have been professionally recorded on the planet. How many songs does Spotify have?&lt;/p&gt;
+
+&lt;p&gt;Number of songs: Over 20 million* Number of songs added per day: Over 20,000 Source: http://press.spotify.com/us/information/&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#8217;s assume every song averages to about 5 minutes, for ease of calculation, and forget about the 20k added each day, we can factor that in later&amp;#8230; How long will it take to listen to all of it? If that reasonable, how long will it take to stay on top of the 20k added each day?&lt;/p&gt;
+
+&lt;p&gt;(20,000,000 * 5) / 60 = 1,666,666 total hours&lt;/p&gt;
+
+&lt;p&gt;How many days is that? If you can manage to listen for every waking hour&lt;/p&gt;
+
+&lt;p&gt;let 24 - 8 sleeping hours be a 16 hour day&lt;/p&gt;
+
+&lt;p&gt;1,666,666 / 16 = 104,166 total days&lt;/p&gt;
+
+&lt;p&gt;How many months is that? /wolframalpha 104,166 days to months&lt;/p&gt;
+
+&lt;p&gt;3425 months!&lt;/p&gt;
+
+&lt;p&gt;That&amp;#8217;s 285+ years.&lt;/p&gt;
+
+&lt;p&gt;So no.&lt;/p&gt;
+
+&lt;p&gt;As far as keeping up with new stock, assuming it stays at 20,000 added per day (hah):&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;&lt;span class='kd'&gt;function&lt;/span&gt; &lt;span class='nx'&gt;days2listen&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;numSongs&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='p'&gt;{&lt;/span&gt;
+  &lt;span class='kd'&gt;var&lt;/span&gt; &lt;span class='nx'&gt;averageSongDuration&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+  &lt;span class='nx'&gt;totalHours&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;numSongs&lt;/span&gt; &lt;span class='o'&gt;*&lt;/span&gt; &lt;span class='nx'&gt;averageSongDuration&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='o'&gt;/&lt;/span&gt; &lt;span class='mi'&gt;60&lt;/span&gt;
+  &lt;span class='nx'&gt;wakingHoursPerDay&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;24&lt;/span&gt; &lt;span class='o'&gt;-&lt;/span&gt; &lt;span class='mi'&gt;8&lt;/span&gt;
+  &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='nx'&gt;totalHours&lt;/span&gt; &lt;span class='o'&gt;/&lt;/span&gt; &lt;span class='nx'&gt;wakingHoursPerDay&lt;/span&gt;
+&lt;span class='p'&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;
+➜  ~ git:(mac) ✗ node
+&gt; function days2listen(numSongs)
+... {
+...   var averageSongDuration = 5;
+...   totalHours = (numSongs * averageSongDuration) / 60
+...   wakingHoursPerDay = 24 - 8
+...   return totalHours / wakingHoursPerDay
+... }
+undefined
+&gt; days2listen(20000)
+104.16666666666667
+&lt;/pre&gt;
+&lt;p&gt;/wolframalpha 105 days to months = 3.452 months&lt;/p&gt;
+
+&lt;p&gt;So yeah, if you ignore the pre-existing stuff, it seems doable to keep up with the new.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Cucumber And Html5 And Microsoft</title>
