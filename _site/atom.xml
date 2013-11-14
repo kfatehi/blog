@@ -4,13 +4,85 @@
  <title>logbay of eyvankay</title>
  <link href="http://keyvanfatehi.github.io/" rel="self"/>
  <link href="http://keyvanfatehi.github.io"/>
- <updated>2013-09-25T02:06:05-07:00</updated>
+ <updated>2013-11-13T17:52:11-08:00</updated>
  <id>http://keyvanfatehi.github.io</id>
  <author>
    <name>Keyvan Fatehi</name>
    <email>keyvanfatehi@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>How to setup an NPM mirror</title>
+   <link href="http://keyvanfatehi.github.io/2013/11/13/npm-mirror"/>
+   <updated>2013-11-13T00:00:00-08:00</updated>
+   <id>http://keyvanfatehi.github.io/2013/11/13/npm-mirror</id>
+   <content type="html">&lt;p&gt;This tutorial is largely based on &lt;a href=&#39;http://clock.co.uk/tech-blogs/how-to-create-a-private-npmjs-repository&#39;&gt;this other tutorial&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;First off make sure you have a large enough disk drive, I&amp;#8217;ll update once my replication is up to date, currently it&amp;#8217;s only at 2 GB after running for about 10 minutes.&lt;/p&gt;
+
+&lt;h1 id=&#39;install__configure_couchdb&#39;&gt;Install &amp;amp; Configure CouchDB&lt;/h1&gt;
+
+&lt;h2 id=&#39;on_mac_os_x&#39;&gt;On Mac OS X&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Use Homebrew to install couchdb: &lt;code&gt;brew install couchdb&lt;/code&gt; read the caveats to make it autostart on reboots&lt;/li&gt;
+
+&lt;li&gt;Point your browser to the CouchDB configuration page which should now be available at &lt;a href=&#39;http://127.0.0.1:5984/_utils/index.html&#39;&gt;http://127.0.0.1:5984/_utils/index.html&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;Click &amp;#8220;Configuration&amp;#8221; and find &lt;code&gt;secure_rewrites&lt;/code&gt; and set it to &lt;code&gt;false&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#39;on_a_raspberry_pi_w_arch_linux&#39;&gt;On a Raspberry Pi w/ Arch Linux&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Grab the Arch image from &lt;a href=&#39;http://www.raspberrypi.org/downloads&#39;&gt;http://www.raspberrypi.org/downloads&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;Determine the device path for your SD card with &lt;code&gt;df&lt;/code&gt; at the terminal.&lt;/li&gt;
+
+&lt;li&gt;Unzip and then &lt;code&gt;dd&lt;/code&gt; the image to path you found: &lt;code&gt;sudo dd bs=4m
+if=/path/to/img of=/dev/mysd&lt;/code&gt; make sure you point to the card and not the partition (e.g. /dev/disk1, not /dev/disk1s1)&lt;/li&gt;
+
+&lt;li&gt;Install couchdb &amp;#8211; still doing this &amp;#8211; will update after I learn to use &lt;code&gt;pacman&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#39;tell_couchdb_to_replicate_continuously_from_npm&#39;&gt;Tell CouchDB to replicate continuously from NPM&lt;/h1&gt;
+
+&lt;p&gt;Open terminal and enter the following to setup continuous replication from the official npm registry:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+curl -X POST http://127.0.0.1:5984/_replicate -d &amp;#39;{&amp;quot;source&amp;quot;:&amp;quot;http://isaacs.iriscouch.com/registry/&amp;quot;, &amp;quot;target&amp;quot;:&amp;quot;registry&amp;quot;, &amp;quot;continuous&amp;quot;:true, &amp;quot;create_target&amp;quot;:true}&amp;#39; -H &amp;quot;Content-Type: application/json&amp;quot; 
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&#39;tell_couchdb_to_stop_replicating&#39;&gt;Tell CouchDB to stop replicating&lt;/h1&gt;
+
+&lt;p&gt;In case you ever need it:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+curl -X POST http://127.0.0.1:5984/_replicate -d &amp;#39;{&amp;quot;source&amp;quot;:&amp;quot;http://isaacs.iriscouch.com/registry/&amp;quot;, &amp;quot;target&amp;quot;:&amp;quot;registry&amp;quot;, &amp;quot;continuous&amp;quot;:true, &amp;quot;create_target&amp;quot;:true, &amp;quot;cancel&amp;quot;:true}&amp;#39; -H &amp;quot;Content-Type: application/json&amp;quot; 
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&#39;finalizing_the_installation&#39;&gt;Finalizing the installation&lt;/h1&gt;
+
+&lt;p&gt;This information can also be found here &lt;a href=&#39;https://github.com/isaacs/npmjs.org&#39;&gt;https://github.com/isaacs/npmjs.org&lt;/a&gt;. That link will also explain how to tell &lt;code&gt;npm&lt;/code&gt; to use your new registry.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+git clone git://github.com/isaacs/npmjs.org.git
+cd npmjs.org
+sudo npm install -g couchapp 
+npm install couchapp 
+npm install semver 
+couchapp push registry/app.js http://localhost:5984/registry 
+couchapp push www/app.js http://localhost:5984/registry 
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&#39;testing_the_installation&#39;&gt;Testing the installation&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;
+npm --registry http://localhost:5984/registry/_design/scratch/_rewrite login
+npm --registry http://localhost:5984/registry/_design/scratch/_rewrite search
+&lt;/code&gt;&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>is it possible to hear every song?</title>
@@ -72,13 +144,13 @@
 &lt;p&gt;So no.&lt;/p&gt;
 
 &lt;p&gt;As far as keeping up with new stock, assuming it stays at 20,000 added per day (hah):&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;&lt;span class='kd'&gt;function&lt;/span&gt; &lt;span class='nx'&gt;days2listen&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;numSongs&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-&lt;span class='p'&gt;{&lt;/span&gt;
-  &lt;span class='kd'&gt;var&lt;/span&gt; &lt;span class='nx'&gt;averageSongDuration&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
-  &lt;span class='nx'&gt;totalHours&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;numSongs&lt;/span&gt; &lt;span class='o'&gt;*&lt;/span&gt; &lt;span class='nx'&gt;averageSongDuration&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='o'&gt;/&lt;/span&gt; &lt;span class='mi'&gt;60&lt;/span&gt;
-  &lt;span class='nx'&gt;wakingHoursPerDay&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;24&lt;/span&gt; &lt;span class='o'&gt;-&lt;/span&gt; &lt;span class='mi'&gt;8&lt;/span&gt;
-  &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='nx'&gt;totalHours&lt;/span&gt; &lt;span class='o'&gt;/&lt;/span&gt; &lt;span class='nx'&gt;wakingHoursPerDay&lt;/span&gt;
-&lt;span class='p'&gt;}&lt;/span&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;javascript&#39;&gt;&lt;span class=&#39;kd&#39;&gt;function&lt;/span&gt; &lt;span class=&#39;nx&#39;&gt;days2listen&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;nx&#39;&gt;numSongs&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
+&lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
+  &lt;span class=&#39;kd&#39;&gt;var&lt;/span&gt; &lt;span class=&#39;nx&#39;&gt;averageSongDuration&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;5&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
+  &lt;span class=&#39;nx&#39;&gt;totalHours&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;nx&#39;&gt;numSongs&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;*&lt;/span&gt; &lt;span class=&#39;nx&#39;&gt;averageSongDuration&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;/&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;60&lt;/span&gt;
+  &lt;span class=&#39;nx&#39;&gt;wakingHoursPerDay&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;24&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;-&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;8&lt;/span&gt;
+  &lt;span class=&#39;k&#39;&gt;return&lt;/span&gt; &lt;span class=&#39;nx&#39;&gt;totalHours&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;/&lt;/span&gt; &lt;span class=&#39;nx&#39;&gt;wakingHoursPerDay&lt;/span&gt;
+&lt;span class=&#39;p&#39;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;
 ➜  ~ git:(mac) ✗ node
 &gt; function days2listen(numSongs)
@@ -150,7 +222,7 @@ undefined
    <link href="http://keyvanfatehi.github.io/2013/08/05/issue-branching-workflow"/>
    <updated>2013-08-05T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2013/08/05/issue-branching-workflow</id>
-   <content type="html">&lt;p&gt;I decided to automate this part of my git workflow. See the &lt;a href='https://gist.github.com/keyvanfatehi/6155048'&gt;gist&lt;/a&gt; for the source.&lt;/p&gt;</content>
+   <content type="html">&lt;p&gt;I decided to automate this part of my git workflow. See the &lt;a href=&#39;https://gist.github.com/keyvanfatehi/6155048&#39;&gt;gist&lt;/a&gt; for the source.&lt;/p&gt;</content>
  </entry>
  
  <entry>
@@ -178,7 +250,7 @@ undefined
    <id>http://keyvanfatehi.github.io/apps/2013/07/03/influenceometer</id>
    <content type="html">&lt;p&gt;Are you still influenced by this person? How much? Engagement platform. Platform API Interchange =&amp;gt; MD/DB&lt;/p&gt;
 
-&lt;h2 id='links'&gt;Links&lt;/h2&gt;
+&lt;h2 id=&#39;links&#39;&gt;Links&lt;/h2&gt;
 
 &lt;p&gt;http://themyndset.com/2013/04/sphere-of-influence-influential-topic/ https://www.google.com/search?q=kred+api https://www.google.com/search?q=klout+api https://www.google.com/search?q=peerindex+api&lt;/p&gt;</content>
  </entry>
@@ -197,16 +269,16 @@ undefined
 &lt;p&gt;This bill serves hereunto for the purpose of implementing a grand transparent design of the above processes.&lt;/p&gt;
 
 &lt;p&gt;In this way, we will better understand at a higher level of intelligence, the patterns of destruction such that we can have constructive, forward-moving progress in their adjustment towards a better future.&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='ruby'&gt;&lt;span class='n'&gt;describe&lt;/span&gt; &lt;span class='no'&gt;Lobbyist&lt;/span&gt; &lt;span class='k'&gt;do&lt;/span&gt;
-  &lt;span class='n'&gt;it&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;influences politicians&amp;quot;&lt;/span&gt; &lt;span class='k'&gt;do&lt;/span&gt;
-    &lt;span class='n'&gt;politician&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;lobbied_by&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;lobbyist&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;should_cause&lt;/span&gt; &lt;span class='n'&gt;politicion&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;to_be&lt;/span&gt; &lt;span class='ss'&gt;:influenced&lt;/span&gt;
-  &lt;span class='k'&gt;end&lt;/span&gt;
-&lt;span class='k'&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='gherkin'&gt;&lt;span class='k'&gt;Given &lt;/span&gt;&lt;span class='nf'&gt;that I am a lobbyist&lt;/span&gt;
-&lt;span class='k'&gt;When &lt;/span&gt;&lt;span class='nf'&gt;I lobby a politician&lt;/span&gt;
-&lt;span class='k'&gt;And &lt;/span&gt;&lt;span class='nf'&gt;I succeeded in lobbying the politican&lt;/span&gt;
-&lt;span class='k'&gt;Then &lt;/span&gt;&lt;span class='nf'&gt;I get a bigger payout&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='gherkin'&gt;&lt;span class='k'&gt;Given &lt;/span&gt;&lt;span class='nf'&gt;that I am a&lt;/span&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;ruby&#39;&gt;&lt;span class=&#39;n&#39;&gt;describe&lt;/span&gt; &lt;span class=&#39;no&#39;&gt;Lobbyist&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;do&lt;/span&gt;
+  &lt;span class=&#39;n&#39;&gt;it&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;influences politicians&amp;quot;&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;do&lt;/span&gt;
+    &lt;span class=&#39;n&#39;&gt;politician&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;lobbied_by&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;lobbyist&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;should_cause&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;politicion&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;to_be&lt;/span&gt; &lt;span class=&#39;ss&#39;&gt;:influenced&lt;/span&gt;
+  &lt;span class=&#39;k&#39;&gt;end&lt;/span&gt;
+&lt;span class=&#39;k&#39;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;gherkin&#39;&gt;&lt;span class=&#39;k&#39;&gt;Given &lt;/span&gt;&lt;span class=&#39;nf&#39;&gt;that I am a lobbyist&lt;/span&gt;
+&lt;span class=&#39;k&#39;&gt;When &lt;/span&gt;&lt;span class=&#39;nf&#39;&gt;I lobby a politician&lt;/span&gt;
+&lt;span class=&#39;k&#39;&gt;And &lt;/span&gt;&lt;span class=&#39;nf&#39;&gt;I succeeded in lobbying the politican&lt;/span&gt;
+&lt;span class=&#39;k&#39;&gt;Then &lt;/span&gt;&lt;span class=&#39;nf&#39;&gt;I get a bigger payout&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;gherkin&#39;&gt;&lt;span class=&#39;k&#39;&gt;Given &lt;/span&gt;&lt;span class=&#39;nf&#39;&gt;that I am a&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Presidents are politicans.&lt;/p&gt;
 
@@ -214,7 +286,7 @@ undefined
 
 &lt;p&gt;It must be a game in order that the players, my fellow Americans, become more aware of the comedic nature of this bold-faced lie we thought of government &amp;#8211; when we learned of this land we were born into, America, as children.&lt;/p&gt;
 
-&lt;h2 id='links'&gt;Links&lt;/h2&gt;
+&lt;h2 id=&#39;links&#39;&gt;Links&lt;/h2&gt;
 
 &lt;p&gt;http://www.opensecrets.org/about/ http://www.opensecrets.org/politicians/summary.php?cid=n00001093&lt;/p&gt;</content>
  </entry>
@@ -228,19 +300,19 @@ undefined
 
 &lt;p&gt;Here&amp;#8217;s how you might do it:&lt;/p&gt;
 
-&lt;h2 id='hardware'&gt;Hardware&lt;/h2&gt;
+&lt;h2 id=&#39;hardware&#39;&gt;Hardware&lt;/h2&gt;
 
 &lt;p&gt;Buy a good telescope&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href='http://www.celestron.com/astronomy/series/advanced-series-gt-computerized-telescopes/'&gt;Must have GoTo feature&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#39;http://www.celestron.com/astronomy/series/advanced-series-gt-computerized-telescopes/&#39;&gt;Must have GoTo feature&lt;/a&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;a href='http://www.celestron.com/astronomy/celestron-nexstar-5se.html'&gt;Something about nexstar?&lt;/a&gt; Not sure, see github repo link below.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#39;http://www.celestron.com/astronomy/celestron-nexstar-5se.html&#39;&gt;Something about nexstar?&lt;/a&gt; Not sure, see github repo link below.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Mount on a high-altitude home in the Hollywood Hills (avoid smog and light pollution) with a high speed connection&lt;/p&gt;
 
-&lt;p&gt;Attach telescope lens to android device at the camera &lt;a href='http://www.htc.com/us/smartphones/htc-one/?PS=1&amp;amp;cid=sem157p174347&amp;amp;gclid=COf2jK2u97cCFRHhQgodhwoAGg'&gt;HTC One&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Attach telescope lens to android device at the camera &lt;a href=&#39;http://www.htc.com/us/smartphones/htc-one/?PS=1&amp;amp;cid=sem157p174347&amp;amp;gclid=COf2jK2u97cCFRHhQgodhwoAGg&#39;&gt;HTC One&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I would recommend designing this in solidworks and printing the mount for the best results.&lt;/p&gt;
 
@@ -250,13 +322,13 @@ undefined
 
 &lt;p&gt;Suppply over USB ambient temperature and weather sensor data&lt;/p&gt;
 
-&lt;h2 id='software'&gt;Software&lt;/h2&gt;
+&lt;h2 id=&#39;software&#39;&gt;Software&lt;/h2&gt;
 
 &lt;p&gt;Setup https://github.com/fcsonline/node-telescope-server&lt;/p&gt;
 
 &lt;p&gt;Build a IRC-like single-operator chatroom system&lt;/p&gt;
 
-&lt;p&gt;Implement (port?) &lt;a href='http://www.stellarium.org/'&gt;Stellarium&lt;/a&gt;-like system in the browser.&lt;/p&gt;
+&lt;p&gt;Implement (port?) &lt;a href=&#39;http://www.stellarium.org/&#39;&gt;Stellarium&lt;/a&gt;-like system in the browser.&lt;/p&gt;
 
 &lt;p&gt;Display camera live feed.&lt;/p&gt;
 
@@ -273,8 +345,8 @@ Dump all activity (images, video, events) into ES/MD w/ odata&lt;/code&gt;&lt;/p
 
 &lt;p&gt;Fun Links:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href='http://services.odata.org/ODataAPIExplorer/ODataAPIExplorer.html'&gt;OData API Explorer&lt;/a&gt;&lt;/p&gt;
-&lt;iframe height='315' src='http://www.youtube.com/embed/XfIU9DqPTl8' width='560' /&gt;</content>
+&lt;p&gt;&lt;a href=&#39;http://services.odata.org/ODataAPIExplorer/ODataAPIExplorer.html&#39;&gt;OData API Explorer&lt;/a&gt;&lt;/p&gt;
+&lt;iframe height=&#39;315&#39; src=&#39;http://www.youtube.com/embed/XfIU9DqPTl8&#39; width=&#39;560&#39; /&gt;</content>
  </entry>
  
  <entry>
@@ -284,7 +356,7 @@ Dump all activity (images, video, events) into ES/MD w/ odata&lt;/code&gt;&lt;/p
    <id>http://keyvanfatehi.github.io/blog/2013/06/17/leaderless</id>
    <content type="html">&lt;p&gt;Still thinking about this&amp;#8230;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href='http://www.youtube.com/embed/_Z99qFwsDmU'&gt;snowden interview&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#39;http://www.youtube.com/embed/_Z99qFwsDmU&#39;&gt;snowden interview&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;There has been no change.&lt;/p&gt;
 
@@ -296,13 +368,13 @@ Dump all activity (images, video, events) into ES/MD w/ odata&lt;/code&gt;&lt;/p
    <link href="http://keyvanfatehi.github.io/blog/2013/06/03/parrot-assisted-training"/>
    <updated>2013-06-03T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/blog/2013/06/03/parrot-assisted-training</id>
-   <content type="html">&lt;h1 id='paratrain'&gt;PARATRAIN&lt;/h1&gt;
+   <content type="html">&lt;h1 id=&#39;paratrain&#39;&gt;PARATRAIN&lt;/h1&gt;
 
 &lt;p&gt;Paratrain is a new app I&amp;#8217;m developing for audio, language, and animal research. It stands for something along the lines of parrot-assist training,&lt;/p&gt;
 
-&lt;h2 id='artificial_intelligence'&gt;Artificial Intelligence&lt;/h2&gt;
+&lt;h2 id=&#39;artificial_intelligence&#39;&gt;Artificial Intelligence&lt;/h2&gt;
 
-&lt;h3 id='carrot'&gt;CARROT&lt;/h3&gt;
+&lt;h3 id=&#39;carrot&#39;&gt;CARROT&lt;/h3&gt;
 
 &lt;p&gt;In Chicago last week I purchased CARROT on the Apple App Store while in line for Shedd Aquarium. Animals, ooh, I forgot all about them while developing software all the time. My legs fucking hurt too until the final Day there wherein my muscles finally remembered they can regenerate.&lt;/p&gt;
 
@@ -312,13 +384,13 @@ Dump all activity (images, video, events) into ES/MD w/ odata&lt;/code&gt;&lt;/p
 
 &lt;p&gt;It is a selfish reason, but a reason no less.&lt;/p&gt;
 
-&lt;h3 id='paratrain'&gt;PARATRAIN&lt;/h3&gt;
+&lt;h3 id=&#39;paratrain&#39;&gt;PARATRAIN&lt;/h3&gt;
 
-&lt;p&gt;This is &lt;a href='https://github.com/keyvanfatehi/paratrain'&gt;my accidental AI project&lt;/a&gt;&amp;#8230; (the rapidly iterative README as of today)&lt;/p&gt;
+&lt;p&gt;This is &lt;a href=&#39;https://github.com/keyvanfatehi/paratrain&#39;&gt;my accidental AI project&lt;/a&gt;&amp;#8230; (the rapidly iterative README as of today)&lt;/p&gt;
 
-&lt;h4 id='paratrain_readme'&gt;Paratrain README&lt;/h4&gt;
+&lt;h4 id=&#39;paratrain_readme&#39;&gt;Paratrain README&lt;/h4&gt;
 
-&lt;h2 id='paratrain'&gt;Paratrain&lt;/h2&gt;
+&lt;h2 id=&#39;paratrain&#39;&gt;Paratrain&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Purchase Paratrain from the Apple App Store&lt;/li&gt;
@@ -342,9 +414,9 @@ Dump all activity (images, video, events) into ES/MD w/ odata&lt;/code&gt;&lt;/p
 
 &lt;p&gt;I intend to complete Version 1 by the end of June. The rest is futurestory, or as I like to call them, user stories&amp;#8230;&lt;/p&gt;
 
-&lt;h2 id='paratrain_ai_subsystems'&gt;Paratrain AI Subsystems&lt;/h2&gt;
+&lt;h2 id=&#39;paratrain_ai_subsystems&#39;&gt;Paratrain AI Subsystems&lt;/h2&gt;
 
-&lt;h1 id='system_1_listening_mode'&gt;System 1 Listening Mode&lt;/h1&gt;
+&lt;h1 id=&#39;system_1_listening_mode&#39;&gt;System 1 Listening Mode&lt;/h1&gt;
 
 &lt;p&gt;System 1 can be toggled on or off. It&amp;#8217;s Paratrain&amp;#8217;s &amp;#8220;Listening Mode&amp;#8221;. This is how it affects Paratrain&amp;#8217;s behavior:&lt;/p&gt;
 
@@ -367,13 +439,13 @@ When it hears a new word, it will verify that it&amp;#39;s a word by converting 
       * convert it to text manually and save with that audio
       * adjust the confidence threshold&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;System 1 will start to be implemented once &lt;a href='https://github.com/keyvanfatehi/paratrain/issues/6'&gt;#6&lt;/a&gt; is complete.&lt;/p&gt;
+&lt;p&gt;System 1 will start to be implemented once &lt;a href=&#39;https://github.com/keyvanfatehi/paratrain/issues/6&#39;&gt;#6&lt;/a&gt; is complete.&lt;/p&gt;
 
-&lt;h2 id='system_2_learning_mode'&gt;System 2 Learning Mode&lt;/h2&gt;
+&lt;h2 id=&#39;system_2_learning_mode&#39;&gt;System 2 Learning Mode&lt;/h2&gt;
 
 &lt;p&gt;Responsible for matters related to the exposure of the iphone&amp;#8217;s existence to the learner.&lt;/p&gt;
 
-&lt;h3 id='engagement'&gt;Engagement&lt;/h3&gt;
+&lt;h3 id=&#39;engagement&#39;&gt;Engagement&lt;/h3&gt;
 
 &lt;p&gt;Engagement controls if and how the iphone speaks to nearby listeners There are several aspects of engagement exposed by System 2&lt;/p&gt;
 
@@ -389,31 +461,31 @@ When it hears a new word, it will verify that it&amp;#39;s a word by converting 
 &lt;li&gt;content&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id='second_screen'&gt;Second Screen&lt;/h2&gt;
+&lt;h2 id=&#39;second_screen&#39;&gt;Second Screen&lt;/h2&gt;
 
 &lt;p&gt;If a second screen is available (Apple TV), the &lt;strong&gt;Visual Association Toggle&lt;/strong&gt; becomes available. It works like this:&lt;/p&gt;
 
-&lt;h4 id='vatsystem_1'&gt;VAT:System 1&lt;/h4&gt;
+&lt;h4 id=&#39;vatsystem_1&#39;&gt;VAT:System 1&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;As someone learning a language
 When my artificial intelligence hears a word
 In order that I be more likely to learn the word
 I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id='vatsystem_2'&gt;VAT:System 2&lt;/h4&gt;
+&lt;h4 id=&#39;vatsystem_2&#39;&gt;VAT:System 2&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;As someone learning a language
 When I am engaged by my artificial intelligence
 In order that I be more likely to learn the word
 I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 &lt;hr /&gt;
-&lt;h1 id='goal'&gt;Goal&lt;/h1&gt;
+&lt;h1 id=&#39;goal&#39;&gt;Goal&lt;/h1&gt;
 
 &lt;p&gt;Design a system good enough to teach an African Grey parrot at least 500 words before the age of 6, without inflicting emotional damage.&lt;/p&gt;
 
 &lt;p&gt;If successful, it can be used for small children, and eventually turn into an effective &amp;#8220;knowledge download&amp;#8221; tool. Might as well dream big; but it&amp;#8217;s mainly to distract me from immediately buying a Grey before I&amp;#8217;m really ready.&lt;/p&gt;
 
-&lt;h2 id='no_impulsebuy'&gt;No impulse-buy&lt;/h2&gt;
+&lt;h2 id=&#39;no_impulsebuy&#39;&gt;No impulse-buy&lt;/h2&gt;
 
 &lt;p&gt;Only a few days ago, my brother suggested I get a parrot. I didn&amp;#8217;t speak or think of parrots for maybe 7 years; It was something I could just never have, and so put away mentally &amp;#8230; too expensive &amp;#8230; with luck, becoming a competent developer has allowed me to break that financial barrier.&lt;/p&gt;
 
@@ -429,27 +501,27 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Uhm, in any case: I have a long history with avians and would rather get the bird when I have a house, to build a proper aviary again.&lt;/p&gt;
 
-&lt;p&gt;But I can start &lt;a href='https://github.com/keyvanfatehi/paratrain'&gt;developing software&lt;/a&gt; and &lt;a href='https://github.com/keyvanfatehi/paratrain/issues/5'&gt;doing research&lt;/a&gt;. It has proven fruitful so far.&lt;/p&gt;
+&lt;p&gt;But I can start &lt;a href=&#39;https://github.com/keyvanfatehi/paratrain&#39;&gt;developing software&lt;/a&gt; and &lt;a href=&#39;https://github.com/keyvanfatehi/paratrain/issues/5&#39;&gt;doing research&lt;/a&gt;. It has proven fruitful so far.&lt;/p&gt;
 
 &lt;p&gt;I feel that &lt;strong&gt;buying the parrot right now would be a big mistake&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;The matured scientist in me is eagerly awaiting pending discoveries into learning and intelligence &amp;#8230; and wants to ensure readiness &amp;#8230; once this turns into design, and then &lt;em&gt;implementation&lt;/em&gt;, I am ready.&lt;/p&gt;
 
-&lt;h1 id='caged_bird'&gt;Caged Bird&lt;/h1&gt;
+&lt;h1 id=&#39;caged_bird&#39;&gt;Caged Bird&lt;/h1&gt;
 
 &lt;p&gt;I will be waiting until the software &lt;em&gt;AND&lt;/em&gt; hardware is ready. I need an indoor cage. I&amp;#8217;m opting not to build it with wood as I did for the doves I owned as a small child (these pets created life&amp;#8230; they are not a memory of death like some later animals I had; but one of but birth and life; contentment and prosperity)&lt;/p&gt;
 
 &lt;p&gt;Consequently, software and hardware for a parrot equates to massive amounts of learning by the undertaker &lt;span&gt;me&lt;/span&gt;.&lt;/p&gt;
 
-&lt;h2 id='3d_printer__solidworks__technique___habitat_'&gt;3d Printer + Solidworks + Technique &amp;#8230; = Habitat ?&lt;/h2&gt;
+&lt;h2 id=&#39;3d_printer__solidworks__technique___habitat_&#39;&gt;3d Printer + Solidworks + Technique &amp;#8230; = Habitat ?&lt;/h2&gt;
 
-&lt;p&gt;My &lt;a href='http://pirate3d.com/'&gt;Pirate3d 3d Printer, the Buccaneer&lt;/a&gt;, arrives in Dec 2013.&lt;/p&gt;
+&lt;p&gt;My &lt;a href=&#39;http://pirate3d.com/&#39;&gt;Pirate3d 3d Printer, the Buccaneer&lt;/a&gt;, arrives in Dec 2013.&lt;/p&gt;
 
 &lt;p&gt;Now I have a real reason to properly learn &lt;strong&gt;SOLIDWORKS&lt;/strong&gt; again.&lt;/p&gt;
 
 &lt;p&gt;I need a chop-up-big-stuff algorithm for this. I am looking into &lt;span&gt;aluminum&lt;/span&gt; extrusion/profile interlock systems for this.&lt;/p&gt;
 
-&lt;h2 id='space_i_see_you_baby'&gt;Space, I see you baby&lt;/h2&gt;
+&lt;h2 id=&#39;space_i_see_you_baby&#39;&gt;Space, I see you baby&lt;/h2&gt;
 
 &lt;p&gt;All I need to do now is ensure I learn electronics too and perhaps my Space 2022 ambitions will indeed become true on time.&lt;/p&gt;
 
@@ -471,7 +543,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
    <id>http://keyvanfatehi.github.io/blog/2013/05/23/coffeescript-source-maps</id>
    <content type="html">&lt;p&gt;No longer can your team claim ignorance of CoffeeScript and tout the excuse that it is difficult to debug in the console. Behold &lt;code&gt;gem &amp;#39;coffee-rails-source-maps&amp;#39;&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href='https://github.com/markbates/coffee-rails-source-maps'&gt;GitHub&lt;/a&gt; | &lt;a href='http://cl.ly/image/233C2H1j1V0F'&gt;Screenshot&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#39;https://github.com/markbates/coffee-rails-source-maps&#39;&gt;GitHub&lt;/a&gt; | &lt;a href=&#39;http://cl.ly/image/233C2H1j1V0F&#39;&gt;Screenshot&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;This works in Rails 4 RC1, however I cannot install it on Rails 3.2 (coffee-rails version too old)&lt;/p&gt;</content>
  </entry>
@@ -483,15 +555,15 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
    <id>http://keyvanfatehi.github.io/blog/2013/05/16/conflict-of-interest</id>
    <content type="html">&lt;p&gt;At my place of employment, I&amp;#8217;ve never had the issue of a conflict of interest &amp;#8211; until recently when I wanted to help a through-work contact to develop a small HTML5-driven web application, essentially helping him to launch an overnight startup. It was a very targeted problem, a simple one, and well thought out and designed &amp;#8211; the kinds of projects we love because it&amp;#8217;s clear. The kinds of projects you can turn around in a few hours if you had a bunch of Red Bull, as it were.&lt;/p&gt;
 
-&lt;p&gt;Seemed like a no-brainer, right? Well I guess not; I had met this particular entrepreneur through the work duties of interacting with the studios and artists that use our custom software, one of the standard things I needed to do myself as I built out the software division of my then-non-software-oriented (software-dev-virgin?) company. Now I have people that do this client and support interfacing &amp;#8211; so I don&amp;#8217;t develop the relationship that would yield this sort of excitement and impetus unless chancily I was met with the opportunity. The odds of this are low and my emotions thank the circumstances, despite this particular one&amp;#8217;s &lt;a href='/blog/2013/05/14/willful-defiance'&gt;imprisoning&lt;/a&gt; smell.&lt;/p&gt;
+&lt;p&gt;Seemed like a no-brainer, right? Well I guess not; I had met this particular entrepreneur through the work duties of interacting with the studios and artists that use our custom software, one of the standard things I needed to do myself as I built out the software division of my then-non-software-oriented (software-dev-virgin?) company. Now I have people that do this client and support interfacing &amp;#8211; so I don&amp;#8217;t develop the relationship that would yield this sort of excitement and impetus unless chancily I was met with the opportunity. The odds of this are low and my emotions thank the circumstances, despite this particular one&amp;#8217;s &lt;a href=&#39;/blog/2013/05/14/willful-defiance&#39;&gt;imprisoning&lt;/a&gt; smell.&lt;/p&gt;
 
-&lt;h1 id='estimate__start'&gt;Estimate &amp;amp; Start!&lt;/h1&gt;
+&lt;h1 id=&#39;estimate__start&#39;&gt;Estimate &amp;amp; Start!&lt;/h1&gt;
 
 &lt;p&gt;Let&amp;#8217;s build it! That&amp;#8217;s my attitude!&lt;/p&gt;
 
-&lt;p&gt;I estimated it would take 1-3 diligent weekends to pull it off. I would create it for him and he would go sell it to the world as he wants &amp;#8211; I ask for nothing in return. It may seem strange to some, but I do this because I love to see people&amp;#8217;s eyes light up as the weight is lifted from their shoulder and that energy can now be put into the business side. I prefer them to run the business instead if that&amp;#8217;s the skill they are good at. If they become successful, great! If not, even better because the lessons are valuable. Ultimately these are human investments which I think are totally worth making. In fact this is why I&amp;#8217;m a big proponent of &lt;a href='http://startupweekend.org/'&gt;Startup Weekend&lt;/a&gt; events.&lt;/p&gt;
+&lt;p&gt;I estimated it would take 1-3 diligent weekends to pull it off. I would create it for him and he would go sell it to the world as he wants &amp;#8211; I ask for nothing in return. It may seem strange to some, but I do this because I love to see people&amp;#8217;s eyes light up as the weight is lifted from their shoulder and that energy can now be put into the business side. I prefer them to run the business instead if that&amp;#8217;s the skill they are good at. If they become successful, great! If not, even better because the lessons are valuable. Ultimately these are human investments which I think are totally worth making. In fact this is why I&amp;#8217;m a big proponent of &lt;a href=&#39;http://startupweekend.org/&#39;&gt;Startup Weekend&lt;/a&gt; events.&lt;/p&gt;
 
-&lt;h1 id='excite__fizzle'&gt;Excite -&amp;gt; Fizzle&lt;/h1&gt;
+&lt;h1 id=&#39;excite__fizzle&#39;&gt;Excite -&amp;gt; Fizzle&lt;/h1&gt;
 
 &lt;p&gt;The issue with this, and what took a lot of drilling from various people at work (CEO, Lawyer, HR, etc) for me to understand, is that an unavoidable, unbrainstorm-out-of-able conflict exists here:&lt;/p&gt;
 
@@ -499,9 +571,9 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;But the society and the laws are concerned with the fact that a usual employment contract (mine included) can own things you do outside of work hours&amp;#8230; my company happens to be &amp;#8220;nice&amp;#8221; enough not to lay a claim to things unless they fall within a specific scope; this unlucky entrepreneur&amp;#8217;s idea definitely fell within it.&lt;/p&gt;
 
-&lt;h1 id='when_all_else_fails_you_do_it_yourself'&gt;When all else fails, you do it yourself&lt;/h1&gt;
+&lt;h1 id=&#39;when_all_else_fails_you_do_it_yourself&#39;&gt;When all else fails, you do it yourself&lt;/h1&gt;
 
-&lt;p&gt;On the bright side, he was really excited to &lt;a href='http://try.jquery.com/'&gt;try jQuery&lt;/a&gt; and will have his hand at building his system all by himself&amp;#8230; I believe it can be done and it&amp;#8217;s the very same drive that resulted in my acquisition of ruby knowledge and the rest of it. This is far more valuable than any free work some developer might do for you &amp;#8211; I am a black box. You hate the black box, as you should, you must fear the black box, anything else is irrational.&lt;/p&gt;
+&lt;p&gt;On the bright side, he was really excited to &lt;a href=&#39;http://try.jquery.com/&#39;&gt;try jQuery&lt;/a&gt; and will have his hand at building his system all by himself&amp;#8230; I believe it can be done and it&amp;#8217;s the very same drive that resulted in my acquisition of ruby knowledge and the rest of it. This is far more valuable than any free work some developer might do for you &amp;#8211; I am a black box. You hate the black box, as you should, you must fear the black box, anything else is irrational.&lt;/p&gt;
 
 &lt;p&gt;However I am not an ordinary black box, but one that you cannot hate or fear for if you approach me with the interest, the dam holding back a torrent of knowledge only waits to be pulled back and for these weights to be lifted, shared. A black box is a single point of failure. We design around this in our software systems as we should with our human resources. I digress.&lt;/p&gt;
 
@@ -513,13 +585,13 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Life has never felt more Orwellian.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;All that strife has got me thinking&amp;#8230; if you could change it &lt;a href='/blog/2013/05/16/can-you-do-better'&gt;could you do better?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;All that strife has got me thinking&amp;#8230; if you could change it &lt;a href=&#39;/blog/2013/05/16/can-you-do-better&#39;&gt;could you do better?&lt;/a&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;&lt;strong&gt;Extra&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;taken from &lt;a href='http://answers.onstartups.com/questions/947/when-is-a-startup-a-conflict-of-interest-with-existing-job'&gt;source&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;taken from &lt;a href=&#39;http://answers.onstartups.com/questions/947/when-is-a-startup-a-conflict-of-interest-with-existing-job&#39;&gt;source&lt;/a&gt;:&lt;/p&gt;
 
-&lt;h2 id='when_is_a_startup_a_conflict_of_interest_with_existing_job'&gt;When is a startup a conflict of interest with existing job?&lt;/h2&gt;
+&lt;h2 id=&#39;when_is_a_startup_a_conflict_of_interest_with_existing_job&#39;&gt;When is a startup a conflict of interest with existing job?&lt;/h2&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;At least in Switzerland, you have to be very cautious about what of the things you create during your employment belongs to your employer. If you do not especially ask for the contract to include only results of your work for the company, all your private inventions and achievements not only in your field of employment can be claimed by the employer. It happened to a friend of mine that even the rights on a published book of poems were taken by his employer, another one lost the rights to a new bicycle break he invented. Both were programmers.&lt;/p&gt;
@@ -555,102 +627,102 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
    <link href="http://keyvanfatehi.github.io/blog/2013/05/14/willful-defiance"/>
    <updated>2013-05-14T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/blog/2013/05/14/willful-defiance</id>
-   <content type="html">&lt;p&gt;In response to &lt;a href='http://articles.latimes.com/2013/may/12/local/la-me-adv-lausd-discipline-20130513'&gt;LAUSD board could ban suspensions for &amp;#8216;willful defiance&amp;#8217;&lt;/a&gt;&lt;/p&gt;
+   <content type="html">&lt;p&gt;In response to &lt;a href=&#39;http://articles.latimes.com/2013/may/12/local/la-me-adv-lausd-discipline-20130513&#39;&gt;LAUSD board could ban suspensions for &amp;#8216;willful defiance&amp;#8217;&lt;/a&gt;&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2 id='4_freedom_is_good'&gt;4. Freedom is good.&lt;/h2&gt;
+&lt;h2 id=&#39;4_freedom_is_good&#39;&gt;4. Freedom is good.&lt;/h2&gt;
 
 &lt;p&gt;Hackers are naturally anti-authoritarian. Anyone who can give you orders can stop you from solving whatever problem you&amp;#8217;re being fascinated by &amp;#8211; and, given the way authoritarian minds work, will generally find some appallingly stupid reason to do so. So the authoritarian attitude has to be fought wherever you find it, lest it smother you and other hackers. (This isn&amp;#8217;t the same as fighting all authority. Children need to be guided and criminals restrained. A hacker may agree to accept some kinds of authority in order to get something he wants more than the time he spends following orders. But that&amp;#8217;s a limited, conscious bargain; the kind of personal surrender authoritarians want is not on offer.)&lt;/p&gt;
 
 &lt;p&gt;Authoritarians thrive on censorship and secrecy. And they distrust voluntary cooperation and information-sharing &amp;#8211; they only like &amp;#8216;cooperation&amp;#8217; that they control. So to behave like a hacker, you have to develop an instinctive hostility to censorship, secrecy, and the use of force or deception to compel responsible adults. And you have to be willing to act on that belief.&lt;/p&gt;
-&lt;a href='#' onclick='document.getElementById(&amp;apos;more&amp;apos;).style.display = &amp;apos;block&amp;apos;;'&gt;show source&lt;/a&gt;&lt;pre id='more' style='display:none'&gt;
-    Back to [Eric's FAQs Page]  Up to [Site Map]  $Date: 2000/03/24 21:01:28 $
+&lt;a href=&#39;#&#39; onclick=&#39;document.getElementById(&amp;apos;more&amp;apos;).style.display = &amp;apos;block&amp;apos;;&#39;&gt;show source&lt;/a&gt;&lt;pre id=&#39;more&#39; style=&#39;display:none&#39;&gt;
+    Back to [Eric&#39;s FAQs Page]  Up to [Site Map]  $Date: 2000/03/24 21:01:28 $
     Translations into: French Spanish Italian German Japanese Korean Swedish Portuguese Russian Bulgarian Danish Indonesian Dutch Chinese (Traditional) Chinese (Simplified)
 
     How To Become A Hacker
 
     Why This Document?
 
-    As editor of the Jargon File, I often get email requests from enthusiastic network newbies asking (in effect) &quot;how can I learn to be a wizard hacker?&quot;. Oddly enough there don't seem to be any FAQs or Web documents that address this vital question, so here's mine.
+    As editor of the Jargon File, I often get email requests from enthusiastic network newbies asking (in effect) &quot;how can I learn to be a wizard hacker?&quot;. Oddly enough there don&#39;t seem to be any FAQs or Web documents that address this vital question, so here&#39;s mine.
     If you are reading a snapshot of this document offline, the current version lives at http://www.tuxedo.org/~esr/faqs/hacker-howto.html.
 
 
     What Is A Hacker?
 
-    The Jargon File contains a bunch of definitions of the term `hacker', most having to do with technical adeptness and a delight in solving problems and overcoming limits. If you want to know how to become a hacker, though, only two are really relevant.
-    There is a community, a shared culture, of expert programmers and networking wizards that traces its history back through decades to the first time-sharing minicomputers and the earliest ARPAnet experiments. The members of this culture originated the term `hacker'. Hackers built the Internet. Hackers made the Unix operating system what it is today. Hackers run Usenet. Hackers make the World Wide Web work. If you are part of this culture, if you have contributed to it and other people in it know who you are and call you a hacker, you're a hacker.
+    The Jargon File contains a bunch of definitions of the term `hacker&#39;, most having to do with technical adeptness and a delight in solving problems and overcoming limits. If you want to know how to become a hacker, though, only two are really relevant.
+    There is a community, a shared culture, of expert programmers and networking wizards that traces its history back through decades to the first time-sharing minicomputers and the earliest ARPAnet experiments. The members of this culture originated the term `hacker&#39;. Hackers built the Internet. Hackers made the Unix operating system what it is today. Hackers run Usenet. Hackers make the World Wide Web work. If you are part of this culture, if you have contributed to it and other people in it know who you are and call you a hacker, you&#39;re a hacker.
 
-    The hacker mind-set is not confined to this software-hacker culture. There are people who apply the hacker attitude to other things, like electronics or music -- actually, you can find it at the highest levels of any science or art. Software hackers recognize these kindred spirits elsewhere and may call them &quot;hackers&quot; too -- and some claim that the hacker nature is really independent of the particular medium the hacker works in. But in the rest of this document we will focus on the skills and attitudes of software hackers, and the traditions of the shared culture that originated the term `hacker'.
+    The hacker mind-set is not confined to this software-hacker culture. There are people who apply the hacker attitude to other things, like electronics or music -- actually, you can find it at the highest levels of any science or art. Software hackers recognize these kindred spirits elsewhere and may call them &quot;hackers&quot; too -- and some claim that the hacker nature is really independent of the particular medium the hacker works in. But in the rest of this document we will focus on the skills and attitudes of software hackers, and the traditions of the shared culture that originated the term `hacker&#39;.
 
-    There is another group of people who loudly call themselves hackers, but aren't. These are people (mainly adolescent males) who get a kick out of breaking into computers and phreaking the phone system. Real hackers call these people `crackers' and want nothing to do with them. Real hackers mostly think crackers are lazy, irresponsible, and not very bright, and object that being able to break security doesn't make you a hacker any more than being able to hotwire cars makes you an automotive engineer. Unfortunately, many journalists and writers have been fooled into using the word `hacker' to describe crackers; this irritates real hackers no end.
+    There is another group of people who loudly call themselves hackers, but aren&#39;t. These are people (mainly adolescent males) who get a kick out of breaking into computers and phreaking the phone system. Real hackers call these people `crackers&#39; and want nothing to do with them. Real hackers mostly think crackers are lazy, irresponsible, and not very bright, and object that being able to break security doesn&#39;t make you a hacker any more than being able to hotwire cars makes you an automotive engineer. Unfortunately, many journalists and writers have been fooled into using the word `hacker&#39; to describe crackers; this irritates real hackers no end.
 
     The basic difference is this: hackers build things, crackers break them.
 
-    If you want to be a hacker, keep reading. If you want to be a cracker, go read the alt.2600 newsgroup and get ready to do five to ten in the slammer after finding out you aren't as smart as you think you are. And that's all I'm going to say about crackers.
+    If you want to be a hacker, keep reading. If you want to be a cracker, go read the alt.2600 newsgroup and get ready to do five to ten in the slammer after finding out you aren&#39;t as smart as you think you are. And that&#39;s all I&#39;m going to say about crackers.
 
 
     The Hacker Attitude
 
     Hackers solve problems and build things, and they believe in freedom and voluntary mutual help. To be accepted as a hacker, you have to behave as though you have this kind of attitude yourself. And to behave as though you have the attitude, you have to really believe the attitude.
-    But if you think of cultivating hacker attitudes as just a way to gain acceptance in the culture, you'll miss the point. Becoming the kind of person who believes these things is important for you -- for helping you learn and keeping you motivated. As with all creative arts, the most effective way to become a master is to imitate the mind-set of masters -- not just intellectually but emotionally as well.
+    But if you think of cultivating hacker attitudes as just a way to gain acceptance in the culture, you&#39;ll miss the point. Becoming the kind of person who believes these things is important for you -- for helping you learn and keeping you motivated. As with all creative arts, the most effective way to become a master is to imitate the mind-set of masters -- not just intellectually but emotionally as well.
 
     So, if you want to be a hacker, repeat the following things until you believe them:
 
     1. The world is full of fascinating problems waiting to be solved.
 
-    Being a hacker is lots of fun, but it's a kind of fun that takes lots of effort. The effort takes motivation. Successful athletes get their motivation from a kind of physical delight in making their bodies perform, in pushing themselves past their own physical limits. Similarly, to be a hacker you have to get a basic thrill from solving problems, sharpening your skills, and exercising your intelligence.
-    If you aren't the kind of person that feels this way naturally, you'll need to become one in order to make it as a hacker. Otherwise you'll find your hacking energy is sapped by distractions like sex, money, and social approval.
+    Being a hacker is lots of fun, but it&#39;s a kind of fun that takes lots of effort. The effort takes motivation. Successful athletes get their motivation from a kind of physical delight in making their bodies perform, in pushing themselves past their own physical limits. Similarly, to be a hacker you have to get a basic thrill from solving problems, sharpening your skills, and exercising your intelligence.
+    If you aren&#39;t the kind of person that feels this way naturally, you&#39;ll need to become one in order to make it as a hacker. Otherwise you&#39;ll find your hacking energy is sapped by distractions like sex, money, and social approval.
 
-    (You also have to develop a kind of faith in your own learning capacity -- a belief that even though you may not know all of what you need to solve a problem, if you tackle just a piece of it and learn from that, you'll learn enough to solve the next piece -- and so on, until you're done.)
+    (You also have to develop a kind of faith in your own learning capacity -- a belief that even though you may not know all of what you need to solve a problem, if you tackle just a piece of it and learn from that, you&#39;ll learn enough to solve the next piece -- and so on, until you&#39;re done.)
 
 
     2. Nobody should ever have to solve a problem twice.
 
-    Creative brains are a valuable, limited resource. They shouldn't be wasted on re-inventing the wheel when there are so many fascinating new problems waiting out there.
-    To behave like a hacker, you have to believe that the thinking time of other hackers is precious -- so much so that it's almost a moral duty for you to share information, solve problems and then give the solutions away just so other hackers can solve new problems instead of having to perpetually re-address old ones.
+    Creative brains are a valuable, limited resource. They shouldn&#39;t be wasted on re-inventing the wheel when there are so many fascinating new problems waiting out there.
+    To behave like a hacker, you have to believe that the thinking time of other hackers is precious -- so much so that it&#39;s almost a moral duty for you to share information, solve problems and then give the solutions away just so other hackers can solve new problems instead of having to perpetually re-address old ones.
 
-    (You don't have to believe that you're obligated to give all your creative product away, though the hackers that do are the ones that get most respect from other hackers. It's consistent with hacker values to sell enough of it to keep you in food and rent and computers. It's consistent to use your hacking skills to support a family or even get rich, as long as you don't forget you're a hacker while you're doing it.)
+    (You don&#39;t have to believe that you&#39;re obligated to give all your creative product away, though the hackers that do are the ones that get most respect from other hackers. It&#39;s consistent with hacker values to sell enough of it to keep you in food and rent and computers. It&#39;s consistent to use your hacking skills to support a family or even get rich, as long as you don&#39;t forget you&#39;re a hacker while you&#39;re doing it.)
 
 
     3. Boredom and drudgery are evil.
 
-    Hackers (and creative people in general) should never be bored or have to drudge at stupid repetitive work, because when this happens it means they aren't doing what only they can do -- solve new problems. This wastefulness hurts everybody. Therefore boredom and drudgery are not just unpleasant but actually evil.
+    Hackers (and creative people in general) should never be bored or have to drudge at stupid repetitive work, because when this happens it means they aren&#39;t doing what only they can do -- solve new problems. This wastefulness hurts everybody. Therefore boredom and drudgery are not just unpleasant but actually evil.
     To behave like a hacker, you have to believe this enough to want to automate away the boring bits as much as possible, not just for yourself but for everybody else (especially other hackers).
 
-    (There is one apparent exception to this. Hackers will sometimes do things that may seem repetitive or boring to an observer as a mind-clearing exercise, or in order to acquire a skill or have some particular kind of experience you can't have otherwise. But this is by choice -- nobody who can think should ever be forced into boredom.)
+    (There is one apparent exception to this. Hackers will sometimes do things that may seem repetitive or boring to an observer as a mind-clearing exercise, or in order to acquire a skill or have some particular kind of experience you can&#39;t have otherwise. But this is by choice -- nobody who can think should ever be forced into boredom.)
 
 
     4. Freedom is good.
 
-    Hackers are naturally anti-authoritarian. Anyone who can give you orders can stop you from solving whatever problem you're being fascinated by -- and, given the way authoritarian minds work, will generally find some appallingly stupid reason to do so. So the authoritarian attitude has to be fought wherever you find it, lest it smother you and other hackers.
-    (This isn't the same as fighting all authority. Children need to be guided and criminals restrained. A hacker may agree to accept some kinds of authority in order to get something he wants more than the time he spends following orders. But that's a limited, conscious bargain; the kind of personal surrender authoritarians want is not on offer.)
+    Hackers are naturally anti-authoritarian. Anyone who can give you orders can stop you from solving whatever problem you&#39;re being fascinated by -- and, given the way authoritarian minds work, will generally find some appallingly stupid reason to do so. So the authoritarian attitude has to be fought wherever you find it, lest it smother you and other hackers.
+    (This isn&#39;t the same as fighting all authority. Children need to be guided and criminals restrained. A hacker may agree to accept some kinds of authority in order to get something he wants more than the time he spends following orders. But that&#39;s a limited, conscious bargain; the kind of personal surrender authoritarians want is not on offer.)
 
-    Authoritarians thrive on censorship and secrecy. And they distrust voluntary cooperation and information-sharing -- they only like `cooperation' that they control. So to behave like a hacker, you have to develop an instinctive hostility to censorship, secrecy, and the use of force or deception to compel responsible adults. And you have to be willing to act on that belief.
+    Authoritarians thrive on censorship and secrecy. And they distrust voluntary cooperation and information-sharing -- they only like `cooperation&#39; that they control. So to behave like a hacker, you have to develop an instinctive hostility to censorship, secrecy, and the use of force or deception to compel responsible adults. And you have to be willing to act on that belief.
 
 
     5. Attitude is no substitute for competence.
 
-    To be a hacker, you have to develop some of these attitudes. But copping an attitude alone won't make you a hacker, any more than it will make you a champion athlete or a rock star. Becoming a hacker will take intelligence, practice, dedication, and hard work.
-    Therefore, you have to learn to distrust attitude and respect competence of every kind. Hackers won't let posers waste their time, but they worship competence -- especially competence at hacking, but competence at anything is good. Competence at demanding skills that few can master is especially good, and competence at demanding skills that involve mental acuteness, craft, and concentration is best.
+    To be a hacker, you have to develop some of these attitudes. But copping an attitude alone won&#39;t make you a hacker, any more than it will make you a champion athlete or a rock star. Becoming a hacker will take intelligence, practice, dedication, and hard work.
+    Therefore, you have to learn to distrust attitude and respect competence of every kind. Hackers won&#39;t let posers waste their time, but they worship competence -- especially competence at hacking, but competence at anything is good. Competence at demanding skills that few can master is especially good, and competence at demanding skills that involve mental acuteness, craft, and concentration is best.
 
-    If you revere competence, you'll enjoy developing it in yourself -- the hard work and dedication will become a kind of intense play rather than drudgery. And that's vital to becoming a hacker.
+    If you revere competence, you&#39;ll enjoy developing it in yourself -- the hard work and dedication will become a kind of intense play rather than drudgery. And that&#39;s vital to becoming a hacker.
 
 
     Basic Hacking Skills
 
-    The hacker attitude is vital, but skills are even more vital. Attitude is no substitute for competence, and there's a certain basic toolkit of skills which you have to have before any hacker will dream of calling you one.
-    This toolkit changes slowly over time as technology creates new skills and makes old ones obsolete. For example, it used to include programming in machine language, and didn't until recently involve HTML. But right now it pretty clearly includes the following:
+    The hacker attitude is vital, but skills are even more vital. Attitude is no substitute for competence, and there&#39;s a certain basic toolkit of skills which you have to have before any hacker will dream of calling you one.
+    This toolkit changes slowly over time as technology creates new skills and makes old ones obsolete. For example, it used to include programming in machine language, and didn&#39;t until recently involve HTML. But right now it pretty clearly includes the following:
 
 
     1. Learn how to program.
 
-    This, of course, is the fundamental hacking skill. If you don't know any computer languages, I recommend starting with Python. It is cleanly designed, well documented, and relatively kind to beginners. Despite being a good first language, it is not just a toy; it is very powerful and flexible and well suited for large projects.
-    But be aware that you won't reach the skill level of a hacker or even merely a programmer if you only know one language -- you need to learn how to think about programming problems in a general way, independent of any one language. To be a real hacker, you need to have gotten to the point where you can learn a new language in days by relating what's in the manual to what you already know. This means you should learn several very different languages.
+    This, of course, is the fundamental hacking skill. If you don&#39;t know any computer languages, I recommend starting with Python. It is cleanly designed, well documented, and relatively kind to beginners. Despite being a good first language, it is not just a toy; it is very powerful and flexible and well suited for large projects.
+    But be aware that you won&#39;t reach the skill level of a hacker or even merely a programmer if you only know one language -- you need to learn how to think about programming problems in a general way, independent of any one language. To be a real hacker, you need to have gotten to the point where you can learn a new language in days by relating what&#39;s in the manual to what you already know. This means you should learn several very different languages.
 
-    If you get into serious programming, you will have to learn C, the core language of Unix (though it's not the one to try learning first thing). Other languages of particular importance to hackers include Perl and LISP. Perl is worth learning for practical reasons; it's very widely used for active web pages and system administration, so that even if you never write Perl you should learn to read it. LISP is worth learning for the profound enlightenment experience you will have when you finally get it; that experience will make you a better programmer for the rest of your days, even if you never actually use LISP itself a lot.
+    If you get into serious programming, you will have to learn C, the core language of Unix (though it&#39;s not the one to try learning first thing). Other languages of particular importance to hackers include Perl and LISP. Perl is worth learning for practical reasons; it&#39;s very widely used for active web pages and system administration, so that even if you never write Perl you should learn to read it. LISP is worth learning for the profound enlightenment experience you will have when you finally get it; that experience will make you a better programmer for the rest of your days, even if you never actually use LISP itself a lot.
 
-    It's best, actually, to learn all four of these (Python, C, Perl, and LISP). Besides being the most important hacking languages, they represent very different approaches to programming, and each will educate you in valuable ways.
+    It&#39;s best, actually, to learn all four of these (Python, C, Perl, and LISP). Besides being the most important hacking languages, they represent very different approaches to programming, and each will educate you in valuable ways.
 
-    I can't give complete instructions on how to learn to program here -- it's a complex skill. But I can tell you that books and courses won't do it (many, maybe most of the best hackers are self-taught). What will do it is (a) reading code and (b) writing code.
+    I can&#39;t give complete instructions on how to learn to program here -- it&#39;s a complex skill. But I can tell you that books and courses won&#39;t do it (many, maybe most of the best hackers are self-taught). What will do it is (a) reading code and (b) writing code.
 
     Learning to program is like learning to write good natural language. The best way to do it is to read some stuff written by masters of the form, write some things yourself, read a lot more, write a little more, read a lot more, write some more ... and repeat until your writing begins to develop the kind of strength and economy you see in your models.
 
@@ -658,12 +730,12 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 
     2. Get one of the open-source Unixes and learn to use and run it.
 
-    I'm assuming you have a personal computer or can get access to one (these kids today have it so easy :-)). The single most important step any newbie can take towards acquiring hacker skills is to get a copy of Linux or one of the BSD-Unixes, install it on a personal machine, and run it.
-    Yes, there are other operating systems in the world besides Unix. But they're distributed in binary -- you can't read the code, and you can't modify it. Trying to learn to hack on a DOS or Windows machine or under MacOS is like trying to learn to dance while wearing a body cast.
+    I&#39;m assuming you have a personal computer or can get access to one (these kids today have it so easy :-)). The single most important step any newbie can take towards acquiring hacker skills is to get a copy of Linux or one of the BSD-Unixes, install it on a personal machine, and run it.
+    Yes, there are other operating systems in the world besides Unix. But they&#39;re distributed in binary -- you can&#39;t read the code, and you can&#39;t modify it. Trying to learn to hack on a DOS or Windows machine or under MacOS is like trying to learn to dance while wearing a body cast.
 
-    Besides, Unix is the operating system of the Internet. While you can learn to use the Internet without knowing Unix, you can't be an Internet hacker without understanding Unix. For this reason, the hacker culture today is pretty strongly Unix-centered. (This wasn't always true, and some old-time hackers still aren't happy about it, but the symbiosis between Unix and the Internet has become strong enough that even Microsoft's muscle doesn't seem able to seriously dent it.)
+    Besides, Unix is the operating system of the Internet. While you can learn to use the Internet without knowing Unix, you can&#39;t be an Internet hacker without understanding Unix. For this reason, the hacker culture today is pretty strongly Unix-centered. (This wasn&#39;t always true, and some old-time hackers still aren&#39;t happy about it, but the symbiosis between Unix and the Internet has become strong enough that even Microsoft&#39;s muscle doesn&#39;t seem able to seriously dent it.)
 
-    So, bring up a Unix -- I like Linux myself but there are other ways (and yes, you can run both Linux and DOS/Windows on the same machine). Learn it. Run it. Tinker with it. Talk to the Internet with it. Read the code. Modify the code. You'll get better programming tools (including C, Lisp, Python, and Perl) than any Microsoft operating system can dream of, you'll have fun, and you'll soak up more knowledge than you realize you're learning until you look back on it as a master hacker.
+    So, bring up a Unix -- I like Linux myself but there are other ways (and yes, you can run both Linux and DOS/Windows on the same machine). Learn it. Run it. Tinker with it. Talk to the Internet with it. Read the code. Modify the code. You&#39;ll get better programming tools (including C, Lisp, Python, and Perl) than any Microsoft operating system can dream of, you&#39;ll have fun, and you&#39;ll soak up more knowledge than you realize you&#39;re learning until you look back on it as a master hacker.
 
     For more about learning Unix, see The Loginataka.
 
@@ -671,22 +743,22 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 
     You can find BSD Unix help and resources at www.bsd.org.
 
-    (Note: I don't really recommend installing either Linux or BSD as a solo project if you're a newbie. For Linux, find a local Linux user's group and ask for help; or contact the Linux Internet Support Co-Operative. LISC maintains IRC channels where you can get help.)
+    (Note: I don&#39;t really recommend installing either Linux or BSD as a solo project if you&#39;re a newbie. For Linux, find a local Linux user&#39;s group and ask for help; or contact the Linux Internet Support Co-Operative. LISC maintains IRC channels where you can get help.)
 
     3. Learn how to use the World Wide Web and write HTML.
 
     Most of the things the hacker culture has built do their work out of sight, helping run factories and offices and universities without any obvious impact on how non-hackers live. The Web is the one big exception, the huge shiny hacker toy that even politicians admit is changing the world. For this reason alone (and a lot of other good ones as well) you need to learn how to work the Web.
-    This doesn't just mean learning how to drive a browser (anyone can do that), but learning how to write HTML, the Web's markup language. If you don't know how to program, writing HTML will teach you some mental habits that will help you learn. So build a home page.
+    This doesn&#39;t just mean learning how to drive a browser (anyone can do that), but learning how to write HTML, the Web&#39;s markup language. If you don&#39;t know how to program, writing HTML will teach you some mental habits that will help you learn. So build a home page.
 
-    But just having a home page isn't anywhere near good enough to make you a hacker. The Web is full of home pages. Most of them are pointless, zero-content sludge -- very snazzy-looking sludge, mind you, but sludge all the same (for more on this see The HTML Hell Page).
+    But just having a home page isn&#39;t anywhere near good enough to make you a hacker. The Web is full of home pages. Most of them are pointless, zero-content sludge -- very snazzy-looking sludge, mind you, but sludge all the same (for more on this see The HTML Hell Page).
 
     To be worthwhile, your page must have content -- it must be interesting and/or useful to other hackers. And that brings us to the next topic...
 
 
     Status in the Hacker Culture
 
-    Like most cultures without a money economy, hackerdom runs on reputation. You're trying to solve interesting problems, but how interesting they are, and whether your solutions are really good, is something that only your technical peers or superiors are normally equipped to judge.
-    Accordingly, when you play the hacker game, you learn to keep score primarily by what other hackers think of your skill (this is why you aren't really a hacker until other hackers consistently call you one). This fact is obscured by the image of hacking as solitary work; also by a hacker-cultural taboo (now gradually decaying but still potent) against admitting that ego or external validation are involved in one's motivation at all.
+    Like most cultures without a money economy, hackerdom runs on reputation. You&#39;re trying to solve interesting problems, but how interesting they are, and whether your solutions are really good, is something that only your technical peers or superiors are normally equipped to judge.
+    Accordingly, when you play the hacker game, you learn to keep score primarily by what other hackers think of your skill (this is why you aren&#39;t really a hacker until other hackers consistently call you one). This fact is obscured by the image of hacking as solitary work; also by a hacker-cultural taboo (now gradually decaying but still potent) against admitting that ego or external validation are involved in one&#39;s motivation at all.
 
     Specifically, hackerdom is what anthropologists call a gift culture. You gain status and reputation in it not by dominating other people, nor by being beautiful, nor by having things other people want, but rather by giving things away. Specifically, by giving away your time, your creativity, and the results of your skill.
 
@@ -696,15 +768,15 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
     1. Write open-source software.
 
     The first (the most central and most traditional) is to write programs that other hackers think are fun or useful, and give the program sources to the whole hacker culture to use.
-    (We used to call these works ``free software'', but this confused too many people who weren't sure exactly what ``free'' was supposed to mean. Many of us now prefer the term ``open-source'' software).
+    (We used to call these works ``free software&#39;&#39;, but this confused too many people who weren&#39;t sure exactly what ``free&#39;&#39; was supposed to mean. Many of us now prefer the term ``open-source&#39;&#39; software).
 
-    Hackerdom's most revered demigods are people who have written large, capable programs that met a widespread need and given them away, so that now everyone uses them.
+    Hackerdom&#39;s most revered demigods are people who have written large, capable programs that met a widespread need and given them away, so that now everyone uses them.
 
 
     2. Help test and debug open-source software
 
-    They also serve who stand and debug open-source software. In this imperfect world, we will inevitably spend most of our software development time in the debugging phase. That's why any open-source author who's thinking will tell you that good beta-testers (who know how to describe symptoms clearly, localize problems well, can tolerate bugs in a quickie release, and are willing to apply a few simple diagnostic routines) are worth their weight in rubies. Even one of these can make the difference between a debugging phase that's a protracted, exhausting nightmare and one that's merely a salutary nuisance.
-    If you're a newbie, try to find a program under development that you're interested in and be a good beta-tester. There's a natural progression from helping test programs to helping debug them to helping modify them. You'll learn a lot this way, and generate good karma with people who will help you later on.
+    They also serve who stand and debug open-source software. In this imperfect world, we will inevitably spend most of our software development time in the debugging phase. That&#39;s why any open-source author who&#39;s thinking will tell you that good beta-testers (who know how to describe symptoms clearly, localize problems well, can tolerate bugs in a quickie release, and are willing to apply a few simple diagnostic routines) are worth their weight in rubies. Even one of these can make the difference between a debugging phase that&#39;s a protracted, exhausting nightmare and one that&#39;s merely a salutary nuisance.
+    If you&#39;re a newbie, try to find a program under development that you&#39;re interested in and be a good beta-tester. There&#39;s a natural progression from helping test programs to helping debug them to helping modify them. You&#39;ll learn a lot this way, and generate good karma with people who will help you later on.
 
 
     3. Publish useful information.
@@ -715,49 +787,49 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 
     4. Help keep the infrastructure working.
 
-    The hacker culture (and the engineering development of the Internet, for that matter) is run by volunteers. There's a lot of necessary but unglamorous work that needs done to keep it going -- administering mailing lists, moderating newsgroups, maintaining large software archive sites, developing RFCs and other technical standards.
+    The hacker culture (and the engineering development of the Internet, for that matter) is run by volunteers. There&#39;s a lot of necessary but unglamorous work that needs done to keep it going -- administering mailing lists, moderating newsgroups, maintaining large software archive sites, developing RFCs and other technical standards.
     People who do this sort of thing well get a lot of respect, because everybody knows these jobs are huge time sinks and not as much fun as playing with code. Doing them shows dedication.
 
 
     5. Serve the hacker culture itself.
 
-    Finally, you can serve and propagate the culture itself (by, for example, writing an accurate primer on how to become a hacker :-)). This is not something you'll be positioned to do until you've been around for while and become well-known for one of the first four things.
-    The hacker culture doesn't have leaders, exactly, but it does have culture heroes and tribal elders and historians and spokespeople. When you've been in the trenches long enough, you may grow into one of these. Beware: hackers distrust blatant ego in their tribal elders, so visibly reaching for this kind of fame is dangerous. Rather than striving for it, you have to sort of position yourself so it drops in your lap, and then be modest and gracious about your status.
+    Finally, you can serve and propagate the culture itself (by, for example, writing an accurate primer on how to become a hacker :-)). This is not something you&#39;ll be positioned to do until you&#39;ve been around for while and become well-known for one of the first four things.
+    The hacker culture doesn&#39;t have leaders, exactly, but it does have culture heroes and tribal elders and historians and spokespeople. When you&#39;ve been in the trenches long enough, you may grow into one of these. Beware: hackers distrust blatant ego in their tribal elders, so visibly reaching for this kind of fame is dangerous. Rather than striving for it, you have to sort of position yourself so it drops in your lap, and then be modest and gracious about your status.
 
 
     The Hacker/Nerd Connection
 
-    Contrary to popular myth, you don't have to be a nerd to be a hacker. It does help, however, and many hackers are in fact nerds. Being a social outcast helps you stay concentrated on the really important things, like thinking and hacking.
-    For this reason, many hackers have adopted the label `nerd' and even use the harsher term `geek' as a badge of pride -- it's a way of declaring their independence from normal social expectations. See The Geek Page for extensive discussion.
+    Contrary to popular myth, you don&#39;t have to be a nerd to be a hacker. It does help, however, and many hackers are in fact nerds. Being a social outcast helps you stay concentrated on the really important things, like thinking and hacking.
+    For this reason, many hackers have adopted the label `nerd&#39; and even use the harsher term `geek&#39; as a badge of pride -- it&#39;s a way of declaring their independence from normal social expectations. See The Geek Page for extensive discussion.
 
-    If you can manage to concentrate enough on hacking to be good at it and still have a life, that's fine. This is a lot easier today than it was when I was a newbie in the 1970s; mainstream culture is much friendlier to techno-nerds now. There are even growing numbers of people who realize that hackers are often high-quality lover and spouse material.
+    If you can manage to concentrate enough on hacking to be good at it and still have a life, that&#39;s fine. This is a lot easier today than it was when I was a newbie in the 1970s; mainstream culture is much friendlier to techno-nerds now. There are even growing numbers of people who realize that hackers are often high-quality lover and spouse material.
 
-    If you're attracted to hacking because you don't have a life, that's OK too -- at least you won't have trouble concentrating. Maybe you'll get one later.
+    If you&#39;re attracted to hacking because you don&#39;t have a life, that&#39;s OK too -- at least you won&#39;t have trouble concentrating. Maybe you&#39;ll get one later.
 
 
     Points For Style
 
-    Again, to be a hacker, you have to enter the hacker mindset. There are some things you can do when you're not at a computer that seem to help. They're not substitutes for hacking (nothing is) but many hackers do them, and feel that they connect in some basic way with the essence of hacking.
+    Again, to be a hacker, you have to enter the hacker mindset. There are some things you can do when you&#39;re not at a computer that seem to help. They&#39;re not substitutes for hacking (nothing is) but many hackers do them, and feel that they connect in some basic way with the essence of hacking.
 
     Read science fiction. Go to science fiction conventions (a good way to meet hackers and proto-hackers).
     Study Zen, and/or take up martial arts. (The mental discipline seems similar in important ways.)
     Develop an analytical ear for music. Learn to appreciate peculiar kinds of music. Learn to play some musical instrument well, or how to sing.
     Develop your appreciation of puns and wordplay.
     Learn to write your native language well. (A surprising number of hackers, including all the best ones I know of, are able writers.)
-    The more of these things you already do, the more likely it is that you are natural hacker material. Why these things in particular is not completely clear, but they're connected with a mix of left- and right-brain skills that seems to be important (hackers need to be able to both reason logically and step outside the apparent logic of a problem at a moment's notice).
+    The more of these things you already do, the more likely it is that you are natural hacker material. Why these things in particular is not completely clear, but they&#39;re connected with a mix of left- and right-brain skills that seems to be important (hackers need to be able to both reason logically and step outside the apparent logic of a problem at a moment&#39;s notice).
     Finally, a few things not to do.
 
-    Don't use a silly, grandiose user ID or screen name.
-    Don't get in flame wars on Usenet (or anywhere else).
-    Don't call yourself a `cyberpunk', and don't waste your time on anybody who does.
-    Don't post or email writing that's full of spelling errors and bad grammar.
-    The only reputation you'll make doing any of these things is as a twit. Hackers have long memories -- it could take you years to live your early blunders down enough to be accepted.
-    The problem with screen names or handles deserves some amplification. Concealing your identity behind a handle is a juvenile and silly behavior characteristic of crackers, warez d00dz, and other lower life forms. Hackers don't do this; they're proud of what they do and want it associated with their real names. So if you have a handle, drop it. In the hacker culture it will only mark you as a loser.
+    Don&#39;t use a silly, grandiose user ID or screen name.
+    Don&#39;t get in flame wars on Usenet (or anywhere else).
+    Don&#39;t call yourself a `cyberpunk&#39;, and don&#39;t waste your time on anybody who does.
+    Don&#39;t post or email writing that&#39;s full of spelling errors and bad grammar.
+    The only reputation you&#39;ll make doing any of these things is as a twit. Hackers have long memories -- it could take you years to live your early blunders down enough to be accepted.
+    The problem with screen names or handles deserves some amplification. Concealing your identity behind a handle is a juvenile and silly behavior characteristic of crackers, warez d00dz, and other lower life forms. Hackers don&#39;t do this; they&#39;re proud of what they do and want it associated with their real names. So if you have a handle, drop it. In the hacker culture it will only mark you as a loser.
 
 
     Other Resources
 
-    Peter Seebach maintains an excellent Hacker FAQ for managers who don't understand how to deal with hackers. If Peter's site doesn't respond, the following Excite search should find a copy.
+    Peter Seebach maintains an excellent Hacker FAQ for managers who don&#39;t understand how to deal with hackers. If Peter&#39;s site doesn&#39;t respond, the following Excite search should find a copy.
     The [Loginataka] has some things to say about the proper training and attitude of a Unix hacker.
 
     I have also written [A Brief History Of Hackerdom].
@@ -769,10 +841,10 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 
     Q: Will you teach me how to hack?
 
-    Since first publishing this page, I've gotten several requests a week (often several a day) from people to &quot;teach me all about hacking&quot;. Unfortunately, I don't have the time or energy to do this; my own hacking projects take up 110% of my time.
-    Even if I did, hacking is an attitude and skill you basically have to teach yourself. You'll find that while real hackers want to help you, they won't respect you if you beg to be spoon-fed everything they know.
+    Since first publishing this page, I&#39;ve gotten several requests a week (often several a day) from people to &quot;teach me all about hacking&quot;. Unfortunately, I don&#39;t have the time or energy to do this; my own hacking projects take up 110% of my time.
+    Even if I did, hacking is an attitude and skill you basically have to teach yourself. You&#39;ll find that while real hackers want to help you, they won&#39;t respect you if you beg to be spoon-fed everything they know.
 
-    Learn a few things first. Show that you're trying, that you're capable of learning on your own. Then go to the hackers you meet with specific questions.
+    Learn a few things first. Show that you&#39;re trying, that you&#39;re capable of learning on your own. Then go to the hackers you meet with specific questions.
 
 
     How can I get started, then?
@@ -785,26 +857,26 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 
     How long will it take me to learn to hack?
 
-    The depends on how talented you are and how hard you work at it. Most people can acquire a respectable skill set in eighteen months to two years, if they concentrate. Don't think it ends there, though; if you are a real hacker, you will spend the rest of your life learning and perfecting your craft.
+    The depends on how talented you are and how hard you work at it. Most people can acquire a respectable skill set in eighteen months to two years, if they concentrate. Don&#39;t think it ends there, though; if you are a real hacker, you will spend the rest of your life learning and perfecting your craft.
 
     Are Visual Basic or Delphi good languages to start with?
 
-    No, because they're not portable. There are no open-source implementations of these languages, so you'd be locked into only those platforms the vendor chooses to support. Accepting that kind of monopoly situation is not the hacker way.
-    Visual Basic is especially awful. The fact that it's a proprietary Microsoft langage is enough to disqualify it, and like other Basics it's a poorly-designed language that will teach you bad programming habits.
+    No, because they&#39;re not portable. There are no open-source implementations of these languages, so you&#39;d be locked into only those platforms the vendor chooses to support. Accepting that kind of monopoly situation is not the hacker way.
+    Visual Basic is especially awful. The fact that it&#39;s a proprietary Microsoft langage is enough to disqualify it, and like other Basics it&#39;s a poorly-designed language that will teach you bad programming habits.
 
 
     Would you help me to crack a system, or teach me how to crack?
 
     No. Anyone who can still ask such a question after reading this FAQ is too stupid to be educable even if I had the time for tutoring. Any emailed requests of this kind that I get will be ignored or answered with extreme rudeness.
 
-    I've been cracked. Will you help me fend off further attacks?
+    I&#39;ve been cracked. Will you help me fend off further attacks?
 
-    No. Every time I've been asked this question so far, it's been from somebody running Windows. It is not possible to effectively secure Windows systems against crack attacks; the code and architecture simply have too many flaws, it's like trying to bail out a boat with a sieve. The only reliable prevention is to switch to Linux or some other operating system with real security.
+    No. Every time I&#39;ve been asked this question so far, it&#39;s been from somebody running Windows. It is not possible to effectively secure Windows systems against crack attacks; the code and architecture simply have too many flaws, it&#39;s like trying to bail out a boat with a sieve. The only reliable prevention is to switch to Linux or some other operating system with real security.
 
     Where can I find some real hackers to talk with?
 
-    The best way is to find a Unix or Linux user's group local to you and go to their meetings (you can find links to several lists of user groups on the LDP site at Metalab).
-    (I used to say here that you wouldn't find any real hackers on IRC, but I'm given to understand this is changing. Apparently some real hacker communities, attached to things like GIMP and Perl, have IRC channels now.)
+    The best way is to find a Unix or Linux user&#39;s group local to you and go to their meetings (you can find links to several lists of user groups on the LDP site at Metalab).
+    (I used to say here that you wouldn&#39;t find any real hackers on IRC, but I&#39;m given to understand this is changing. Apparently some real hacker communities, attached to things like GIMP and Perl, have IRC channels now.)
 
 
     Can you recommend useful books about hacking-related subjects?
@@ -813,26 +885,26 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 
     What language should I learn first?
 
-    HTML, if you don't already know it. There are a lot of glossy, hype-intensive bad HTML books out there, and distressingly few good ones. The one I like best is HTML: The Definitive Guide.
-    But HTML is not a full programming language. When you're ready to start programming, I would recommend starting with Python. You will hear a lot of people recommending Perl, and Perl is still more popular than Python, but it's harder to learn and (in my opinion) less well designed. There are resources for programming beginners using Python in the Web.
+    HTML, if you don&#39;t already know it. There are a lot of glossy, hype-intensive bad HTML books out there, and distressingly few good ones. The one I like best is HTML: The Definitive Guide.
+    But HTML is not a full programming language. When you&#39;re ready to start programming, I would recommend starting with Python. You will hear a lot of people recommending Perl, and Perl is still more popular than Python, but it&#39;s harder to learn and (in my opinion) less well designed. There are resources for programming beginners using Python in the Web.
 
-    C is really important, but it's also much more difficult than either Python or Perl. Don't try to learn it first.
+    C is really important, but it&#39;s also much more difficult than either Python or Perl. Don&#39;t try to learn it first.
 
-    Windows users, do not settle for Visual Basic. It will teach you bad habits, and it's not portable off Windows. Avoid.
+    Windows users, do not settle for Visual Basic. It will teach you bad habits, and it&#39;s not portable off Windows. Avoid.
 
 
     Do I need to hate and bash Microsoft?
 
-    No, you don't. Not that Microsoft isn't loathsome, but there was a hacker culture long before Microsoft and there will still be one when Microsoft is history. Any energy you spend hating Microsoft would be better spent on loving your craft. Write good code -- that will bash Microsoft quite sufficiently without polluting your karma.
+    No, you don&#39;t. Not that Microsoft isn&#39;t loathsome, but there was a hacker culture long before Microsoft and there will still be one when Microsoft is history. Any energy you spend hating Microsoft would be better spent on loving your craft. Write good code -- that will bash Microsoft quite sufficiently without polluting your karma.
 
-    But won't open-source software leave programmers unable to make a living?
+    But won&#39;t open-source software leave programmers unable to make a living?
 
-    This seems unlikely -- so far, the open-source software industry seems to be creating jobs rather than taking them away. If having a program written is a net economic gain over not having it written, a programmer will get paid whether or not the program is going to be free after it's done. And, no matter how much &quot;free&quot; software gets written, there always seems to be more demand for new and customized applications. I've written more about this at the Open Source pages.
+    This seems unlikely -- so far, the open-source software industry seems to be creating jobs rather than taking them away. If having a program written is a net economic gain over not having it written, a programmer will get paid whether or not the program is going to be free after it&#39;s done. And, no matter how much &quot;free&quot; software gets written, there always seems to be more demand for new and customized applications. I&#39;ve written more about this at the Open Source pages.
 
     How can I get started? Where can I get a free Unix?
 
     Elsewhere on this page I include pointers to where to get the most commonly used free Unix. To be a hacker you need motivation and initiative and the ability to educate yourself. Start now...
-    Back to Eric's FAQ Page Up to Site Map  $Date: 2000/03/24 21:01:28 $
+    Back to Eric&#39;s FAQ Page Up to Site Map  $Date: 2000/03/24 21:01:28 $
     Eric S. Raymond esr@snark.thyrsus.com
 &lt;/pre&gt;</content>
  </entry>
@@ -844,31 +916,31 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
    <id>http://keyvanfatehi.github.io/blog/2013/05/14/Bellow</id>
    <content type="html">&lt;p&gt;It wraps the top Prowl and Notify My Android ruby gems and presents one method&lt;/p&gt;
 
-&lt;p&gt;&lt;a href='https://github.com/keyvanfatehi/bellow'&gt;bellow on github&lt;/a&gt;&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='ruby'&gt;&lt;span class='c1'&gt;# People and API keys for each service (nma and prowl)&lt;/span&gt;
-&lt;span class='n'&gt;people&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
-  &lt;span class='ss'&gt;:guillaume&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
-    &lt;span class='ss'&gt;:prowl&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;f7a1879f0331667e0a993b501127a5f21ce7fbff&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;
-    &lt;span class='ss'&gt;:nma&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;baa2ab11aa424a08945938a3df1e0341ce935d30704eca0b&amp;quot;&lt;/span&gt;
-  &lt;span class='p'&gt;},&lt;/span&gt;
-  &lt;span class='s1'&gt;&amp;#39;keyvan fatehi&amp;#39;&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
-    &lt;span class='ss'&gt;:prowl&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;757e5b121f243d7309eafa041ba93f5d794336cd&amp;quot;&lt;/span&gt;
-  &lt;span class='p'&gt;},&lt;/span&gt;
-  &lt;span class='ss'&gt;:steve&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
-    &lt;span class='ss'&gt;:prowl&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;85138c449bd3ee2f48039c8ca471f710c4257f70&amp;quot;&lt;/span&gt;
-  &lt;span class='p'&gt;}&lt;/span&gt;
-&lt;span class='p'&gt;}&lt;/span&gt;
+&lt;p&gt;&lt;a href=&#39;https://github.com/keyvanfatehi/bellow&#39;&gt;bellow on github&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;ruby&#39;&gt;&lt;span class=&#39;c1&#39;&gt;# People and API keys for each service (nma and prowl)&lt;/span&gt;
+&lt;span class=&#39;n&#39;&gt;people&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
+  &lt;span class=&#39;ss&#39;&gt;:guillaume&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
+    &lt;span class=&#39;ss&#39;&gt;:prowl&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;f7a1879f0331667e0a993b501127a5f21ce7fbff&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+    &lt;span class=&#39;ss&#39;&gt;:nma&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;baa2ab11aa424a08945938a3df1e0341ce935d30704eca0b&amp;quot;&lt;/span&gt;
+  &lt;span class=&#39;p&#39;&gt;},&lt;/span&gt;
+  &lt;span class=&#39;s1&#39;&gt;&amp;#39;keyvan fatehi&amp;#39;&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
+    &lt;span class=&#39;ss&#39;&gt;:prowl&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;757e5b121f243d7309eafa041ba93f5d794336cd&amp;quot;&lt;/span&gt;
+  &lt;span class=&#39;p&#39;&gt;},&lt;/span&gt;
+  &lt;span class=&#39;ss&#39;&gt;:steve&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
+    &lt;span class=&#39;ss&#39;&gt;:prowl&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;85138c449bd3ee2f48039c8ca471f710c4257f70&amp;quot;&lt;/span&gt;
+  &lt;span class=&#39;p&#39;&gt;}&lt;/span&gt;
+&lt;span class=&#39;p&#39;&gt;}&lt;/span&gt;
 
-&lt;span class='c1'&gt;# Build your message&lt;/span&gt;
-&lt;span class='n'&gt;subject&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;McDonalds&amp;quot;&lt;/span&gt;
-&lt;span class='n'&gt;message&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;Hey guys I just ordered a Big Mac LOL&amp;quot;&lt;/span&gt;
+&lt;span class=&#39;c1&#39;&gt;# Build your message&lt;/span&gt;
+&lt;span class=&#39;n&#39;&gt;subject&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;McDonalds&amp;quot;&lt;/span&gt;
+&lt;span class=&#39;n&#39;&gt;message&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;Hey guys I just ordered a Big Mac LOL&amp;quot;&lt;/span&gt;
 
-&lt;span class='c1'&gt;# Notify them all with Bellow&lt;/span&gt;
-&lt;span class='no'&gt;Bellow&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;notify&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;people&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;app&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;message&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class=&#39;c1&#39;&gt;# Notify them all with Bellow&lt;/span&gt;
+&lt;span class=&#39;no&#39;&gt;Bellow&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;notify&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;people&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;app&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;message&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a href='http://www.prowlapp.com'&gt;ProwlApp&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#39;http://www.prowlapp.com&#39;&gt;ProwlApp&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href='http://www.notifymyandroid.com'&gt;NMA&lt;/a&gt;&lt;/p&gt;</content>
+&lt;p&gt;&lt;a href=&#39;http://www.notifymyandroid.com&#39;&gt;NMA&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
  
  <entry>
@@ -878,29 +950,29 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
    <id>http://keyvanfatehi.github.io/blog/2013/05/11/hello-jekyll-goodbye-tumblr</id>
    <content type="html">&lt;p&gt;Migrating my posts from Tumblr and into Jekyll was not too difficult but I did need to write a little script to make this work.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href='https://gist.github.com/keyvanfatehi/5562147'&gt;Gist&lt;/a&gt;&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='ruby'&gt;&lt;span class='c1'&gt;#!/usr/bin/env ruby&lt;/span&gt;
+&lt;p&gt;&lt;a href=&#39;https://gist.github.com/keyvanfatehi/5562147&#39;&gt;Gist&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;ruby&#39;&gt;&lt;span class=&#39;c1&#39;&gt;#!/usr/bin/env ruby&lt;/span&gt;
 
-&lt;span class='nb'&gt;require&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;rubygems&amp;#39;&lt;/span&gt;
+&lt;span class=&#39;nb&#39;&gt;require&lt;/span&gt; &lt;span class=&#39;s1&#39;&gt;&amp;#39;rubygems&amp;#39;&lt;/span&gt;
 
-&lt;span class='c1'&gt;##&lt;/span&gt;
-&lt;span class='c1'&gt;# Monkeypatch to fix the following&lt;/span&gt;
-&lt;span class='c1'&gt;# tumblr.rb:73&lt;/span&gt;
-&lt;span class='c1'&gt;#   content = post.at[&amp;quot;audio-player&amp;quot;] + &amp;quot;&amp;lt;br/&amp;gt;&amp;quot; + post[&amp;quot;audio-caption&amp;quot;]&lt;/span&gt;
-&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;Hash&lt;/span&gt;
-  &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;at&lt;/span&gt;
-    &lt;span class='nb'&gt;self&lt;/span&gt;
-  &lt;span class='k'&gt;end&lt;/span&gt;
-&lt;span class='k'&gt;end&lt;/span&gt;
+&lt;span class=&#39;c1&#39;&gt;##&lt;/span&gt;
+&lt;span class=&#39;c1&#39;&gt;# Monkeypatch to fix the following&lt;/span&gt;
+&lt;span class=&#39;c1&#39;&gt;# tumblr.rb:73&lt;/span&gt;
+&lt;span class=&#39;c1&#39;&gt;#   content = post.at[&amp;quot;audio-player&amp;quot;] + &amp;quot;&amp;lt;br/&amp;gt;&amp;quot; + post[&amp;quot;audio-caption&amp;quot;]&lt;/span&gt;
+&lt;span class=&#39;k&#39;&gt;class&lt;/span&gt; &lt;span class=&#39;nc&#39;&gt;Hash&lt;/span&gt;
+  &lt;span class=&#39;k&#39;&gt;def&lt;/span&gt; &lt;span class=&#39;nf&#39;&gt;at&lt;/span&gt;
+    &lt;span class=&#39;nb&#39;&gt;self&lt;/span&gt;
+  &lt;span class=&#39;k&#39;&gt;end&lt;/span&gt;
+&lt;span class=&#39;k&#39;&gt;end&lt;/span&gt;
 
-&lt;span class='k'&gt;begin&lt;/span&gt;
-  &lt;span class='nb'&gt;require&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;jekyll/jekyll-import/tumblr&amp;#39;&lt;/span&gt;
-&lt;span class='k'&gt;rescue&lt;/span&gt;
-  &lt;span class='nb'&gt;puts&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;Missing jekyll-import gem. Do this: gem install jekyll-import --pre&amp;quot;&lt;/span&gt;
-  &lt;span class='nb'&gt;exit&lt;/span&gt; &lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;
-&lt;span class='k'&gt;end&lt;/span&gt;
+&lt;span class=&#39;k&#39;&gt;begin&lt;/span&gt;
+  &lt;span class=&#39;nb&#39;&gt;require&lt;/span&gt; &lt;span class=&#39;s1&#39;&gt;&amp;#39;jekyll/jekyll-import/tumblr&amp;#39;&lt;/span&gt;
+&lt;span class=&#39;k&#39;&gt;rescue&lt;/span&gt;
+  &lt;span class=&#39;nb&#39;&gt;puts&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;Missing jekyll-import gem. Do this: gem install jekyll-import --pre&amp;quot;&lt;/span&gt;
+  &lt;span class=&#39;nb&#39;&gt;exit&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;-&lt;/span&gt;&lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;
+&lt;span class=&#39;k&#39;&gt;end&lt;/span&gt;
 
-&lt;span class='ss'&gt;JekyllImport&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='ss'&gt;:Tumblr&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;process&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;http://slog.keyvanfatehi.com&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='kp'&gt;true&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class=&#39;ss&#39;&gt;JekyllImport&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;ss&#39;&gt;:Tumblr&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;process&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;s2&#39;&gt;&amp;quot;http://slog.keyvanfatehi.com&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;kp&#39;&gt;true&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
  </entry>
  
@@ -1158,16 +1230,16 @@ ntop -d -L -u ntop -P /usr/local/ntop –-skip-version-check –-use-syslog=daem
 &lt;p&gt;&lt;code&gt;Dir.glob(File.join(File.dirname(__FILE__), &quot;vendor&quot;, &quot;gems&quot;, &quot;*&quot;, &quot;lib&quot;)).each do |lib|
   $LOAD_PATH.unshift File.expand_path(lib)
 end
-require 'GEMNAME' # they are in your load path now!&lt;/code&gt;&lt;/p&gt;
+require &#39;GEMNAME&#39; # they are in your load path now!&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;I do NOT require rubygems in these scripts, however if you will be doing this, or you suspect a gem might be doing this, you&amp;#8217;ll want to prepare in advance, with a slight mod to the above:&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;require 'rubygems'
+&lt;p&gt;&lt;code&gt;require &#39;rubygems&#39;
 Dir.glob(File.join(File.dirname(__FILE__), &quot;vendor&quot;, &quot;gems&quot;, &quot;*&quot;, &quot;lib&quot;)).each do |lib|
   $LOAD_PATH.unshift File.expand_path(lib)
   Gem.path.unshift File.expand_path(lib)
 end
-require 'GEMNAME' # they are in your load path now! They'll also be known to rubygems within the context of your application&lt;/code&gt;&lt;/p&gt;
+require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be known to rubygems within the context of your application&lt;/code&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -1399,17 +1471,17 @@ to collaborate effectively on projects hosted on github, using branches for feat
    <id>http://keyvanfatehi.github.io/lessons/2011/12/29/jekyll-introduction</id>
    <content type="html">&lt;p&gt;This Jekyll introduction will outline specifically what Jekyll is and why you would want to use it. Directly following the intro we&amp;#8217;ll learn exactly &lt;em&gt;how&lt;/em&gt; Jekyll does what it does.&lt;/p&gt;
 
-&lt;h2 id='overview'&gt;Overview&lt;/h2&gt;
+&lt;h2 id=&#39;overview&#39;&gt;Overview&lt;/h2&gt;
 
-&lt;h3 id='what_is_jekyll'&gt;What is Jekyll?&lt;/h3&gt;
+&lt;h3 id=&#39;what_is_jekyll&#39;&gt;What is Jekyll?&lt;/h3&gt;
 
 &lt;p&gt;Jekyll is a parsing engine bundled as a ruby gem used to build static websites from dynamic components such as templates, partials, liquid code, markdown, etc. Jekyll is known as &amp;#8220;a simple, blog aware, static site generator&amp;#8221;.&lt;/p&gt;
 
-&lt;h3 id='examples'&gt;Examples&lt;/h3&gt;
+&lt;h3 id=&#39;examples&#39;&gt;Examples&lt;/h3&gt;
 
-&lt;p&gt;This website is created with Jekyll. &lt;a href='https://github.com/mojombo/jekyll/wiki/Sites'&gt;Other Jekyll websites&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This website is created with Jekyll. &lt;a href=&#39;https://github.com/mojombo/jekyll/wiki/Sites&#39;&gt;Other Jekyll websites&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id='what_does_jekyll_do'&gt;What does Jekyll Do?&lt;/h3&gt;
+&lt;h3 id=&#39;what_does_jekyll_do&#39;&gt;What does Jekyll Do?&lt;/h3&gt;
 
 &lt;p&gt;Jekyll is a ruby gem you install on your local system. Once there you can call &lt;code&gt;jekyll --server&lt;/code&gt; on a directory and provided that directory is setup in a way jekyll expects, it will do magic stuff like parse markdown/textile files, compute categories, tags, permalinks, and construct your pages from layout templates and partials.&lt;/p&gt;
 
@@ -1417,13 +1489,13 @@ to collaborate effectively on projects hosted on github, using branches for feat
 
 &lt;p&gt;You can think of Jekyll as a normalish dynamic blog but rather than parsing content, templates, and tags on each request, Jekyll does this once &lt;em&gt;beforehand&lt;/em&gt; and caches the &lt;em&gt;entire website&lt;/em&gt; in a folder for serving statically.&lt;/p&gt;
 
-&lt;h3 id='jekyll_is_not_blogging_software'&gt;Jekyll is Not Blogging Software&lt;/h3&gt;
+&lt;h3 id=&#39;jekyll_is_not_blogging_software&#39;&gt;Jekyll is Not Blogging Software&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Jekyll is a parsing engine.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Jekyll does not come with any content nor does it have any templates or design elements. This is a common source of confusion when getting started. Jekyll does not come with anything you actually use or see on your website - you have to make it.&lt;/p&gt;
 
-&lt;h3 id='why_should_i_care'&gt;Why Should I Care?&lt;/h3&gt;
+&lt;h3 id=&#39;why_should_i_care&#39;&gt;Why Should I Care?&lt;/h3&gt;
 
 &lt;p&gt;Jekyll is very minimalistic and very efficient. The most important thing to realize about Jekyll is that it creates a static representation of your website requiring only a static web-server. Traditional dynamic blogs like Wordpress require a database and server-side code. Heavily trafficked dynamic blogs must employ a caching layer that ultimately performs the same job Jekyll sets out to do; serve static content.&lt;/p&gt;
 
@@ -1447,7 +1519,7 @@ to collaborate effectively on projects hosted on github, using branches for feat
 &lt;li&gt;No database required.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id='how_jekyll_works'&gt;How Jekyll Works&lt;/h1&gt;
+&lt;h1 id=&#39;how_jekyll_works&#39;&gt;How Jekyll Works&lt;/h1&gt;
 
 &lt;p&gt;The following is a complete but concise outline of exactly how Jekyll works.&lt;/p&gt;
 
@@ -1455,11 +1527,11 @@ to collaborate effectively on projects hosted on github, using branches for feat
 
 &lt;p&gt;Learning these core concepts should help you avoid common frustrations and ultimately help you better understand the code examples contained throughout Jekyll-Bootstrap.&lt;/p&gt;
 
-&lt;h2 id='initial_setup'&gt;Initial Setup&lt;/h2&gt;
+&lt;h2 id=&#39;initial_setup&#39;&gt;Initial Setup&lt;/h2&gt;
 
-&lt;p&gt;After &lt;a href='/index.html#start-now'&gt;installing jekyll&lt;/a&gt; you&amp;#8217;ll need to format your website directory in a way jekyll expects. Jekyll-bootstrap conveniently provides the base directory format.&lt;/p&gt;
+&lt;p&gt;After &lt;a href=&#39;/index.html#start-now&#39;&gt;installing jekyll&lt;/a&gt; you&amp;#8217;ll need to format your website directory in a way jekyll expects. Jekyll-bootstrap conveniently provides the base directory format.&lt;/p&gt;
 
-&lt;h3 id='the_jekyll_application_base_format'&gt;The Jekyll Application Base Format&lt;/h3&gt;
+&lt;h3 id=&#39;the_jekyll_application_base_format&#39;&gt;The Jekyll Application Base Format&lt;/h3&gt;
 
 &lt;p&gt;Jekyll expects your website directory to be laid out like so:&lt;/p&gt;
 
@@ -1505,25 +1577,25 @@ to collaborate effectively on projects hosted on github, using branches for feat
 &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;(read more: &lt;a href='https://github.com/mojombo/jekyll/wiki/Usage'&gt;https://github.com/mojombo/jekyll/wiki/Usage&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;(read more: &lt;a href=&#39;https://github.com/mojombo/jekyll/wiki/Usage&#39;&gt;https://github.com/mojombo/jekyll/wiki/Usage&lt;/a&gt;)&lt;/p&gt;
 
-&lt;h3 id='jekyll_configuration'&gt;Jekyll Configuration&lt;/h3&gt;
+&lt;h3 id=&#39;jekyll_configuration&#39;&gt;Jekyll Configuration&lt;/h3&gt;
 
-&lt;p&gt;Jekyll supports various configuration options that are fully outlined here: &lt;a href='https://github.com/mojombo/jekyll/wiki/Configuration'&gt;https://github.com/mojombo/jekyll/wiki/Configuration&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Jekyll supports various configuration options that are fully outlined here: &lt;a href=&#39;https://github.com/mojombo/jekyll/wiki/Configuration&#39;&gt;https://github.com/mojombo/jekyll/wiki/Configuration&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id='content_in_jekyll'&gt;Content in Jekyll&lt;/h2&gt;
+&lt;h2 id=&#39;content_in_jekyll&#39;&gt;Content in Jekyll&lt;/h2&gt;
 
 &lt;p&gt;Content in Jekyll is either a post or a page. These content &amp;#8220;objects&amp;#8221; get inserted into one or more templates to build the final output for its respective static-page.&lt;/p&gt;
 
-&lt;h3 id='posts_and_pages'&gt;Posts and Pages&lt;/h3&gt;
+&lt;h3 id=&#39;posts_and_pages&#39;&gt;Posts and Pages&lt;/h3&gt;
 
 &lt;p&gt;Both posts and pages should be written in markdown, textile, or HTML and may also contain Liquid templating syntax. Both posts and pages can have meta-data assigned on a per-page basis such as title, url path, as well as arbitrary custom meta-data.&lt;/p&gt;
 
-&lt;h3 id='working_with_posts'&gt;Working With Posts&lt;/h3&gt;
+&lt;h3 id=&#39;working_with_posts&#39;&gt;Working With Posts&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Creating a Post&lt;/strong&gt; &lt;br /&gt;Posts are created by properly formatting a file and placing it the &lt;code&gt;_posts&lt;/code&gt; folder.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;&lt;br /&gt;A post must have a valid filename in the form &lt;code&gt;YEAR-MONTH-DATE-title.MARKUP&lt;/code&gt; and be placed in the &lt;code&gt;_posts&lt;/code&gt; directory. If the data format is invalid Jekyll will not recognize the file as a post. The date and title are automatically parsed from the filename of the post file. Additionally, each file must have &lt;a href='https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter'&gt;YAML Front-Matter&lt;/a&gt; prepended to its content. YAML Front-Matter is a valid YAML syntax specifying meta-data for the given file.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;&lt;br /&gt;A post must have a valid filename in the form &lt;code&gt;YEAR-MONTH-DATE-title.MARKUP&lt;/code&gt; and be placed in the &lt;code&gt;_posts&lt;/code&gt; directory. If the data format is invalid Jekyll will not recognize the file as a post. The date and title are automatically parsed from the filename of the post file. Additionally, each file must have &lt;a href=&#39;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&#39;&gt;YAML Front-Matter&lt;/a&gt; prepended to its content. YAML Front-Matter is a valid YAML syntax specifying meta-data for the given file.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Order&lt;/strong&gt;&lt;br /&gt;Ordering is an important part of Jekyll but it is hard to specify a custom ordering strategy. Only reverse chronological and chronological ordering is supported in Jekyll.&lt;/p&gt;
 
@@ -1540,11 +1612,11 @@ categories : [lessons, beginner]
 
 &lt;p&gt;This defines the category hierarchy &amp;#8220;lessons/beginner&amp;#8221;. Note this is &lt;em&gt;one category&lt;/em&gt; node in Jekyll. You won&amp;#8217;t find &amp;#8220;lessons&amp;#8221; and &amp;#8220;beginner&amp;#8221; as two separate categories unless you define them elsewhere as singular categories.&lt;/p&gt;
 
-&lt;h3 id='working_with_pages'&gt;Working With Pages&lt;/h3&gt;
+&lt;h3 id=&#39;working_with_pages&#39;&gt;Working With Pages&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Creating a Page&lt;/strong&gt;&lt;br /&gt;Pages are created by properly formatting a file and placing it anywhere in the root directory or subdirectories that do &lt;em&gt;not&lt;/em&gt; start with an underscore.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;&lt;br /&gt;In order to register as a Jekyll page the file must contain &lt;a href='https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter'&gt;YAML Front-Matter&lt;/a&gt;. Registering a page means 1) that Jekyll will process the page and 2) that the page object will be available in the &lt;code&gt;site.pages&lt;/code&gt; array for inclusion into your templates.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;&lt;br /&gt;In order to register as a Jekyll page the file must contain &lt;a href=&#39;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&#39;&gt;YAML Front-Matter&lt;/a&gt;. Registering a page means 1) that Jekyll will process the page and 2) that the page object will be available in the &lt;code&gt;site.pages&lt;/code&gt; array for inclusion into your templates.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Categories and Tags&lt;/strong&gt;&lt;br /&gt;Pages do not compute categories nor tags so defining them will have no effect.&lt;/p&gt;
 
@@ -1569,7 +1641,7 @@ categories : [lessons, beginner]
 &lt;li&gt;&lt;strong&gt;about.html&lt;/strong&gt;&lt;br /&gt;A nice about page is easy to do and gives the human perspective to your website.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id='templates_in_jekyll'&gt;Templates in Jekyll&lt;/h2&gt;
+&lt;h2 id=&#39;templates_in_jekyll&#39;&gt;Templates in Jekyll&lt;/h2&gt;
 
 &lt;p&gt;Templates are used to contain a page&amp;#8217;s or post&amp;#8217;s content. All templates have access to a global site object variable: &lt;code&gt;site&lt;/code&gt; as well as a page object variable: &lt;code&gt;page&lt;/code&gt;. The site variable holds all accessible content and metadata relative to the site. The page variable holds accessible data for the given page or post being rendered at that point.&lt;/p&gt;
 
@@ -1586,31 +1658,31 @@ categories : [lessons, beginner]
   &amp;lt;/div&amp;gt;
 &amp;lt;/body&amp;gt;
 ...&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id='subtemplates'&gt;Sub-Templates&lt;/h3&gt;
+&lt;h3 id=&#39;subtemplates&#39;&gt;Sub-Templates&lt;/h3&gt;
 
 &lt;p&gt;Sub-templates are exactly templates with the only difference being they define another &amp;#8220;root&amp;#8221; layout/template within their YAML Front Matter. This essentially means a template will render inside of another template.&lt;/p&gt;
 
-&lt;h3 id='includes'&gt;Includes&lt;/h3&gt;
+&lt;h3 id=&#39;includes&#39;&gt;Includes&lt;/h3&gt;
 
 &lt;p&gt;In Jekyll you can define include files by placing them in the &lt;code&gt;_includes&lt;/code&gt; folder. Includes are NOT templates, rather they are just code snippets that get included into templates. In this way, you can treat the code inside includes as if it was native to the parent template.&lt;/p&gt;
 
 &lt;p&gt;Any valid template code may be used in includes.&lt;/p&gt;
 
-&lt;h2 id='using_liquid_for_templating'&gt;Using Liquid for Templating&lt;/h2&gt;
+&lt;h2 id=&#39;using_liquid_for_templating&#39;&gt;Using Liquid for Templating&lt;/h2&gt;
 
 &lt;p&gt;Templating is perhaps the most confusing and frustrating part of Jekyll. This is mainly due to the fact that Jekyll templates must use the Liquid Templating Language.&lt;/p&gt;
 
-&lt;h3 id='what_is_liquid'&gt;What is Liquid?&lt;/h3&gt;
+&lt;h3 id=&#39;what_is_liquid&#39;&gt;What is Liquid?&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href='https://github.com/Shopify/liquid'&gt;Liquid&lt;/a&gt; is a secure templating language developed by &lt;a href='http://shopify.com'&gt;Shopify&lt;/a&gt;. Liquid is designed for end-users to be able to execute logic within template files without imposing any security risk on the hosting server.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#39;https://github.com/Shopify/liquid&#39;&gt;Liquid&lt;/a&gt; is a secure templating language developed by &lt;a href=&#39;http://shopify.com&#39;&gt;Shopify&lt;/a&gt;. Liquid is designed for end-users to be able to execute logic within template files without imposing any security risk on the hosting server.&lt;/p&gt;
 
 &lt;p&gt;Jekyll uses Liquid to generate the post content within the final page layout structure and as the primary interface for working with your site and post/page data.&lt;/p&gt;
 
-&lt;h3 id='why_do_we_have_to_use_liquid'&gt;Why Do We Have to Use Liquid?&lt;/h3&gt;
+&lt;h3 id=&#39;why_do_we_have_to_use_liquid&#39;&gt;Why Do We Have to Use Liquid?&lt;/h3&gt;
 
-&lt;p&gt;GitHub uses Jekyll to power &lt;a href='http://pages.github.com/'&gt;GitHub Pages&lt;/a&gt;. GitHub cannot afford to run arbitrary code on their servers so they lock developers down via Liquid.&lt;/p&gt;
+&lt;p&gt;GitHub uses Jekyll to power &lt;a href=&#39;http://pages.github.com/&#39;&gt;GitHub Pages&lt;/a&gt;. GitHub cannot afford to run arbitrary code on their servers so they lock developers down via Liquid.&lt;/p&gt;
 
-&lt;h3 id='liquid_is_not_programmerfriendly'&gt;Liquid is Not Programmer-Friendly.&lt;/h3&gt;
+&lt;h3 id=&#39;liquid_is_not_programmerfriendly&#39;&gt;Liquid is Not Programmer-Friendly.&lt;/h3&gt;
 
 &lt;p&gt;The short story is liquid is not real code and its not intended to execute real code. The point being you can&amp;#8217;t do jackshit in liquid that hasn&amp;#8217;t been allowed explicitly by the implementation. What&amp;#8217;s more you can only access data-structures that have been explicitly passed to the template.&lt;/p&gt;
 
@@ -1620,15 +1692,15 @@ categories : [lessons, beginner]
 
 &lt;p&gt;But rather than look a gift horse in the mouth we are going to suck it up and view it as an opportunity to work around limitations and adopt client-side solutions when possible.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Aside&lt;/strong&gt; &lt;br /&gt;My personal stance is to not invest time trying to hack liquid. It&amp;#8217;s really unnecessary &lt;em&gt;from a programmer&amp;#8217;s&lt;/em&gt; perspective. That is to say if you have the ability to run custom plugins (i.e. run arbitrary ruby code) you are better off sticking with ruby. Toward that end I&amp;#8217;ve built &lt;a href='http://github.com/plusjade/mustache-with-jekyll'&gt;Mustache-with-Jekyll&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Aside&lt;/strong&gt; &lt;br /&gt;My personal stance is to not invest time trying to hack liquid. It&amp;#8217;s really unnecessary &lt;em&gt;from a programmer&amp;#8217;s&lt;/em&gt; perspective. That is to say if you have the ability to run custom plugins (i.e. run arbitrary ruby code) you are better off sticking with ruby. Toward that end I&amp;#8217;ve built &lt;a href=&#39;http://github.com/plusjade/mustache-with-jekyll&#39;&gt;Mustache-with-Jekyll&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id='static_assets'&gt;Static Assets&lt;/h2&gt;
+&lt;h2 id=&#39;static_assets&#39;&gt;Static Assets&lt;/h2&gt;
 
 &lt;p&gt;Static assets are any file in the root or non-underscored subfolders that are not pages. That is they have no valid YAML Front Matter and are thus not treated as Jekyll Pages.&lt;/p&gt;
 
 &lt;p&gt;Static assets should be used for images, css, and javascript files.&lt;/p&gt;
 
-&lt;h2 id='how_jekyll_parses_files'&gt;How Jekyll Parses Files&lt;/h2&gt;
+&lt;h2 id=&#39;how_jekyll_parses_files&#39;&gt;How Jekyll Parses Files&lt;/h2&gt;
 
 &lt;p&gt;Remember Jekyll is a processing engine. There are two main types of parsing in Jekyll.&lt;/p&gt;
 
@@ -1648,7 +1720,7 @@ categories : [lessons, beginner]
 
 &lt;p&gt;&lt;strong&gt;Arbitrary files and folders.&lt;/strong&gt; &lt;br /&gt;Files that &lt;em&gt;are not&lt;/em&gt; valid pages are treated as static content and pass through Jekyll untouched and reside on your blog in the exact structure and format they originally existed in.&lt;/p&gt;
 
-&lt;h3 id='formatting_files_for_parsing'&gt;Formatting Files for Parsing.&lt;/h3&gt;
+&lt;h3 id=&#39;formatting_files_for_parsing&#39;&gt;Formatting Files for Parsing.&lt;/h3&gt;
 
 &lt;p&gt;We&amp;#8217;ve outlined the need for valid formatting using &lt;strong&gt;YAML Front Matter&lt;/strong&gt;. Templates, posts, and pages all need to provide valid YAML Front Matter even if the Matter is empty. This is the only way Jekyll knows you want the file processed.&lt;/p&gt;
 
@@ -1664,13 +1736,13 @@ tags : [how-to, jekyll]
 
 &lt;p&gt;Three hyphens on a new line start the Front-Matter block and three hyphens on a new line end the block. The data inside the block must be valid YAML.&lt;/p&gt;
 
-&lt;p&gt;Configuration parameters for YAML Front-Matter is outlined here: &lt;a href='https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter'&gt;A comprehensive explanation of YAML Front Matter&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Configuration parameters for YAML Front-Matter is outlined here: &lt;a href=&#39;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&#39;&gt;A comprehensive explanation of YAML Front Matter&lt;/a&gt;&lt;/p&gt;
 
-&lt;h4 id='defining_layouts_for_posts_and_templates_parsing'&gt;Defining Layouts for Posts and Templates Parsing.&lt;/h4&gt;
+&lt;h4 id=&#39;defining_layouts_for_posts_and_templates_parsing&#39;&gt;Defining Layouts for Posts and Templates Parsing.&lt;/h4&gt;
 
 &lt;p&gt;The &lt;code&gt;layout&lt;/code&gt; parameter in the YAML Front Matter defines the template file for which the given post or template should be injected into. If a template file specifies its own layout, it is effectively being used as a &lt;code&gt;sub-template.&lt;/code&gt; That is to say loading a post file into a template file that refers to another template file with work in the way you&amp;#8217;d expect; as a nested sub-template.&lt;/p&gt;
 
-&lt;h2 id='how_jekyll_generates_the_final_static_files'&gt;How Jekyll Generates the Final Static Files.&lt;/h2&gt;
+&lt;h2 id=&#39;how_jekyll_generates_the_final_static_files&#39;&gt;How Jekyll Generates the Final Static Files.&lt;/h2&gt;
 
 &lt;p&gt;Ultimately, Jekyll&amp;#8217;s job is to generate a static representation of your website. The following is an outline of how that&amp;#8217;s done:&lt;/p&gt;
 
@@ -1702,9 +1774,9 @@ tags : [how-to, jekyll]
 &lt;li&gt;The liquid syntax and variables passed into the liquid templates.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;All the data objects available to you in the templates via Liquid are outlined in the &lt;strong&gt;API Section&lt;/strong&gt; of Jekyll-Bootstrap. You can also read the original documentation here: &lt;a href='https://github.com/mojombo/jekyll/wiki/Template-Data'&gt;https://github.com/mojombo/jekyll/wiki/Template-Data&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;All the data objects available to you in the templates via Liquid are outlined in the &lt;strong&gt;API Section&lt;/strong&gt; of Jekyll-Bootstrap. You can also read the original documentation here: &lt;a href=&#39;https://github.com/mojombo/jekyll/wiki/Template-Data&#39;&gt;https://github.com/mojombo/jekyll/wiki/Template-Data&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id='conclusion'&gt;Conclusion&lt;/h2&gt;
+&lt;h2 id=&#39;conclusion&#39;&gt;Conclusion&lt;/h2&gt;
 
 &lt;p&gt;I hope this paints a clearer picture of what Jekyll is doing and why it works the way it does. As noted, our main programming constraint is the fact that our API is limited to what is accessible via Liquid and Liquid only.&lt;/p&gt;
 
@@ -1712,9 +1784,9 @@ tags : [how-to, jekyll]
 
 &lt;p&gt;&lt;strong&gt;Thank you&lt;/strong&gt; for reading this far.&lt;/p&gt;
 
-&lt;h2 id='next_steps'&gt;Next Steps&lt;/h2&gt;
+&lt;h2 id=&#39;next_steps&#39;&gt;Next Steps&lt;/h2&gt;
 
-&lt;p&gt;Please take a look at &lt;a href='' /&gt; or jump right into &lt;a href=''&gt;Usage&lt;/a&gt; if you&amp;#8217;d like.&lt;/p&gt;</content>
+&lt;p&gt;Please take a look at &lt;a href=&#39;&#39; /&gt; or jump right into &lt;a href=&#39;&#39;&gt;Usage&lt;/a&gt; if you&amp;#8217;d like.&lt;/p&gt;</content>
  </entry>
  
  <entry>
@@ -1830,7 +1902,7 @@ int main() {
   pUfds[0].fd = sockfd;        // Pack our connected TCP socket file descriptor in.
   pUfds[0].events = POLLIN;    // we only care if the socket is ready for read (Has data)
   pUfds[1].fd = STDIN_FILENO;  // Pack our standard input file descriptor in.
-  pUfds[1].events = POLLIN;    // Again, we only care when there's data for reading.
+  pUfds[1].events = POLLIN;    // Again, we only care when there&#39;s data for reading.
 
   do {
     switch(poll(ufds, 2, -1)) {
@@ -1862,7 +1934,7 @@ int main() {
    <updated>2011-07-18T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/07/18/imagemagick-and-its-delegate-libraries</id>
    <content type="html">&lt;p&gt;You need ImageMagick in order to get ruby gems such as Paperclip, or Rmagick, etc to work properly. ImageMagick is one of the most feared dependencies since even if you correctly install it, you may still get errors like:&lt;/p&gt;
-&lt;pre&gt;&quot;is not recognized by the 'identify' command&quot;&lt;/pre&gt;
+&lt;pre&gt;&quot;is not recognized by the &#39;identify&#39; command&quot;&lt;/pre&gt;
 &lt;p&gt;This is because &amp;#8220;identify&amp;#8221;, a command that comes in the ImageMagick suite (in addition to &amp;#8220;convert&amp;#8221;), requires special libraries to understand different image formats. These special libraries are called &amp;#8220;delegates&amp;#8221;.&lt;/p&gt;
 &lt;p&gt;You can see all the delegates set up to work with your current ImageMagick with this command:&lt;/p&gt;
 &lt;pre&gt;convert -list configure&lt;/pre&gt;
