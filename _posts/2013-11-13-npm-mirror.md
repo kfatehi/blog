@@ -12,7 +12,10 @@ published: true
 
 This tutorial is my version of [this other tutorial](http://clock.co.uk/tech-blogs/how-to-create-a-private-npmjs-repository).
 
-First off make sure you have a large enough disk drive, I'll update once it has completed but I think at least 256GB will be the minimum requirement.
+First off make sure you have a large enough disk drive, currently my
+estimation based on the progress is that the total registry size is
+somewhere around 60 GB. I've used a 250GB SSD just to be safe and
+somewhat future-proof.
 
 # Install & Configure CouchDB
 

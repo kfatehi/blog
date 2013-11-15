@@ -4,7 +4,7 @@
  <title>WEBLOG</title>
  <link href="http://keyvanfatehi.github.io/" rel="self"/>
  <link href="http://keyvanfatehi.github.io"/>
- <updated>2013-11-14T17:39:48-08:00</updated>
+ <updated>2013-11-14T18:18:33-08:00</updated>
  <id>http://keyvanfatehi.github.io</id>
  <author>
    <name>Keyvan Fatehi</name>
@@ -19,7 +19,7 @@
    <id>http://keyvanfatehi.github.io/2013/11/13/npm-mirror</id>
    <content type="html">&lt;p&gt;This tutorial is my version of &lt;a href=&#39;http://clock.co.uk/tech-blogs/how-to-create-a-private-npmjs-repository&#39;&gt;this other tutorial&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;First off make sure you have a large enough disk drive, I&amp;#8217;ll update once it has completed but I think at least 256GB will be the minimum requirement.&lt;/p&gt;
+&lt;p&gt;First off make sure you have a large enough disk drive, currently my estimation based on the progress is that the total registry size is somewhere around 60 GB. I&amp;#8217;ve used a 250GB SSD just to be safe and somewhat future-proof.&lt;/p&gt;
 
 &lt;h1 id=&#39;install__configure_couchdb&#39;&gt;Install &amp;amp; Configure CouchDB&lt;/h1&gt;
 
