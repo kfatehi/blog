@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "JBOD"
-tagline: "Just a Bunch of Documents"
+title: "WEBLOG"
+tagline: "INSERT DOCUMENT"
 ---
 {% include JB/setup %}
 

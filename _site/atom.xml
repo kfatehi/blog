@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>logbay of eyvankay</title>
+ <title>WEBLOG</title>
  <link href="http://keyvanfatehi.github.io/" rel="self"/>
  <link href="http://keyvanfatehi.github.io"/>
- <updated>2013-11-13T17:54:02-08:00</updated>
+ <updated>2013-11-14T17:08:53-08:00</updated>
  <id>http://keyvanfatehi.github.io</id>
  <author>
    <name>Keyvan Fatehi</name>
@@ -13,13 +13,13 @@
 
  
  <entry>
-   <title>How to setup an NPM mirror</title>
+   <title>How to setup an NPM mirror on a Raspberry Pi running Arch Linux</title>
    <link href="http://keyvanfatehi.github.io/2013/11/13/npm-mirror"/>
    <updated>2013-11-13T00:00:00-08:00</updated>
    <id>http://keyvanfatehi.github.io/2013/11/13/npm-mirror</id>
-   <content type="html">&lt;p&gt;This tutorial is largely based on &lt;a href=&#39;http://clock.co.uk/tech-blogs/how-to-create-a-private-npmjs-repository&#39;&gt;this other tutorial&lt;/a&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;This tutorial is my version of &lt;a href=&#39;http://clock.co.uk/tech-blogs/how-to-create-a-private-npmjs-repository&#39;&gt;this other tutorial&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;First off make sure you have a large enough disk drive, I&amp;#8217;ll update once my replication is up to date, currently it&amp;#8217;s only at 2 GB after running for about 10 minutes.&lt;/p&gt;
+&lt;p&gt;First off make sure you have a large enough disk drive, I&amp;#8217;ll update once it has completed but I think at least 256GB will be the minimum requirement.&lt;/p&gt;
 
 &lt;h1 id=&#39;install__configure_couchdb&#39;&gt;Install &amp;amp; Configure CouchDB&lt;/h1&gt;
 
@@ -29,8 +29,6 @@
 &lt;li&gt;Use Homebrew to install couchdb: &lt;code&gt;brew install couchdb&lt;/code&gt; read the caveats to make it autostart on reboots&lt;/li&gt;
 
 &lt;li&gt;Point your browser to the CouchDB configuration page which should now be available at &lt;a href=&#39;http://127.0.0.1:5984/_utils/index.html&#39;&gt;http://127.0.0.1:5984/_utils/index.html&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;Click &amp;#8220;Configuration&amp;#8221; and find &lt;code&gt;secure_rewrites&lt;/code&gt; and set it to &lt;code&gt;false&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&#39;on_a_raspberry_pi_w_arch_linux&#39;&gt;On a Raspberry Pi w/ Arch Linux&lt;/h2&gt;
@@ -43,8 +41,30 @@
 &lt;li&gt;Unzip and then &lt;code&gt;dd&lt;/code&gt; the image to path you found: &lt;code&gt;sudo dd bs=4m
 if=/path/to/img of=/dev/mysd&lt;/code&gt; make sure you point to the card and not the partition (e.g. /dev/disk1, not /dev/disk1s1)&lt;/li&gt;
 
-&lt;li&gt;Install couchdb &amp;#8211; still doing this &amp;#8211; will update after I learn to use &lt;code&gt;pacman&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Insert the SD card, start the Pi, and ssh into it (root/root)&lt;/li&gt;
+
+&lt;li&gt;Format your external drive, ensure it is mountable, and that your &lt;code&gt;/etc/fstab&lt;/code&gt; is set to automount it. Use &lt;code&gt;lsblk -f&lt;/code&gt; to discover it. If you need more help check this &lt;a href=&#39;https://wiki.archlinux.org/index.php/USB_Storage_Devices&#39;&gt;ArchWiki Page&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;Download some packages: &lt;code&gt;pacman -Sy couchdb&lt;/code&gt; for more info see this &lt;a href=&#39;https://wiki.archlinux.org/index.php/couchdb&#39;&gt;ArchWiki Page&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;Edit &lt;code&gt;/etc/couchdb/local.ini&lt;/code&gt; and set &lt;code&gt;;bind_address = 127.0.0.1&lt;/code&gt; to &lt;code&gt;bind_address = 0.0.0.0&lt;/code&gt; if you want to access it from another system&lt;/li&gt;
+
+&lt;li&gt;Edit &lt;code&gt;/etc/couchdb/local.ini&lt;/code&gt; and under &lt;code&gt;[couchdb]&lt;/code&gt; add these 2 lines, per your storage location: &lt;code&gt;database_dir = /media/storage/couchdb&lt;/code&gt; and &lt;code&gt;view_index_dir = /media/storage/couchdb&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;Give the couchdb daemon permission to write to your external storage: &lt;code&gt;chown couchdb:daemon /media/storage&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;Setup couchdb to autostart after reboot &lt;code&gt;systemctl enable couchdb&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;Start couchdb with &lt;code&gt;systemctl start couchdb&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;Connect to Futon using &lt;code&gt;your-ip:5984/_utils&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h2 id=&#39;couchdb_configuration_continued&#39;&gt;CouchDB configuration continued&lt;/h2&gt;
+
+&lt;p&gt;Now you have CouchDB installed and can access Futon and hopefully the internet.&lt;/p&gt;
+
+&lt;p&gt;From Futon click &amp;#8220;Configuration&amp;#8221; and find &lt;code&gt;secure_rewrites&lt;/code&gt; and set it to &lt;code&gt;false&lt;/code&gt;&lt;/p&gt;
 
 &lt;h1 id=&#39;tell_couchdb_to_replicate_continuously_from_npm&#39;&gt;Tell CouchDB to replicate continuously from NPM&lt;/h1&gt;
 
@@ -62,26 +82,49 @@ curl -X POST http://127.0.0.1:5984/_replicate -d &amp;#39;{&amp;quot;source&amp;
 curl -X POST http://127.0.0.1:5984/_replicate -d &amp;#39;{&amp;quot;source&amp;quot;:&amp;quot;http://isaacs.iriscouch.com/registry/&amp;quot;, &amp;quot;target&amp;quot;:&amp;quot;registry&amp;quot;, &amp;quot;continuous&amp;quot;:true, &amp;quot;create_target&amp;quot;:true, &amp;quot;cancel&amp;quot;:true}&amp;#39; -H &amp;quot;Content-Type: application/json&amp;quot; 
 &lt;/code&gt;&lt;/p&gt;
 
+&lt;h1 id=&#39;making_sure_that_it_keeps_replicating&#39;&gt;Making sure that it keeps replicating&lt;/h1&gt;
+
+&lt;p&gt;There&amp;#8217;s an unfortunate issue that I&amp;#8217;m experiencing with couchdb, but it may just stop replicating often only after transferring 5-7 GB of data &amp;#8211; a trivial retrigger of the replication with the above command would cause it to pick up where it left off, so I&amp;#8217;ve developed a script.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Install nodejs&lt;/li&gt;
+
+&lt;li&gt;&lt;code&gt;npm install npm-replication-watcher&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;code&gt;npm install forever&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;code&gt;forever start ./node_modules/npm-replication-watcher/bin/npm-replication-watcher&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;For more information check out &lt;a href=&#39;https://github.com/keyvanfatehi/npm-replication-watcher&#39;&gt;npm-replication-watcher&lt;/a&gt;&lt;/p&gt;
+
 &lt;h1 id=&#39;finalizing_the_installation&#39;&gt;Finalizing the installation&lt;/h1&gt;
 
 &lt;p&gt;This information can also be found here &lt;a href=&#39;https://github.com/isaacs/npmjs.org&#39;&gt;https://github.com/isaacs/npmjs.org&lt;/a&gt;. That link will also explain how to tell &lt;code&gt;npm&lt;/code&gt; to use your new registry.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;
-git clone git://github.com/isaacs/npmjs.org.git
-cd npmjs.org
-sudo npm install -g couchapp 
-npm install couchapp 
-npm install semver 
-couchapp push registry/app.js http://localhost:5984/registry 
-couchapp push www/app.js http://localhost:5984/registry 
-&lt;/code&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;git clone git://github.com/isaacs/npmjs.org.git&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;code&gt;cd npmjs.org&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;code&gt;sudo npm install -g couchapp&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;code&gt;npm install couchapp&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;code&gt;npm install semver&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;code&gt;couchapp push registry/app.js http://localhost:5984/registry&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;code&gt;couchapp push www/app.js http://localhost:5984/registry&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h1 id=&#39;testing_the_installation&#39;&gt;Testing the installation&lt;/h1&gt;
 
-&lt;p&gt;&lt;code&gt;
-npm --registry http://localhost:5984/registry/_design/scratch/_rewrite login
-npm --registry http://localhost:5984/registry/_design/scratch/_rewrite search
-&lt;/code&gt;&lt;/p&gt;</content>
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;npm --registry http://localhost:5984/registry/_design/scratch/_rewrite login&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;code&gt;npm --registry http://localhost:5984/registry/_design/scratch/_rewrite search&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;</content>
  </entry>
  
  <entry>

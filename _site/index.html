@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>JBOD</title>
+    <title>WEBLOG</title>
     
     <meta name="author" content="Keyvan Fatehi">
 
@@ -37,7 +37,7 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="container-narrow">
-          <a class="brand" href="/">logbay of eyvankay</a>
+          <a class="brand" href="/">WEBLOG</a>
           <ul class="nav">
             
             
@@ -106,7 +106,7 @@
       <div class="content">
         
 <div class="page-header">
-  <h1>JBOD  <small>Just a Bunch of Documents</small></h1>
+  <h1>WEBLOG  <small>INSERT DOCUMENT</small></h1>
 </div>
 
 <div class="row-fluid">
@@ -163,12 +163,12 @@ function poke() {
   
   <h1 class='entry-title'>
 
-    <a href='/2013/11/13/npm-mirror'>How to setup an NPM mirror</a>
+    <a href='/2013/11/13/npm-mirror'>How to setup an NPM mirror on a Raspberry Pi running Arch Linux</a>
 
 </h1>
-<div class='entry-content'><p>This tutorial is largely based on <a href='http://clock.co.uk/tech-blogs/how-to-create-a-private-npmjs-repository'>this other tutorial</a>.</p>
+<div class='entry-content'><p>This tutorial is my version of <a href='http://clock.co.uk/tech-blogs/how-to-create-a-private-npmjs-repository'>this other tutorial</a>.</p>
 
-<p>First off make sure you have a large enough disk drive, I&#8217;ll update once my replication is up to date, currently it&#8217;s only at 2 GB after running for about 10 minutes.</p>
+<p>First off make sure you have a large enough disk drive, I&#8217;ll update once it has completed but I think at least 256GB will be the minimum requirement.</p>
 
 <h1 id='install__configure_couchdb'>Install &amp; Configure CouchDB</h1>
 
@@ -178,8 +178,6 @@ function poke() {
 <li>Use Homebrew to install couchdb: <code>brew install couchdb</code> read the caveats to make it autostart on reboots</li>
 
 <li>Point your browser to the CouchDB configuration page which should now be available at <a href='http://127.0.0.1:5984/_utils/index.html'>http://127.0.0.1:5984/_utils/index.html</a></li>
-
-<li>Click &#8220;Configuration&#8221; and find <code>secure_rewrites</code> and set it to <code>false</code></li>
 </ol>
 
 <h2 id='on_a_raspberry_pi_w_arch_linux'>On a Raspberry Pi w/ Arch Linux</h2>
@@ -192,8 +190,30 @@ function poke() {
 <li>Unzip and then <code>dd</code> the image to path you found: <code>sudo dd bs=4m
 if=/path/to/img of=/dev/mysd</code> make sure you point to the card and not the partition (e.g. /dev/disk1, not /dev/disk1s1)</li>
 
-<li>Install couchdb &#8211; still doing this &#8211; will update after I learn to use <code>pacman</code></li>
+<li>Insert the SD card, start the Pi, and ssh into it (root/root)</li>
+
+<li>Format your external drive, ensure it is mountable, and that your <code>/etc/fstab</code> is set to automount it. Use <code>lsblk -f</code> to discover it. If you need more help check this <a href='https://wiki.archlinux.org/index.php/USB_Storage_Devices'>ArchWiki Page</a></li>
+
+<li>Download some packages: <code>pacman -Sy couchdb</code> for more info see this <a href='https://wiki.archlinux.org/index.php/couchdb'>ArchWiki Page</a></li>
+
+<li>Edit <code>/etc/couchdb/local.ini</code> and set <code>;bind_address = 127.0.0.1</code> to <code>bind_address = 0.0.0.0</code> if you want to access it from another system</li>
+
+<li>Edit <code>/etc/couchdb/local.ini</code> and under <code>[couchdb]</code> add these 2 lines, per your storage location: <code>database_dir = /media/storage/couchdb</code> and <code>view_index_dir = /media/storage/couchdb</code></li>
+
+<li>Give the couchdb daemon permission to write to your external storage: <code>chown couchdb:daemon /media/storage</code></li>
+
+<li>Setup couchdb to autostart after reboot <code>systemctl enable couchdb</code></li>
+
+<li>Start couchdb with <code>systemctl start couchdb</code></li>
+
+<li>Connect to Futon using <code>your-ip:5984/_utils</code></li>
 </ol>
+
+<h2 id='couchdb_configuration_continued'>CouchDB configuration continued</h2>
+
+<p>Now you have CouchDB installed and can access Futon and hopefully the internet.</p>
+
+<p>From Futon click &#8220;Configuration&#8221; and find <code>secure_rewrites</code> and set it to <code>false</code></p>
 
 <h1 id='tell_couchdb_to_replicate_continuously_from_npm'>Tell CouchDB to replicate continuously from NPM</h1>
 
@@ -211,26 +231,49 @@ curl -X POST http://127.0.0.1:5984/_replicate -d &#39;{&quot;source&quot;:&quot;
 curl -X POST http://127.0.0.1:5984/_replicate -d &#39;{&quot;source&quot;:&quot;http://isaacs.iriscouch.com/registry/&quot;, &quot;target&quot;:&quot;registry&quot;, &quot;continuous&quot;:true, &quot;create_target&quot;:true, &quot;cancel&quot;:true}&#39; -H &quot;Content-Type: application/json&quot; 
 </code></p>
 
+<h1 id='making_sure_that_it_keeps_replicating'>Making sure that it keeps replicating</h1>
+
+<p>There&#8217;s an unfortunate issue that I&#8217;m experiencing with couchdb, but it may just stop replicating often only after transferring 5-7 GB of data &#8211; a trivial retrigger of the replication with the above command would cause it to pick up where it left off, so I&#8217;ve developed a script.</p>
+
+<ol>
+<li>Install nodejs</li>
+
+<li><code>npm install npm-replication-watcher</code></li>
+
+<li><code>npm install forever</code></li>
+
+<li><code>forever start ./node_modules/npm-replication-watcher/bin/npm-replication-watcher</code></li>
+</ol>
+
+<p>For more information check out <a href='https://github.com/keyvanfatehi/npm-replication-watcher'>npm-replication-watcher</a></p>
+
 <h1 id='finalizing_the_installation'>Finalizing the installation</h1>
 
 <p>This information can also be found here <a href='https://github.com/isaacs/npmjs.org'>https://github.com/isaacs/npmjs.org</a>. That link will also explain how to tell <code>npm</code> to use your new registry.</p>
 
-<p><code>
-git clone git://github.com/isaacs/npmjs.org.git
-cd npmjs.org
-sudo npm install -g couchapp 
-npm install couchapp 
-npm install semver 
-couchapp push registry/app.js http://localhost:5984/registry 
-couchapp push www/app.js http://localhost:5984/registry 
-</code></p>
+<ol>
+<li><code>git clone git://github.com/isaacs/npmjs.org.git</code></li>
+
+<li><code>cd npmjs.org</code></li>
+
+<li><code>sudo npm install -g couchapp</code></li>
+
+<li><code>npm install couchapp</code></li>
+
+<li><code>npm install semver</code></li>
+
+<li><code>couchapp push registry/app.js http://localhost:5984/registry</code></li>
+
+<li><code>couchapp push www/app.js http://localhost:5984/registry</code></li>
+</ol>
 
 <h1 id='testing_the_installation'>Testing the installation</h1>
 
-<p><code>
-npm --registry http://localhost:5984/registry/_design/scratch/_rewrite login
-npm --registry http://localhost:5984/registry/_design/scratch/_rewrite search
-</code></p></div>
+<ol>
+<li><code>npm --registry http://localhost:5984/registry/_design/scratch/_rewrite login</code></li>
+
+<li><code>npm --registry http://localhost:5984/registry/_design/scratch/_rewrite search</code></li>
+</ol></div>
 </div>
   </div>
 </div>
