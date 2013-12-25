@@ -12,10 +12,16 @@ published: true
 
 This tutorial is my version of [this other tutorial](http://clock.co.uk/tech-blogs/how-to-create-a-private-npmjs-repository).
 
-First off make sure you have a large enough disk drive, currently my
-estimation based on the progress is that the total registry size is
-somewhere around 60 GB. I've used a 250GB SSD just to be safe and
-somewhat future-proof.
+First off make sure you have a large enough disk drive. You can find out the remote disk size easy like this:
+
+```
+[root@alarmpi ~]# curl http://isaacs.iriscouch.com/registry/
+{"db_name":"registry","doc_count":52298,"doc_del_count":4836,"update_seq":861940,"purge_seq":0,"compact_running":false,"disk_size":214735753351,"data_size":174529391409,"instance_start_time":"1387441403828175","disk_format_version":6,"committed_update_seq":861940}
+```
+
+`data_size` lets us know that at the time of this writing you'll be safe
+with a 250GB SSD, but it's anyone's guess when that will be
+insufficient. Currently that's what I'm running.
 
 # Install & Configure CouchDB
 
@@ -81,7 +87,7 @@ would cause it to pick up where it left off, so I've developed a script.
 1. Install nodejs
 2. `npm install npm-replication-watcher`
 3. `npm install forever`
-4. `forever start ./node_modules/npm-replication-watcher/bin/npm-replication-watcher`
+4. `forever npm-replication-watcher/bin/npm-replication-watcher`
 
 For more information check out
 [npm-replication-watcher](https://github.com/keyvanfatehi/npm-replication-watcher)
