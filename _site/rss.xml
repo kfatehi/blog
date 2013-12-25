@@ -5,8 +5,8 @@
         <description>WEBLOG - Keyvan Fatehi</description>
         <link>http://keyvanfatehi.github.io</link>
         <link>http://keyvanfatehi.github.io</link>
-        <lastBuildDate>2013-11-14T18:18:33-08:00</lastBuildDate>
-        <pubDate>2013-11-14T18:18:33-08:00</pubDate>
+        <lastBuildDate>2013-12-24T19:04:43-08:00</lastBuildDate>
+        <pubDate>2013-12-24T19:04:43-08:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -14,7 +14,14 @@
                 <title>How to setup an NPM mirror on a Raspberry Pi running Arch Linux</title>
                 <description>&lt;p&gt;This tutorial is my version of &lt;a href=&#39;http://clock.co.uk/tech-blogs/how-to-create-a-private-npmjs-repository&#39;&gt;this other tutorial&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;First off make sure you have a large enough disk drive, currently my estimation based on the progress is that the total registry size is somewhere around 60 GB. I&amp;#8217;ve used a 250GB SSD just to be safe and somewhat future-proof.&lt;/p&gt;
+&lt;p&gt;First off make sure you have a large enough disk drive. You can find out the remote disk size easy like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+[root@alarmpi ~]# curl http://isaacs.iriscouch.com/registry/
+{&amp;quot;db_name&amp;quot;:&amp;quot;registry&amp;quot;,&amp;quot;doc_count&amp;quot;:52298,&amp;quot;doc_del_count&amp;quot;:4836,&amp;quot;update_seq&amp;quot;:861940,&amp;quot;purge_seq&amp;quot;:0,&amp;quot;compact_running&amp;quot;:false,&amp;quot;disk_size&amp;quot;:214735753351,&amp;quot;data_size&amp;quot;:174529391409,&amp;quot;instance_start_time&amp;quot;:&amp;quot;1387441403828175&amp;quot;,&amp;quot;disk_format_version&amp;quot;:6,&amp;quot;committed_update_seq&amp;quot;:861940}
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;data_size&lt;/code&gt; lets us know that at the time of this writing you&amp;#8217;ll be safe with a 250GB SSD, but it&amp;#8217;s anyone&amp;#8217;s guess when that will be insufficient. Currently that&amp;#8217;s what I&amp;#8217;m running.&lt;/p&gt;
 
 &lt;h1 id=&#39;install__configure_couchdb&#39;&gt;Install &amp;amp; Configure CouchDB&lt;/h1&gt;
 
@@ -88,7 +95,7 @@ curl -X POST http://127.0.0.1:5984/_replicate -d &amp;#39;{&amp;quot;source&amp;
 
 &lt;li&gt;&lt;code&gt;npm install forever&lt;/code&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;code&gt;forever start ./node_modules/npm-replication-watcher/bin/npm-replication-watcher&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;forever npm-replication-watcher/bin/npm-replication-watcher&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;For more information check out &lt;a href=&#39;https://github.com/keyvanfatehi/npm-replication-watcher&#39;&gt;npm-replication-watcher&lt;/a&gt;&lt;/p&gt;
