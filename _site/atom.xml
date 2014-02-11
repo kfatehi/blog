@@ -4,7 +4,7 @@
  <title>WEBLOG</title>
  <link href="http://keyvanfatehi.github.io/" rel="self"/>
  <link href="http://keyvanfatehi.github.io"/>
- <updated>2013-12-24T19:04:43-08:00</updated>
+ <updated>2014-02-10T21:01:09-08:00</updated>
  <id>http://keyvanfatehi.github.io</id>
  <author>
    <name>Keyvan Fatehi</name>
@@ -13,11 +13,51 @@
 
  
  <entry>
+   <title>How to setup iPhone tethering on Raspberry Pi</title>
+   <link href="http://keyvanfatehi.github.io/2014/02/10/raspberry-pi-iphone-tether"/>
+   <updated>2014-02-10T00:00:00-08:00</updated>
+   <id>http://keyvanfatehi.github.io/2014/02/10/raspberry-pi-iphone-tether</id>
+   <content type="html">&lt;h1 id=&#39;iphone_tethering_on_raspberry_pi&#39;&gt;iPhone Tethering on Raspberry Pi&lt;/h1&gt;
+
+&lt;p&gt;The instructions here are useful although the current packages in Arch and Debian repositories do not work with iOS 7 (Trust Loop Bug) but it is still a good starting point to understand how this works.&lt;/p&gt;
+
+&lt;p&gt;https://wiki.archlinux.org/index.php/IPhone_Tethering&lt;/p&gt;
+
+&lt;h2 id=&#39;ios_7_support&#39;&gt;iOS 7 Support&lt;/h2&gt;
+
+&lt;h3 id=&#39;install_libimobiledevice_from_latest_source&#39;&gt;Install libimobiledevice from latest source&lt;/h3&gt;
+
+&lt;p&gt;In order to get iOS 7 support, we need to compile everything from source. Find the scripts for ArchLinux and Raspbian here: &lt;a href=&#39;https://gist.github.com/keyvanfatehi/8922430&#39;&gt;https://gist.github.com/keyvanfatehi/8922430&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#39;usage&#39;&gt;Usage&lt;/h2&gt;
+
+&lt;h3 id=&#39;mounting_your_iphone&#39;&gt;Mounting your iPhone&lt;/h3&gt;
+
+&lt;p&gt;Start usbmuxd: &lt;code&gt;usbmuxd&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Create a mount point: &lt;code&gt;mkdir /media/iphone&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Mount the device: &lt;code&gt;ifuse /media/iphone&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;(You can unmount using &lt;code&gt;umount /media/iphone&lt;/code&gt;)&lt;/p&gt;
+
+&lt;p&gt;You should now be able to view the contents of your iPhone.&lt;/p&gt;
+
+&lt;h3 id=&#39;networking&#39;&gt;Networking&lt;/h3&gt;
+
+&lt;p&gt;At this point you should reboot so that modules and rules get loaded. After that, I gave up on ArchLinux due to issues getting actual network traffic to go across, so I can&amp;#8217;t speak for ArchLinux from herein. However I did have success on Raspbian. You should be able to simply plug in your iPhone and see a new interface come up and be able to ping the outside world. Enjoy!&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>How to setup an NPM mirror on a Raspberry Pi running Arch Linux</title>
    <link href="http://keyvanfatehi.github.io/2013/11/13/npm-mirror"/>
    <updated>2013-11-13T00:00:00-08:00</updated>
    <id>http://keyvanfatehi.github.io/2013/11/13/npm-mirror</id>
-   <content type="html">&lt;p&gt;This tutorial is my version of &lt;a href=&#39;http://clock.co.uk/tech-blogs/how-to-create-a-private-npmjs-repository&#39;&gt;this other tutorial&lt;/a&gt;.&lt;/p&gt;
+   <content type="html">&lt;h2 id=&#39;update_feb_2_2014&#39;&gt;UPDATE Feb 2, 2014&lt;/h2&gt;
+
+&lt;p&gt;Don&amp;#8217;t bother with any of this. Use &lt;a href=&#39;https://github.com/rlidwka/sinopia&#39;&gt;sinopia&lt;/a&gt; instead! I&amp;#8217;ve prepared a &lt;a href=&#39;https://index.docker.io/u/keyvanfatehi/docker-sinopia/&#39;&gt;docker image&lt;/a&gt; for it as well.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;This tutorial is my version of &lt;a href=&#39;http://clock.co.uk/tech-blogs/how-to-create-a-private-npmjs-repository&#39;&gt;this other tutorial&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;First off make sure you have a large enough disk drive. You can find out the remote disk size easy like this:&lt;/p&gt;
 

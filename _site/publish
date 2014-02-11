@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 ./build
-git commit -am "Automatic publication commit"
-git branch -D master
-git checkout -b master
-git filter-branch --subdirectory-filter _site/ -f
-git checkout source
-git push --all origin
+if [[ "$?" -ne "0"  ]]; then
+  echo "Failed to build"
+else
+  git commit -am "Automatic publication commit"
+  git branch -D master
+  git checkout -b master
+  git filter-branch --subdirectory-filter _site/ -f
+  git checkout source
+  git push --all origin
+fi
