@@ -10,6 +10,12 @@ tags:
 published: true
 ---
 
+## UPDATE Feb 2, 2014
+
+Don't bother with any of this. Use [sinopia](https://github.com/rlidwka/sinopia) instead! I've prepared a [docker image](https://index.docker.io/u/keyvanfatehi/docker-sinopia/) for it as well.
+
+---
+
 This tutorial is my version of [this other tutorial](http://clock.co.uk/tech-blogs/how-to-create-a-private-npmjs-repository).
 
 First off make sure you have a large enough disk drive. You can find out the remote disk size easy like this:
