@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>How to setup iPhone tethering on Raspberry Pi</title>
+    
+    <meta name="author" content="Keyvan Fatehi">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">WEBLOG</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>How to setup iPhone tethering on Raspberry Pi </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>10 February 2014</span>
+    </div>
+    <div class="content">
+      <h1 id='iphone_tethering_on_raspberry_pi'>iPhone Tethering on Raspberry Pi</h1>
+
+<p>The instructions here are useful although the current packages in Arch and Debian repositories do not work with iOS 7 (Trust Loop Bug) but it is still a good starting point to understand how this works.</p>
+
+<p>https://wiki.archlinux.org/index.php/IPhone_Tethering</p>
+
+<h2 id='ios_7_support'>iOS 7 Support</h2>
+
+<h3 id='install_libimobiledevice_from_latest_source'>Install libimobiledevice from latest source</h3>
+
+<p>In order to get iOS 7 support, we need to compile everything from source. Find the scripts for ArchLinux and Raspbian here: <a href='https://gist.github.com/keyvanfatehi/8922430'>https://gist.github.com/keyvanfatehi/8922430</a></p>
+
+<h2 id='usage'>Usage</h2>
+
+<h3 id='mounting_your_iphone'>Mounting your iPhone</h3>
+
+<p>Start usbmuxd: <code>usbmuxd</code></p>
+
+<p>Create a mount point: <code>mkdir /media/iphone</code></p>
+
+<p>Mount the device: <code>ifuse /media/iphone</code></p>
+
+<p>(You can unmount using <code>umount /media/iphone</code>)</p>
+
+<p>You should now be able to view the contents of your iPhone.</p>
+
+<h3 id='networking'>Networking</h3>
+
+<p>At this point you should reboot so that modules and rules get loaded. After that, I gave up on ArchLinux due to issues getting actual network traffic to go across, so I can&#8217;t speak for ArchLinux from herein. However I did have success on Raspbian. You should be able to simply plug in your iPhone and see a new interface come up and be able to ping the outside world. Enjoy!</p>
+    </div>
+
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#iphone-ref">iphone <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#ios-ref">ios <span>8</span></a></li>
+     
+    	<li><a href="/tags.html#raspberry pi-ref">raspberry pi <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#raspbian-ref">raspbian <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#arch linux-ref">arch linux <span>2</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2013/11/13/npm-mirror" title="How to setup an NPM mirror on a Raspberry Pi running Arch Linux">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2014 Keyvan Fatehi
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
+<link rel="stylesheet" href="/assets/css/pygments.css">

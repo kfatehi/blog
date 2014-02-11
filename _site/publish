@@ -3,6 +3,7 @@
 if [[ "$?" -ne "0"  ]]; then
   echo "Failed to build"
 else
+  git add .
   git commit -am "Automatic publication commit"
   git branch -D master
   git checkout -b master
