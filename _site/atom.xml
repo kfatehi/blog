@@ -4,7 +4,7 @@
  <title>WEBLOG</title>
  <link href="http://keyvanfatehi.github.io/" rel="self"/>
  <link href="http://keyvanfatehi.github.io"/>
- <updated>2014-05-14T21:57:25-04:00</updated>
+ <updated>2014-06-01T19:36:53-07:00</updated>
  <id>http://keyvanfatehi.github.io</id>
  <author>
    <name>Keyvan Fatehi</name>
@@ -13,9 +13,27 @@
 
  
  <entry>
+   <title>Open Sourcing Hyperdock</title>
+   <link href="http://keyvanfatehi.github.io/2014/06/01/hyperdock-io"/>
+   <updated>2014-06-01T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2014/06/01/hyperdock-io</id>
+   <content type="html">&lt;p&gt;I’ve thought about &lt;a href=&#39;https://github.com/hyperdock-io&#39;&gt;Hyperdock&lt;/a&gt; some more and have realized (eerily similarly to my Internet of Things project, &lt;a href=&#39;https://github.com/netpocket&#39;&gt;Netpocket&lt;/a&gt;) that although it can be a useful product, it is too broad and requires too much resources to do correctly.&lt;/p&gt;
+
+&lt;p&gt;I have taken steps in planning to minimize the scope (e.g. removing the concept of a &lt;code&gt;monitor&lt;/code&gt;, and only having docker hosts — solving monitoring by utilizing Keen.io across the platform) however despite my efforts I can’t see this project doing anything except cannibalizing my time. I liked how Hyperdock started out &amp;#8211; in minimizing reliance on outside systems &amp;#8211; but as I saught to rapidly prototype, I started using more and more external services (DigitalOcean, Cloudflare), but monitoring remained an internal, automatically deployed Logstash / Sensu stack&amp;#8230; Departing from this and into Keen.io is a good, correct move, but further solidifies the change from Hyperdock as a PaaS business to Hyperdock as Open Source Software. It&amp;#8217;s shaped up to be a rails version of the &lt;a href=&#39;http://shipyard-project.com/&#39;&gt;Shipyard Project&lt;/a&gt; and I think that is good.&lt;/p&gt;
+
+&lt;p&gt;It’s hard to justify the previous direction I was taking with it when solutions exist for the end result (e.g. you want ZNC? Check https://bnc.im or https://yourbnc.co.uk, so on for each application we might try to support)&amp;#8230; When I first conceived of hyperdock I thought it is silly how companies are built around a single product (such as RedisToGo, or MongoLab) but my perspective on this has changed after several weekends of cramming in Hyperdock development:&lt;/p&gt;
+
+&lt;p&gt;I now realize that although one can develop a platform that can run any of these programs, doing any of these programs correctly, in a value-added way, is a huge task requiring a lot of specialization, infrastructure, and systems intelligence. Hyperdock can still be useful for small projects and developers, but I can’t really see us charging for the value it offers, and if we were to charge and have customers, I don’t see it offsetting costs while still providing good quality of service. If you need professional-level Mongo, for example, you won&amp;#8217;t pay someone who runs a generic docker platform, you will pay someone who runs a professional-grade Mongo platform!&lt;/p&gt;
+
+&lt;p&gt;By being realistic about this, and refocusing away from my own greed or desire for a startup, it is clear what I need to do. I will prepare a simple splash page explaining Hyperdock as it is: a DigitalOcean and Docker powered container platform; I will open-source the project. I will kill all the currently running servers. I will add some nice documentation to the README and splash page and point http://hyperdock.io to that.&lt;/p&gt;
+
+&lt;p&gt;It is possible that Hyperdock will be embraced by the community, if so then good! If not, I still had fun building it and might use it again in the future.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>Hackers and Bullshitters of OpenStack Summit</title>
    <link href="http://keyvanfatehi.github.io/2014/05/14/the-hackers-and-bullshitters-of-openstack-summit"/>
-   <updated>2014-05-14T00:00:00-04:00</updated>
+   <updated>2014-05-14T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2014/05/14/the-hackers-and-bullshitters-of-openstack-summit</id>
    <content type="html">&lt;p&gt;My company (DigitalFilm Tree) has become rather well-known and well-liked in the openstack community.&lt;/p&gt;
 
@@ -51,7 +69,7 @@
  <entry>
    <title>How to setup iPhone tethering on Raspberry Pi</title>
    <link href="http://keyvanfatehi.github.io/2014/02/10/raspberry-pi-iphone-tether"/>
-   <updated>2014-02-10T00:00:00-05:00</updated>
+   <updated>2014-02-10T00:00:00-08:00</updated>
    <id>http://keyvanfatehi.github.io/2014/02/10/raspberry-pi-iphone-tether</id>
    <content type="html">&lt;h1 id=&#39;iphone_tethering_on_raspberry_pi&#39;&gt;iPhone Tethering on Raspberry Pi&lt;/h1&gt;
 
@@ -87,7 +105,7 @@
  <entry>
    <title>How to setup an NPM mirror on a Raspberry Pi running Arch Linux</title>
    <link href="http://keyvanfatehi.github.io/2013/11/13/npm-mirror"/>
-   <updated>2013-11-13T00:00:00-05:00</updated>
+   <updated>2013-11-13T00:00:00-08:00</updated>
    <id>http://keyvanfatehi.github.io/2013/11/13/npm-mirror</id>
    <content type="html">&lt;h2 id=&#39;update_feb_2_2014&#39;&gt;UPDATE Feb 2, 2014&lt;/h2&gt;
 
@@ -213,7 +231,7 @@ curl -X POST http://127.0.0.1:5984/_replicate -d &amp;#39;{&amp;quot;source&amp;
  <entry>
    <title>is it possible to hear every song?</title>
    <link href="http://keyvanfatehi.github.io/2013/09/25/is-it-possible-to-hear-every-song"/>
-   <updated>2013-09-25T00:00:00-04:00</updated>
+   <updated>2013-09-25T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2013/09/25/is-it-possible-to-hear-every-song</id>
    <content type="html">&lt;p&gt;/google &amp;#8220;more music than you can possibly consume in a lifetime&amp;#8221; About 5,420,000 results (0.43 seconds)&lt;/p&gt;
 
@@ -298,7 +316,7 @@ undefined
  <entry>
    <title>Cucumber And Html5 And Microsoft</title>
    <link href="http://keyvanfatehi.github.io/blog/2013/09/06/cucumber-and-html5-and-microsoft"/>
-   <updated>2013-09-06T00:00:00-04:00</updated>
+   <updated>2013-09-06T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/blog/2013/09/06/cucumber-and-html5-and-microsoft</id>
    <content type="html">&lt;p&gt;At work we have built a product that is comprised of 3 parts: a backend written in Ruby on Rails, a web interface that is served by rails and uses the rails controllers as usual, and an iOS app that interacts with the Grape API mounted to the Rails app.&lt;/p&gt;
 
@@ -332,7 +350,7 @@ undefined
  <entry>
    <title>Install Kvm With Gui On Ubuntu 12.04</title>
    <link href="http://keyvanfatehi.github.io/blog/2013/08/13/install-kvm-with-gui-on-ubuntu-12.04"/>
-   <updated>2013-08-13T00:00:00-04:00</updated>
+   <updated>2013-08-13T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/blog/2013/08/13/install-kvm-with-gui-on-ubuntu-12.04</id>
    <content type="html">&lt;p&gt;Install KVM:&lt;/p&gt;
 
@@ -346,7 +364,7 @@ undefined
  <entry>
    <title>Issue Branching Workflow</title>
    <link href="http://keyvanfatehi.github.io/2013/08/05/issue-branching-workflow"/>
-   <updated>2013-08-05T00:00:00-04:00</updated>
+   <updated>2013-08-05T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2013/08/05/issue-branching-workflow</id>
    <content type="html">&lt;p&gt;I decided to automate this part of my git workflow. See the &lt;a href=&#39;https://gist.github.com/keyvanfatehi/6155048&#39;&gt;gist&lt;/a&gt; for the source.&lt;/p&gt;</content>
  </entry>
@@ -354,7 +372,7 @@ undefined
  <entry>
    <title>Drones</title>
    <link href="http://keyvanfatehi.github.io/2013/07/28/drones"/>
-   <updated>2013-07-28T00:00:00-04:00</updated>
+   <updated>2013-07-28T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2013/07/28/drones</id>
    <content type="html">&lt;p&gt;Ruby on RPi on a Parrot AR drone &amp;amp; 4G receiver&lt;/p&gt;
 
@@ -364,7 +382,7 @@ undefined
  <entry>
    <title>Rubygems Mirror</title>
    <link href="http://keyvanfatehi.github.io/blog/2013/07/08/rubygems-mirror"/>
-   <updated>2013-07-08T00:00:00-04:00</updated>
+   <updated>2013-07-08T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/blog/2013/07/08/rubygems-mirror</id>
    <content type="html">&lt;p&gt;Now that I have openstack, of course I am setting up a rubygems mirror &amp;#8211; this turned out to be super simple thanks to a StackOverflow answer: http://stackoverflow.com/a/8411230/511621&lt;/p&gt;</content>
  </entry>
@@ -372,7 +390,7 @@ undefined
  <entry>
    <title>Influenceometer</title>
    <link href="http://keyvanfatehi.github.io/apps/2013/07/03/influenceometer"/>
-   <updated>2013-07-03T00:00:00-04:00</updated>
+   <updated>2013-07-03T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/apps/2013/07/03/influenceometer</id>
    <content type="html">&lt;p&gt;Are you still influenced by this person? How much? Engagement platform. Platform API Interchange =&amp;gt; MD/DB&lt;/p&gt;
 
@@ -384,7 +402,7 @@ undefined
  <entry>
    <title>Lobbyist</title>
    <link href="http://keyvanfatehi.github.io/apps/2013/07/01/lobbyist"/>
-   <updated>2013-07-01T00:00:00-04:00</updated>
+   <updated>2013-07-01T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/apps/2013/07/01/lobbyist</id>
    <content type="html">&lt;p&gt;Developed while watching Netflix documentary &amp;#8220;Park Avenue: Money, Power and the American Dream&amp;#8221; 2012&lt;/p&gt;
 
@@ -420,7 +438,7 @@ undefined
  <entry>
    <title>How to build a telescope service</title>
    <link href="http://keyvanfatehi.github.io/blog/2013/06/22/how-to-build-a-telescope-service"/>
-   <updated>2013-06-22T00:00:00-04:00</updated>
+   <updated>2013-06-22T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/blog/2013/06/22/how-to-build-a-telescope-service</id>
    <content type="html">&lt;p&gt;Wish you collected more cool data? Want to bring proper streaming telescope services to the masses from inside the browser? It&amp;#8217;s due time we get this right, by building the first well-done telescope service.&lt;/p&gt;
 
@@ -478,7 +496,7 @@ Dump all activity (images, video, events) into ES/MD w/ odata&lt;/code&gt;&lt;/p
  <entry>
    <title>Leaderless</title>
    <link href="http://keyvanfatehi.github.io/blog/2013/06/17/leaderless"/>
-   <updated>2013-06-17T00:00:00-04:00</updated>
+   <updated>2013-06-17T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/blog/2013/06/17/leaderless</id>
    <content type="html">&lt;p&gt;Still thinking about this&amp;#8230;&lt;/p&gt;
 
@@ -492,7 +510,7 @@ Dump all activity (images, video, events) into ES/MD w/ odata&lt;/code&gt;&lt;/p
  <entry>
    <title>Parrot Assisted Training</title>
    <link href="http://keyvanfatehi.github.io/blog/2013/06/03/parrot-assisted-training"/>
-   <updated>2013-06-03T00:00:00-04:00</updated>
+   <updated>2013-06-03T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/blog/2013/06/03/parrot-assisted-training</id>
    <content type="html">&lt;h1 id=&#39;paratrain&#39;&gt;PARATRAIN&lt;/h1&gt;
 
@@ -657,7 +675,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Bountysource</title>
    <link href="http://keyvanfatehi.github.io/blog/2013/06/03/bountysource"/>
-   <updated>2013-06-03T00:00:00-04:00</updated>
+   <updated>2013-06-03T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/blog/2013/06/03/bountysource</id>
    <content type="html">&lt;p&gt;pre 2:58 PM keyvan joined (uid7672@gateway/web/irccloud.com/x-noobbtzvvxakpxyr) 2:58 PM Channel mode is +cnt 2:58 PM Homepage: http://www.bountysource.com 2:58 PM keyvan wooo bountysource is awesome. good job :D 2:59 PM keyvan my very first bounty https://www.bountysource.com/#issues/379039-portfolio-page 3:03 PM nbouscal quit brooss nipped out&lt;br /&gt;3:43 PM corytheboyd aww, thanks keyvan :) 3:43 PM corytheboyd feel free to give us feedback! 3:44 PM keyvan sure thanks 3:46 PM keyvan corytheboyd: do you think should i be making an effort to market the opportunity or does bountysource do this for me somehow? that was one of the difficulties i had in thinking of how to design such an application&amp;#8230; the marketing aspect&amp;#8230; 3:47 PM nbouscal joined (~nbouscal@c-67-185-201-65.hsd1.wa.comcast.net) 3:50 PM corytheboyd keyvan: good question. we don&amp;#8217;t advertise bounties outside of our site 3:51 PM corytheboyd it&amp;#8217;s mostly up the the respective community to advertise bounties 3:51 PM keyvan corytheboyd: my other question was, how do you make money? i was debating if i&amp;#8217;d scrape money from the bounties in my implementation but i wasnt sure how that would fly with people 3:51 PM keyvan what strategy are you taking on the money front? 3:54 PM keyvan ccverg: how did you find my issue by the way? did you search github for &amp;#8220;bounty&amp;#8221; or something? the fact that you guys have built this thing is such a pleasant surprise. i mean to look to see if you guys have an API later, i&amp;#8217;ll just make my browser extension ive been working on fit right into that 3:55 PM keyvan also it would be cool for the issue itself to get auto-updated by BountySource to say something like &amp;#8220;There is a X bounty on this issue!&amp;#8221; and other appropriate notices if any 3:55 PM keyvan ive thought a lot about this project so i&amp;#8217;m kind of excited that it&amp;#8217;s here :) 3:56 PM nbouscal quit (~nbouscal@c-67-185-201-65.hsd1.wa.comcast.net) Quit: Computer has commenced electric sheep tracking protocol. 3:56 PM keyvan i think it will have huge positive consequences &amp;#8211; i.e. people with skill but inability to find jobs can now do useful work and get paid&amp;#8230; i know several people like this personally. 3:58 PM ccverg kevyan: hey there! 3:59 PM ccverg we charge a fee on bounties that are paid out, and on fundraisers once they are successful 4:00 PM ccverg we actually have a plugin for GitHub that updates issues with bounty details as you described, but a project committer has to enable it 4:00 PM ccverg you can see some screenshots on our blog (blog.bountysource.com/post/48954271533/improved-github-integration-automatically-update) 4:00 PM keyvan lol you guys may want to fix this http://cl.ly/image/1d09080J1Y24 4:01 PM keyvan nice good stuff ccverg 4:01 PM ccverg &amp;#8220;people with skill but inability to find jobs can now do useful work and get paid&amp;#8230; i know several people like this personally.&amp;#8221; — that&amp;#8217;s awesome! that&amp;#8217;s our goal, allowing open source developers to sustain themselves with their work 4:02 PM ccverg kevyan: ack, good catch 4:02 PM ccverg we&amp;#8217;ll update that, thanks 4:03 PM keyvan ccverg: i would love to help you guys out, from a dev perspective, like on weekends and maybe nights &amp;#8211; it was my ambition to build what you guys have so feel free to direct me to the proper channels if you&amp;#8217;re interested in a Ruby/Rails/Coffeescript/Javascript/iOS developer looking at stuff 4:04 PM keyvan like if you have an API that would be a great start so i can work on the browser extension and you guys can see if you like it / think it should be part of it or something 4:04 PM keyvan also i was thinking of a mobile app that is basically a browser with the ideas of the browser extension built in, so you&amp;#8217;re contributing to open source from your mobile device, making money thru bountysource integrations as well (if the project ur editing has a bounty that is) 4:07 PM keyvan sorry i havent checked the bountysource github page, you probably alreayd have most if not all of it open source anyway, wherein i can find issues, and browser for API docs myself &amp;#8211; im just at work right now :) i&amp;#8217;ll definitely be looking deeper later 4:11 PM ccverg kevyan: awesome! :D 4:12 PM ccverg only our frontend is open source right now, actually… but you&amp;#8217;re welcome to check out the issues we have open so far 4:12 PM ccverg and we really appreciate you wanting to help out! 4:19 PM corytheboyd keyvan: sorry, got a little distracted :p 4:25 PM nbouscal joined (~nbouscal@c-67-168-113-48.hsd1.wa.comcast.net) 4:27 PM keyvan cool for sure. np cory 4:50 PM nbouscal and satazor quit jsilver popped in&lt;br /&gt;6:41 PM keyvan woohoo first bounty complete! https://www.bountysource.com/#issues/379039-portfolio-page 6:41 PM keyvan definitely a smooth process, my bounty hunter is pleased as well 7:48 PM Anonymous296 popped in bountysource, warreng, corytheboyd, ccverg (opped) and realazthat nipped out&lt;br /&gt;10:19 PM keyvan im going to start making random projects, speccable, and giving them bounties :) there aren&amp;#8217;t enough live bounties as there should be&amp;#8230; easy ones even 10:20 PM keyvan knowing there&amp;#8217;s an &amp;#8220;army of developers&amp;#8221; out there that can slam out any spec should motivate more of us that squelch our ideas because &amp;#8220;work is more important&amp;#8221; and you never write that README 10:20 PM keyvan maybe someone&amp;#8217;s willing to do it if you throw some coin at it! 10:23 PM keyvan i thought (and mostly meet this type-) people resisted sharing their ideas because they are afraid to share&amp;#8230; they&amp;#8217;re wrong you should share, and you should even place a bounty on if it&amp;#8217;s something you really want built &amp;#8211; if you&amp;#8217;re in it for the money and u dont want to share for that reason, your startup probably won&amp;#8217;t do well anyway and don&amp;#8217;t get the 10:23 PM keyvan big picture (i dont say this to them though, i&amp;#8217;ll generally motivate them to learn jQuery or ruby). 10:26 PM mode: corytheboyd (opped) nbouscal popped in&lt;br /&gt;/pre&lt;/p&gt;</content>
  </entry>
@@ -665,7 +683,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Coffeescript Source Maps</title>
    <link href="http://keyvanfatehi.github.io/blog/2013/05/23/coffeescript-source-maps"/>
-   <updated>2013-05-23T00:00:00-04:00</updated>
+   <updated>2013-05-23T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/blog/2013/05/23/coffeescript-source-maps</id>
    <content type="html">&lt;p&gt;No longer can your team claim ignorance of CoffeeScript and tout the excuse that it is difficult to debug in the console. Behold &lt;code&gt;gem &amp;#39;coffee-rails-source-maps&amp;#39;&lt;/code&gt;&lt;/p&gt;
 
@@ -677,7 +695,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Conflict Of Interest</title>
    <link href="http://keyvanfatehi.github.io/blog/2013/05/16/conflict-of-interest"/>
-   <updated>2013-05-16T00:00:00-04:00</updated>
+   <updated>2013-05-16T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/blog/2013/05/16/conflict-of-interest</id>
    <content type="html">&lt;p&gt;At my place of employment, I&amp;#8217;ve never had the issue of a conflict of interest &amp;#8211; until recently when I wanted to help a through-work contact to develop a small HTML5-driven web application, essentially helping him to launch an overnight startup. It was a very targeted problem, a simple one, and well thought out and designed &amp;#8211; the kinds of projects we love because it&amp;#8217;s clear. The kinds of projects you can turn around in a few hours if you had a bunch of Red Bull, as it were.&lt;/p&gt;
 
@@ -739,7 +757,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Can You Do Better</title>
    <link href="http://keyvanfatehi.github.io/blog/2013/05/16/can-you-do-better"/>
-   <updated>2013-05-16T00:00:00-04:00</updated>
+   <updated>2013-05-16T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/blog/2013/05/16/can-you-do-better</id>
    <content type="html">&lt;p&gt;I&amp;#8217;m a software developer, and not an economist, but I&amp;#8217;m beginning to feel some things that were never apparent to me and I didn&amp;#8217;t much care to think of before &amp;#8211; I hope it may be something I can articulate soon. But as of now, no, I can&amp;#8217;t do any better, and even if I did have clear ideas for reformation that would satisfy the internal moral conflict that the above discusses, I don&amp;#8217;t have the money/power/influence to implement the reforms it would take to make us a more innovative and forward thinking state.&lt;/p&gt;
 
@@ -751,7 +769,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Willful Defiance</title>
    <link href="http://keyvanfatehi.github.io/blog/2013/05/14/willful-defiance"/>
-   <updated>2013-05-14T00:00:00-04:00</updated>
+   <updated>2013-05-14T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/blog/2013/05/14/willful-defiance</id>
    <content type="html">&lt;p&gt;In response to &lt;a href=&#39;http://articles.latimes.com/2013/may/12/local/la-me-adv-lausd-discipline-20130513&#39;&gt;LAUSD board could ban suspensions for &amp;#8216;willful defiance&amp;#8217;&lt;/a&gt;&lt;/p&gt;
 &lt;hr /&gt;
@@ -1038,7 +1056,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Bellow (another notification gem)</title>
    <link href="http://keyvanfatehi.github.io/blog/2013/05/14/Bellow"/>
-   <updated>2013-05-14T00:00:00-04:00</updated>
+   <updated>2013-05-14T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/blog/2013/05/14/Bellow</id>
    <content type="html">&lt;p&gt;It wraps the top Prowl and Notify My Android ruby gems and presents one method&lt;/p&gt;
 
@@ -1072,7 +1090,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Hello Jekyll Goodbye Tumblr</title>
    <link href="http://keyvanfatehi.github.io/blog/2013/05/11/hello-jekyll-goodbye-tumblr"/>
-   <updated>2013-05-11T00:00:00-04:00</updated>
+   <updated>2013-05-11T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/blog/2013/05/11/hello-jekyll-goodbye-tumblr</id>
    <content type="html">&lt;p&gt;Migrating my posts from Tumblr and into Jekyll was not too difficult but I did need to write a little script to make this work.&lt;/p&gt;
 
@@ -1105,7 +1123,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>My latest gem: apple_manifest_rails</title>
    <link href="http://keyvanfatehi.github.io/2013/05/08/my-latest-gem-apple_manifest_rails"/>
-   <updated>2013-05-08T00:00:00-04:00</updated>
+   <updated>2013-05-08T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2013/05/08/my-latest-gem-apple_manifest_rails</id>
    <content type="html">&lt;p&gt;A couple days ago I released &lt;a href=&quot;http://rubygems.org/gems/apple_manifest_rails&quot;&gt;apple_manifest_rails&lt;/a&gt;, a rails engine that simplifies the iOS application ad-hoc enroll / install process.&lt;/p&gt;
 
@@ -1120,7 +1138,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Add local node_modules binaries to your PATH</title>
    <link href="http://keyvanfatehi.github.io/2013/04/26/add-local-node_modules-binaries-to-your-path"/>
-   <updated>2013-04-26T00:00:00-04:00</updated>
+   <updated>2013-04-26T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2013/04/26/add-local-node_modules-binaries-to-your-path</id>
    <content type="html">&lt;p&gt;This was easier, and more straightforward than I&amp;#8217;d anticipated. All you gotta do is add this to your shell&amp;#8217;s rc file:&lt;/p&gt;
 
@@ -1131,7 +1149,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Great Testing Tips</title>
    <link href="http://keyvanfatehi.github.io/2013/04/24/great-testing-tips"/>
-   <updated>2013-04-24T00:00:00-04:00</updated>
+   <updated>2013-04-24T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2013/04/24/great-testing-tips</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://eggsonbread.com/2010/09/06/my-cucumber-best-practices-and-tips/&quot;&gt;Cucumber&lt;/a&gt;&lt;/p&gt;
 
@@ -1142,7 +1160,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Fixing the "Nokogiri built against LibXML..." warning</title>
    <link href="http://keyvanfatehi.github.io/2013/04/15/fixing-the-nokogiri-built-against-libxml-warning"/>
-   <updated>2013-04-15T00:00:00-04:00</updated>
+   <updated>2013-04-15T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2013/04/15/fixing-the-nokogiri-built-against-libxml-warning</id>
    <content type="html">&lt;p&gt;Just installed Mountain Lion 10.8 fresh on my Mac Mini with a new SSD. As I get my rails environment up and running I ran into this common problem:&lt;/p&gt;
 
@@ -1171,7 +1189,7 @@ bundle exec gem pristine nokogiri
  <entry>
    <title>Clever Device Agnostic Remote Debugging</title>
    <link href="http://keyvanfatehi.github.io/2013/04/15/clever-device-agnostic-remote-debugging"/>
-   <updated>2013-04-15T00:00:00-04:00</updated>
+   <updated>2013-04-15T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2013/04/15/clever-device-agnostic-remote-debugging</id>
    <content type="html">&lt;p&gt;iOS provides a convenient way to remote-debug web apps with Mobile Safari. Perhaps I&amp;#8217;ve not yet discovered the equivalent in Android, but a little googling revealed a damn cool tool:&lt;/p&gt;
 
@@ -1182,7 +1200,7 @@ bundle exec gem pristine nokogiri
  <entry>
    <title>bike pic: cahuenga pass</title>
    <link href="http://keyvanfatehi.github.io/2013/03/09/bike-pic-cahuenga-pass"/>
-   <updated>2013-03-09T00:00:00-05:00</updated>
+   <updated>2013-03-09T00:00:00-08:00</updated>
    <id>http://keyvanfatehi.github.io/2013/03/09/bike-pic-cahuenga-pass</id>
    <content type="html">behind some of the almost rich houses in the caheunga pass area, I believe this is mulholland
 &lt;img src=&quot;http://25.media.tumblr.com/6fd0c80568d379f7541b935b6efe854a/tumblr_mje87gcE1q1ql6q2so1_1280.jpg&quot;/&gt;
@@ -1192,7 +1210,7 @@ bundle exec gem pristine nokogiri
  <entry>
    <title>Source: </title>
    <link href="http://keyvanfatehi.github.io/2013/02/24/source"/>
-   <updated>2013-02-24T00:00:00-05:00</updated>
+   <updated>2013-02-24T00:00:00-08:00</updated>
    <id>http://keyvanfatehi.github.io/2013/02/24/source</id>
    <content type="html">&lt;img src=&quot;http://24.media.tumblr.com/059694fc9032a224b5f1b1c0a504312f/tumblr_mirmsfbXUs1ql6q2so1_1280.png&quot;/&gt;
 </content>
@@ -1201,7 +1219,7 @@ bundle exec gem pristine nokogiri
  <entry>
    <title>Rails 3 Passenger Nginx send_file with X-Accel-Redirect and X-Accel-Mapping</title>
    <link href="http://keyvanfatehi.github.io/2012/12/11/rails-3-passenger-nginx-send_file-with-x-accel-redirect-and-x-accel-mapping"/>
-   <updated>2012-12-11T00:00:00-05:00</updated>
+   <updated>2012-12-11T00:00:00-08:00</updated>
    <id>http://keyvanfatehi.github.io/2012/12/11/rails-3-passenger-nginx-send_file-with-x-accel-redirect-and-x-accel-mapping</id>
    <content type="html">&lt;p&gt;After a lot of searching as to why range headers were not working despite thinking that I had X-Accel-Redirect configured properly, I realized that I was missing something in my nginx config and so send_file was still sending via rails rather than nginx, causing range headers to fail.&lt;/p&gt;
 
@@ -1233,7 +1251,7 @@ bundle exec gem pristine nokogiri
  <entry>
    <title>Explain the concept of a ruby gem (#ruby on Freenode)</title>
    <link href="http://keyvanfatehi.github.io/2012/11/02/explain-the-concept-of-a-ruby-gem-ruby-on-freenode"/>
-   <updated>2012-11-02T00:00:00-04:00</updated>
+   <updated>2012-11-02T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/11/02/explain-the-concept-of-a-ruby-gem-ruby-on-freenode</id>
    <content type="html">&lt;section&gt;&lt;dialog&gt;&lt;dt&gt;jake_:&lt;/dt&gt;&lt;dd&gt;could someone explain a gem to me?  is it the same as a python module? or it more like a package that gets installed that contains modules?&lt;/dd&gt;&lt;dt&gt;shevy3:&lt;/dt&gt;&lt;dd&gt;jake_: not sure how python does it&lt;/dd&gt;&lt;dt&gt;shevy3:&lt;/dt&gt;&lt;dd&gt;a .gem file is basically a kind of archive, with different files in it, mostly .rb files&lt;/dd&gt;&lt;dt&gt;shevy3:&lt;/dt&gt;&lt;dd&gt;so you install it via &quot;gem install name&quot; it gets downloaded and installed into [value of INSTALLATION DIRECTORY returned by `gem env`]&lt;/dd&gt;&lt;dt&gt;shevy3:&lt;/dt&gt;&lt;dd&gt;most often, the gem has some kind of main module, the main namespace&lt;/dd&gt;&lt;dt&gt;shevy3:&lt;/dt&gt;&lt;dd&gt;like foobar-1.0.gem would usually have the main namespace module Foobar; end&lt;/dd&gt;&lt;/section&gt;&lt;/dialog&gt;
 </content>
@@ -1242,7 +1260,7 @@ bundle exec gem pristine nokogiri
  <entry>
    <title>Mobile Safari Debugging & jQuery live() workaround</title>
    <link href="http://keyvanfatehi.github.io/2012/10/17/mobile-safari-debugging--jquery-live-workaround"/>
-   <updated>2012-10-17T00:00:00-04:00</updated>
+   <updated>2012-10-17T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/10/17/mobile-safari-debugging--jquery-live-workaround</id>
    <content type="html">&lt;h2&gt;Mobile Safari Debugging&lt;/h2&gt;
 
@@ -1259,7 +1277,7 @@ bundle exec gem pristine nokogiri
  <entry>
    <title>Cucumber, Capybara, and Rails Asset Pipeline in debug mode</title>
    <link href="http://keyvanfatehi.github.io/2012/09/27/cucumber-capybara-and-rails-asset-pipeline-in-debug-mode"/>
-   <updated>2012-09-27T00:00:00-04:00</updated>
+   <updated>2012-09-27T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/09/27/cucumber-capybara-and-rails-asset-pipeline-in-debug-mode</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;features/support/env.rb&lt;/strong&gt;&lt;/p&gt;
 
@@ -1284,7 +1302,7 @@ config.assets.debug = true
  <entry>
    <title>Install ntop in CentOS 6</title>
    <link href="http://keyvanfatehi.github.io/2012/09/13/install-ntop-in-centos-6"/>
-   <updated>2012-09-13T00:00:00-04:00</updated>
+   <updated>2012-09-13T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/09/13/install-ntop-in-centos-6</id>
    <content type="html">&lt;pre&gt;
 yum install cairo-devel libxml2-devel pango-devel pango libpng-devel
@@ -1332,7 +1350,7 @@ ntop -d -L -u ntop -P /usr/local/ntop –-skip-version-check –-use-syslog=daem
  <entry>
    <title>Kill stuck screen sharing vnc login window </title>
    <link href="http://keyvanfatehi.github.io/2012/08/25/kill-stuck-screen-sharing-vnc-login-window"/>
-   <updated>2012-08-25T00:00:00-04:00</updated>
+   <updated>2012-08-25T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/08/25/kill-stuck-screen-sharing-vnc-login-window</id>
    <content type="html">&lt;a href=&quot;http://forums.macrumors.com/showthread.php?t=441030&quot;&gt;Kill stuck screen sharing vnc login window &lt;/a&gt;&lt;br/&gt;
 </content>
@@ -1341,7 +1359,7 @@ ntop -d -L -u ntop -P /usr/local/ntop –-skip-version-check –-use-syslog=daem
  <entry>
    <title>Vendoring/Unpacking/Freezing gems in Ruby (not Rails, no Bundler)</title>
    <link href="http://keyvanfatehi.github.io/2012/08/13/vendoringunpackingfreezing-gems-in-ruby-not-rails-no-bundler"/>
-   <updated>2012-08-13T00:00:00-04:00</updated>
+   <updated>2012-08-13T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/08/13/vendoringunpackingfreezing-gems-in-ruby-not-rails-no-bundler</id>
    <content type="html">&lt;p&gt;I&amp;#8217;ve been writing a lot of utility scripts lately using &lt;a href=&quot;http://mstratman.github.com/cocoadialog/&quot;&gt;CocoaDialog&lt;/a&gt; and its &lt;a href=&quot;https://github.com/mikedamage/ruby-cocoa-dialog&quot;&gt;ruby wrapper&lt;/a&gt; to produce nice dialogs and &lt;a href=&quot;http://sveinbjorn.org/platypus&quot;&gt;Platypus&lt;/a&gt; to package them as simple Mac droplets.&lt;/p&gt;
 
@@ -1372,7 +1390,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
  <entry>
    <title>DNSSD RubyGem dependencies on Debian</title>
    <link href="http://keyvanfatehi.github.io/2012/08/05/dnssd-rubygem-dependencies-on-debian"/>
-   <updated>2012-08-05T00:00:00-04:00</updated>
+   <updated>2012-08-05T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/08/05/dnssd-rubygem-dependencies-on-debian</id>
    <content type="html">&lt;p&gt;&lt;code&gt;root@debian:~# aptitude install libavahi-compat-libdnssd-dev libavahi-compat-libdnssd1&lt;/code&gt;&lt;/p&gt;
 </content>
@@ -1381,7 +1399,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
  <entry>
    <title>Find and mount CDROM drive on CentOS Linux</title>
    <link href="http://keyvanfatehi.github.io/2012/08/03/find-and-mount-cdrom-drive-on-centos-linux"/>
-   <updated>2012-08-03T00:00:00-04:00</updated>
+   <updated>2012-08-03T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/08/03/find-and-mount-cdrom-drive-on-centos-linux</id>
    <content type="html">&lt;p&gt;Detect the device using &lt;code&gt;wodim --devices&lt;/code&gt; and remember the drive name, I&amp;#8217;ll assume it was &lt;code&gt;/dev/scd0&lt;/code&gt;&lt;/p&gt;
 
@@ -1396,7 +1414,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
  <entry>
    <title>SFTP/SSH Jail</title>
    <link href="http://keyvanfatehi.github.io/2012/08/02/sftpssh-jail"/>
-   <updated>2012-08-02T00:00:00-04:00</updated>
+   <updated>2012-08-02T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/08/02/sftpssh-jail</id>
    <content type="html">&lt;a href=&quot;http://www.techrepublic.com/blog/opensource/chroot-users-with-openssh-an-easier-way-to-confine-users-to-their-home-directories/229&quot;&gt;SFTP/SSH Jail&lt;/a&gt;&lt;br/&gt;
 </content>
@@ -1405,7 +1423,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
  <entry>
    <title>Quick Secure SSH VNC Tunnel Bash/Ruby Scriptlet</title>
    <link href="http://keyvanfatehi.github.io/2012/08/02/quick-secure-ssh-vnc-tunnel-bashruby-scriptlet"/>
-   <updated>2012-08-02T00:00:00-04:00</updated>
+   <updated>2012-08-02T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/08/02/quick-secure-ssh-vnc-tunnel-bashruby-scriptlet</id>
    <content type="html">&lt;a href=&quot;https://gist.github.com/3237365&quot;&gt;Quick Secure SSH VNC Tunnel Bash/Ruby Scriptlet&lt;/a&gt;&lt;br/&gt;
 </content>
@@ -1414,7 +1432,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
  <entry>
    <title>[CentOS KVM] Shrinking a virtual drive with virt-resize</title>
    <link href="http://keyvanfatehi.github.io/2012/08/02/centos-kvm-shrinking-a-virtual-drive-with-virt-resize"/>
-   <updated>2012-08-02T00:00:00-04:00</updated>
+   <updated>2012-08-02T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/08/02/centos-kvm-shrinking-a-virtual-drive-with-virt-resize</id>
    <content type="html">&lt;a href=&quot;https://rwmj.wordpress.com/2010/09/27/virt-resize-shrink-now-works/&quot;&gt;[CentOS KVM] Shrinking a virtual drive with virt-resize&lt;/a&gt;&lt;br/&gt;
 </content>
@@ -1423,7 +1441,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
  <entry>
    <title>zlib error on gem install on Debian Squeeze</title>
    <link href="http://keyvanfatehi.github.io/2012/07/31/zlib-error-on-gem-install-on-debian-squeeze"/>
-   <updated>2012-07-31T00:00:00-04:00</updated>
+   <updated>2012-07-31T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/07/31/zlib-error-on-gem-install-on-debian-squeeze</id>
    <content type="html">&lt;p&gt;Despite having all libzlib dependencies installed, I would still get an error when trying to use &lt;code&gt;gem install&lt;/code&gt;&lt;/p&gt;
 
@@ -1442,7 +1460,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
  <entry>
    <title>CentOS VNC Autostart (chkconfig)</title>
    <link href="http://keyvanfatehi.github.io/2012/07/31/centos-vnc-autostart-chkconfig"/>
-   <updated>2012-07-31T00:00:00-04:00</updated>
+   <updated>2012-07-31T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/07/31/centos-vnc-autostart-chkconfig</id>
    <content type="html">&lt;p&gt;Ensure the VNC server (the daemon or server process) is set to autorun on system boots to your runlevel. For example,&lt;/p&gt;
 
@@ -1467,7 +1485,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
  <entry>
    <title>Example rails env setup on vagrant (vagrantup)</title>
    <link href="http://keyvanfatehi.github.io/2012/07/25/example-rails-env-setup-on-vagrant-vagrantup"/>
-   <updated>2012-07-25T00:00:00-04:00</updated>
+   <updated>2012-07-25T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/07/25/example-rails-env-setup-on-vagrant-vagrantup</id>
    <content type="html">&lt;a href=&quot;http://www.42.mach7x.com/2012/03/16/creating-a-vagrant-box-with-debian-lenny-32-rvm-and-ruby-1-9-3/&quot;&gt;Example rails env setup on vagrant (vagrantup)&lt;/a&gt;&lt;br/&gt;
 </content>
@@ -1476,7 +1494,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
  <entry>
    <title>Fixing gcc on Mountain Lion for gem install</title>
    <link href="http://keyvanfatehi.github.io/2012/07/08/fixing-gcc-on-mountain-lion-for-gem-install"/>
-   <updated>2012-07-08T00:00:00-04:00</updated>
+   <updated>2012-07-08T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/07/08/fixing-gcc-on-mountain-lion-for-gem-install</id>
    <content type="html">&lt;p&gt;When you install Mountain Lion, you will no longer have build tools such as `gcc` or `make`&lt;/p&gt;
 &lt;p&gt;Step 1, get the latest Xcode, and install Command Line Tools, granting you `make` and `gcc`&lt;/p&gt;
@@ -1488,7 +1506,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
  <entry>
    <title>Mountains are merely mountains.</title>
    <link href="http://keyvanfatehi.github.io/2012/07/03/mountains-are-merely-mountains"/>
-   <updated>2012-07-03T00:00:00-04:00</updated>
+   <updated>2012-07-03T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/07/03/mountains-are-merely-mountains</id>
    <content type="html">&lt;p&gt;Since August 2011, I belong to a group with the intent of developing a game, someday, someway. It started with a handful of people and has grown, morphed, contracted, shuffled and perhaps finally stabilized enough to talk about.&lt;/p&gt;
 &lt;p&gt;It&amp;#8217;s very low pressure (no bosses really, very little drama or heat) and, from my perspective, is mainly a place for folks to determine where they&amp;#8217;d fit in within a game development team, and learn how to be productive towards a common goal.&lt;/p&gt;
@@ -1505,7 +1523,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
  <entry>
    <title>Step definition reuse</title>
    <link href="http://keyvanfatehi.github.io/2012/06/27/is-it-ok-to-reuse-your-step-definitions-created-in-a-different-features-steps-file"/>
-   <updated>2012-06-27T00:00:00-04:00</updated>
+   <updated>2012-06-27T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/06/27/is-it-ok-to-reuse-your-step-definitions-created-in-a-different-features-steps-file</id>
    <content type="html">&lt;p&gt;&lt;em&gt;From irc.freenode.net #rubyonrails&lt;br/&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;17:17 keyvan: hey guys, is it proper to reuse cucumber step definitions created for a different feature?&lt;br/&gt;17:18 keyvan: for example &amp;#8220;given I am not authenticated&amp;#8221;&lt;br/&gt;17:18 keyvan: or Given i have logged in as user &amp;#8220;foo&amp;#8221;&lt;br/&gt;17:18 Radar: keyvan: yes&lt;br/&gt;17:18 keyvan: thanks radar&lt;br/&gt;17:19 keyvan: hope all is well btw :] finally learned BDD/TDD and it has literally changed my life :]&lt;br/&gt;17:20 Radar: keyvan: Yup, everything&amp;#8217;s just peachy.&lt;/p&gt;
@@ -1516,7 +1534,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
  <entry>
    <title>Just replaced Vibrant Ink with Tomorrow Theme</title>
    <link href="http://keyvanfatehi.github.io/2012/06/22/just-replaced-vibrant-ink-with-tomorrow-theme"/>
-   <updated>2012-06-22T00:00:00-04:00</updated>
+   <updated>2012-06-22T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/06/22/just-replaced-vibrant-ink-with-tomorrow-theme</id>
    <content type="html">&lt;a href=&quot;https://github.com/chriskempson/tomorrow-theme&quot;&gt;Just replaced Vibrant Ink with Tomorrow Theme&lt;/a&gt;&lt;br/&gt;
 </content>
@@ -1525,7 +1543,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
  <entry>
    <title>Converting 2.3 style rails plugins to rails 3</title>
    <link href="http://keyvanfatehi.github.io/2012/06/22/converting-23-style-rails-plugins-to-rails-3"/>
-   <updated>2012-06-22T00:00:00-04:00</updated>
+   <updated>2012-06-22T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/06/22/converting-23-style-rails-plugins-to-rails-3</id>
    <content type="html">&lt;a href=&quot;http://code.coneybeare.net/how-to-convert-simple-rails-23-style-plugins&quot;&gt;Converting 2.3 style rails plugins to rails 3&lt;/a&gt;&lt;br/&gt;
 </content>
@@ -1534,7 +1552,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
  <entry>
    <title>Simple github workflow</title>
    <link href="http://keyvanfatehi.github.io/2012/06/20/simple-github-workflow"/>
-   <updated>2012-06-20T00:00:00-04:00</updated>
+   <updated>2012-06-20T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/06/20/simple-github-workflow</id>
    <content type="html">A github workflow drawing I scrawled describing, step by step, how to use git
 to collaborate effectively on projects hosted on github, using branches for features, as described in other places on the internet.
@@ -1546,7 +1564,7 @@ to collaborate effectively on projects hosted on github, using branches for feat
  <entry>
    <title>OctopusCI is simple and effective continuous integration</title>
    <link href="http://keyvanfatehi.github.io/2012/06/20/octopusci-simple-and-effective-continuous-integration"/>
-   <updated>2012-06-20T00:00:00-04:00</updated>
+   <updated>2012-06-20T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/06/20/octopusci-simple-and-effective-continuous-integration</id>
    <content type="html">&lt;a href=&quot;http://octopusci.com/&quot;&gt;OctopusCI, simple and effective continuous integration&lt;/a&gt;&lt;br/&gt;
 </content>
@@ -1555,7 +1573,7 @@ to collaborate effectively on projects hosted on github, using branches for feat
  <entry>
    <title>Apache vhosts and control on Mac OS X 10.7 Lion</title>
    <link href="http://keyvanfatehi.github.io/2012/06/08/apache-hosts-virtual--virtualhosts-and-control--ctl-on-mac-os-x-107-lion"/>
-   <updated>2012-06-08T00:00:00-04:00</updated>
+   <updated>2012-06-08T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/06/08/apache-hosts-virtual--virtualhosts-and-control--ctl-on-mac-os-x-107-lion</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;https://rapd.wordpress.com/2008/06/09/apache2-vhosts-for-multi-host-names/&quot;&gt;https://rapd.wordpress.com/2008/06/09/apache2-vhosts-for-multi-host-names/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Indeed, I forget as well. Thanks.&lt;/p&gt;
@@ -1572,7 +1590,7 @@ to collaborate effectively on projects hosted on github, using branches for feat
  <entry>
    <title>jruby and swing for gui applications</title>
    <link href="http://keyvanfatehi.github.io/2012/04/01/rvm-install-jruby-o-hai-java"/>
-   <updated>2012-04-01T00:00:00-04:00</updated>
+   <updated>2012-04-01T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2012/04/01/rvm-install-jruby-o-hai-java</id>
    <content type="html">&lt;p&gt;In the past when creating GUI applications, I&amp;#8217;d use Qt. However I&amp;#8217;ve been exploring JRuby a lot more lately so I decided to try using Java&amp;#8217;s Swing libraries for GUI programming.&lt;/p&gt;
 &lt;p&gt;In JRuby, everything from Java becomes available by making a single require: require &amp;#8216;java&amp;#8217;&lt;/p&gt;
@@ -1584,7 +1602,7 @@ to collaborate effectively on projects hosted on github, using branches for feat
  <entry>
    <title>the dangerous effects of reading</title>
    <link href="http://keyvanfatehi.github.io/2011/12/30/httpblogdavidtateorg201112the-dangerous-effects-of-reading"/>
-   <updated>2011-12-30T00:00:00-05:00</updated>
+   <updated>2011-12-30T00:00:00-08:00</updated>
    <id>http://keyvanfatehi.github.io/2011/12/30/httpblogdavidtateorg201112the-dangerous-effects-of-reading</id>
    <content type="html">&lt;a href=&quot;http://blog.davidtate.org/2011/12/the-dangerous-effects-of-reading/&quot;&gt;http://blog.davidtate.org/2011/12/the-dangerous-effects-of-reading/&lt;/a&gt;&lt;br/&gt;
 </content>
@@ -1593,7 +1611,7 @@ to collaborate effectively on projects hosted on github, using branches for feat
  <entry>
    <title>Jekyll Introduction</title>
    <link href="http://keyvanfatehi.github.io/lessons/2011/12/29/jekyll-introduction"/>
-   <updated>2011-12-29T00:00:00-05:00</updated>
+   <updated>2011-12-29T00:00:00-08:00</updated>
    <id>http://keyvanfatehi.github.io/lessons/2011/12/29/jekyll-introduction</id>
    <content type="html">&lt;p&gt;This Jekyll introduction will outline specifically what Jekyll is and why you would want to use it. Directly following the intro we&amp;#8217;ll learn exactly &lt;em&gt;how&lt;/em&gt; Jekyll does what it does.&lt;/p&gt;
 
@@ -1918,7 +1936,7 @@ tags : [how-to, jekyll]
  <entry>
    <title>unnamed</title>
    <link href="http://keyvanfatehi.github.io/2011/12/16/unnamed"/>
-   <updated>2011-12-16T00:00:00-05:00</updated>
+   <updated>2011-12-16T00:00:00-08:00</updated>
    <id>http://keyvanfatehi.github.io/2011/12/16/unnamed</id>
    <content type="html">&lt;blockquote&gt;
 
@@ -1931,7 +1949,7 @@ tags : [how-to, jekyll]
  <entry>
    <title>programming motherfucker</title>
    <link href="http://keyvanfatehi.github.io/2011/12/10/httpprogramming-motherfuckercom"/>
-   <updated>2011-12-10T00:00:00-05:00</updated>
+   <updated>2011-12-10T00:00:00-08:00</updated>
    <id>http://keyvanfatehi.github.io/2011/12/10/httpprogramming-motherfuckercom</id>
    <content type="html">&lt;a href=&quot;http://programming-motherfucker.com/&quot;&gt;http://programming-motherfucker.com/&lt;/a&gt;&lt;br/&gt;&lt;p&gt;Zed Shaw&amp;#8217;s manifesto, books, and a t-shirt!&lt;/p&gt;
 </content>
@@ -1940,7 +1958,7 @@ tags : [how-to, jekyll]
  <entry>
    <title>a quick drawing for all you idea guys out there</title>
    <link href="http://keyvanfatehi.github.io/2011/11/19/a-quick-drawing-for-all-you-idea-guys-out-there"/>
-   <updated>2011-11-19T00:00:00-05:00</updated>
+   <updated>2011-11-19T00:00:00-08:00</updated>
    <id>http://keyvanfatehi.github.io/2011/11/19/a-quick-drawing-for-all-you-idea-guys-out-there</id>
    <content type="html">&lt;img src=&quot;http://24.media.tumblr.com/tumblr_luwkm4X60S1ql6q2so1_1280.png&quot;/&gt;
 </content>
@@ -1949,7 +1967,7 @@ tags : [how-to, jekyll]
  <entry>
    <title>The fast track.</title>
    <link href="http://keyvanfatehi.github.io/2011/10/29/the-fast-track"/>
-   <updated>2011-10-29T00:00:00-04:00</updated>
+   <updated>2011-10-29T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/10/29/the-fast-track</id>
    <content type="html">&lt;p&gt;This blog was intended to be cut &amp;amp; dry programming and no commentary as I began to explore iOS development for the first time (I now work full time as an iOS developer for a company in LA). However, I&amp;#8217;ve mindfully gone through what I think is an important transformation over the years that could be of benefit to the slightly younger generation of would-be coders.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Background&lt;br/&gt;&lt;/strong&gt;In the past few years, I&amp;#8217;ve risen fairly quickly to being considered &amp;#8220;highly skilled&amp;#8221; and &amp;#8220;very fast&amp;#8221; as a software engineer. I get nothing but praise and surprise from clients, employers, peers, mentors. I did not start out this way. 2 years ago I could definitely not do the things I am doing today. I didn&amp;#8217;t go to school in order to achieve this level of competence &amp;#8212; that was too slow for me&amp;#8230; Instead, I took the fast track, which I would like to now describe:&lt;/p&gt;
@@ -1971,7 +1989,7 @@ tags : [how-to, jekyll]
  <entry>
    <title>New Focus</title>
    <link href="http://keyvanfatehi.github.io/2011/10/16/new-focus"/>
-   <updated>2011-10-16T00:00:00-04:00</updated>
+   <updated>2011-10-16T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/10/16/new-focus</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;http://media.tumblr.com/tumblr_ltuis8cNRx1qjx8e2.jpg&quot;/&gt;&lt;/p&gt;
 </content>
@@ -1980,7 +1998,7 @@ tags : [how-to, jekyll]
  <entry>
    <title>Sublime Text 2 Mini Review</title>
    <link href="http://keyvanfatehi.github.io/2011/08/29/sublime-text-2-mini-review"/>
-   <updated>2011-08-29T00:00:00-04:00</updated>
+   <updated>2011-08-29T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/08/29/sublime-text-2-mini-review</id>
    <content type="html">&lt;p&gt;I&amp;#8217;m a TextMate user. But recently I&amp;#8217;ve had to work in all 3 platforms at once (Main computer running Windows, with RoR running in a VM, accessed by means of a text editor+&lt;a target=&quot;_blank&quot; href=&quot;http://www.expandrive.com/&quot;&gt;ExpanDrive&lt;/a&gt; and FireFox in the Windows host. Macbook Air as an auxiliary service, watching more logs or using Sequel Pro to mess with the database. &lt;a target=&quot;_blank&quot; href=&quot;http://synergy-foss.org/&quot;&gt;Synergy&lt;/a&gt; ties the mouse &amp;amp; keyboard together on the two physical machines.).&lt;/p&gt;
 &lt;p&gt;To those interested, I am in this Windows-dominant environment now because I&amp;#8217;m working with the CryENGINE3, my development team can be found &lt;a target=&quot;_blank&quot; href=&quot;http://cry.li&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -1996,7 +2014,7 @@ tags : [how-to, jekyll]
  <entry>
    <title>unnamed</title>
    <link href="http://keyvanfatehi.github.io/2011/08/08/unnamed"/>
-   <updated>2011-08-08T00:00:00-04:00</updated>
+   <updated>2011-08-08T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/08/08/unnamed</id>
    <content type="html">&lt;img src=&quot;http://24.media.tumblr.com/tumblr_lpltelmUBr1ql6q2so1_1280.png&quot;/&gt;
 </content>
@@ -2005,7 +2023,7 @@ tags : [how-to, jekyll]
  <entry>
    <title>Asynchronous C programs: an event loop and Ncurses</title>
    <link href="http://keyvanfatehi.github.io/2011/08/03/asynchronous-c-programs-an-event-loop-and-ncurses"/>
-   <updated>2011-08-03T00:00:00-04:00</updated>
+   <updated>2011-08-03T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/08/03/asynchronous-c-programs-an-event-loop-and-ncurses</id>
    <content type="html">&lt;p&gt;You may wonder how you can use ncurses in an asynchronous fashion in your program. Doesn&amp;#8217;t ncurses block on getch(), thus forcing your program out of any of your asnychronous hopes and dreams?&lt;/p&gt;
 &lt;p&gt;Well, no, you don&amp;#8217;t HAVE to use getch() to get characters, and as long as you do not call any of these blocking functions, and find another way to get input in an asynchronous fashion, you can very well use the keyboard event of a character to drive your ncurses gui.&lt;/p&gt;
@@ -2057,7 +2075,7 @@ int main() {
  <entry>
    <title>ImageMagick and its delegate libraries</title>
    <link href="http://keyvanfatehi.github.io/2011/07/18/imagemagick-and-its-delegate-libraries"/>
-   <updated>2011-07-18T00:00:00-04:00</updated>
+   <updated>2011-07-18T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/07/18/imagemagick-and-its-delegate-libraries</id>
    <content type="html">&lt;p&gt;You need ImageMagick in order to get ruby gems such as Paperclip, or Rmagick, etc to work properly. ImageMagick is one of the most feared dependencies since even if you correctly install it, you may still get errors like:&lt;/p&gt;
 &lt;pre&gt;&quot;is not recognized by the &#39;identify&#39; command&quot;&lt;/pre&gt;
@@ -2083,7 +2101,7 @@ sudo make install
  <entry>
    <title>AppleScript for launching, resizing, positioning my terminal windows.</title>
    <link href="http://keyvanfatehi.github.io/2011/07/11/applescript-for-launching-resizing-positioning-my-terminal-windows"/>
-   <updated>2011-07-11T00:00:00-04:00</updated>
+   <updated>2011-07-11T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/07/11/applescript-for-launching-resizing-positioning-my-terminal-windows</id>
    <content type="html">&lt;p&gt;On my primary computer, I have 3 monitors. I always have one monitor dedicated to terminal windows. I then realized I can just use an applescript to fill the monitor up with 5 packed in terminals of different dimensions automatically. This is so convenient&amp;#8212;there&amp;#8217;s a lot of power in applescripts that many people don&amp;#8217;t bother tapping into.&lt;/p&gt;
 &lt;p&gt;Here&amp;#8217;s the source:&lt;/p&gt;
@@ -2119,7 +2137,7 @@ end tell
  <entry>
    <title>Writing your own kext (Kernel Extension) for Mac OS X</title>
    <link href="http://keyvanfatehi.github.io/2011/06/12/writing-your-own-kext-kernel-extension-for-mac-os-x"/>
-   <updated>2011-06-12T00:00:00-04:00</updated>
+   <updated>2011-06-12T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/06/12/writing-your-own-kext-kernel-extension-for-mac-os-x</id>
    <content type="html">&lt;p&gt;Direct copypasta of &lt;a href=&quot;http://unixjunkie.blogspot.com/2006/12/kernel-extension-by-hand.html&quot;&gt;&lt;a href=&quot;http://unixjunkie.blogspot.com/2006/12/kernel-extension-by-hand.html&quot;&gt;http://unixjunkie.blogspot.com/2006/12/kernel-extension-by-hand.html&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span&gt; &lt;/span&gt;&lt;/p&gt;
@@ -2146,7 +2164,7 @@ end tell
  <entry>
    <title>Using Spark on your hackintosh for volume key binding</title>
    <link href="http://keyvanfatehi.github.io/2011/06/12/using-spark-on-your-hackintosh-for-volume-key-binding--a-voodoohda-prefpane-applescript"/>
-   <updated>2011-06-12T00:00:00-04:00</updated>
+   <updated>2011-06-12T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/06/12/using-spark-on-your-hackintosh-for-volume-key-binding--a-voodoohda-prefpane-applescript</id>
    <content type="html">&lt;p&gt;I had 2 more issues with my hackintosh.&lt;/p&gt;
 &lt;p&gt;1) I want the standard volume control buttons on my laptop to control the volume like a normal macbook.&lt;/p&gt;
@@ -2170,7 +2188,7 @@ end tell
  <entry>
    <title>Hackintosh solution to disabled tilde and backtick.</title>
    <link href="http://keyvanfatehi.github.io/2011/06/12/after-hackintosh-i-have-lost-my-tilde--and-backtick---solution"/>
-   <updated>2011-06-12T00:00:00-04:00</updated>
+   <updated>2011-06-12T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/06/12/after-hackintosh-i-have-lost-my-tilde--and-backtick---solution</id>
    <content type="html">&lt;p&gt;When you&amp;#8217;re doing  work in the terminal or doing programming work, you use these two characters quite a lot. It is habitual to just type ~ and get the home directly. After &lt;a href=&quot;http://www.tonymacx86.com/&quot;&gt;hackintoshin&lt;/a&gt;&amp;#8217; my new laptop I lost those keys. Here&amp;#8217;s the fix:&lt;/p&gt;
 &lt;p&gt;The fix is a new keyboard layout (like a foreign language keyboard layout) custom-made &lt;a href=&quot;http://www.myhpmini.com/forum/tilde-key-issues-%5Bfix%5D-t974.html#post32696&quot;&gt;by a guy Jopari on myhpmini.com forums&lt;/a&gt;. A download link is provided at the end of this post. Here are his original instructions for installing it:&lt;/p&gt;
@@ -2184,7 +2202,7 @@ end tell
  <entry>
    <title>How to design iOS interfaces without using Interface Builder</title>
    <link href="http://keyvanfatehi.github.io/2011/06/10/how-to-design-ios-interfaces-without-using-interface-builder"/>
-   <updated>2011-06-10T00:00:00-04:00</updated>
+   <updated>2011-06-10T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/06/10/how-to-design-ios-interfaces-without-using-interface-builder</id>
    <content type="html">&lt;p&gt;Now that my app has achieved the functionality requested by my client&amp;#8212;naturally he begins to talk about interface design.&lt;/p&gt;
 &lt;p&gt;I am a coder, but I am not a graphic designer. So how can we allow the budget-client, who may not be using Mac&amp;#8212;and doesn&amp;#8217;t want to figure out how to use Interface Builder anyway&amp;#8212;to create great interfaces?&lt;/p&gt;
@@ -2200,7 +2218,7 @@ end tell
  <entry>
    <title>How to access the contents of the iPhone hard disk drive</title>
    <link href="http://keyvanfatehi.github.io/2011/06/10/how-to-access-the-contents-of-the-iphone-hard-disk-drive"/>
-   <updated>2011-06-10T00:00:00-04:00</updated>
+   <updated>2011-06-10T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/06/10/how-to-access-the-contents-of-the-iphone-hard-disk-drive</id>
    <content type="html">&lt;p&gt;You may want to see and access the files you&amp;#8217;re creating in your Documents or tmp directories while coding with iOS. Directly accessing those folders with Finder turns out to be rather difficult.&lt;/p&gt;
 &lt;p&gt;It was recommended to me in #iphonedev (freenode) to do the following in order to view the files in iTunes:&lt;/p&gt;
@@ -2220,7 +2238,7 @@ end tell
  <entry>
    <title>iOS get current date time</title>
    <link href="http://keyvanfatehi.github.io/2011/06/08/ios-get-current-date-time"/>
-   <updated>2011-06-08T00:00:00-04:00</updated>
+   <updated>2011-06-08T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/06/08/ios-get-current-date-time</id>
    <content type="html">&lt;p&gt;&lt;span&gt; &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Source code says it all:&lt;/strong&gt;&lt;/p&gt;
@@ -2243,7 +2261,7 @@ end tell
  <entry>
    <title>How to change an interface button title from within iOS code</title>
    <link href="http://keyvanfatehi.github.io/2011/06/08/how-to-change-an-interface-button-title-from-within-ios-code"/>
-   <updated>2011-06-08T00:00:00-04:00</updated>
+   <updated>2011-06-08T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/06/08/how-to-change-an-interface-button-title-from-within-ios-code</id>
    <content type="html">&lt;p&gt;1) Open your Nib file (.xib) for your view controller.&lt;/p&gt;
 &lt;p&gt;2) Click on the button that you want to be able to change the label for, and from the Utilities panel (Appears on the far right when you enable it in Xcode view) and go to the connections section.&lt;/p&gt;
@@ -2259,7 +2277,7 @@ end tell
  <entry>
    <title>Upgraded to Xcode 4: Could not insert new outlet ...</title>
    <link href="http://keyvanfatehi.github.io/2011/06/07/upgraded-to-xcode-4-could-not-insert-new-outlet-"/>
-   <updated>2011-06-07T00:00:00-04:00</updated>
+   <updated>2011-06-07T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/06/07/upgraded-to-xcode-4-could-not-insert-new-outlet-</id>
    <content type="html">&lt;p&gt;Are you following along on Apple&amp;#8217;s &amp;#8220;Your First iOS Application&amp;#8221; guide, found &lt;a title=&quot;iOS Developer Library: Your First iOS Application&quot; target=&quot;_blank&quot; href=&quot;http://developer.apple.com/library/ios/#documentation/iPhone/Conceptual/iPhone101/Articles/05_ConfiguringView.html&quot;&gt;here&lt;/a&gt;&amp;#160;?&lt;/p&gt;
 &lt;p&gt;Did you upgrade to Xcode 4 mid way? Now when you try to create an outlet, and it says it &amp;#8220;could not insert new outlet&amp;#8221; in scary red letters; something about not know what class you are looking for.&lt;/p&gt;
@@ -2289,7 +2307,7 @@ end tell
  <entry>
    <title>How to add a framework to your project in Xcode 4</title>
    <link href="http://keyvanfatehi.github.io/2011/06/07/how-to-add-a-framework-to-your-project-in-xcode-4"/>
-   <updated>2011-06-07T00:00:00-04:00</updated>
+   <updated>2011-06-07T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/06/07/how-to-add-a-framework-to-your-project-in-xcode-4</id>
    <content type="html">&lt;p&gt;When I googled for this, I got false information &amp;#8212; so here is how you do it:&lt;/p&gt;
 &lt;p&gt;1) First click the Blue Xcode icon signifying your project on the lefthand navigation pane.&lt;/p&gt;
@@ -2319,7 +2337,7 @@ end tell
  <entry>
    <title>Learning iOS Development for Free</title>
    <link href="http://keyvanfatehi.github.io/2011/06/06/learning-ios-development-for-free"/>
-   <updated>2011-06-06T00:00:00-04:00</updated>
+   <updated>2011-06-06T00:00:00-07:00</updated>
    <id>http://keyvanfatehi.github.io/2011/06/06/learning-ios-development-for-free</id>
    <content type="html">&lt;a href=&quot;http://mahipal.org/post/3456857242&quot;&gt;Learning iOS Development for Free&lt;/a&gt;&lt;br/&gt;&lt;p&gt;There are a lot of great lectures on learning iOS development on the iTunesU network free for download. But it&amp;#8217;s slow going and I&amp;#8217;d rather code than watch lectures about it.&lt;/p&gt;
 &lt;p&gt;This guy has a bunch of links and this is where I&amp;#8217;ve started a few days ago with iOS.&lt;/p&gt;

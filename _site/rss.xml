@@ -5,10 +5,28 @@
         <description>WEBLOG - Keyvan Fatehi</description>
         <link>http://keyvanfatehi.github.io</link>
         <link>http://keyvanfatehi.github.io</link>
-        <lastBuildDate>2014-05-14T21:57:25-04:00</lastBuildDate>
-        <pubDate>2014-05-14T21:57:25-04:00</pubDate>
+        <lastBuildDate>2014-06-01T19:36:53-07:00</lastBuildDate>
+        <pubDate>2014-06-01T19:36:53-07:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Open Sourcing Hyperdock</title>
+                <description>&lt;p&gt;I’ve thought about &lt;a href=&#39;https://github.com/hyperdock-io&#39;&gt;Hyperdock&lt;/a&gt; some more and have realized (eerily similarly to my Internet of Things project, &lt;a href=&#39;https://github.com/netpocket&#39;&gt;Netpocket&lt;/a&gt;) that although it can be a useful product, it is too broad and requires too much resources to do correctly.&lt;/p&gt;
+
+&lt;p&gt;I have taken steps in planning to minimize the scope (e.g. removing the concept of a &lt;code&gt;monitor&lt;/code&gt;, and only having docker hosts — solving monitoring by utilizing Keen.io across the platform) however despite my efforts I can’t see this project doing anything except cannibalizing my time. I liked how Hyperdock started out &amp;#8211; in minimizing reliance on outside systems &amp;#8211; but as I saught to rapidly prototype, I started using more and more external services (DigitalOcean, Cloudflare), but monitoring remained an internal, automatically deployed Logstash / Sensu stack&amp;#8230; Departing from this and into Keen.io is a good, correct move, but further solidifies the change from Hyperdock as a PaaS business to Hyperdock as Open Source Software. It&amp;#8217;s shaped up to be a rails version of the &lt;a href=&#39;http://shipyard-project.com/&#39;&gt;Shipyard Project&lt;/a&gt; and I think that is good.&lt;/p&gt;
+
+&lt;p&gt;It’s hard to justify the previous direction I was taking with it when solutions exist for the end result (e.g. you want ZNC? Check https://bnc.im or https://yourbnc.co.uk, so on for each application we might try to support)&amp;#8230; When I first conceived of hyperdock I thought it is silly how companies are built around a single product (such as RedisToGo, or MongoLab) but my perspective on this has changed after several weekends of cramming in Hyperdock development:&lt;/p&gt;
+
+&lt;p&gt;I now realize that although one can develop a platform that can run any of these programs, doing any of these programs correctly, in a value-added way, is a huge task requiring a lot of specialization, infrastructure, and systems intelligence. Hyperdock can still be useful for small projects and developers, but I can’t really see us charging for the value it offers, and if we were to charge and have customers, I don’t see it offsetting costs while still providing good quality of service. If you need professional-level Mongo, for example, you won&amp;#8217;t pay someone who runs a generic docker platform, you will pay someone who runs a professional-grade Mongo platform!&lt;/p&gt;
+
+&lt;p&gt;By being realistic about this, and refocusing away from my own greed or desire for a startup, it is clear what I need to do. I will prepare a simple splash page explaining Hyperdock as it is: a DigitalOcean and Docker powered container platform; I will open-source the project. I will kill all the currently running servers. I will add some nice documentation to the README and splash page and point http://hyperdock.io to that.&lt;/p&gt;
+
+&lt;p&gt;It is possible that Hyperdock will be embraced by the community, if so then good! If not, I still had fun building it and might use it again in the future.&lt;/p&gt;</description>
+                <link>http://keyvanfatehi.github.io/2014/06/01/hyperdock-io</link>
+                <guid>http://keyvanfatehi.github.io/2014/06/01/hyperdock-io</guid>
+                <pubDate>2014-06-01T00:00:00-07:00</pubDate>
+        </item>
 
         <item>
                 <title>Hackers and Bullshitters of OpenStack Summit</title>
@@ -43,7 +61,7 @@
 &lt;p&gt;I wonder, if we lived in a society where there was no strife, and thus participation in a deception engine was not necessary for survival, what software would get made in 2014, and what the bullshitters would be creating instead of lies and manipulations?&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/2014/05/14/the-hackers-and-bullshitters-of-openstack-summit</link>
                 <guid>http://keyvanfatehi.github.io/2014/05/14/the-hackers-and-bullshitters-of-openstack-summit</guid>
-                <pubDate>2014-05-14T00:00:00-04:00</pubDate>
+                <pubDate>2014-05-14T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -79,7 +97,7 @@
 &lt;p&gt;At this point you should reboot so that modules and rules get loaded. After that, I gave up on ArchLinux due to issues getting actual network traffic to go across, so I can&amp;#8217;t speak for ArchLinux from herein. However I did have success on Raspbian. You should be able to simply plug in your iPhone and see a new interface come up and be able to ping the outside world. Enjoy!&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/2014/02/10/raspberry-pi-iphone-tether</link>
                 <guid>http://keyvanfatehi.github.io/2014/02/10/raspberry-pi-iphone-tether</guid>
-                <pubDate>2014-02-10T00:00:00-05:00</pubDate>
+                <pubDate>2014-02-10T00:00:00-08:00</pubDate>
         </item>
 
         <item>
@@ -205,7 +223,7 @@ curl -X POST http://127.0.0.1:5984/_replicate -d &amp;#39;{&amp;quot;source&amp;
 &lt;/ol&gt;</description>
                 <link>http://keyvanfatehi.github.io/2013/11/13/npm-mirror</link>
                 <guid>http://keyvanfatehi.github.io/2013/11/13/npm-mirror</guid>
-                <pubDate>2013-11-13T00:00:00-05:00</pubDate>
+                <pubDate>2013-11-13T00:00:00-08:00</pubDate>
         </item>
 
         <item>
@@ -290,7 +308,7 @@ undefined
 &lt;p&gt;So yeah, if you ignore the pre-existing stuff, it seems doable to keep up with the new.&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/2013/09/25/is-it-possible-to-hear-every-song</link>
                 <guid>http://keyvanfatehi.github.io/2013/09/25/is-it-possible-to-hear-every-song</guid>
-                <pubDate>2013-09-25T00:00:00-04:00</pubDate>
+                <pubDate>2013-09-25T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -324,7 +342,7 @@ undefined
 &lt;p&gt;In the future this hackery will reduce, and hardware will be exposed directly (e.g. getUserMedia()) in a device-compatible way, and Microsoft is just as relevant as any other. Microsoft will have all the same apps when it costs very little to get onto the platform in the first place &amp;#8211; and for us, it does not cost much to get on Windows and Windows Phone. I imagine other development shops see this too and will also target the Microsoft platform offerings.&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/09/06/cucumber-and-html5-and-microsoft</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/09/06/cucumber-and-html5-and-microsoft</guid>
-                <pubDate>2013-09-06T00:00:00-04:00</pubDate>
+                <pubDate>2013-09-06T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -338,7 +356,7 @@ undefined
 &lt;p&gt;&lt;code&gt;sudo apt-get install virt-manager&lt;/code&gt;&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/08/13/install-kvm-with-gui-on-ubuntu-12.04</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/08/13/install-kvm-with-gui-on-ubuntu-12.04</guid>
-                <pubDate>2013-08-13T00:00:00-04:00</pubDate>
+                <pubDate>2013-08-13T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -346,7 +364,7 @@ undefined
                 <description>&lt;p&gt;I decided to automate this part of my git workflow. See the &lt;a href=&#39;https://gist.github.com/keyvanfatehi/6155048&#39;&gt;gist&lt;/a&gt; for the source.&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/2013/08/05/issue-branching-workflow</link>
                 <guid>http://keyvanfatehi.github.io/2013/08/05/issue-branching-workflow</guid>
-                <pubDate>2013-08-05T00:00:00-04:00</pubDate>
+                <pubDate>2013-08-05T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -356,7 +374,7 @@ undefined
 &lt;p&gt;helpful software: https://github.com/nixterrimus/spirit&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/2013/07/28/drones</link>
                 <guid>http://keyvanfatehi.github.io/2013/07/28/drones</guid>
-                <pubDate>2013-07-28T00:00:00-04:00</pubDate>
+                <pubDate>2013-07-28T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -364,7 +382,7 @@ undefined
                 <description>&lt;p&gt;Now that I have openstack, of course I am setting up a rubygems mirror &amp;#8211; this turned out to be super simple thanks to a StackOverflow answer: http://stackoverflow.com/a/8411230/511621&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/07/08/rubygems-mirror</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/07/08/rubygems-mirror</guid>
-                <pubDate>2013-07-08T00:00:00-04:00</pubDate>
+                <pubDate>2013-07-08T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -376,7 +394,7 @@ undefined
 &lt;p&gt;http://themyndset.com/2013/04/sphere-of-influence-influential-topic/ https://www.google.com/search?q=kred+api https://www.google.com/search?q=klout+api https://www.google.com/search?q=peerindex+api&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/apps/2013/07/03/influenceometer</link>
                 <guid>http://keyvanfatehi.github.io/apps/2013/07/03/influenceometer</guid>
-                <pubDate>2013-07-03T00:00:00-04:00</pubDate>
+                <pubDate>2013-07-03T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -412,7 +430,7 @@ undefined
 &lt;p&gt;http://www.opensecrets.org/about/ http://www.opensecrets.org/politicians/summary.php?cid=n00001093&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/apps/2013/07/01/lobbyist</link>
                 <guid>http://keyvanfatehi.github.io/apps/2013/07/01/lobbyist</guid>
-                <pubDate>2013-07-01T00:00:00-04:00</pubDate>
+                <pubDate>2013-07-01T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -470,7 +488,7 @@ Dump all activity (images, video, events) into ES/MD w/ odata&lt;/code&gt;&lt;/p
 &lt;iframe height=&#39;315&#39; src=&#39;http://www.youtube.com/embed/XfIU9DqPTl8&#39; width=&#39;560&#39; /&gt;</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/06/22/how-to-build-a-telescope-service</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/06/22/how-to-build-a-telescope-service</guid>
-                <pubDate>2013-06-22T00:00:00-04:00</pubDate>
+                <pubDate>2013-06-22T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -484,7 +502,7 @@ Dump all activity (images, video, events) into ES/MD w/ odata&lt;/code&gt;&lt;/p
 &lt;p&gt;We are leaderless; at least we&amp;#8217;ve still got apathy :3&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/06/17/leaderless</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/06/17/leaderless</guid>
-                <pubDate>2013-06-17T00:00:00-04:00</pubDate>
+                <pubDate>2013-06-17T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -649,7 +667,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If something like paratrain can be pulled off as quickly as it looks, then building the micro-agriculture systems I&amp;#8217;ve envisioned should be less sweat too.&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/06/03/parrot-assisted-training</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/06/03/parrot-assisted-training</guid>
-                <pubDate>2013-06-03T00:00:00-04:00</pubDate>
+                <pubDate>2013-06-03T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -657,7 +675,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
                 <description>&lt;p&gt;pre 2:58 PM keyvan joined (uid7672@gateway/web/irccloud.com/x-noobbtzvvxakpxyr) 2:58 PM Channel mode is +cnt 2:58 PM Homepage: http://www.bountysource.com 2:58 PM keyvan wooo bountysource is awesome. good job :D 2:59 PM keyvan my very first bounty https://www.bountysource.com/#issues/379039-portfolio-page 3:03 PM nbouscal quit brooss nipped out&lt;br /&gt;3:43 PM corytheboyd aww, thanks keyvan :) 3:43 PM corytheboyd feel free to give us feedback! 3:44 PM keyvan sure thanks 3:46 PM keyvan corytheboyd: do you think should i be making an effort to market the opportunity or does bountysource do this for me somehow? that was one of the difficulties i had in thinking of how to design such an application&amp;#8230; the marketing aspect&amp;#8230; 3:47 PM nbouscal joined (~nbouscal@c-67-185-201-65.hsd1.wa.comcast.net) 3:50 PM corytheboyd keyvan: good question. we don&amp;#8217;t advertise bounties outside of our site 3:51 PM corytheboyd it&amp;#8217;s mostly up the the respective community to advertise bounties 3:51 PM keyvan corytheboyd: my other question was, how do you make money? i was debating if i&amp;#8217;d scrape money from the bounties in my implementation but i wasnt sure how that would fly with people 3:51 PM keyvan what strategy are you taking on the money front? 3:54 PM keyvan ccverg: how did you find my issue by the way? did you search github for &amp;#8220;bounty&amp;#8221; or something? the fact that you guys have built this thing is such a pleasant surprise. i mean to look to see if you guys have an API later, i&amp;#8217;ll just make my browser extension ive been working on fit right into that 3:55 PM keyvan also it would be cool for the issue itself to get auto-updated by BountySource to say something like &amp;#8220;There is a X bounty on this issue!&amp;#8221; and other appropriate notices if any 3:55 PM keyvan ive thought a lot about this project so i&amp;#8217;m kind of excited that it&amp;#8217;s here :) 3:56 PM nbouscal quit (~nbouscal@c-67-185-201-65.hsd1.wa.comcast.net) Quit: Computer has commenced electric sheep tracking protocol. 3:56 PM keyvan i think it will have huge positive consequences &amp;#8211; i.e. people with skill but inability to find jobs can now do useful work and get paid&amp;#8230; i know several people like this personally. 3:58 PM ccverg kevyan: hey there! 3:59 PM ccverg we charge a fee on bounties that are paid out, and on fundraisers once they are successful 4:00 PM ccverg we actually have a plugin for GitHub that updates issues with bounty details as you described, but a project committer has to enable it 4:00 PM ccverg you can see some screenshots on our blog (blog.bountysource.com/post/48954271533/improved-github-integration-automatically-update) 4:00 PM keyvan lol you guys may want to fix this http://cl.ly/image/1d09080J1Y24 4:01 PM keyvan nice good stuff ccverg 4:01 PM ccverg &amp;#8220;people with skill but inability to find jobs can now do useful work and get paid&amp;#8230; i know several people like this personally.&amp;#8221; — that&amp;#8217;s awesome! that&amp;#8217;s our goal, allowing open source developers to sustain themselves with their work 4:02 PM ccverg kevyan: ack, good catch 4:02 PM ccverg we&amp;#8217;ll update that, thanks 4:03 PM keyvan ccverg: i would love to help you guys out, from a dev perspective, like on weekends and maybe nights &amp;#8211; it was my ambition to build what you guys have so feel free to direct me to the proper channels if you&amp;#8217;re interested in a Ruby/Rails/Coffeescript/Javascript/iOS developer looking at stuff 4:04 PM keyvan like if you have an API that would be a great start so i can work on the browser extension and you guys can see if you like it / think it should be part of it or something 4:04 PM keyvan also i was thinking of a mobile app that is basically a browser with the ideas of the browser extension built in, so you&amp;#8217;re contributing to open source from your mobile device, making money thru bountysource integrations as well (if the project ur editing has a bounty that is) 4:07 PM keyvan sorry i havent checked the bountysource github page, you probably alreayd have most if not all of it open source anyway, wherein i can find issues, and browser for API docs myself &amp;#8211; im just at work right now :) i&amp;#8217;ll definitely be looking deeper later 4:11 PM ccverg kevyan: awesome! :D 4:12 PM ccverg only our frontend is open source right now, actually… but you&amp;#8217;re welcome to check out the issues we have open so far 4:12 PM ccverg and we really appreciate you wanting to help out! 4:19 PM corytheboyd keyvan: sorry, got a little distracted :p 4:25 PM nbouscal joined (~nbouscal@c-67-168-113-48.hsd1.wa.comcast.net) 4:27 PM keyvan cool for sure. np cory 4:50 PM nbouscal and satazor quit jsilver popped in&lt;br /&gt;6:41 PM keyvan woohoo first bounty complete! https://www.bountysource.com/#issues/379039-portfolio-page 6:41 PM keyvan definitely a smooth process, my bounty hunter is pleased as well 7:48 PM Anonymous296 popped in bountysource, warreng, corytheboyd, ccverg (opped) and realazthat nipped out&lt;br /&gt;10:19 PM keyvan im going to start making random projects, speccable, and giving them bounties :) there aren&amp;#8217;t enough live bounties as there should be&amp;#8230; easy ones even 10:20 PM keyvan knowing there&amp;#8217;s an &amp;#8220;army of developers&amp;#8221; out there that can slam out any spec should motivate more of us that squelch our ideas because &amp;#8220;work is more important&amp;#8221; and you never write that README 10:20 PM keyvan maybe someone&amp;#8217;s willing to do it if you throw some coin at it! 10:23 PM keyvan i thought (and mostly meet this type-) people resisted sharing their ideas because they are afraid to share&amp;#8230; they&amp;#8217;re wrong you should share, and you should even place a bounty on if it&amp;#8217;s something you really want built &amp;#8211; if you&amp;#8217;re in it for the money and u dont want to share for that reason, your startup probably won&amp;#8217;t do well anyway and don&amp;#8217;t get the 10:23 PM keyvan big picture (i dont say this to them though, i&amp;#8217;ll generally motivate them to learn jQuery or ruby). 10:26 PM mode: corytheboyd (opped) nbouscal popped in&lt;br /&gt;/pre&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/06/03/bountysource</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/06/03/bountysource</guid>
-                <pubDate>2013-06-03T00:00:00-04:00</pubDate>
+                <pubDate>2013-06-03T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -669,7 +687,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This works in Rails 4 RC1, however I cannot install it on Rails 3.2 (coffee-rails version too old)&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/05/23/coffeescript-source-maps</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/05/23/coffeescript-source-maps</guid>
-                <pubDate>2013-05-23T00:00:00-04:00</pubDate>
+                <pubDate>2013-05-23T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -731,7 +749,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 &lt;/blockquote&gt;</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/05/16/conflict-of-interest</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/05/16/conflict-of-interest</guid>
-                <pubDate>2013-05-16T00:00:00-04:00</pubDate>
+                <pubDate>2013-05-16T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -743,7 +761,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;I&amp;#8217;ll close by saying the top hedge fund managers in the world get paid inane amounts of money for doing literally nothing positive (it&amp;#8217;s a zero sum game), while the scientists trying to cure your mother&amp;#8217;s cancer are being stifled and underfunded. Sick society.&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/05/16/can-you-do-better</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/05/16/can-you-do-better</guid>
-                <pubDate>2013-05-16T00:00:00-04:00</pubDate>
+                <pubDate>2013-05-16T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1030,7 +1048,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 &lt;/pre&gt;</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/05/14/willful-defiance</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/05/14/willful-defiance</guid>
-                <pubDate>2013-05-14T00:00:00-04:00</pubDate>
+                <pubDate>2013-05-14T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1064,7 +1082,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;a href=&#39;http://www.notifymyandroid.com&#39;&gt;NMA&lt;/a&gt;&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/05/14/Bellow</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/05/14/Bellow</guid>
-                <pubDate>2013-05-14T00:00:00-04:00</pubDate>
+                <pubDate>2013-05-14T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1097,7 +1115,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/05/11/hello-jekyll-goodbye-tumblr</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/05/11/hello-jekyll-goodbye-tumblr</guid>
-                <pubDate>2013-05-11T00:00:00-04:00</pubDate>
+                <pubDate>2013-05-11T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1112,7 +1130,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 </description>
                 <link>http://keyvanfatehi.github.io/2013/05/08/my-latest-gem-apple_manifest_rails</link>
                 <guid>http://keyvanfatehi.github.io/2013/05/08/my-latest-gem-apple_manifest_rails</guid>
-                <pubDate>2013-05-08T00:00:00-04:00</pubDate>
+                <pubDate>2013-05-08T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1123,7 +1141,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 </description>
                 <link>http://keyvanfatehi.github.io/2013/04/26/add-local-node_modules-binaries-to-your-path</link>
                 <guid>http://keyvanfatehi.github.io/2013/04/26/add-local-node_modules-binaries-to-your-path</guid>
-                <pubDate>2013-04-26T00:00:00-04:00</pubDate>
+                <pubDate>2013-04-26T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1134,7 +1152,7 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 </description>
                 <link>http://keyvanfatehi.github.io/2013/04/24/great-testing-tips</link>
                 <guid>http://keyvanfatehi.github.io/2013/04/24/great-testing-tips</guid>
-                <pubDate>2013-04-24T00:00:00-04:00</pubDate>
+                <pubDate>2013-04-24T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1163,7 +1181,7 @@ bundle exec gem pristine nokogiri
 </description>
                 <link>http://keyvanfatehi.github.io/2013/04/15/fixing-the-nokogiri-built-against-libxml-warning</link>
                 <guid>http://keyvanfatehi.github.io/2013/04/15/fixing-the-nokogiri-built-against-libxml-warning</guid>
-                <pubDate>2013-04-15T00:00:00-04:00</pubDate>
+                <pubDate>2013-04-15T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1174,7 +1192,7 @@ bundle exec gem pristine nokogiri
 </description>
                 <link>http://keyvanfatehi.github.io/2013/04/15/clever-device-agnostic-remote-debugging</link>
                 <guid>http://keyvanfatehi.github.io/2013/04/15/clever-device-agnostic-remote-debugging</guid>
-                <pubDate>2013-04-15T00:00:00-04:00</pubDate>
+                <pubDate>2013-04-15T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1184,7 +1202,7 @@ bundle exec gem pristine nokogiri
 </description>
                 <link>http://keyvanfatehi.github.io/2013/03/09/bike-pic-cahuenga-pass</link>
                 <guid>http://keyvanfatehi.github.io/2013/03/09/bike-pic-cahuenga-pass</guid>
-                <pubDate>2013-03-09T00:00:00-05:00</pubDate>
+                <pubDate>2013-03-09T00:00:00-08:00</pubDate>
         </item>
 
         <item>
@@ -1193,7 +1211,7 @@ bundle exec gem pristine nokogiri
 </description>
                 <link>http://keyvanfatehi.github.io/2013/02/24/source</link>
                 <guid>http://keyvanfatehi.github.io/2013/02/24/source</guid>
-                <pubDate>2013-02-24T00:00:00-05:00</pubDate>
+                <pubDate>2013-02-24T00:00:00-08:00</pubDate>
         </item>
 
         <item>
@@ -1225,7 +1243,7 @@ bundle exec gem pristine nokogiri
 </description>
                 <link>http://keyvanfatehi.github.io/2012/12/11/rails-3-passenger-nginx-send_file-with-x-accel-redirect-and-x-accel-mapping</link>
                 <guid>http://keyvanfatehi.github.io/2012/12/11/rails-3-passenger-nginx-send_file-with-x-accel-redirect-and-x-accel-mapping</guid>
-                <pubDate>2012-12-11T00:00:00-05:00</pubDate>
+                <pubDate>2012-12-11T00:00:00-08:00</pubDate>
         </item>
 
         <item>
@@ -1234,7 +1252,7 @@ bundle exec gem pristine nokogiri
 </description>
                 <link>http://keyvanfatehi.github.io/2012/11/02/explain-the-concept-of-a-ruby-gem-ruby-on-freenode</link>
                 <guid>http://keyvanfatehi.github.io/2012/11/02/explain-the-concept-of-a-ruby-gem-ruby-on-freenode</guid>
-                <pubDate>2012-11-02T00:00:00-04:00</pubDate>
+                <pubDate>2012-11-02T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1251,7 +1269,7 @@ bundle exec gem pristine nokogiri
 </description>
                 <link>http://keyvanfatehi.github.io/2012/10/17/mobile-safari-debugging--jquery-live-workaround</link>
                 <guid>http://keyvanfatehi.github.io/2012/10/17/mobile-safari-debugging--jquery-live-workaround</guid>
-                <pubDate>2012-10-17T00:00:00-04:00</pubDate>
+                <pubDate>2012-10-17T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1276,7 +1294,7 @@ config.assets.debug = true
 </description>
                 <link>http://keyvanfatehi.github.io/2012/09/27/cucumber-capybara-and-rails-asset-pipeline-in-debug-mode</link>
                 <guid>http://keyvanfatehi.github.io/2012/09/27/cucumber-capybara-and-rails-asset-pipeline-in-debug-mode</guid>
-                <pubDate>2012-09-27T00:00:00-04:00</pubDate>
+                <pubDate>2012-09-27T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1324,7 +1342,7 @@ ntop -d -L -u ntop -P /usr/local/ntop –-skip-version-check –-use-syslog=daem
 </description>
                 <link>http://keyvanfatehi.github.io/2012/09/13/install-ntop-in-centos-6</link>
                 <guid>http://keyvanfatehi.github.io/2012/09/13/install-ntop-in-centos-6</guid>
-                <pubDate>2012-09-13T00:00:00-04:00</pubDate>
+                <pubDate>2012-09-13T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1333,7 +1351,7 @@ ntop -d -L -u ntop -P /usr/local/ntop –-skip-version-check –-use-syslog=daem
 </description>
                 <link>http://keyvanfatehi.github.io/2012/08/25/kill-stuck-screen-sharing-vnc-login-window</link>
                 <guid>http://keyvanfatehi.github.io/2012/08/25/kill-stuck-screen-sharing-vnc-login-window</guid>
-                <pubDate>2012-08-25T00:00:00-04:00</pubDate>
+                <pubDate>2012-08-25T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1364,7 +1382,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
 </description>
                 <link>http://keyvanfatehi.github.io/2012/08/13/vendoringunpackingfreezing-gems-in-ruby-not-rails-no-bundler</link>
                 <guid>http://keyvanfatehi.github.io/2012/08/13/vendoringunpackingfreezing-gems-in-ruby-not-rails-no-bundler</guid>
-                <pubDate>2012-08-13T00:00:00-04:00</pubDate>
+                <pubDate>2012-08-13T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1373,7 +1391,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
 </description>
                 <link>http://keyvanfatehi.github.io/2012/08/05/dnssd-rubygem-dependencies-on-debian</link>
                 <guid>http://keyvanfatehi.github.io/2012/08/05/dnssd-rubygem-dependencies-on-debian</guid>
-                <pubDate>2012-08-05T00:00:00-04:00</pubDate>
+                <pubDate>2012-08-05T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1388,7 +1406,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
 </description>
                 <link>http://keyvanfatehi.github.io/2012/08/03/find-and-mount-cdrom-drive-on-centos-linux</link>
                 <guid>http://keyvanfatehi.github.io/2012/08/03/find-and-mount-cdrom-drive-on-centos-linux</guid>
-                <pubDate>2012-08-03T00:00:00-04:00</pubDate>
+                <pubDate>2012-08-03T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1397,7 +1415,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
 </description>
                 <link>http://keyvanfatehi.github.io/2012/08/02/sftpssh-jail</link>
                 <guid>http://keyvanfatehi.github.io/2012/08/02/sftpssh-jail</guid>
-                <pubDate>2012-08-02T00:00:00-04:00</pubDate>
+                <pubDate>2012-08-02T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1406,7 +1424,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
 </description>
                 <link>http://keyvanfatehi.github.io/2012/08/02/quick-secure-ssh-vnc-tunnel-bashruby-scriptlet</link>
                 <guid>http://keyvanfatehi.github.io/2012/08/02/quick-secure-ssh-vnc-tunnel-bashruby-scriptlet</guid>
-                <pubDate>2012-08-02T00:00:00-04:00</pubDate>
+                <pubDate>2012-08-02T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1415,7 +1433,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
 </description>
                 <link>http://keyvanfatehi.github.io/2012/08/02/centos-kvm-shrinking-a-virtual-drive-with-virt-resize</link>
                 <guid>http://keyvanfatehi.github.io/2012/08/02/centos-kvm-shrinking-a-virtual-drive-with-virt-resize</guid>
-                <pubDate>2012-08-02T00:00:00-04:00</pubDate>
+                <pubDate>2012-08-02T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1434,7 +1452,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
 </description>
                 <link>http://keyvanfatehi.github.io/2012/07/31/zlib-error-on-gem-install-on-debian-squeeze</link>
                 <guid>http://keyvanfatehi.github.io/2012/07/31/zlib-error-on-gem-install-on-debian-squeeze</guid>
-                <pubDate>2012-07-31T00:00:00-04:00</pubDate>
+                <pubDate>2012-07-31T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1459,7 +1477,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
 </description>
                 <link>http://keyvanfatehi.github.io/2012/07/31/centos-vnc-autostart-chkconfig</link>
                 <guid>http://keyvanfatehi.github.io/2012/07/31/centos-vnc-autostart-chkconfig</guid>
-                <pubDate>2012-07-31T00:00:00-04:00</pubDate>
+                <pubDate>2012-07-31T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1468,7 +1486,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
 </description>
                 <link>http://keyvanfatehi.github.io/2012/07/25/example-rails-env-setup-on-vagrant-vagrantup</link>
                 <guid>http://keyvanfatehi.github.io/2012/07/25/example-rails-env-setup-on-vagrant-vagrantup</guid>
-                <pubDate>2012-07-25T00:00:00-04:00</pubDate>
+                <pubDate>2012-07-25T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1480,7 +1498,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
 </description>
                 <link>http://keyvanfatehi.github.io/2012/07/08/fixing-gcc-on-mountain-lion-for-gem-install</link>
                 <guid>http://keyvanfatehi.github.io/2012/07/08/fixing-gcc-on-mountain-lion-for-gem-install</guid>
-                <pubDate>2012-07-08T00:00:00-04:00</pubDate>
+                <pubDate>2012-07-08T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1497,7 +1515,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
 </description>
                 <link>http://keyvanfatehi.github.io/2012/07/03/mountains-are-merely-mountains</link>
                 <guid>http://keyvanfatehi.github.io/2012/07/03/mountains-are-merely-mountains</guid>
-                <pubDate>2012-07-03T00:00:00-04:00</pubDate>
+                <pubDate>2012-07-03T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1508,7 +1526,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
 </description>
                 <link>http://keyvanfatehi.github.io/2012/06/27/is-it-ok-to-reuse-your-step-definitions-created-in-a-different-features-steps-file</link>
                 <guid>http://keyvanfatehi.github.io/2012/06/27/is-it-ok-to-reuse-your-step-definitions-created-in-a-different-features-steps-file</guid>
-                <pubDate>2012-06-27T00:00:00-04:00</pubDate>
+                <pubDate>2012-06-27T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1517,7 +1535,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
 </description>
                 <link>http://keyvanfatehi.github.io/2012/06/22/just-replaced-vibrant-ink-with-tomorrow-theme</link>
                 <guid>http://keyvanfatehi.github.io/2012/06/22/just-replaced-vibrant-ink-with-tomorrow-theme</guid>
-                <pubDate>2012-06-22T00:00:00-04:00</pubDate>
+                <pubDate>2012-06-22T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1526,7 +1544,7 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
 </description>
                 <link>http://keyvanfatehi.github.io/2012/06/22/converting-23-style-rails-plugins-to-rails-3</link>
                 <guid>http://keyvanfatehi.github.io/2012/06/22/converting-23-style-rails-plugins-to-rails-3</guid>
-                <pubDate>2012-06-22T00:00:00-04:00</pubDate>
+                <pubDate>2012-06-22T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1538,7 +1556,7 @@ to collaborate effectively on projects hosted on github, using branches for feat
 </description>
                 <link>http://keyvanfatehi.github.io/2012/06/20/simple-github-workflow</link>
                 <guid>http://keyvanfatehi.github.io/2012/06/20/simple-github-workflow</guid>
-                <pubDate>2012-06-20T00:00:00-04:00</pubDate>
+                <pubDate>2012-06-20T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1547,7 +1565,7 @@ to collaborate effectively on projects hosted on github, using branches for feat
 </description>
                 <link>http://keyvanfatehi.github.io/2012/06/20/octopusci-simple-and-effective-continuous-integration</link>
                 <guid>http://keyvanfatehi.github.io/2012/06/20/octopusci-simple-and-effective-continuous-integration</guid>
-                <pubDate>2012-06-20T00:00:00-04:00</pubDate>
+                <pubDate>2012-06-20T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1564,7 +1582,7 @@ to collaborate effectively on projects hosted on github, using branches for feat
 </description>
                 <link>http://keyvanfatehi.github.io/2012/06/08/apache-hosts-virtual--virtualhosts-and-control--ctl-on-mac-os-x-107-lion</link>
                 <guid>http://keyvanfatehi.github.io/2012/06/08/apache-hosts-virtual--virtualhosts-and-control--ctl-on-mac-os-x-107-lion</guid>
-                <pubDate>2012-06-08T00:00:00-04:00</pubDate>
+                <pubDate>2012-06-08T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1576,7 +1594,7 @@ to collaborate effectively on projects hosted on github, using branches for feat
 </description>
                 <link>http://keyvanfatehi.github.io/2012/04/01/rvm-install-jruby-o-hai-java</link>
                 <guid>http://keyvanfatehi.github.io/2012/04/01/rvm-install-jruby-o-hai-java</guid>
-                <pubDate>2012-04-01T00:00:00-04:00</pubDate>
+                <pubDate>2012-04-01T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1585,7 +1603,7 @@ to collaborate effectively on projects hosted on github, using branches for feat
 </description>
                 <link>http://keyvanfatehi.github.io/2011/12/30/httpblogdavidtateorg201112the-dangerous-effects-of-reading</link>
                 <guid>http://keyvanfatehi.github.io/2011/12/30/httpblogdavidtateorg201112the-dangerous-effects-of-reading</guid>
-                <pubDate>2011-12-30T00:00:00-05:00</pubDate>
+                <pubDate>2011-12-30T00:00:00-08:00</pubDate>
         </item>
 
         <item>
@@ -1910,7 +1928,7 @@ tags : [how-to, jekyll]
 &lt;p&gt;Please take a look at &lt;a href=&#39;&#39; /&gt; or jump right into &lt;a href=&#39;&#39;&gt;Usage&lt;/a&gt; if you&amp;#8217;d like.&lt;/p&gt;</description>
                 <link>http://keyvanfatehi.github.io/lessons/2011/12/29/jekyll-introduction</link>
                 <guid>http://keyvanfatehi.github.io/lessons/2011/12/29/jekyll-introduction</guid>
-                <pubDate>2011-12-29T00:00:00-05:00</pubDate>
+                <pubDate>2011-12-29T00:00:00-08:00</pubDate>
         </item>
 
         <item>
@@ -1923,7 +1941,7 @@ tags : [how-to, jekyll]
 </description>
                 <link>http://keyvanfatehi.github.io/2011/12/16/unnamed</link>
                 <guid>http://keyvanfatehi.github.io/2011/12/16/unnamed</guid>
-                <pubDate>2011-12-16T00:00:00-05:00</pubDate>
+                <pubDate>2011-12-16T00:00:00-08:00</pubDate>
         </item>
 
         <item>
@@ -1932,7 +1950,7 @@ tags : [how-to, jekyll]
 </description>
                 <link>http://keyvanfatehi.github.io/2011/12/10/httpprogramming-motherfuckercom</link>
                 <guid>http://keyvanfatehi.github.io/2011/12/10/httpprogramming-motherfuckercom</guid>
-                <pubDate>2011-12-10T00:00:00-05:00</pubDate>
+                <pubDate>2011-12-10T00:00:00-08:00</pubDate>
         </item>
 
         <item>
@@ -1941,7 +1959,7 @@ tags : [how-to, jekyll]
 </description>
                 <link>http://keyvanfatehi.github.io/2011/11/19/a-quick-drawing-for-all-you-idea-guys-out-there</link>
                 <guid>http://keyvanfatehi.github.io/2011/11/19/a-quick-drawing-for-all-you-idea-guys-out-there</guid>
-                <pubDate>2011-11-19T00:00:00-05:00</pubDate>
+                <pubDate>2011-11-19T00:00:00-08:00</pubDate>
         </item>
 
         <item>
@@ -1963,7 +1981,7 @@ tags : [how-to, jekyll]
 </description>
                 <link>http://keyvanfatehi.github.io/2011/10/29/the-fast-track</link>
                 <guid>http://keyvanfatehi.github.io/2011/10/29/the-fast-track</guid>
-                <pubDate>2011-10-29T00:00:00-04:00</pubDate>
+                <pubDate>2011-10-29T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1972,7 +1990,7 @@ tags : [how-to, jekyll]
 </description>
                 <link>http://keyvanfatehi.github.io/2011/10/16/new-focus</link>
                 <guid>http://keyvanfatehi.github.io/2011/10/16/new-focus</guid>
-                <pubDate>2011-10-16T00:00:00-04:00</pubDate>
+                <pubDate>2011-10-16T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1988,7 +2006,7 @@ tags : [how-to, jekyll]
 </description>
                 <link>http://keyvanfatehi.github.io/2011/08/29/sublime-text-2-mini-review</link>
                 <guid>http://keyvanfatehi.github.io/2011/08/29/sublime-text-2-mini-review</guid>
-                <pubDate>2011-08-29T00:00:00-04:00</pubDate>
+                <pubDate>2011-08-29T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -1997,7 +2015,7 @@ tags : [how-to, jekyll]
 </description>
                 <link>http://keyvanfatehi.github.io/2011/08/08/unnamed</link>
                 <guid>http://keyvanfatehi.github.io/2011/08/08/unnamed</guid>
-                <pubDate>2011-08-08T00:00:00-04:00</pubDate>
+                <pubDate>2011-08-08T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -2049,7 +2067,7 @@ int main() {
 </description>
                 <link>http://keyvanfatehi.github.io/2011/08/03/asynchronous-c-programs-an-event-loop-and-ncurses</link>
                 <guid>http://keyvanfatehi.github.io/2011/08/03/asynchronous-c-programs-an-event-loop-and-ncurses</guid>
-                <pubDate>2011-08-03T00:00:00-04:00</pubDate>
+                <pubDate>2011-08-03T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -2075,7 +2093,7 @@ sudo make install
 </description>
                 <link>http://keyvanfatehi.github.io/2011/07/18/imagemagick-and-its-delegate-libraries</link>
                 <guid>http://keyvanfatehi.github.io/2011/07/18/imagemagick-and-its-delegate-libraries</guid>
-                <pubDate>2011-07-18T00:00:00-04:00</pubDate>
+                <pubDate>2011-07-18T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -2111,7 +2129,7 @@ end tell
 </description>
                 <link>http://keyvanfatehi.github.io/2011/07/11/applescript-for-launching-resizing-positioning-my-terminal-windows</link>
                 <guid>http://keyvanfatehi.github.io/2011/07/11/applescript-for-launching-resizing-positioning-my-terminal-windows</guid>
-                <pubDate>2011-07-11T00:00:00-04:00</pubDate>
+                <pubDate>2011-07-11T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -2138,7 +2156,7 @@ end tell
 </description>
                 <link>http://keyvanfatehi.github.io/2011/06/12/writing-your-own-kext-kernel-extension-for-mac-os-x</link>
                 <guid>http://keyvanfatehi.github.io/2011/06/12/writing-your-own-kext-kernel-extension-for-mac-os-x</guid>
-                <pubDate>2011-06-12T00:00:00-04:00</pubDate>
+                <pubDate>2011-06-12T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -2162,7 +2180,7 @@ end tell
 </description>
                 <link>http://keyvanfatehi.github.io/2011/06/12/using-spark-on-your-hackintosh-for-volume-key-binding--a-voodoohda-prefpane-applescript</link>
                 <guid>http://keyvanfatehi.github.io/2011/06/12/using-spark-on-your-hackintosh-for-volume-key-binding--a-voodoohda-prefpane-applescript</guid>
-                <pubDate>2011-06-12T00:00:00-04:00</pubDate>
+                <pubDate>2011-06-12T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -2176,7 +2194,7 @@ end tell
 </description>
                 <link>http://keyvanfatehi.github.io/2011/06/12/after-hackintosh-i-have-lost-my-tilde--and-backtick---solution</link>
                 <guid>http://keyvanfatehi.github.io/2011/06/12/after-hackintosh-i-have-lost-my-tilde--and-backtick---solution</guid>
-                <pubDate>2011-06-12T00:00:00-04:00</pubDate>
+                <pubDate>2011-06-12T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -2192,7 +2210,7 @@ end tell
 </description>
                 <link>http://keyvanfatehi.github.io/2011/06/10/how-to-design-ios-interfaces-without-using-interface-builder</link>
                 <guid>http://keyvanfatehi.github.io/2011/06/10/how-to-design-ios-interfaces-without-using-interface-builder</guid>
-                <pubDate>2011-06-10T00:00:00-04:00</pubDate>
+                <pubDate>2011-06-10T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -2212,7 +2230,7 @@ end tell
 </description>
                 <link>http://keyvanfatehi.github.io/2011/06/10/how-to-access-the-contents-of-the-iphone-hard-disk-drive</link>
                 <guid>http://keyvanfatehi.github.io/2011/06/10/how-to-access-the-contents-of-the-iphone-hard-disk-drive</guid>
-                <pubDate>2011-06-10T00:00:00-04:00</pubDate>
+                <pubDate>2011-06-10T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -2235,7 +2253,7 @@ end tell
 </description>
                 <link>http://keyvanfatehi.github.io/2011/06/08/ios-get-current-date-time</link>
                 <guid>http://keyvanfatehi.github.io/2011/06/08/ios-get-current-date-time</guid>
-                <pubDate>2011-06-08T00:00:00-04:00</pubDate>
+                <pubDate>2011-06-08T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -2251,7 +2269,7 @@ end tell
 </description>
                 <link>http://keyvanfatehi.github.io/2011/06/08/how-to-change-an-interface-button-title-from-within-ios-code</link>
                 <guid>http://keyvanfatehi.github.io/2011/06/08/how-to-change-an-interface-button-title-from-within-ios-code</guid>
-                <pubDate>2011-06-08T00:00:00-04:00</pubDate>
+                <pubDate>2011-06-08T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -2281,7 +2299,7 @@ end tell
 </description>
                 <link>http://keyvanfatehi.github.io/2011/06/07/upgraded-to-xcode-4-could-not-insert-new-outlet-</link>
                 <guid>http://keyvanfatehi.github.io/2011/06/07/upgraded-to-xcode-4-could-not-insert-new-outlet-</guid>
-                <pubDate>2011-06-07T00:00:00-04:00</pubDate>
+                <pubDate>2011-06-07T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -2311,7 +2329,7 @@ end tell
 </description>
                 <link>http://keyvanfatehi.github.io/2011/06/07/how-to-add-a-framework-to-your-project-in-xcode-4</link>
                 <guid>http://keyvanfatehi.github.io/2011/06/07/how-to-add-a-framework-to-your-project-in-xcode-4</guid>
-                <pubDate>2011-06-07T00:00:00-04:00</pubDate>
+                <pubDate>2011-06-07T00:00:00-07:00</pubDate>
         </item>
 
         <item>
@@ -2327,7 +2345,7 @@ end tell
 </description>
                 <link>http://keyvanfatehi.github.io/2011/06/06/learning-ios-development-for-free</link>
                 <guid>http://keyvanfatehi.github.io/2011/06/06/learning-ios-development-for-free</guid>
-                <pubDate>2011-06-06T00:00:00-04:00</pubDate>
+                <pubDate>2011-06-06T00:00:00-07:00</pubDate>
         </item>
 
 

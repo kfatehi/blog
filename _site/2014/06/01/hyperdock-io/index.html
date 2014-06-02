@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>WEBLOG</title>
+    <title>Open Sourcing Hyperdock</title>
     
     <meta name="author" content="Keyvan Fatehi">
 
@@ -106,67 +106,16 @@
       <div class="content">
         
 <div class="page-header">
-  <h1>WEBLOG  <small>INSERT DOCUMENT</small></h1>
+  <h1>Open Sourcing Hyperdock </h1>
 </div>
 
-<div class="row-fluid">
+<div class="row-fluid post-full">
   <div class="span12">
-    <script>
-// I'm being silly :3
-info = "p"+"h"+"o"+"n"+"e"+":"+" "+"["+"1"+"]"+"-"+"["+"7"+"2"+"7"+"]"+"-"+"["+"7"+"5"+"3"+"]"+"-"+"["+"9"+"8"+"2"+"6"+"]";
-info += "\n"+"e"+"m"+"a"+"i"+"l"+":"+" "+"k"+"e"+"y"+"v"+"a"+"n"+"f"+"a"+"t"+"e"+"h"+"i"+"@"+"g"+"m"+"a"+"i"+"l"+"."+"c"+"o"+"m";
-info += "\n"+"s"+"k"+"y"+"p"+"e"+":"+" "+"k"+"e"+"y"+"v"+"a"+"n"+"."+"f"+"a"+"t"+"e"+"h"+"i";
-info += "\n"+"t"+"w"+"i"+"t"+"t"+"e"+"r"+":"+" "+"@"+"l"+"o"+"v"+"c"+"l"+"r"+"t"+"x"+"t";
-info += "\n"+"f"+"a"+"c"+"e"+"b"+"o"+"o"+"k"+":"+" "+"N"+"/"+"A";
-info = btoa(info);
-
-function toggle_more(el) {
-  more = document.getElementById('more');
-  if (el.innerHTML=='contact') {
-    more.style.display = 'block';
-    more.innerHTML = info;
-    el.innerHTML = 'decode';
-  }
-  else {
-    more.innerHTML = atob(info);
-    el.style.display = 'none';
-  }
-}
-
-function poke() {
-  document.getElementById('bio').style.display = 'block';
-}
-</script><a href='#' onclick='poke(this)'>Keyvan</a><div id='bio' style='display:none'>
-  I'm a software developer living in Southern California.
-  I work with <a href='http://digitalfilmtree.com'>film and television professionals</a>.
-
-  You can learn more about my experience on <a href='https://github.com/keyvanfatehi'>github</a>
-  <br />
-  <a href='#' onclick='toggle_more(this)'>contact</a>
-  <pre id='more' style='display:none'>
-  </pre>
-</div><hr />
-<p>The purpose of this blog site is threefold:</p>
-
-<ul>
-<li>Squat the keyvanfatehi.com domain with Github&#8217;s help</li>
-
-<li>Publish solutions, techniques, etc</li>
-
-<li>Publish non-technical, social mojumbo</li>
-</ul>
-<hr />
-<p>For more of a .NET twist, try <a href='http://www.netaddict.co.za/'>http://www.netaddict.co.za/</a></p>
-<hr /><center>
-  <b>The newest post is beneath and was created on 01 June 2014</b>
-</center><hr /><div class='blog-index'>  
-  
-  <h1 class='entry-title'>
-
-    <a href='/2014/06/01/hyperdock-io'>Open Sourcing Hyperdock</a>
-
-</h1>
-<div class='entry-content'><p>I’ve thought about <a href='https://github.com/hyperdock-io'>Hyperdock</a> some more and have realized (eerily similarly to my Internet of Things project, <a href='https://github.com/netpocket'>Netpocket</a>) that although it can be a useful product, it is too broad and requires too much resources to do correctly.</p>
+    <div class="date">
+      <span>01 June 2014</span>
+    </div>
+    <div class="content">
+      <p>I’ve thought about <a href='https://github.com/hyperdock-io'>Hyperdock</a> some more and have realized (eerily similarly to my Internet of Things project, <a href='https://github.com/netpocket'>Netpocket</a>) that although it can be a useful product, it is too broad and requires too much resources to do correctly.</p>
 
 <p>I have taken steps in planning to minimize the scope (e.g. removing the concept of a <code>monitor</code>, and only having docker hosts — solving monitoring by utilizing Keen.io across the platform) however despite my efforts I can’t see this project doing anything except cannibalizing my time. I liked how Hyperdock started out &#8211; in minimizing reliance on outside systems &#8211; but as I saught to rapidly prototype, I started using more and more external services (DigitalOcean, Cloudflare), but monitoring remained an internal, automatically deployed Logstash / Sensu stack&#8230; Departing from this and into Keen.io is a good, correct move, but further solidifies the change from Hyperdock as a PaaS business to Hyperdock as Open Source Software. It&#8217;s shaped up to be a rails version of the <a href='http://shipyard-project.com/'>Shipyard Project</a> and I think that is good.</p>
 
@@ -176,8 +125,48 @@ function poke() {
 
 <p>By being realistic about this, and refocusing away from my own greed or desire for a startup, it is clear what I need to do. I will prepare a simple splash page explaining Hyperdock as it is: a DigitalOcean and Docker powered container platform; I will open-source the project. I will kill all the currently running servers. I will add some nice documentation to the README and splash page and point http://hyperdock.io to that.</p>
 
-<p>It is possible that Hyperdock will be embraced by the community, if so then good! If not, I still had fun building it and might use it again in the future.</p></div>
-</div>
+<p>It is possible that Hyperdock will be embraced by the community, if so then good! If not, I still had fun building it and might use it again in the future.</p>
+    </div>
+
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#docker-ref">docker <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#hyperdock-ref">hyperdock <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#open source-ref">open source <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#ruby on rails-ref">ruby on rails <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2014/05/14/the-hackers-and-bullshitters-of-openstack-summit" title="Hackers and Bullshitters of OpenStack Summit">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    
   </div>
 </div>
 
