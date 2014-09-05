@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>WEBLOG</title>
+ <title>blog of keyvan</title>
  <link href="http://keyvanfatehi.github.io/" rel="self"/>
  <link href="http://keyvanfatehi.github.io"/>
- <updated>2014-06-01T20:07:20-07:00</updated>
+ <updated>2014-09-05T01:00:57-07:00</updated>
  <id>http://keyvanfatehi.github.io</id>
  <author>
    <name>Keyvan Fatehi</name>
    <email>keyvanfatehi@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Find listening process on Mac OS X</title>
+   <link href="http://keyvanfatehi.github.io/2014/09/05/find-listening-process-on-mac-os-x"/>
+   <updated>2014-09-05T00:00:00-07:00</updated>
+   <id>http://keyvanfatehi.github.io/2014/09/05/find-listening-process-on-mac-os-x</id>
+   <content type="html">&lt;p&gt;Let&amp;#8217;s say you have something listening on port 4000, when you hit that port nothing happens, and you can&amp;#8217;t start any services on that port because something is using it.&lt;/p&gt;
+
+&lt;p&gt;On Mac you can find out what process is using it by executing &lt;code&gt;lsof -i :4000&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This command will show you the program, pid, and many other pieces of information you can use to track down and kill the process.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Open Sourcing Hyperdock</title>

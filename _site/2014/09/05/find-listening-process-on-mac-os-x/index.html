@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>How to access the contents of the iPhone hard disk drive</title>
+    <title>Find listening process on Mac OS X</title>
     
     <meta name="author" content="Keyvan Fatehi">
 
@@ -106,28 +106,20 @@
       <div class="content">
         
 <div class="page-header">
-  <h1>How to access the contents of the iPhone hard disk drive </h1>
+  <h1>Find listening process on Mac OS X </h1>
 </div>
 
 <div class="row-fluid post-full">
   <div class="span12">
     <div class="date">
-      <span>10 June 2011</span>
+      <span>05 September 2014</span>
     </div>
     <div class="content">
-      <p>You may want to see and access the files you&#8217;re creating in your Documents or tmp directories while coding with iOS. Directly accessing those folders with Finder turns out to be rather difficult.</p>
-<p>It was recommended to me in #iphonedev (freenode) to do the following in order to view the files in iTunes:</p>
-<p>1) In Xcode, open up your &lt;appname&gt;-Info.plist file and add a new string by Ctrl-clicking an existing row and clicking &#8220;add row&#8221;:</p>
-<p>The string should be set to: &#8221;Application supports iTunes file sharing&#8221;, it should be a Boolean, and the value should be YES</p>
-<p>2) Open up iTunes and access it from the Apps section of your device.</p>
+      <p>Let&#8217;s say you have something listening on port 4000, when you hit that port nothing happens, and you can&#8217;t start any services on that port because something is using it.</p>
 
-<p>So I was doing it this way, and received this dreaded message: </p>
-<p><img height="150" width="466" alt="iTunes you will be the death of me." src="http://f.cl.ly/items/1t333i2z2D3t0g1V0m1e/Screen%20shot%202011-06-10%20at%208.45.45%20AM.png"/></p>
+<p>On Mac you can find out what process is using it by executing <code>lsof -i :4000</code></p>
 
-<p><strong>My iPhone is associated with a different mac&#8230; And I don&#8217;t want to delete everything just to access it from my development machine. To get around this, you will need to spend money on an application called Phone Disk.</strong></p>
-<p>Phone Disk gives you direct access to your root directory of your iPhone. It worked perfectly for what I needed.</p>
-<p>The trial allows you to transfer up to 100MB. A license is $9.99. You can find it here: <a href="http://www.macroplant.com/phonedisk/"><a href="http://www.macroplant.com/phonedisk/">http://www.macroplant.com/phonedisk/</a></a></p>
-
+<p>This command will show you the program, pid, and many other pieces of information you can use to track down and kill the process.</p>
     </div>
 
     
@@ -141,9 +133,13 @@
 
   
      
-    	<li><a href="/tags.html#ios-ref">ios <span>8</span></a></li>
+    	<li><a href="/tags.html#mac os x-ref">mac os x <span>1</span></a></li>
      
-    	<li><a href="/tags.html#iphone-ref">iphone <span>2</span></a></li>
+    	<li><a href="/tags.html#netstat-ref">netstat <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#lsof-ref">lsof <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#networking-ref">networking <span>1</span></a></li>
     
   
 
@@ -156,11 +152,11 @@
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/2011/06/08/ios-get-current-date-time" title="iOS get current date time">&larr; Previous</a></li>
+        <li class="prev"><a href="/2014/06/01/hyperdock-io" title="Open Sourcing Hyperdock">&larr; Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/2011/06/10/how-to-design-ios-interfaces-without-using-interface-builder" title="How to design iOS interfaces without using Interface Builder">Next &rarr;</a></li>
+        <li class="next disabled"><a>Next &rarr;</a>
       
       </ul>
     </div>
