@@ -37,7 +37,7 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="container-narrow">
-          <a class="brand" href="/">blog of keyvan</a>
+          <a class="brand" href="/">Keyvan's Blog</a>
           <ul class="nav">
             
             
@@ -117,30 +117,31 @@
     <div class="content">
       <p>Migrating my posts from Tumblr and into Jekyll was not too difficult but I did need to write a little script to make this work.</p>
 
-<p><a href='https://gist.github.com/keyvanfatehi/5562147'>Gist</a></p>
-<div class='highlight'><pre><code class='ruby'><span class='c1'>#!/usr/bin/env ruby</span>
+<p><a href="https://gist.github.com/keyvanfatehi/5562147">Gist</a></p>
 
-<span class='nb'>require</span> <span class='s1'>&#39;rubygems&#39;</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#!/usr/bin/env ruby</span>
 
-<span class='c1'>##</span>
-<span class='c1'># Monkeypatch to fix the following</span>
-<span class='c1'># tumblr.rb:73</span>
-<span class='c1'>#   content = post.at[&quot;audio-player&quot;] + &quot;&lt;br/&gt;&quot; + post[&quot;audio-caption&quot;]</span>
-<span class='k'>class</span> <span class='nc'>Hash</span>
-  <span class='k'>def</span> <span class='nf'>at</span>
-    <span class='nb'>self</span>
-  <span class='k'>end</span>
-<span class='k'>end</span>
+<span class="nb">require</span> <span class="s1">&#39;rubygems&#39;</span>
 
-<span class='k'>begin</span>
-  <span class='nb'>require</span> <span class='s1'>&#39;jekyll/jekyll-import/tumblr&#39;</span>
-<span class='k'>rescue</span>
-  <span class='nb'>puts</span> <span class='s2'>&quot;Missing jekyll-import gem. Do this: gem install jekyll-import --pre&quot;</span>
-  <span class='nb'>exit</span> <span class='o'>-</span><span class='mi'>1</span>
-<span class='k'>end</span>
+<span class="c1">##</span>
+<span class="c1"># Monkeypatch to fix the following</span>
+<span class="c1"># tumblr.rb:73</span>
+<span class="c1">#   content = post.at[&quot;audio-player&quot;] + &quot;&lt;br/&gt;&quot; + post[&quot;audio-caption&quot;]</span>
+<span class="k">class</span> <span class="nc">Hash</span>
+  <span class="k">def</span> <span class="nf">at</span>
+    <span class="nb">self</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 
-<span class='ss'>JekyllImport</span><span class='p'>:</span><span class='ss'>:Tumblr</span><span class='o'>.</span><span class='n'>process</span><span class='p'>(</span><span class='s2'>&quot;http://slog.keyvanfatehi.com&quot;</span><span class='p'>,</span> <span class='kp'>true</span><span class='p'>)</span>
-</code></pre></div>
+<span class="k">begin</span>
+  <span class="nb">require</span> <span class="s1">&#39;jekyll/jekyll-import/tumblr&#39;</span>
+<span class="k">rescue</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Missing jekyll-import gem. Do this: gem install jekyll-import --pre&quot;</span>
+  <span class="nb">exit</span> <span class="o">-</span><span class="mi">1</span>
+<span class="k">end</span>
+
+<span class="no">JekyllImport</span><span class="o">::</span><span class="no">Tumblr</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="s2">&quot;http://slog.keyvanfatehi.com&quot;</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span></code></pre></div>
+
     </div>
 
   
@@ -153,7 +154,7 @@
   
      
     	<li><a href="/categories.html#blog-ref">
-    		blog <span>13</span>
+    		blog <span>14</span>
     	</a></li>
     
   
@@ -184,7 +185,7 @@
       </div>
       <hr>
       <footer>
-        <p>&copy; 2014 Keyvan Fatehi
+        <p>&copy; 2015 Keyvan Fatehi
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>

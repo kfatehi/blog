@@ -37,7 +37,7 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="container-narrow">
-          <a class="brand" href="/">blog of keyvan</a>
+          <a class="brand" href="/">Keyvan's Blog</a>
           <ul class="nav">
             
             
@@ -111,25 +111,70 @@
 
 <div class="row-fluid">
   <div class="span12">
-    <p>I'm a technologist living in Southern California.</p><p>Sometimes I'm compelled to write blog posts; this is where I do that.</p><p>
-  You can learn more about me on
-  <a href='https://github.com/keyvanfatehi'>github</a>
-  and <a href='https://www.linkedin.com/in/keyvanfatehi'>linkedin</a>
-</p><hr /><center>
-  <b>The newest post is beneath and was created on 05 September 2014</b>
-</center><hr /><div class='blog-index'>  
-  
-  <h1 class='entry-title'>
+    <p>I'm a technologist living in Southern California.</p>
 
-    <a href='/2014/09/05/find-listening-process-on-mac-os-x'>Find listening process on Mac OS X</a>
+<p>Sometimes I'm compelled to write blog posts; they are published here.</p>
+
+<p>
+  You can learn more about me on
+  <a href="https://github.com/keyvanfatehi">github</a>
+  and <a href="https://www.linkedin.com/in/keyvanfatehi">linkedin</a>
+</p>
+
+<hr>
+
+<p><center>
+  <b>The newest post is beneath and was created on 20 July 2015</b></p>
+
+<h2></center></h2>
+
+<div class="blog-index">  
+  
+  <h1 class="entry-title">
+
+    <a href="/blog/2015/07/20/setup-go-compiler-on-arm-and-compile-buildkite-agent">Setting up Go compiler on ARMv7 to run the Buildkite Agent</a>
 
 </h1>
-<div class='entry-content'><p>Let&#8217;s say you have something listening on port 4000, when you hit that port nothing happens, and you can&#8217;t start any services on that port because something is using it.</p>
+<div class="entry-content"><p>Notes getting buildkite agent running on BeagleBone/ARM7</p>
 
-<p>On Mac you can find out what process is using it by executing <code>lsof -i :4000</code></p>
+<p>Beaglebone Black running Debian</p>
 
-<p>This command will show you the program, pid, and many other pieces of information you can use to track down and kill the process.</p></div>
+<p>Linux arm-worker 3.8.13 #1 SMP Mon Sep 22 10:22:05 CST 2014 armv7l GNU/Linux</p>
+
+<p>After some failed attempts with default sources and unmaintained PPA&#39;s, I found Dave Cheney&#39;s website where he distributes ARM tarballs of Go: http://dave.cheney.net/unofficial-arm-tarballs</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Get mercurial, need it later for some packages</span>
+apt-get update
+apt-get install mercurial
+
+<span class="c"># Get Go</span>
+wget http://dave.cheney.net/paste/go1.4.2.linux-arm~multiarch-armv7-1.tar.gz
+sha1sum go1.4.2.linux-arm~multiarch-armv7-1.tar.gz
+<span class="c"># should be 607573c55dc89d135c3c9c84bba6ba6095a37a1e</span>
+
+tar -zxvf go1.4.2.linux-arm~multiarch-armv7-1.tar.gz
+
+<span class="c"># Setup your Go installation</span>
+<span class="nb">export </span><span class="nv">GOROOT</span><span class="o">=</span><span class="nv">$HOME</span>/go
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GOROOT</span>/bin
+
+<span class="c"># Setup your GOPATH</span>
+<span class="nb">export </span><span class="nv">GOPATH</span><span class="o">=</span><span class="s2">&quot;$HOME/Code/go&quot;</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;$HOME/Code/go/bin:$PATH&quot;</span>
+
+<span class="c"># Get godep</span>
+go get github.com/tools/godep
+
+<span class="c"># Checkout the code</span>
+mkdir -p <span class="nv">$GOPATH</span>/src/github.com/buildkite/agent
+git clone git@github.com:buildkite/agent.git <span class="nv">$GOPATH</span>/src/github.com/buildkite/agent
+<span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/buildkite/agent
+godep get
+
+<span class="c"># Test it</span>
+go run *.go start --debug --token <span class="s2">&quot;abc123&quot;</span> --bootstrap-script templates/bootstrap.sh --build-path ~
+</code></pre></div></div>
 </div>
+
   </div>
 </div>
 
@@ -137,7 +182,7 @@
       </div>
       <hr>
       <footer>
-        <p>&copy; 2014 Keyvan Fatehi
+        <p>&copy; 2015 Keyvan Fatehi
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>

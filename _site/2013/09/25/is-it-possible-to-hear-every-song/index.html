@@ -37,7 +37,7 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="container-narrow">
-          <a class="brand" href="/">blog of keyvan</a>
+          <a class="brand" href="/">Keyvan's Blog</a>
           <ul class="nav">
             
             
@@ -115,19 +115,21 @@
       <span>25 September 2013</span>
     </div>
     <div class="content">
-      <p>/google &#8220;more music than you can possibly consume in a lifetime&#8221; About 5,420,000 results (0.43 seconds)</p>
+      <p>/google &quot;more music than you can possibly consume in a lifetime&quot;
+About 5,420,000 results (0.43 seconds) </p>
 
-<p>/retry &#8220;is it possible to hear every song&#8221; About 2,760,000,000 results (0.39 seconds)</p>
+<p>/retry &quot;is it possible to hear every song&quot;
+About 2,760,000,000 results (0.39 seconds) </p>
 
-<p>Is it possible to hear every song that has ever been &#8230; 5 hours ago - e.g. How to make Sushi? • Where to buy the best ground coffee? • Which is the best phase of a relationship? Your New Answers Experience!</p>
+<p>Is it possible to hear every song that has ever been ...
+5 hours ago - e.g. How to make Sushi? • Where to buy the best ground coffee? • Which is the best phase of a relationship? Your New Answers Experience!</p>
 
 <p>/clicky http://answers.yahoo.com/question/index?qid=20130924193110AA4yvRy</p>
 
 <blockquote>
-<p>Is it possible to hear every song that has ever been professionally recorded in one&#8217;s life?</p>
+<p>Is it possible to hear every song that has ever been professionally recorded in one&#39;s life?
+blue pixie asked 6 hrs ago - 4 days left to answer</p>
 </blockquote>
-
-<p>blue pixie asked 6 hrs ago - 4 days left to answer</p>
 
 <p>Prism answered 6 hrs ago</p>
 
@@ -138,20 +140,26 @@
 <p>el Águila answered 5 hrs ago</p>
 
 <blockquote>
-<p>Yes; if you listen to, like, 100 songs at once. So, get 100 albums on 100 record players and play them all at once, replacing albums as necessary. * 1 person rated this as good</p>
+<p>Yes; if you listen to, like, 100 songs at once. 
+So, get 100 albums on 100 record players and play them all at once, replacing albums as necessary.
+* 1 person rated this as good</p>
 </blockquote>
 
 <p>/answer</p>
 
 <p>Not meaningfully, but why do you want to do this?</p>
 
-<p>Well, perhaps with brain computer interfaces, and an API (e.g. http://developer.echonest.com/), you could perhaps achieve whatever your reason is&#8230;</p>
+<p>Well, perhaps with brain computer interfaces, and an API (e.g. http://developer.echonest.com/), you could perhaps achieve whatever your reason is...</p>
 
-<p>Math-wise, you&#8217;d need to find out how many songs have been professionally recorded on the planet. How many songs does Spotify have?</p>
+<p>Math-wise, you&#39;d need to find out how many songs have been professionally recorded on the planet.
+How many songs does Spotify have?</p>
 
-<p>Number of songs: Over 20 million* Number of songs added per day: Over 20,000 Source: http://press.spotify.com/us/information/</p>
+<p>Number of songs: Over 20 million*
+Number of songs added per day: Over 20,000
+Source: http://press.spotify.com/us/information/</p>
 
-<p>Let&#8217;s assume every song averages to about 5 minutes, for ease of calculation, and forget about the 20k added each day, we can factor that in later&#8230; How long will it take to listen to all of it? If that reasonable, how long will it take to stay on top of the 20k added each day?</p>
+<p>Let&#39;s assume every song averages to about 5 minutes, for ease of calculation, and forget about the 20k added each day, we can factor that in later...
+How long will it take to listen to all of it? If that reasonable, how long will it take to stay on top of the 20k added each day?</p>
 
 <p>(20,000,000 * 5) / 60 = 1,666,666 total hours</p>
 
@@ -161,23 +169,26 @@
 
 <p>1,666,666 / 16 = 104,166 total days</p>
 
-<p>How many months is that? /wolframalpha 104,166 days to months</p>
+<p>How many months is that? 
+/wolframalpha 104,166 days to months</p>
 
 <p>3425 months!</p>
 
-<p>That&#8217;s 285+ years.</p>
+<p>That&#39;s 285+ years.</p>
 
 <p>So no.</p>
 
 <p>As far as keeping up with new stock, assuming it stays at 20,000 added per day (hah):</p>
-<div class='highlight'><pre><code class='javascript'><span class='kd'>function</span> <span class='nx'>days2listen</span><span class='p'>(</span><span class='nx'>numSongs</span><span class='p'>)</span>
-<span class='p'>{</span>
-  <span class='kd'>var</span> <span class='nx'>averageSongDuration</span> <span class='o'>=</span> <span class='mi'>5</span><span class='p'>;</span>
-  <span class='nx'>totalHours</span> <span class='o'>=</span> <span class='p'>(</span><span class='nx'>numSongs</span> <span class='o'>*</span> <span class='nx'>averageSongDuration</span><span class='p'>)</span> <span class='o'>/</span> <span class='mi'>60</span>
-  <span class='nx'>wakingHoursPerDay</span> <span class='o'>=</span> <span class='mi'>24</span> <span class='o'>-</span> <span class='mi'>8</span>
-  <span class='k'>return</span> <span class='nx'>totalHours</span> <span class='o'>/</span> <span class='nx'>wakingHoursPerDay</span>
-<span class='p'>}</span>
-</code></pre></div><pre>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">days2listen</span><span class="p">(</span><span class="nx">numSongs</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">averageSongDuration</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+  <span class="nx">totalHours</span> <span class="o">=</span> <span class="p">(</span><span class="nx">numSongs</span> <span class="o">*</span> <span class="nx">averageSongDuration</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span>
+  <span class="nx">wakingHoursPerDay</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">-</span> <span class="mi">8</span>
+  <span class="k">return</span> <span class="nx">totalHours</span> <span class="o">/</span> <span class="nx">wakingHoursPerDay</span>
+<span class="p">}</span></code></pre></div>
+
+<pre>
 ➜  ~ git:(mac) ✗ node
 > function days2listen(numSongs)
 ... {
@@ -190,9 +201,11 @@ undefined
 > days2listen(20000)
 104.16666666666667
 </pre>
+
 <p>/wolframalpha 105 days to months = 3.452 months</p>
 
 <p>So yeah, if you ignore the pre-existing stuff, it seems doable to keep up with the new.</p>
+
     </div>
 
     
@@ -219,7 +232,7 @@ undefined
       </div>
       <hr>
       <footer>
-        <p>&copy; 2014 Keyvan Fatehi
+        <p>&copy; 2015 Keyvan Fatehi
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>

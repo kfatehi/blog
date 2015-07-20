@@ -7,7 +7,7 @@ tagline: "welcome"
 
 <p>I'm a technologist living in Southern California.</p>
 
-<p>Sometimes I'm compelled to write blog posts; this is where I do that.</p>
+<p>Sometimes I'm compelled to write blog posts; they are published here.</p>
 
 <p>
   You can learn more about me on

@@ -1,22 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-        <title>blog of keyvan</title>
-        <description>blog of keyvan - Keyvan Fatehi</description>
+        <title>Keyvan's Blog</title>
+        <description>Keyvan's Blog - Keyvan Fatehi</description>
         <link>http://keyvanfatehi.github.io</link>
         <link>http://keyvanfatehi.github.io</link>
-        <lastBuildDate>2014-09-05T01:00:57-07:00</lastBuildDate>
-        <pubDate>2014-09-05T01:00:57-07:00</pubDate>
+        <lastBuildDate>2015-07-20T07:51:18-07:00</lastBuildDate>
+        <pubDate>2015-07-20T07:51:18-07:00</pubDate>
         <ttl>1800</ttl>
 
 
         <item>
+                <title>Setting up Go compiler on ARMv7 to run the Buildkite Agent</title>
+                <description>&lt;p&gt;Notes getting buildkite agent running on BeagleBone/ARM7&lt;/p&gt;
+
+&lt;p&gt;Beaglebone Black running Debian&lt;/p&gt;
+
+&lt;p&gt;Linux arm-worker 3.8.13 #1 SMP Mon Sep 22 10:22:05 CST 2014 armv7l GNU/Linux&lt;/p&gt;
+
+&lt;p&gt;After some failed attempts with default sources and unmaintained PPA&amp;#39;s, I found Dave Cheney&amp;#39;s website where he distributes ARM tarballs of Go: http://dave.cheney.net/unofficial-arm-tarballs&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Get mercurial, need it later for some packages&lt;/span&gt;
+apt-get update
+apt-get install mercurial
+
+&lt;span class=&quot;c&quot;&gt;# Get Go&lt;/span&gt;
+wget http://dave.cheney.net/paste/go1.4.2.linux-arm~multiarch-armv7-1.tar.gz
+sha1sum go1.4.2.linux-arm~multiarch-armv7-1.tar.gz
+&lt;span class=&quot;c&quot;&gt;# should be 607573c55dc89d135c3c9c84bba6ba6095a37a1e&lt;/span&gt;
+
+tar -zxvf go1.4.2.linux-arm~multiarch-armv7-1.tar.gz
+
+&lt;span class=&quot;c&quot;&gt;# Setup your Go installation&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GOROOT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/go
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:&lt;span class=&quot;nv&quot;&gt;$GOROOT&lt;/span&gt;/bin
+
+&lt;span class=&quot;c&quot;&gt;# Setup your GOPATH&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GOPATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;$HOME/Code/go&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;$HOME/Code/go/bin:$PATH&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Get godep&lt;/span&gt;
+go get github.com/tools/godep
+
+&lt;span class=&quot;c&quot;&gt;# Checkout the code&lt;/span&gt;
+mkdir -p &lt;span class=&quot;nv&quot;&gt;$GOPATH&lt;/span&gt;/src/github.com/buildkite/agent
+git clone git@github.com:buildkite/agent.git &lt;span class=&quot;nv&quot;&gt;$GOPATH&lt;/span&gt;/src/github.com/buildkite/agent
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$GOPATH&lt;/span&gt;/src/github.com/buildkite/agent
+godep get
+
+&lt;span class=&quot;c&quot;&gt;# Test it&lt;/span&gt;
+go run *.go start --debug --token &lt;span class=&quot;s2&quot;&gt;&amp;quot;abc123&amp;quot;&lt;/span&gt; --bootstrap-script templates/bootstrap.sh --build-path ~
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+                <link>http://keyvanfatehi.github.io/blog/2015/07/20/setup-go-compiler-on-arm-and-compile-buildkite-agent</link>
+                <guid>http://keyvanfatehi.github.io/blog/2015/07/20/setup-go-compiler-on-arm-and-compile-buildkite-agent</guid>
+                <pubDate>2015-07-20T00:00:00-07:00</pubDate>
+        </item>
+
+        <item>
                 <title>Find listening process on Mac OS X</title>
-                <description>&lt;p&gt;Let&amp;#8217;s say you have something listening on port 4000, when you hit that port nothing happens, and you can&amp;#8217;t start any services on that port because something is using it.&lt;/p&gt;
+                <description>&lt;p&gt;Let&amp;#39;s say you have something listening on port 4000, when you hit that port nothing happens, and you can&amp;#39;t start any services on that port because something is using it.&lt;/p&gt;
 
 &lt;p&gt;On Mac you can find out what process is using it by executing &lt;code&gt;lsof -i :4000&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;This command will show you the program, pid, and many other pieces of information you can use to track down and kill the process.&lt;/p&gt;</description>
+&lt;p&gt;This command will show you the program, pid, and many other pieces of information you can use to track down and kill the process.&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/2014/09/05/find-listening-process-on-mac-os-x</link>
                 <guid>http://keyvanfatehi.github.io/2014/09/05/find-listening-process-on-mac-os-x</guid>
                 <pubDate>2014-09-05T00:00:00-07:00</pubDate>
@@ -24,17 +70,18 @@
 
         <item>
                 <title>Open Sourcing Hyperdock</title>
-                <description>&lt;p&gt;I’ve thought about &lt;a href=&#39;https://github.com/hyperdock-io&#39;&gt;Hyperdock&lt;/a&gt; some more and have realized (eerily similarly to my Internet of Things project, &lt;a href=&#39;https://github.com/netpocket&#39;&gt;Netpocket&lt;/a&gt;) that although it can be a useful product, it is too broad and requires too much resources to do correctly.&lt;/p&gt;
+                <description>&lt;p&gt;I’ve thought about &lt;a href=&quot;https://github.com/hyperdock-io&quot;&gt;Hyperdock&lt;/a&gt; some more and have realized (eerily similarly to my Internet of Things project, &lt;a href=&quot;https://github.com/netpocket&quot;&gt;Netpocket&lt;/a&gt;) that although it can be a useful product, it is too broad and requires too much resources to do correctly.&lt;/p&gt;
 
-&lt;p&gt;I have taken steps in planning to minimize the scope (e.g. removing the concept of a &lt;code&gt;monitor&lt;/code&gt;, and only having docker hosts — solving monitoring by utilizing Keen.io across the platform) however despite my efforts I can’t see this project doing anything except cannibalizing my time. I liked how Hyperdock started out &amp;#8211; in minimizing reliance on outside systems &amp;#8211; but as I saught to rapidly prototype, I started using more and more external services (DigitalOcean, Cloudflare), but monitoring remained an internal, automatically deployed Logstash / Sensu stack&amp;#8230; Departing from this and into Keen.io is a good, correct move, but further solidifies the change from Hyperdock as a PaaS business to Hyperdock as Open Source Software. It&amp;#8217;s shaped up to be a rails version of the &lt;a href=&#39;http://shipyard-project.com/&#39;&gt;Shipyard Project&lt;/a&gt; and I think that is good.&lt;/p&gt;
+&lt;p&gt;I have taken steps in planning to minimize the scope (e.g. removing the concept of a &lt;code&gt;monitor&lt;/code&gt;, and only having docker hosts — solving monitoring by utilizing Keen.io across the platform) however despite my efforts I can’t see this project doing anything except cannibalizing my time. I liked how Hyperdock started out -- in minimizing reliance on outside systems -- but as I saught to rapidly prototype, I started using more and more external services (DigitalOcean, Cloudflare), but monitoring remained an internal, automatically deployed Logstash / Sensu stack... Departing from this and into Keen.io is a good, correct move, but further solidifies the change from Hyperdock as a PaaS business to Hyperdock as Open Source Software. It&amp;#39;s shaped up to be a rails version of the &lt;a href=&quot;http://shipyard-project.com/&quot;&gt;Shipyard Project&lt;/a&gt; and I think that is good.&lt;/p&gt;
 
-&lt;p&gt;It’s hard to justify the previous direction I was taking with it when solutions exist for the end result (e.g. you want ZNC? Check https://bnc.im or https://yourbnc.co.uk, so on for each application we might try to support)&amp;#8230; When I first conceived of hyperdock I thought it is silly how companies are built around a single product (such as RedisToGo, or MongoLab) but my perspective on this has changed after several weekends of cramming in Hyperdock development:&lt;/p&gt;
+&lt;p&gt;It’s hard to justify the previous direction I was taking with it when solutions exist for the end result (e.g. you want ZNC? Check https://bnc.im or https://yourbnc.co.uk, so on for each application we might try to support)... When I first conceived of hyperdock I thought it is silly how companies are built around a single product (such as RedisToGo, or MongoLab) but my perspective on this has changed after several weekends of cramming in Hyperdock development: &lt;/p&gt;
 
-&lt;p&gt;I now realize that although one can develop a platform that can run any of these programs, doing any of these programs correctly, in a value-added way, is a huge task requiring a lot of specialization, infrastructure, and systems intelligence. Hyperdock can still be useful for small projects and developers, but I can’t really see us charging for the value it offers, and if we were to charge and have customers, I don’t see it offsetting costs while still providing good quality of service. If you need professional-level Mongo, for example, you won&amp;#8217;t pay someone who runs a generic docker platform, you will pay someone who runs a professional-grade Mongo platform!&lt;/p&gt;
+&lt;p&gt;I now realize that although one can develop a platform that can run any of these programs, doing any of these programs correctly, in a value-added way, is a huge task requiring a lot of specialization, infrastructure, and systems intelligence. Hyperdock can still be useful for small projects and developers, but I can’t really see us charging for the value it offers, and if we were to charge and have customers, I don’t see it offsetting costs while still providing good quality of service. If you need professional-level Mongo, for example, you won&amp;#39;t pay someone who runs a generic docker platform, you will pay someone who runs a professional-grade Mongo platform!&lt;/p&gt;
 
 &lt;p&gt;By being realistic about this, and refocusing away from my own greed or desire for a startup, it is clear what I need to do. I will prepare a simple splash page explaining Hyperdock as it is: a DigitalOcean and Docker powered container platform; I will open-source the project. I will kill all the currently running servers. I will add some nice documentation to the README and splash page and point http://hyperdock.io to that.&lt;/p&gt;
 
-&lt;p&gt;It is possible that Hyperdock will be embraced by the community, if so then good! If not, I still had fun building it and might use it again in the future.&lt;/p&gt;</description>
+&lt;p&gt;It is possible that Hyperdock will be embraced by the community, if so then good! If not, I still had fun building it and might use it again in the future.&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/2014/06/01/hyperdock-io</link>
                 <guid>http://keyvanfatehi.github.io/2014/06/01/hyperdock-io</guid>
                 <pubDate>2014-06-01T00:00:00-07:00</pubDate>
@@ -44,13 +91,13 @@
                 <title>Hackers and Bullshitters of OpenStack Summit</title>
                 <description>&lt;p&gt;My company (DigitalFilm Tree) has become rather well-known and well-liked in the openstack community.&lt;/p&gt;
 
-&lt;p&gt;I was not included in the 2013 Summit, but I was given the chance to attend 2014&amp;#8217;s Summit, which I took.&lt;/p&gt;
+&lt;p&gt;I was not included in the 2013 Summit, but I was given the chance to attend 2014&amp;#39;s Summit, which I took.&lt;/p&gt;
 
 &lt;p&gt;It has been great to witness (and participate in) some of the Juno design sessions.&lt;/p&gt;
 
 &lt;p&gt;At this point it appears to me that there are 2 main archetypes: the hacker and the bullshitter.&lt;/p&gt;
 
-&lt;p&gt;The design sessions are where you get to watch and interact with these modern hackers that make the concept of &amp;#8220;cloud&amp;#8221; actually a reality.&lt;/p&gt;
+&lt;p&gt;The design sessions are where you get to watch and interact with these modern hackers that make the concept of &amp;quot;cloud&amp;quot; actually a reality.&lt;/p&gt;
 
 &lt;p&gt;The non-design sessions are equally respectable (those which I attended), although in terms of archetypes, the attendees of these sessions tend to fall into a more primal category.&lt;/p&gt;
 
@@ -68,9 +115,11 @@
 
 &lt;p&gt;I used to view the marketers and sales people in a negative way, but at the end of the day, the bullshitters are just trying to make a living too.&lt;/p&gt;
 
-&lt;p&gt;In some ways, they are like DevOps, but for the business itself, since without sales, there is no payroll. Instead, I now realize that the bullshitters are tools of the business process that seeks to make profit off the backs of the creation-for-hire hackers that produce and tame the innovation just as much as the hackers themselves are also the tools of the same business process that seeks to make profit off the deception-for-hire skills of the bullshitter.&lt;/p&gt;
+&lt;p&gt;In some ways, they are like DevOps, but for the business itself, since without sales, there is no payroll. Instead, I now realize that the bullshitters
+are tools of the business process that seeks to make profit off the backs of the creation-for-hire hackers that produce and tame the innovation just as much as the hackers themselves are also the tools of the same business process that seeks to make profit off the deception-for-hire skills of the bullshitter.&lt;/p&gt;
 
-&lt;p&gt;I wonder, if we lived in a society where there was no strife, and thus participation in a deception engine was not necessary for survival, what software would get made in 2014, and what the bullshitters would be creating instead of lies and manipulations?&lt;/p&gt;</description>
+&lt;p&gt;I wonder, if we lived in a society where there was no strife, and thus participation in a deception engine was not necessary for survival, what software would get made in 2014, and what the bullshitters would be creating instead of lies and manipulations?&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/2014/05/14/the-hackers-and-bullshitters-of-openstack-summit</link>
                 <guid>http://keyvanfatehi.github.io/2014/05/14/the-hackers-and-bullshitters-of-openstack-summit</guid>
                 <pubDate>2014-05-14T00:00:00-07:00</pubDate>
@@ -78,21 +127,21 @@
 
         <item>
                 <title>How to setup iPhone tethering on Raspberry Pi</title>
-                <description>&lt;h1 id=&#39;iphone_tethering_on_raspberry_pi&#39;&gt;iPhone Tethering on Raspberry Pi&lt;/h1&gt;
+                <description>&lt;h1&gt;iPhone Tethering on Raspberry Pi&lt;/h1&gt;
 
 &lt;p&gt;The instructions here are useful although the current packages in Arch and Debian repositories do not work with iOS 7 (Trust Loop Bug) but it is still a good starting point to understand how this works.&lt;/p&gt;
 
 &lt;p&gt;https://wiki.archlinux.org/index.php/IPhone_Tethering&lt;/p&gt;
 
-&lt;h2 id=&#39;ios_7_support&#39;&gt;iOS 7 Support&lt;/h2&gt;
+&lt;h2&gt;iOS 7 Support&lt;/h2&gt;
 
-&lt;h3 id=&#39;install_libimobiledevice_from_latest_source&#39;&gt;Install libimobiledevice from latest source&lt;/h3&gt;
+&lt;h3&gt;Install libimobiledevice from latest source&lt;/h3&gt;
 
-&lt;p&gt;In order to get iOS 7 support, we need to compile everything from source. Find the scripts for ArchLinux and Raspbian here: &lt;a href=&#39;https://gist.github.com/keyvanfatehi/8922430&#39;&gt;https://gist.github.com/keyvanfatehi/8922430&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In order to get iOS 7 support, we need to compile everything from source. Find the scripts for ArchLinux and Raspbian here: &lt;a href=&quot;https://gist.github.com/keyvanfatehi/8922430&quot;&gt;https://gist.github.com/keyvanfatehi/8922430&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#39;usage&#39;&gt;Usage&lt;/h2&gt;
+&lt;h2&gt;Usage&lt;/h2&gt;
 
-&lt;h3 id=&#39;mounting_your_iphone&#39;&gt;Mounting your iPhone&lt;/h3&gt;
+&lt;h3&gt;Mounting your iPhone&lt;/h3&gt;
 
 &lt;p&gt;Start usbmuxd: &lt;code&gt;usbmuxd&lt;/code&gt;&lt;/p&gt;
 
@@ -104,9 +153,10 @@
 
 &lt;p&gt;You should now be able to view the contents of your iPhone.&lt;/p&gt;
 
-&lt;h3 id=&#39;networking&#39;&gt;Networking&lt;/h3&gt;
+&lt;h3&gt;Networking&lt;/h3&gt;
 
-&lt;p&gt;At this point you should reboot so that modules and rules get loaded. After that, I gave up on ArchLinux due to issues getting actual network traffic to go across, so I can&amp;#8217;t speak for ArchLinux from herein. However I did have success on Raspbian. You should be able to simply plug in your iPhone and see a new interface come up and be able to ping the outside world. Enjoy!&lt;/p&gt;</description>
+&lt;p&gt;At this point you should reboot so that modules and rules get loaded. After that, I gave up on ArchLinux due to issues getting actual network traffic to go across, so I can&amp;#39;t speak for ArchLinux from herein. However I did have success on Raspbian. You should be able to simply plug in your iPhone and see a new interface come up and be able to ping the outside world. Enjoy!&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/2014/02/10/raspberry-pi-iphone-tether</link>
                 <guid>http://keyvanfatehi.github.io/2014/02/10/raspberry-pi-iphone-tether</guid>
                 <pubDate>2014-02-10T00:00:00-08:00</pubDate>
@@ -114,125 +164,112 @@
 
         <item>
                 <title>How to setup an NPM mirror on a Raspberry Pi running Arch Linux</title>
-                <description>&lt;h2 id=&#39;update_feb_2_2014&#39;&gt;UPDATE Feb 2, 2014&lt;/h2&gt;
+                <description>&lt;h2&gt;UPDATE Feb 2, 2014&lt;/h2&gt;
 
-&lt;p&gt;Don&amp;#8217;t bother with any of this. Use &lt;a href=&#39;https://github.com/rlidwka/sinopia&#39;&gt;sinopia&lt;/a&gt; instead! I&amp;#8217;ve prepared a &lt;a href=&#39;https://index.docker.io/u/keyvanfatehi/docker-sinopia/&#39;&gt;docker image&lt;/a&gt; for it as well.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;This tutorial is my version of &lt;a href=&#39;http://clock.co.uk/tech-blogs/how-to-create-a-private-npmjs-repository&#39;&gt;this other tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Don&amp;#39;t bother with any of this. Use &lt;a href=&quot;https://github.com/rlidwka/sinopia&quot;&gt;sinopia&lt;/a&gt; instead! I&amp;#39;ve prepared a &lt;a href=&quot;https://index.docker.io/u/keyvanfatehi/docker-sinopia/&quot;&gt;docker image&lt;/a&gt; for it as well.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;This tutorial is my version of &lt;a href=&quot;http://clock.co.uk/tech-blogs/how-to-create-a-private-npmjs-repository&quot;&gt;this other tutorial&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;First off make sure you have a large enough disk drive. You can find out the remote disk size easy like this:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;
-[root@alarmpi ~]# curl http://isaacs.iriscouch.com/registry/
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[root@alarmpi ~]# curl http://isaacs.iriscouch.com/registry/
 {&amp;quot;db_name&amp;quot;:&amp;quot;registry&amp;quot;,&amp;quot;doc_count&amp;quot;:52298,&amp;quot;doc_del_count&amp;quot;:4836,&amp;quot;update_seq&amp;quot;:861940,&amp;quot;purge_seq&amp;quot;:0,&amp;quot;compact_running&amp;quot;:false,&amp;quot;disk_size&amp;quot;:214735753351,&amp;quot;data_size&amp;quot;:174529391409,&amp;quot;instance_start_time&amp;quot;:&amp;quot;1387441403828175&amp;quot;,&amp;quot;disk_format_version&amp;quot;:6,&amp;quot;committed_update_seq&amp;quot;:861940}
-&lt;/code&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;data_size&lt;/code&gt; lets us know that at the time of this writing you&amp;#39;ll be safe
+with a 250GB SSD, but it&amp;#39;s anyone&amp;#39;s guess when that will be
+insufficient. Currently that&amp;#39;s what I&amp;#39;m running.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;data_size&lt;/code&gt; lets us know that at the time of this writing you&amp;#8217;ll be safe with a 250GB SSD, but it&amp;#8217;s anyone&amp;#8217;s guess when that will be insufficient. Currently that&amp;#8217;s what I&amp;#8217;m running.&lt;/p&gt;
+&lt;h1&gt;Install &amp;amp; Configure CouchDB&lt;/h1&gt;
 
-&lt;h1 id=&#39;install__configure_couchdb&#39;&gt;Install &amp;amp; Configure CouchDB&lt;/h1&gt;
-
-&lt;h2 id=&#39;on_mac_os_x&#39;&gt;On Mac OS X&lt;/h2&gt;
+&lt;h2&gt;On Mac OS X&lt;/h2&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Use Homebrew to install couchdb: &lt;code&gt;brew install couchdb&lt;/code&gt; read the caveats to make it autostart on reboots&lt;/li&gt;
-
-&lt;li&gt;Point your browser to the CouchDB configuration page which should now be available at &lt;a href=&#39;http://127.0.0.1:5984/_utils/index.html&#39;&gt;http://127.0.0.1:5984/_utils/index.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Use Homebrew to install couchdb: &lt;code&gt;brew install couchdb&lt;/code&gt; read the
+caveats to make it autostart on reboots&lt;/li&gt;
+&lt;li&gt;Point your browser to the CouchDB configuration page which should now be available at &lt;a href=&quot;http://127.0.0.1:5984/_utils/index.html&quot;&gt;http://127.0.0.1:5984/_utils/index.html&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#39;on_a_raspberry_pi_w_arch_linux&#39;&gt;On a Raspberry Pi w/ Arch Linux&lt;/h2&gt;
+&lt;h2&gt;On a Raspberry Pi w/ Arch Linux&lt;/h2&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Grab the Arch image from &lt;a href=&#39;http://www.raspberrypi.org/downloads&#39;&gt;http://www.raspberrypi.org/downloads&lt;/a&gt;&lt;/li&gt;
-
+&lt;li&gt;Grab the Arch image from &lt;a href=&quot;http://www.raspberrypi.org/downloads&quot;&gt;http://www.raspberrypi.org/downloads&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Determine the device path for your SD card with &lt;code&gt;df&lt;/code&gt; at the terminal.&lt;/li&gt;
-
 &lt;li&gt;Unzip and then &lt;code&gt;dd&lt;/code&gt; the image to path you found: &lt;code&gt;sudo dd bs=4m
-if=/path/to/img of=/dev/mysd&lt;/code&gt; make sure you point to the card and not the partition (e.g. /dev/disk1, not /dev/disk1s1)&lt;/li&gt;
-
+if=/path/to/img of=/dev/mysd&lt;/code&gt; make sure you point to the card and not
+the partition (e.g. /dev/disk1, not /dev/disk1s1)&lt;/li&gt;
 &lt;li&gt;Insert the SD card, start the Pi, and ssh into it (root/root)&lt;/li&gt;
-
-&lt;li&gt;Format your external drive, ensure it is mountable, and that your &lt;code&gt;/etc/fstab&lt;/code&gt; is set to automount it. Use &lt;code&gt;lsblk -f&lt;/code&gt; to discover it. If you need more help check this &lt;a href=&#39;https://wiki.archlinux.org/index.php/USB_Storage_Devices&#39;&gt;ArchWiki Page&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;Download some packages: &lt;code&gt;pacman -Sy couchdb&lt;/code&gt; for more info see this &lt;a href=&#39;https://wiki.archlinux.org/index.php/couchdb&#39;&gt;ArchWiki Page&lt;/a&gt;&lt;/li&gt;
-
+&lt;li&gt;Format your external drive, ensure it is mountable,
+and that your &lt;code&gt;/etc/fstab&lt;/code&gt; is set to
+automount it. Use &lt;code&gt;lsblk -f&lt;/code&gt; to discover it. If you need more help check
+this &lt;a href=&quot;https://wiki.archlinux.org/index.php/USB_Storage_Devices&quot;&gt;ArchWiki Page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Download some packages: &lt;code&gt;pacman -Sy couchdb&lt;/code&gt; for more info see this &lt;a href=&quot;https://wiki.archlinux.org/index.php/couchdb&quot;&gt;ArchWiki Page&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Edit &lt;code&gt;/etc/couchdb/local.ini&lt;/code&gt; and set &lt;code&gt;;bind_address = 127.0.0.1&lt;/code&gt; to &lt;code&gt;bind_address = 0.0.0.0&lt;/code&gt; if you want to access it from another system&lt;/li&gt;
-
-&lt;li&gt;Edit &lt;code&gt;/etc/couchdb/local.ini&lt;/code&gt; and under &lt;code&gt;[couchdb]&lt;/code&gt; add these 2 lines, per your storage location: &lt;code&gt;database_dir = /media/storage/couchdb&lt;/code&gt; and &lt;code&gt;view_index_dir = /media/storage/couchdb&lt;/code&gt;&lt;/li&gt;
-
-&lt;li&gt;Give the couchdb daemon permission to write to your external storage: &lt;code&gt;chown couchdb:daemon /media/storage&lt;/code&gt;&lt;/li&gt;
-
+&lt;li&gt;Edit &lt;code&gt;/etc/couchdb/local.ini&lt;/code&gt; and under &lt;code&gt;[couchdb]&lt;/code&gt; add these 2 lines, per your storage location:
+&lt;code&gt;database_dir = /media/storage/couchdb&lt;/code&gt; and &lt;code&gt;view_index_dir = /media/storage/couchdb&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Give the couchdb daemon permission to write to your external storage:
+&lt;code&gt;chown couchdb:daemon /media/storage&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Setup couchdb to autostart after reboot &lt;code&gt;systemctl enable couchdb&lt;/code&gt;&lt;/li&gt;
-
 &lt;li&gt;Start couchdb with &lt;code&gt;systemctl start couchdb&lt;/code&gt;&lt;/li&gt;
-
 &lt;li&gt;Connect to Futon using &lt;code&gt;your-ip:5984/_utils&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#39;couchdb_configuration_continued&#39;&gt;CouchDB configuration continued&lt;/h2&gt;
+&lt;h2&gt;CouchDB configuration continued&lt;/h2&gt;
 
-&lt;p&gt;Now you have CouchDB installed and can access Futon and hopefully the internet.&lt;/p&gt;
+&lt;p&gt;Now you have CouchDB installed and can access Futon and hopefully the
+internet.&lt;/p&gt;
 
-&lt;p&gt;From Futon click &amp;#8220;Configuration&amp;#8221; and find &lt;code&gt;secure_rewrites&lt;/code&gt; and set it to &lt;code&gt;false&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;From Futon click &amp;quot;Configuration&amp;quot; and find &lt;code&gt;secure_rewrites&lt;/code&gt; and set it to &lt;code&gt;false&lt;/code&gt;&lt;/p&gt;
 
-&lt;h1 id=&#39;tell_couchdb_to_replicate_continuously_from_npm&#39;&gt;Tell CouchDB to replicate continuously from NPM&lt;/h1&gt;
+&lt;h1&gt;Tell CouchDB to replicate continuously from NPM&lt;/h1&gt;
 
-&lt;p&gt;Open terminal and enter the following to setup continuous replication from the official npm registry:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;
-curl -X POST http://127.0.0.1:5984/_replicate -d &amp;#39;{&amp;quot;source&amp;quot;:&amp;quot;http://isaacs.iriscouch.com/registry/&amp;quot;, &amp;quot;target&amp;quot;:&amp;quot;registry&amp;quot;, &amp;quot;continuous&amp;quot;:true, &amp;quot;create_target&amp;quot;:true}&amp;#39; -H &amp;quot;Content-Type: application/json&amp;quot; 
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;h1 id=&#39;tell_couchdb_to_stop_replicating&#39;&gt;Tell CouchDB to stop replicating&lt;/h1&gt;
+&lt;p&gt;Open terminal and enter the following to setup continuous replication
+   from the official npm registry:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;curl -X POST http://127.0.0.1:5984/_replicate -d &amp;#39;{&amp;quot;source&amp;quot;:&amp;quot;http://isaacs.iriscouch.com/registry/&amp;quot;, &amp;quot;target&amp;quot;:&amp;quot;registry&amp;quot;, &amp;quot;continuous&amp;quot;:true, &amp;quot;create_target&amp;quot;:true}&amp;#39; -H &amp;quot;Content-Type: application/json&amp;quot; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;Tell CouchDB to stop replicating&lt;/h1&gt;
 
 &lt;p&gt;In case you ever need it:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;curl -X POST http://127.0.0.1:5984/_replicate -d &amp;#39;{&amp;quot;source&amp;quot;:&amp;quot;http://isaacs.iriscouch.com/registry/&amp;quot;, &amp;quot;target&amp;quot;:&amp;quot;registry&amp;quot;, &amp;quot;continuous&amp;quot;:true, &amp;quot;create_target&amp;quot;:true, &amp;quot;cancel&amp;quot;:true}&amp;#39; -H &amp;quot;Content-Type: application/json&amp;quot; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;Making sure that it keeps replicating&lt;/h1&gt;
 
-&lt;p&gt;&lt;code&gt;
-curl -X POST http://127.0.0.1:5984/_replicate -d &amp;#39;{&amp;quot;source&amp;quot;:&amp;quot;http://isaacs.iriscouch.com/registry/&amp;quot;, &amp;quot;target&amp;quot;:&amp;quot;registry&amp;quot;, &amp;quot;continuous&amp;quot;:true, &amp;quot;create_target&amp;quot;:true, &amp;quot;cancel&amp;quot;:true}&amp;#39; -H &amp;quot;Content-Type: application/json&amp;quot; 
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;h1 id=&#39;making_sure_that_it_keeps_replicating&#39;&gt;Making sure that it keeps replicating&lt;/h1&gt;
-
-&lt;p&gt;There&amp;#8217;s an unfortunate issue that I&amp;#8217;m experiencing with couchdb, but it may just stop replicating often only after transferring 5-7 GB of data &amp;#8211; a trivial retrigger of the replication with the above command would cause it to pick up where it left off, so I&amp;#8217;ve developed a script.&lt;/p&gt;
+&lt;p&gt;There&amp;#39;s an unfortunate issue that I&amp;#39;m experiencing with couchdb, but it may
+just stop replicating often only after transferring 5-7 GB of
+data -- a trivial retrigger of the replication with the above command 
+would cause it to pick up where it left off, so I&amp;#39;ve developed a script.&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Install nodejs&lt;/li&gt;
-
 &lt;li&gt;&lt;code&gt;npm install npm-replication-watcher&lt;/code&gt;&lt;/li&gt;
-
 &lt;li&gt;&lt;code&gt;npm install forever&lt;/code&gt;&lt;/li&gt;
-
 &lt;li&gt;&lt;code&gt;forever npm-replication-watcher/bin/npm-replication-watcher&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;For more information check out &lt;a href=&#39;https://github.com/keyvanfatehi/npm-replication-watcher&#39;&gt;npm-replication-watcher&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For more information check out
+&lt;a href=&quot;https://github.com/keyvanfatehi/npm-replication-watcher&quot;&gt;npm-replication-watcher&lt;/a&gt;&lt;/p&gt;
 
-&lt;h1 id=&#39;finalizing_the_installation&#39;&gt;Finalizing the installation&lt;/h1&gt;
+&lt;h1&gt;Finalizing the installation&lt;/h1&gt;
 
-&lt;p&gt;This information can also be found here &lt;a href=&#39;https://github.com/isaacs/npmjs.org&#39;&gt;https://github.com/isaacs/npmjs.org&lt;/a&gt;. That link will also explain how to tell &lt;code&gt;npm&lt;/code&gt; to use your new registry.&lt;/p&gt;
+&lt;p&gt;This information can also be found here &lt;a href=&quot;https://github.com/isaacs/npmjs.org&quot;&gt;https://github.com/isaacs/npmjs.org&lt;/a&gt;. That link will also explain how to tell &lt;code&gt;npm&lt;/code&gt; to use your new registry.&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;git clone git://github.com/isaacs/npmjs.org.git&lt;/code&gt;&lt;/li&gt;
-
 &lt;li&gt;&lt;code&gt;cd npmjs.org&lt;/code&gt;&lt;/li&gt;
-
 &lt;li&gt;&lt;code&gt;sudo npm install -g couchapp&lt;/code&gt;&lt;/li&gt;
-
 &lt;li&gt;&lt;code&gt;npm install couchapp&lt;/code&gt;&lt;/li&gt;
-
 &lt;li&gt;&lt;code&gt;npm install semver&lt;/code&gt;&lt;/li&gt;
-
 &lt;li&gt;&lt;code&gt;couchapp push registry/app.js http://localhost:5984/registry&lt;/code&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;code&gt;couchapp push www/app.js http://localhost:5984/registry&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;couchapp push www/app.js http://localhost:5984/registry&lt;/code&gt; &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h1 id=&#39;testing_the_installation&#39;&gt;Testing the installation&lt;/h1&gt;
+&lt;h1&gt;Testing the installation&lt;/h1&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;npm --registry http://localhost:5984/registry/_design/scratch/_rewrite login&lt;/code&gt;&lt;/li&gt;
-
 &lt;li&gt;&lt;code&gt;npm --registry http://localhost:5984/registry/_design/scratch/_rewrite search&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;</description>
+&lt;/ol&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/2013/11/13/npm-mirror</link>
                 <guid>http://keyvanfatehi.github.io/2013/11/13/npm-mirror</guid>
                 <pubDate>2013-11-13T00:00:00-08:00</pubDate>
@@ -240,19 +277,21 @@ curl -X POST http://127.0.0.1:5984/_replicate -d &amp;#39;{&amp;quot;source&amp;
 
         <item>
                 <title>is it possible to hear every song?</title>
-                <description>&lt;p&gt;/google &amp;#8220;more music than you can possibly consume in a lifetime&amp;#8221; About 5,420,000 results (0.43 seconds)&lt;/p&gt;
+                <description>&lt;p&gt;/google &amp;quot;more music than you can possibly consume in a lifetime&amp;quot;
+About 5,420,000 results (0.43 seconds) &lt;/p&gt;
 
-&lt;p&gt;/retry &amp;#8220;is it possible to hear every song&amp;#8221; About 2,760,000,000 results (0.39 seconds)&lt;/p&gt;
+&lt;p&gt;/retry &amp;quot;is it possible to hear every song&amp;quot;
+About 2,760,000,000 results (0.39 seconds) &lt;/p&gt;
 
-&lt;p&gt;Is it possible to hear every song that has ever been &amp;#8230; 5 hours ago - e.g. How to make Sushi? • Where to buy the best ground coffee? • Which is the best phase of a relationship? Your New Answers Experience!&lt;/p&gt;
+&lt;p&gt;Is it possible to hear every song that has ever been ...
+5 hours ago - e.g. How to make Sushi? • Where to buy the best ground coffee? • Which is the best phase of a relationship? Your New Answers Experience!&lt;/p&gt;
 
 &lt;p&gt;/clicky http://answers.yahoo.com/question/index?qid=20130924193110AA4yvRy&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Is it possible to hear every song that has ever been professionally recorded in one&amp;#8217;s life?&lt;/p&gt;
+&lt;p&gt;Is it possible to hear every song that has ever been professionally recorded in one&amp;#39;s life?
+blue pixie asked 6 hrs ago - 4 days left to answer&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;p&gt;blue pixie asked 6 hrs ago - 4 days left to answer&lt;/p&gt;
 
 &lt;p&gt;Prism answered 6 hrs ago&lt;/p&gt;
 
@@ -263,20 +302,26 @@ curl -X POST http://127.0.0.1:5984/_replicate -d &amp;#39;{&amp;quot;source&amp;
 &lt;p&gt;el Águila answered 5 hrs ago&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Yes; if you listen to, like, 100 songs at once. So, get 100 albums on 100 record players and play them all at once, replacing albums as necessary. * 1 person rated this as good&lt;/p&gt;
+&lt;p&gt;Yes; if you listen to, like, 100 songs at once. 
+So, get 100 albums on 100 record players and play them all at once, replacing albums as necessary.
+* 1 person rated this as good&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;/answer&lt;/p&gt;
 
 &lt;p&gt;Not meaningfully, but why do you want to do this?&lt;/p&gt;
 
-&lt;p&gt;Well, perhaps with brain computer interfaces, and an API (e.g. http://developer.echonest.com/), you could perhaps achieve whatever your reason is&amp;#8230;&lt;/p&gt;
+&lt;p&gt;Well, perhaps with brain computer interfaces, and an API (e.g. http://developer.echonest.com/), you could perhaps achieve whatever your reason is...&lt;/p&gt;
 
-&lt;p&gt;Math-wise, you&amp;#8217;d need to find out how many songs have been professionally recorded on the planet. How many songs does Spotify have?&lt;/p&gt;
+&lt;p&gt;Math-wise, you&amp;#39;d need to find out how many songs have been professionally recorded on the planet.
+How many songs does Spotify have?&lt;/p&gt;
 
-&lt;p&gt;Number of songs: Over 20 million* Number of songs added per day: Over 20,000 Source: http://press.spotify.com/us/information/&lt;/p&gt;
+&lt;p&gt;Number of songs: Over 20 million*
+Number of songs added per day: Over 20,000
+Source: http://press.spotify.com/us/information/&lt;/p&gt;
 
-&lt;p&gt;Let&amp;#8217;s assume every song averages to about 5 minutes, for ease of calculation, and forget about the 20k added each day, we can factor that in later&amp;#8230; How long will it take to listen to all of it? If that reasonable, how long will it take to stay on top of the 20k added each day?&lt;/p&gt;
+&lt;p&gt;Let&amp;#39;s assume every song averages to about 5 minutes, for ease of calculation, and forget about the 20k added each day, we can factor that in later...
+How long will it take to listen to all of it? If that reasonable, how long will it take to stay on top of the 20k added each day?&lt;/p&gt;
 
 &lt;p&gt;(20,000,000 * 5) / 60 = 1,666,666 total hours&lt;/p&gt;
 
@@ -286,23 +331,26 @@ curl -X POST http://127.0.0.1:5984/_replicate -d &amp;#39;{&amp;quot;source&amp;
 
 &lt;p&gt;1,666,666 / 16 = 104,166 total days&lt;/p&gt;
 
-&lt;p&gt;How many months is that? /wolframalpha 104,166 days to months&lt;/p&gt;
+&lt;p&gt;How many months is that? 
+/wolframalpha 104,166 days to months&lt;/p&gt;
 
 &lt;p&gt;3425 months!&lt;/p&gt;
 
-&lt;p&gt;That&amp;#8217;s 285+ years.&lt;/p&gt;
+&lt;p&gt;That&amp;#39;s 285+ years.&lt;/p&gt;
 
 &lt;p&gt;So no.&lt;/p&gt;
 
 &lt;p&gt;As far as keeping up with new stock, assuming it stays at 20,000 added per day (hah):&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;javascript&#39;&gt;&lt;span class=&#39;kd&#39;&gt;function&lt;/span&gt; &lt;span class=&#39;nx&#39;&gt;days2listen&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;nx&#39;&gt;numSongs&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
-&lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
-  &lt;span class=&#39;kd&#39;&gt;var&lt;/span&gt; &lt;span class=&#39;nx&#39;&gt;averageSongDuration&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;5&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
-  &lt;span class=&#39;nx&#39;&gt;totalHours&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;nx&#39;&gt;numSongs&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;*&lt;/span&gt; &lt;span class=&#39;nx&#39;&gt;averageSongDuration&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;/&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;60&lt;/span&gt;
-  &lt;span class=&#39;nx&#39;&gt;wakingHoursPerDay&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;24&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;-&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;8&lt;/span&gt;
-  &lt;span class=&#39;k&#39;&gt;return&lt;/span&gt; &lt;span class=&#39;nx&#39;&gt;totalHours&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;/&lt;/span&gt; &lt;span class=&#39;nx&#39;&gt;wakingHoursPerDay&lt;/span&gt;
-&lt;span class=&#39;p&#39;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;days2listen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;numSongs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;averageSongDuration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;totalHours&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;numSongs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;averageSongDuration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;wakingHoursPerDay&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;24&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;totalHours&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;wakingHoursPerDay&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;pre&gt;
 ➜  ~ git:(mac) ✗ node
 &gt; function days2listen(numSongs)
 ... {
@@ -315,9 +363,11 @@ undefined
 &gt; days2listen(20000)
 104.16666666666667
 &lt;/pre&gt;
+
 &lt;p&gt;/wolframalpha 105 days to months = 3.452 months&lt;/p&gt;
 
-&lt;p&gt;So yeah, if you ignore the pre-existing stuff, it seems doable to keep up with the new.&lt;/p&gt;</description>
+&lt;p&gt;So yeah, if you ignore the pre-existing stuff, it seems doable to keep up with the new.&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/2013/09/25/is-it-possible-to-hear-every-song</link>
                 <guid>http://keyvanfatehi.github.io/2013/09/25/is-it-possible-to-hear-every-song</guid>
                 <pubDate>2013-09-25T00:00:00-07:00</pubDate>
@@ -325,33 +375,68 @@ undefined
 
         <item>
                 <title>Cucumber And Html5 And Microsoft</title>
-                <description>&lt;p&gt;At work we have built a product that is comprised of 3 parts: a backend written in Ruby on Rails, a web interface that is served by rails and uses the rails controllers as usual, and an iOS app that interacts with the Grape API mounted to the Rails app.&lt;/p&gt;
+                <description>&lt;p&gt;At work we have built a product that is comprised of 3 parts: a backend
+written in Ruby on Rails, a web interface that is served by rails and
+uses the rails controllers as usual, and an iOS app that interacts with
+the Grape API mounted to the Rails app.&lt;/p&gt;
 
-&lt;p&gt;For the purpose of this article, a &amp;#8220;feature file&amp;#8221; describes a feature, written in Gherkin, the start point for behavior driven development using cucumber.&lt;/p&gt;
+&lt;p&gt;For the purpose of this article, a &amp;quot;feature file&amp;quot; describes a feature,
+written in Gherkin, the start point for behavior driven development 
+using cucumber.&lt;/p&gt;
 
-&lt;p&gt;The rails application, or rather the interactions from the served HTML, have feature files. This makes me feel good because if I would transition to an HTML5 app, separated from the rails controllers, that uses the Grape API just as the iOS app does, the feature file can be taken and placed into a new project (say, one generated with Brunch), and cucumber.js can be used to behavior-drive the remaning functionality with javascript or coffeescript.&lt;/p&gt;
+&lt;p&gt;The rails application, or rather the interactions from the served HTML,
+have feature files. This makes me feel good because if I would
+transition to an HTML5 app, separated from the rails controllers, that
+uses the Grape API just as the iOS app does, the feature file can be
+taken and placed into a new project (say, one generated with Brunch),
+and cucumber.js can be used to behavior-drive the remaning functionality
+with javascript or coffeescript.&lt;/p&gt;
 
-&lt;p&gt;What does this have to do with microsoft? Well it seems like folks are doubtful that microsoft will be able to contend on the mobile marketplace against the Apple and Google platforms. The most common argument I have heard is that &amp;#8220;windows phone doesn&amp;#8217;t have apps&amp;#8221; but if you think about it, neither did iOS or Android at one time.&lt;/p&gt;
+&lt;p&gt;What does this have to do with microsoft? Well it seems like folks are
+doubtful that microsoft will be able to contend on the mobile
+marketplace against the Apple and Google platforms. The most common
+argument I have heard is that &amp;quot;windows phone doesn&amp;#39;t have apps&amp;quot; but if
+you think about it, neither did iOS or Android at one time.&lt;/p&gt;
 
-&lt;p&gt;Building iOS and Android apps is harder than building an HTML5/Javascript app for many reasons. Developers are impeded on two major, fundamental fronts:&lt;/p&gt;
+&lt;p&gt;Building iOS and Android apps is harder than building an
+HTML5/Javascript app for many reasons. Developers are impeded on two
+major, fundamental fronts: 
+* Learning curve (brand new language, low level)
+* Platform/SDK/Tools (must be on Mac for iOS, must learn Xcode, must
+  learn android tools)&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;Learning curve (brand new language, low level)&lt;/li&gt;
+&lt;p&gt;As technologies like Apache Cordova improve alongside HTML5/CSS3, and
+the javascript ecosystem becomes richer, prototyping on the web is the
+obvious choice.&lt;/p&gt;
 
-&lt;li&gt;Platform/SDK/Tools (must be on Mac for iOS, must learn Xcode, must learn android tools)&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;So back to the project at my work...&lt;/p&gt;
 
-&lt;p&gt;As technologies like Apache Cordova improve alongside HTML5/CSS3, and the javascript ecosystem becomes richer, prototyping on the web is the obvious choice.&lt;/p&gt;
+&lt;p&gt;The iOS application had no feature files at all -- it was terrifying for
+a test-driven developer like me to have to maintain that and manage its
+developers... they were like cowboys and you never knew if they would
+ship with regression. Thanks to our iOS tester we catch most bugs quickly,
+but the risks are unnecessary.&lt;/p&gt;
 
-&lt;p&gt;So back to the project at my work&amp;#8230;&lt;/p&gt;
+&lt;p&gt;Luckily we found Calabash which is based on cucumber and uses the same
+format for feature files. Some overlap with the web application and work
+differently, and thus have different steps, but the same feature.
+However the point is that now these feature files can be extracted and
+placed into a new application.&lt;/p&gt;
 
-&lt;p&gt;The iOS application had no feature files at all &amp;#8211; it was terrifying for a test-driven developer like me to have to maintain that and manage its developers&amp;#8230; they were like cowboys and you never knew if they would ship with regression. Thanks to our iOS tester we catch most bugs quickly, but the risks are unnecessary.&lt;/p&gt;
+&lt;p&gt;This new application can be purely HTML5/CSS/Javascript and ship to
+Windows, Mac, iOS, Android, the platform is not relevant as long as the
+app is written in a responsive manner and has the appropriate bindings
+to the OS, provided by PhoneGap, Microsoft, Qt, or whatever hackery
+you&amp;#39;re doing to deploy your HTML5 app to the target platform.&lt;/p&gt;
 
-&lt;p&gt;Luckily we found Calabash which is based on cucumber and uses the same format for feature files. Some overlap with the web application and work differently, and thus have different steps, but the same feature. However the point is that now these feature files can be extracted and placed into a new application.&lt;/p&gt;
-
-&lt;p&gt;This new application can be purely HTML5/CSS/Javascript and ship to Windows, Mac, iOS, Android, the platform is not relevant as long as the app is written in a responsive manner and has the appropriate bindings to the OS, provided by PhoneGap, Microsoft, Qt, or whatever hackery you&amp;#8217;re doing to deploy your HTML5 app to the target platform.&lt;/p&gt;
-
-&lt;p&gt;In the future this hackery will reduce, and hardware will be exposed directly (e.g. getUserMedia()) in a device-compatible way, and Microsoft is just as relevant as any other. Microsoft will have all the same apps when it costs very little to get onto the platform in the first place &amp;#8211; and for us, it does not cost much to get on Windows and Windows Phone. I imagine other development shops see this too and will also target the Microsoft platform offerings.&lt;/p&gt;</description>
+&lt;p&gt;In the future this hackery will reduce, and hardware will be exposed
+directly (e.g. getUserMedia()) in a device-compatible way, and Microsoft
+is just as relevant as any other. Microsoft will have all the same apps
+when it costs very little to get onto the platform in the first place
+-- and for us, it does not cost much to get on Windows and Windows
+Phone. I imagine other development shops see this too and will also
+target the Microsoft platform offerings. &lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/09/06/cucumber-and-html5-and-microsoft</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/09/06/cucumber-and-html5-and-microsoft</guid>
                 <pubDate>2013-09-06T00:00:00-07:00</pubDate>
@@ -365,7 +450,8 @@ undefined
 
 &lt;p&gt;Install the graphical interface:&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;sudo apt-get install virt-manager&lt;/code&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;code&gt;sudo apt-get install virt-manager&lt;/code&gt;&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/08/13/install-kvm-with-gui-on-ubuntu-12.04</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/08/13/install-kvm-with-gui-on-ubuntu-12.04</guid>
                 <pubDate>2013-08-13T00:00:00-07:00</pubDate>
@@ -373,7 +459,8 @@ undefined
 
         <item>
                 <title>Issue Branching Workflow</title>
-                <description>&lt;p&gt;I decided to automate this part of my git workflow. See the &lt;a href=&#39;https://gist.github.com/keyvanfatehi/6155048&#39;&gt;gist&lt;/a&gt; for the source.&lt;/p&gt;</description>
+                <description>&lt;p&gt;I decided to automate this part of my git workflow. See the &lt;a href=&quot;https://gist.github.com/keyvanfatehi/6155048&quot;&gt;gist&lt;/a&gt; for the source.&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/2013/08/05/issue-branching-workflow</link>
                 <guid>http://keyvanfatehi.github.io/2013/08/05/issue-branching-workflow</guid>
                 <pubDate>2013-08-05T00:00:00-07:00</pubDate>
@@ -383,7 +470,8 @@ undefined
                 <title>Drones</title>
                 <description>&lt;p&gt;Ruby on RPi on a Parrot AR drone &amp;amp; 4G receiver&lt;/p&gt;
 
-&lt;p&gt;helpful software: https://github.com/nixterrimus/spirit&lt;/p&gt;</description>
+&lt;p&gt;helpful software: https://github.com/nixterrimus/spirit&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/2013/07/28/drones</link>
                 <guid>http://keyvanfatehi.github.io/2013/07/28/drones</guid>
                 <pubDate>2013-07-28T00:00:00-07:00</pubDate>
@@ -391,7 +479,8 @@ undefined
 
         <item>
                 <title>Rubygems Mirror</title>
-                <description>&lt;p&gt;Now that I have openstack, of course I am setting up a rubygems mirror &amp;#8211; this turned out to be super simple thanks to a StackOverflow answer: http://stackoverflow.com/a/8411230/511621&lt;/p&gt;</description>
+                <description>&lt;p&gt;Now that I have openstack, of course I am setting up a rubygems mirror -- this turned out to be super simple thanks to a StackOverflow answer: http://stackoverflow.com/a/8411230/511621&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/07/08/rubygems-mirror</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/07/08/rubygems-mirror</guid>
                 <pubDate>2013-07-08T00:00:00-07:00</pubDate>
@@ -399,11 +488,17 @@ undefined
 
         <item>
                 <title>Influenceometer</title>
-                <description>&lt;p&gt;Are you still influenced by this person? How much? Engagement platform. Platform API Interchange =&amp;gt; MD/DB&lt;/p&gt;
+                <description>&lt;p&gt;Are you still influenced by this person? How much?
+Engagement platform.
+Platform API Interchange =&amp;gt; MD/DB&lt;/p&gt;
 
-&lt;h2 id=&#39;links&#39;&gt;Links&lt;/h2&gt;
+&lt;h2&gt;Links&lt;/h2&gt;
 
-&lt;p&gt;http://themyndset.com/2013/04/sphere-of-influence-influential-topic/ https://www.google.com/search?q=kred+api https://www.google.com/search?q=klout+api https://www.google.com/search?q=peerindex+api&lt;/p&gt;</description>
+&lt;p&gt;http://themyndset.com/2013/04/sphere-of-influence-influential-topic/
+https://www.google.com/search?q=kred+api
+https://www.google.com/search?q=klout+api
+https://www.google.com/search?q=peerindex+api&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/apps/2013/07/03/influenceometer</link>
                 <guid>http://keyvanfatehi.github.io/apps/2013/07/03/influenceometer</guid>
                 <pubDate>2013-07-03T00:00:00-07:00</pubDate>
@@ -411,35 +506,40 @@ undefined
 
         <item>
                 <title>Lobbyist</title>
-                <description>&lt;p&gt;Developed while watching Netflix documentary &amp;#8220;Park Avenue: Money, Power and the American Dream&amp;#8221; 2012&lt;/p&gt;
+                <description>&lt;p&gt;Developed while watching Netflix documentary &amp;quot;Park Avenue: Money, Power and the American Dream&amp;quot; 2012&lt;/p&gt;
 
-&lt;p&gt;It appears evident that the US government does not work as the 70&amp;#8217;s cartoon character, Bill, would have you think.&lt;/p&gt;
+&lt;p&gt;It appears evident that the US government does not work as the 70&amp;#39;s cartoon character, Bill, would have you think.&lt;/p&gt;
 
 &lt;p&gt;Corporations, through the tool used by lobbyists (campaign donations) buy the direction of our great nation in ways evidenced by the manifestation of all the shit in our planet and the correlative, progressive worsening of other aspects of our society.&lt;/p&gt;
 
 &lt;p&gt;This bill serves hereunto for the purpose of implementing a grand transparent design of the above processes.&lt;/p&gt;
 
 &lt;p&gt;In this way, we will better understand at a higher level of intelligence, the patterns of destruction such that we can have constructive, forward-moving progress in their adjustment towards a better future.&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;ruby&#39;&gt;&lt;span class=&#39;n&#39;&gt;describe&lt;/span&gt; &lt;span class=&#39;no&#39;&gt;Lobbyist&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;do&lt;/span&gt;
-  &lt;span class=&#39;n&#39;&gt;it&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;influences politicians&amp;quot;&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;do&lt;/span&gt;
-    &lt;span class=&#39;n&#39;&gt;politician&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;lobbied_by&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;lobbyist&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;should_cause&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;politicion&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;to_be&lt;/span&gt; &lt;span class=&#39;ss&#39;&gt;:influenced&lt;/span&gt;
-  &lt;span class=&#39;k&#39;&gt;end&lt;/span&gt;
-&lt;span class=&#39;k&#39;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;gherkin&#39;&gt;&lt;span class=&#39;k&#39;&gt;Given &lt;/span&gt;&lt;span class=&#39;nf&#39;&gt;that I am a lobbyist&lt;/span&gt;
-&lt;span class=&#39;k&#39;&gt;When &lt;/span&gt;&lt;span class=&#39;nf&#39;&gt;I lobby a politician&lt;/span&gt;
-&lt;span class=&#39;k&#39;&gt;And &lt;/span&gt;&lt;span class=&#39;nf&#39;&gt;I succeeded in lobbying the politican&lt;/span&gt;
-&lt;span class=&#39;k&#39;&gt;Then &lt;/span&gt;&lt;span class=&#39;nf&#39;&gt;I get a bigger payout&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;gherkin&#39;&gt;&lt;span class=&#39;k&#39;&gt;Given &lt;/span&gt;&lt;span class=&#39;nf&#39;&gt;that I am a&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;describe&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Lobbyist&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;influences politicians&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;politician&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lobbied_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lobbyist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;should_cause&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;politicion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_be&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:influenced&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-gherkin&quot; data-lang=&quot;gherkin&quot;&gt;&lt;span class=&quot;k&quot;&gt;Given &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;that I am a lobbyist&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;When &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;I lobby a politician&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;And &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;I succeeded in lobbying the politican&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;Then &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;I get a bigger payout&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-gherkin&quot; data-lang=&quot;gherkin&quot;&gt;&lt;span class=&quot;k&quot;&gt;Given &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;that I am a&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 &lt;p&gt;Presidents are politicans.&lt;/p&gt;
 
 &lt;p&gt;They talk to the powerful people to get more money. We must make all this so much less tedious and easier to do with technology (apps/mobile/web) that it becomes more transparent and well known.&lt;/p&gt;
 
-&lt;p&gt;It must be a game in order that the players, my fellow Americans, become more aware of the comedic nature of this bold-faced lie we thought of government &amp;#8211; when we learned of this land we were born into, America, as children.&lt;/p&gt;
+&lt;p&gt;It must be a game in order that the players, my fellow Americans, become more aware of the comedic nature of this bold-faced lie we thought of government -- when we learned of this land we were born into, America, as children.&lt;/p&gt;
 
-&lt;h2 id=&#39;links&#39;&gt;Links&lt;/h2&gt;
+&lt;h2&gt;Links&lt;/h2&gt;
 
-&lt;p&gt;http://www.opensecrets.org/about/ http://www.opensecrets.org/politicians/summary.php?cid=n00001093&lt;/p&gt;</description>
+&lt;p&gt;http://www.opensecrets.org/about/
+http://www.opensecrets.org/politicians/summary.php?cid=n00001093&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/apps/2013/07/01/lobbyist</link>
                 <guid>http://keyvanfatehi.github.io/apps/2013/07/01/lobbyist</guid>
                 <pubDate>2013-07-01T00:00:00-07:00</pubDate>
@@ -447,23 +547,19 @@ undefined
 
         <item>
                 <title>How to build a telescope service</title>
-                <description>&lt;p&gt;Wish you collected more cool data? Want to bring proper streaming telescope services to the masses from inside the browser? It&amp;#8217;s due time we get this right, by building the first well-done telescope service.&lt;/p&gt;
+                <description>&lt;p&gt;Wish you collected more cool data? Want to bring proper streaming telescope services to the masses from inside the browser? It&amp;#39;s due time we get this right, by building the first well-done telescope service.&lt;/p&gt;
 
-&lt;p&gt;Here&amp;#8217;s how you might do it:&lt;/p&gt;
+&lt;p&gt;Here&amp;#39;s how you might do it:&lt;/p&gt;
 
-&lt;h2 id=&#39;hardware&#39;&gt;Hardware&lt;/h2&gt;
+&lt;h2&gt;Hardware&lt;/h2&gt;
 
-&lt;p&gt;Buy a good telescope&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#39;http://www.celestron.com/astronomy/series/advanced-series-gt-computerized-telescopes/&#39;&gt;Must have GoTo feature&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&#39;http://www.celestron.com/astronomy/celestron-nexstar-5se.html&#39;&gt;Something about nexstar?&lt;/a&gt; Not sure, see github repo link below.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Buy a good telescope
+* &lt;a href=&quot;http://www.celestron.com/astronomy/series/advanced-series-gt-computerized-telescopes/&quot;&gt;Must have GoTo feature&lt;/a&gt;
+* &lt;a href=&quot;http://www.celestron.com/astronomy/celestron-nexstar-5se.html&quot;&gt;Something about nexstar?&lt;/a&gt; Not sure, see github repo link below.&lt;/p&gt;
 
 &lt;p&gt;Mount on a high-altitude home in the Hollywood Hills (avoid smog and light pollution) with a high speed connection&lt;/p&gt;
 
-&lt;p&gt;Attach telescope lens to android device at the camera &lt;a href=&#39;http://www.htc.com/us/smartphones/htc-one/?PS=1&amp;amp;cid=sem157p174347&amp;amp;gclid=COf2jK2u97cCFRHhQgodhwoAGg&#39;&gt;HTC One&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Attach telescope lens to android device at the camera &lt;a href=&quot;http://www.htc.com/us/smartphones/htc-one/?PS=1&amp;amp;cid=sem157p174347&amp;amp;gclid=COf2jK2u97cCFRHhQgodhwoAGg&quot;&gt;HTC One&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I would recommend designing this in solidworks and printing the mount for the best results.&lt;/p&gt;
 
@@ -473,31 +569,32 @@ undefined
 
 &lt;p&gt;Suppply over USB ambient temperature and weather sensor data&lt;/p&gt;
 
-&lt;h2 id=&#39;software&#39;&gt;Software&lt;/h2&gt;
+&lt;h2&gt;Software&lt;/h2&gt;
 
 &lt;p&gt;Setup https://github.com/fcsonline/node-telescope-server&lt;/p&gt;
 
 &lt;p&gt;Build a IRC-like single-operator chatroom system&lt;/p&gt;
 
-&lt;p&gt;Implement (port?) &lt;a href=&#39;http://www.stellarium.org/&#39;&gt;Stellarium&lt;/a&gt;-like system in the browser.&lt;/p&gt;
+&lt;p&gt;Implement (port?) &lt;a href=&quot;http://www.stellarium.org/&quot;&gt;Stellarium&lt;/a&gt;-like system in the browser.&lt;/p&gt;
 
 &lt;p&gt;Display camera live feed.&lt;/p&gt;
 
-&lt;p&gt;Allow capture of the Android camera&amp;#8217;s feed to LocalStorage.&lt;/p&gt;
+&lt;p&gt;Allow capture of the Android camera&amp;#39;s feed to LocalStorage.&lt;/p&gt;
 
 &lt;p&gt;Allow operators to implement and run scripts from the web browser, a la:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Keep a video running with a high speed camera sensor
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Keep a video running with a high speed camera sensor
 Constantly adjust focus to detect movers
 When detected, focus in on the mover and follow it
 Repeat
 
-Dump all activity (images, video, events) into ES/MD w/ odata&lt;/code&gt;&lt;/pre&gt;
-
+Dump all activity (images, video, events) into ES/MD w/ odata
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Fun Links:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#39;http://services.odata.org/ODataAPIExplorer/ODataAPIExplorer.html&#39;&gt;OData API Explorer&lt;/a&gt;&lt;/p&gt;
-&lt;iframe height=&#39;315&#39; src=&#39;http://www.youtube.com/embed/XfIU9DqPTl8&#39; width=&#39;560&#39; /&gt;</description>
+&lt;p&gt;&lt;a href=&quot;http://services.odata.org/ODataAPIExplorer/ODataAPIExplorer.html&quot;&gt;OData API Explorer&lt;/a&gt;&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/embed/XfIU9DqPTl8&quot;&gt;&lt;/iframe&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/06/22/how-to-build-a-telescope-service</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/06/22/how-to-build-a-telescope-service</guid>
                 <pubDate>2013-06-22T00:00:00-07:00</pubDate>
@@ -505,13 +602,14 @@ Dump all activity (images, video, events) into ES/MD w/ odata&lt;/code&gt;&lt;/p
 
         <item>
                 <title>Leaderless</title>
-                <description>&lt;p&gt;Still thinking about this&amp;#8230;&lt;/p&gt;
+                <description>&lt;p&gt;Still thinking about this... &lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#39;http://www.youtube.com/embed/_Z99qFwsDmU&#39;&gt;snowden interview&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/embed/_Z99qFwsDmU&quot;&gt;snowden interview&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;There has been no change.&lt;/p&gt;
 
-&lt;p&gt;We are leaderless; at least we&amp;#8217;ve still got apathy :3&lt;/p&gt;</description>
+&lt;p&gt;We are leaderless; at least we&amp;#39;ve still got apathy :3&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/06/17/leaderless</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/06/17/leaderless</guid>
                 <pubDate>2013-06-17T00:00:00-07:00</pubDate>
@@ -519,59 +617,56 @@ Dump all activity (images, video, events) into ES/MD w/ odata&lt;/code&gt;&lt;/p
 
         <item>
                 <title>Parrot Assisted Training</title>
-                <description>&lt;h1 id=&#39;paratrain&#39;&gt;PARATRAIN&lt;/h1&gt;
+                <description>&lt;h1&gt;PARATRAIN&lt;/h1&gt;
 
-&lt;p&gt;Paratrain is a new app I&amp;#8217;m developing for audio, language, and animal research. It stands for something along the lines of parrot-assist training,&lt;/p&gt;
+&lt;p&gt;Paratrain is a new app I&amp;#39;m developing for audio, language, and animal research. It stands for something along the lines of parrot-assist training, &lt;/p&gt;
 
-&lt;h2 id=&#39;artificial_intelligence&#39;&gt;Artificial Intelligence&lt;/h2&gt;
+&lt;h2&gt;Artificial Intelligence&lt;/h2&gt;
 
-&lt;h3 id=&#39;carrot&#39;&gt;CARROT&lt;/h3&gt;
+&lt;h3&gt;CARROT&lt;/h3&gt;
 
 &lt;p&gt;In Chicago last week I purchased CARROT on the Apple App Store while in line for Shedd Aquarium. Animals, ooh, I forgot all about them while developing software all the time. My legs fucking hurt too until the final Day there wherein my muscles finally remembered they can regenerate.&lt;/p&gt;
 
-&lt;p&gt;Food and drugs doesn&amp;#8217;t fix long-term atrophy, exercise is necessary. Some people get dogs, like my older brother, which makes him more be more active.&lt;/p&gt;
+&lt;p&gt;Food and drugs doesn&amp;#39;t fix long-term atrophy, exercise is necessary.
+Some people get dogs, like my older brother, which makes him more be more active.&lt;/p&gt;
 
 &lt;p&gt;One could assert by this that this is a &lt;strong&gt;use case&lt;/strong&gt; for having a kid &lt;em&gt;oof&lt;/em&gt; i mean pet.&lt;/p&gt;
 
 &lt;p&gt;It is a selfish reason, but a reason no less.&lt;/p&gt;
 
-&lt;h3 id=&#39;paratrain&#39;&gt;PARATRAIN&lt;/h3&gt;
+&lt;h3&gt;PARATRAIN&lt;/h3&gt;
 
-&lt;p&gt;This is &lt;a href=&#39;https://github.com/keyvanfatehi/paratrain&#39;&gt;my accidental AI project&lt;/a&gt;&amp;#8230; (the rapidly iterative README as of today)&lt;/p&gt;
+&lt;p&gt;This is &lt;a href=&quot;https://github.com/keyvanfatehi/paratrain&quot;&gt;my accidental AI project&lt;/a&gt;... (the rapidly iterative README as of today)&lt;/p&gt;
 
-&lt;h4 id=&#39;paratrain_readme&#39;&gt;Paratrain README&lt;/h4&gt;
+&lt;h4&gt;Paratrain README&lt;/h4&gt;
 
-&lt;h2 id=&#39;paratrain&#39;&gt;Paratrain&lt;/h2&gt;
+&lt;h2&gt;Paratrain&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Purchase Paratrain from the Apple App Store&lt;/li&gt;
-
-&lt;li&gt;Make sure you&amp;#8217;re connected to wifi and have a lot of battery&lt;/li&gt;
-
+&lt;li&gt;Make sure you&amp;#39;re connected to wifi and have a lot of battery&lt;/li&gt;
 &lt;li&gt;Open the app and create a profile for the learner&lt;/li&gt;
-
 &lt;li&gt;Setup some options in the the profile and enable the algorithm&lt;/li&gt;
-
 &lt;li&gt;Ensure the iphone and the learner are within earshot of each other.&lt;/li&gt;
-
 &lt;li&gt;Optionally set up a 2nd screen to provide visual data for the learner (See the API by version 1)&lt;/li&gt;
-
 &lt;li&gt;Optionally place wireless nodes around for the learner to activate. Custom-configuration possible. (See the API by version 2)&lt;/li&gt;
+&lt;li&gt;Optionally enable camera and the &amp;quot;Paratrainer&amp;quot; for strategies of increased awareness between learner and AI (See the API by version 3)
 
-&lt;li&gt;Optionally enable camera and the &amp;#8220;Paratrainer&amp;#8221; for strategies of increased awareness between learner and AI (See the API by version 3) * The paratrainer avatar can be invoked remotely by you (See facially emotive API by version 4)&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;The paratrainer avatar can be invoked remotely by you (See facially emotive API by version 4)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;I don&amp;#8217;t expect anything like Version 4 for at least another 3 years.&lt;/p&gt;
+&lt;p&gt;I don&amp;#39;t expect anything like Version 4 for at least another 3 years.&lt;/p&gt;
 
-&lt;p&gt;I intend to complete Version 1 by the end of June. The rest is futurestory, or as I like to call them, user stories&amp;#8230;&lt;/p&gt;
+&lt;p&gt;I intend to complete Version 1 by the end of June. The rest is futurestory, or as I like to call them, user stories...&lt;/p&gt;
 
-&lt;h2 id=&#39;paratrain_ai_subsystems&#39;&gt;Paratrain AI Subsystems&lt;/h2&gt;
+&lt;h2&gt;Paratrain AI Subsystems&lt;/h2&gt;
 
-&lt;h1 id=&#39;system_1_listening_mode&#39;&gt;System 1 Listening Mode&lt;/h1&gt;
+&lt;h1&gt;System 1 Listening Mode&lt;/h1&gt;
 
-&lt;p&gt;System 1 can be toggled on or off. It&amp;#8217;s Paratrain&amp;#8217;s &amp;#8220;Listening Mode&amp;#8221;. This is how it affects Paratrain&amp;#8217;s behavior:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;It collect words the that it &amp;quot;hears&amp;quot;.
+&lt;p&gt;System 1 can be toggled on or off. It&amp;#39;s Paratrain&amp;#39;s &amp;quot;Listening Mode&amp;quot;. This is how it affects Paratrain&amp;#39;s behavior:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;It collect words the that it &amp;quot;hears&amp;quot;.
 When it hears a new word, it will verify that it&amp;#39;s a word by converting the audio to text.
   consider the confidence of the conversion
   unconfident? then forget it
@@ -588,95 +683,90 @@ When it hears a new word, it will verify that it&amp;#39;s a word by converting 
     store it in the app, let the user choose to:
       * listen to the sample
       * convert it to text manually and save with that audio
-      * adjust the confidence threshold&lt;/code&gt;&lt;/pre&gt;
+      * adjust the confidence threshold
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;System 1 will start to be implemented once &lt;a href=&quot;https://github.com/keyvanfatehi/paratrain/issues/6&quot;&gt;#6&lt;/a&gt; is complete.&lt;/p&gt;
 
-&lt;p&gt;System 1 will start to be implemented once &lt;a href=&#39;https://github.com/keyvanfatehi/paratrain/issues/6&#39;&gt;#6&lt;/a&gt; is complete.&lt;/p&gt;
+&lt;h2&gt;System 2 Learning Mode&lt;/h2&gt;
 
-&lt;h2 id=&#39;system_2_learning_mode&#39;&gt;System 2 Learning Mode&lt;/h2&gt;
+&lt;p&gt;Responsible for matters related to the exposure of the iphone&amp;#39;s existence to the learner.&lt;/p&gt;
 
-&lt;p&gt;Responsible for matters related to the exposure of the iphone&amp;#8217;s existence to the learner.&lt;/p&gt;
+&lt;h3&gt;Engagement&lt;/h3&gt;
 
-&lt;h3 id=&#39;engagement&#39;&gt;Engagement&lt;/h3&gt;
+&lt;p&gt;Engagement controls if and how the iphone speaks to nearby listeners
+There are several aspects of engagement exposed by System 2
+ * persistence 0-100
+ * aggression 0-100
+ * boredom 0-100
+ * rewards
+ * content&lt;/p&gt;
 
-&lt;p&gt;Engagement controls if and how the iphone speaks to nearby listeners There are several aspects of engagement exposed by System 2&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;persistence 0-100&lt;/li&gt;
-
-&lt;li&gt;aggression 0-100&lt;/li&gt;
-
-&lt;li&gt;boredom 0-100&lt;/li&gt;
-
-&lt;li&gt;rewards&lt;/li&gt;
-
-&lt;li&gt;content&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#39;second_screen&#39;&gt;Second Screen&lt;/h2&gt;
+&lt;h2&gt;Second Screen&lt;/h2&gt;
 
 &lt;p&gt;If a second screen is available (Apple TV), the &lt;strong&gt;Visual Association Toggle&lt;/strong&gt; becomes available. It works like this:&lt;/p&gt;
 
-&lt;h4 id=&#39;vatsystem_1&#39;&gt;VAT:System 1&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;As someone learning a language
+&lt;h4&gt;VAT:System 1&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;As someone learning a language
 When my artificial intelligence hears a word
 In order that I be more likely to learn the word
-I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#39;vatsystem_2&#39;&gt;VAT:System 2&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;As someone learning a language
+I prefer an associative visual element appear onscreen
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;VAT:System 2&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;As someone learning a language
 When I am engaged by my artificial intelligence
 In order that I be more likely to learn the word
-I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
-&lt;hr /&gt;
-&lt;h1 id=&#39;goal&#39;&gt;Goal&lt;/h1&gt;
+I prefer an associative visual element appear onscreen
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;Goal&lt;/h1&gt;
 
 &lt;p&gt;Design a system good enough to teach an African Grey parrot at least 500 words before the age of 6, without inflicting emotional damage.&lt;/p&gt;
 
-&lt;p&gt;If successful, it can be used for small children, and eventually turn into an effective &amp;#8220;knowledge download&amp;#8221; tool. Might as well dream big; but it&amp;#8217;s mainly to distract me from immediately buying a Grey before I&amp;#8217;m really ready.&lt;/p&gt;
+&lt;p&gt;If successful, it can be used for small children, and eventually turn into an effective &amp;quot;knowledge download&amp;quot; tool. Might as well dream big; but it&amp;#39;s mainly to distract me from immediately buying a Grey before I&amp;#39;m really ready.&lt;/p&gt;
 
-&lt;h2 id=&#39;no_impulsebuy&#39;&gt;No impulse-buy&lt;/h2&gt;
+&lt;h2&gt;No impulse-buy&lt;/h2&gt;
 
-&lt;p&gt;Only a few days ago, my brother suggested I get a parrot. I didn&amp;#8217;t speak or think of parrots for maybe 7 years; It was something I could just never have, and so put away mentally &amp;#8230; too expensive &amp;#8230; with luck, becoming a competent developer has allowed me to break that financial barrier.&lt;/p&gt;
+&lt;p&gt;Only a few days ago, my brother suggested I get a parrot. I didn&amp;#39;t speak or think of parrots for maybe 7 years; It was something I could just never have, and so put away mentally ... too expensive ... with luck, becoming a competent developer has allowed me to break that financial barrier.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Resisting the impulse buy the African Grey is hard, but it&amp;#8217;s a huge responsibility &amp;#8211; I am older and the facts of the matters make resistance easy&lt;/p&gt;
+&lt;p&gt;Resisting the impulse buy the African Grey is hard, but it&amp;#39;s a huge responsibility -- I am older and the facts of the matters make resistance easy&lt;/p&gt;
 
-&lt;p&gt;I always wanted a parrot as a kid, but needed to wait until I knew I could take care of it correctly (and afford one). I&amp;#8217;ve had pets that died, and as a small kid, it can be traumatic. Failing to train a Grey well would be almost criminal.&lt;/p&gt;
+&lt;p&gt;I always wanted a parrot as a kid, but needed to wait until I knew I could take care of it correctly (and afford one). I&amp;#39;ve had pets that died, and as a small kid, it can be traumatic. Failing to train a Grey well would be almost criminal.&lt;/p&gt;
 
-&lt;p&gt;I&amp;#8217;m 24 and I feel like this parrot thing is now is making me face it, and the other big questions, all at once.&lt;/p&gt;
+&lt;p&gt;I&amp;#39;m 24 and I feel like this parrot thing is now is making me face it, and the other big questions, all at once.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;This was a small thing for him, I think, but for me it begins to feel as though it has stirred up a great spirit that been asleep inside me. All this time I&amp;#8217;ve been secluding myself, perhaps buried under a lot of old guilt from the pets that I&amp;#8217;ve had that have died &amp;#8212; not getting any more pets so as not to &amp;#8220;kill it again&amp;#8221;. Perhaps this is one of those latent and hard-to-understand better-to-avoid reasons I am so keen to remain single&amp;#8230; err&amp;#8230;&lt;/p&gt;
+&lt;p&gt;This was a small thing for him, I think, but for me it begins to feel as though it has stirred up a great spirit that been asleep inside me. All this time I&amp;#39;ve been secluding myself, perhaps buried under a lot of old guilt from the pets that I&amp;#39;ve had that have died --- not getting any more pets so as not to &amp;quot;kill it again&amp;quot;. Perhaps this is one of those latent and hard-to-understand better-to-avoid reasons I am so keen to remain single... err...&lt;/p&gt;
 
 &lt;p&gt;Uhm, in any case: I have a long history with avians and would rather get the bird when I have a house, to build a proper aviary again.&lt;/p&gt;
 
-&lt;p&gt;But I can start &lt;a href=&#39;https://github.com/keyvanfatehi/paratrain&#39;&gt;developing software&lt;/a&gt; and &lt;a href=&#39;https://github.com/keyvanfatehi/paratrain/issues/5&#39;&gt;doing research&lt;/a&gt;. It has proven fruitful so far.&lt;/p&gt;
+&lt;p&gt;But I can start &lt;a href=&quot;https://github.com/keyvanfatehi/paratrain&quot;&gt;developing software&lt;/a&gt; and &lt;a href=&quot;https://github.com/keyvanfatehi/paratrain/issues/5&quot;&gt;doing research&lt;/a&gt;. It has proven fruitful so far.&lt;/p&gt;
 
 &lt;p&gt;I feel that &lt;strong&gt;buying the parrot right now would be a big mistake&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;The matured scientist in me is eagerly awaiting pending discoveries into learning and intelligence &amp;#8230; and wants to ensure readiness &amp;#8230; once this turns into design, and then &lt;em&gt;implementation&lt;/em&gt;, I am ready.&lt;/p&gt;
+&lt;p&gt;The matured scientist in me is eagerly awaiting pending discoveries into learning and intelligence ... and wants to ensure readiness ... once this turns into design, and then &lt;em&gt;implementation&lt;/em&gt;, I am ready.&lt;/p&gt;
 
-&lt;h1 id=&#39;caged_bird&#39;&gt;Caged Bird&lt;/h1&gt;
+&lt;h1&gt;Caged Bird&lt;/h1&gt;
 
-&lt;p&gt;I will be waiting until the software &lt;em&gt;AND&lt;/em&gt; hardware is ready. I need an indoor cage. I&amp;#8217;m opting not to build it with wood as I did for the doves I owned as a small child (these pets created life&amp;#8230; they are not a memory of death like some later animals I had; but one of but birth and life; contentment and prosperity)&lt;/p&gt;
+&lt;p&gt;I will be waiting until the software &lt;em&gt;AND&lt;/em&gt; hardware is ready. I need an indoor cage. I&amp;#39;m opting not to build it with wood as I did for the doves I owned as a small child (these pets created life... they are not a memory of death like some later animals I had; but one of but birth and life; contentment and prosperity)&lt;/p&gt;
 
-&lt;p&gt;Consequently, software and hardware for a parrot equates to massive amounts of learning by the undertaker &lt;span&gt;me&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Consequently, software and hardware for a parrot equates to massive amounts of learning by the undertaker [me].&lt;/p&gt;
 
-&lt;h2 id=&#39;3d_printer__solidworks__technique___habitat_&#39;&gt;3d Printer + Solidworks + Technique &amp;#8230; = Habitat ?&lt;/h2&gt;
+&lt;h2&gt;3d Printer + Solidworks + Technique ... = Habitat ?&lt;/h2&gt;
 
-&lt;p&gt;My &lt;a href=&#39;http://pirate3d.com/&#39;&gt;Pirate3d 3d Printer, the Buccaneer&lt;/a&gt;, arrives in Dec 2013.&lt;/p&gt;
+&lt;p&gt;My &lt;a href=&quot;http://pirate3d.com/&quot;&gt;Pirate3d 3d Printer, the Buccaneer&lt;/a&gt;, arrives in Dec 2013.&lt;/p&gt;
 
 &lt;p&gt;Now I have a real reason to properly learn &lt;strong&gt;SOLIDWORKS&lt;/strong&gt; again.&lt;/p&gt;
 
-&lt;p&gt;I need a chop-up-big-stuff algorithm for this. I am looking into &lt;span&gt;aluminum&lt;/span&gt; extrusion/profile interlock systems for this.&lt;/p&gt;
+&lt;p&gt;I need a chop-up-big-stuff algorithm for this. I am looking into [aluminum] extrusion/profile interlock systems for this.&lt;/p&gt;
 
-&lt;h2 id=&#39;space_i_see_you_baby&#39;&gt;Space, I see you baby&lt;/h2&gt;
+&lt;h2&gt;Space, I see you baby&lt;/h2&gt;
 
 &lt;p&gt;All I need to do now is ensure I learn electronics too and perhaps my Space 2022 ambitions will indeed become true on time.&lt;/p&gt;
 
-&lt;p&gt;If something like paratrain can be pulled off as quickly as it looks, then building the micro-agriculture systems I&amp;#8217;ve envisioned should be less sweat too.&lt;/p&gt;</description>
+&lt;p&gt;If something like paratrain can be pulled off as quickly as it looks, then building the micro-agriculture systems I&amp;#39;ve envisioned should be less sweat too.&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/06/03/parrot-assisted-training</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/06/03/parrot-assisted-training</guid>
                 <pubDate>2013-06-03T00:00:00-07:00</pubDate>
@@ -684,7 +774,58 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 
         <item>
                 <title>Bountysource</title>
-                <description>&lt;p&gt;pre 2:58 PM keyvan joined (uid7672@gateway/web/irccloud.com/x-noobbtzvvxakpxyr) 2:58 PM Channel mode is +cnt 2:58 PM Homepage: http://www.bountysource.com 2:58 PM keyvan wooo bountysource is awesome. good job :D 2:59 PM keyvan my very first bounty https://www.bountysource.com/#issues/379039-portfolio-page 3:03 PM nbouscal quit brooss nipped out&lt;br /&gt;3:43 PM corytheboyd aww, thanks keyvan :) 3:43 PM corytheboyd feel free to give us feedback! 3:44 PM keyvan sure thanks 3:46 PM keyvan corytheboyd: do you think should i be making an effort to market the opportunity or does bountysource do this for me somehow? that was one of the difficulties i had in thinking of how to design such an application&amp;#8230; the marketing aspect&amp;#8230; 3:47 PM nbouscal joined (~nbouscal@c-67-185-201-65.hsd1.wa.comcast.net) 3:50 PM corytheboyd keyvan: good question. we don&amp;#8217;t advertise bounties outside of our site 3:51 PM corytheboyd it&amp;#8217;s mostly up the the respective community to advertise bounties 3:51 PM keyvan corytheboyd: my other question was, how do you make money? i was debating if i&amp;#8217;d scrape money from the bounties in my implementation but i wasnt sure how that would fly with people 3:51 PM keyvan what strategy are you taking on the money front? 3:54 PM keyvan ccverg: how did you find my issue by the way? did you search github for &amp;#8220;bounty&amp;#8221; or something? the fact that you guys have built this thing is such a pleasant surprise. i mean to look to see if you guys have an API later, i&amp;#8217;ll just make my browser extension ive been working on fit right into that 3:55 PM keyvan also it would be cool for the issue itself to get auto-updated by BountySource to say something like &amp;#8220;There is a X bounty on this issue!&amp;#8221; and other appropriate notices if any 3:55 PM keyvan ive thought a lot about this project so i&amp;#8217;m kind of excited that it&amp;#8217;s here :) 3:56 PM nbouscal quit (~nbouscal@c-67-185-201-65.hsd1.wa.comcast.net) Quit: Computer has commenced electric sheep tracking protocol. 3:56 PM keyvan i think it will have huge positive consequences &amp;#8211; i.e. people with skill but inability to find jobs can now do useful work and get paid&amp;#8230; i know several people like this personally. 3:58 PM ccverg kevyan: hey there! 3:59 PM ccverg we charge a fee on bounties that are paid out, and on fundraisers once they are successful 4:00 PM ccverg we actually have a plugin for GitHub that updates issues with bounty details as you described, but a project committer has to enable it 4:00 PM ccverg you can see some screenshots on our blog (blog.bountysource.com/post/48954271533/improved-github-integration-automatically-update) 4:00 PM keyvan lol you guys may want to fix this http://cl.ly/image/1d09080J1Y24 4:01 PM keyvan nice good stuff ccverg 4:01 PM ccverg &amp;#8220;people with skill but inability to find jobs can now do useful work and get paid&amp;#8230; i know several people like this personally.&amp;#8221; — that&amp;#8217;s awesome! that&amp;#8217;s our goal, allowing open source developers to sustain themselves with their work 4:02 PM ccverg kevyan: ack, good catch 4:02 PM ccverg we&amp;#8217;ll update that, thanks 4:03 PM keyvan ccverg: i would love to help you guys out, from a dev perspective, like on weekends and maybe nights &amp;#8211; it was my ambition to build what you guys have so feel free to direct me to the proper channels if you&amp;#8217;re interested in a Ruby/Rails/Coffeescript/Javascript/iOS developer looking at stuff 4:04 PM keyvan like if you have an API that would be a great start so i can work on the browser extension and you guys can see if you like it / think it should be part of it or something 4:04 PM keyvan also i was thinking of a mobile app that is basically a browser with the ideas of the browser extension built in, so you&amp;#8217;re contributing to open source from your mobile device, making money thru bountysource integrations as well (if the project ur editing has a bounty that is) 4:07 PM keyvan sorry i havent checked the bountysource github page, you probably alreayd have most if not all of it open source anyway, wherein i can find issues, and browser for API docs myself &amp;#8211; im just at work right now :) i&amp;#8217;ll definitely be looking deeper later 4:11 PM ccverg kevyan: awesome! :D 4:12 PM ccverg only our frontend is open source right now, actually… but you&amp;#8217;re welcome to check out the issues we have open so far 4:12 PM ccverg and we really appreciate you wanting to help out! 4:19 PM corytheboyd keyvan: sorry, got a little distracted :p 4:25 PM nbouscal joined (~nbouscal@c-67-168-113-48.hsd1.wa.comcast.net) 4:27 PM keyvan cool for sure. np cory 4:50 PM nbouscal and satazor quit jsilver popped in&lt;br /&gt;6:41 PM keyvan woohoo first bounty complete! https://www.bountysource.com/#issues/379039-portfolio-page 6:41 PM keyvan definitely a smooth process, my bounty hunter is pleased as well 7:48 PM Anonymous296 popped in bountysource, warreng, corytheboyd, ccverg (opped) and realazthat nipped out&lt;br /&gt;10:19 PM keyvan im going to start making random projects, speccable, and giving them bounties :) there aren&amp;#8217;t enough live bounties as there should be&amp;#8230; easy ones even 10:20 PM keyvan knowing there&amp;#8217;s an &amp;#8220;army of developers&amp;#8221; out there that can slam out any spec should motivate more of us that squelch our ideas because &amp;#8220;work is more important&amp;#8221; and you never write that README 10:20 PM keyvan maybe someone&amp;#8217;s willing to do it if you throw some coin at it! 10:23 PM keyvan i thought (and mostly meet this type-) people resisted sharing their ideas because they are afraid to share&amp;#8230; they&amp;#8217;re wrong you should share, and you should even place a bounty on if it&amp;#8217;s something you really want built &amp;#8211; if you&amp;#8217;re in it for the money and u dont want to share for that reason, your startup probably won&amp;#8217;t do well anyway and don&amp;#8217;t get the 10:23 PM keyvan big picture (i dont say this to them though, i&amp;#8217;ll generally motivate them to learn jQuery or ruby). 10:26 PM mode: corytheboyd (opped) nbouscal popped in&lt;br /&gt;/pre&lt;/p&gt;</description>
+                <description>&lt;p&gt;pre
+2:58 PM  keyvan joined (uid7672@gateway/web/irccloud.com/x-noobbtzvvxakpxyr)
+2:58 PM Channel mode is +cnt
+2:58 PM Homepage: http://www.bountysource.com
+2:58 PM keyvan wooo bountysource is awesome. good job :D
+2:59 PM keyvan my very first bounty https://www.bountysource.com/#issues/379039-portfolio-page
+3:03 PM   nbouscal quit   brooss nipped out&lt;br&gt;
+3:43 PM corytheboyd aww, thanks keyvan :)
+3:43 PM corytheboyd feel free to give us feedback!
+3:44 PM keyvan sure thanks
+3:46 PM keyvan corytheboyd: do you think should i be making an effort to market the opportunity or does bountysource do this for me somehow? that was one of the difficulties i had in thinking of how to design such an application... the marketing aspect...
+3:47 PM  nbouscal joined (~nbouscal@c-67-185-201-65.hsd1.wa.comcast.net)
+3:50 PM corytheboyd keyvan: good question. we don&amp;#39;t advertise bounties outside of our site
+3:51 PM corytheboyd it&amp;#39;s mostly up the the respective community to advertise bounties
+3:51 PM keyvan corytheboyd: my other question was, how do you make money? i was debating if i&amp;#39;d scrape money from the bounties in my implementation but i wasnt sure how that would fly with people
+3:51 PM keyvan what strategy are you taking on the money front?
+3:54 PM keyvan ccverg: how did you find my issue by the way? did you search github for &amp;quot;bounty&amp;quot; or something? the fact that you guys have built this thing is such a pleasant surprise. i mean to look to see if you guys have an API later, i&amp;#39;ll just make my browser extension ive been working on fit right into that
+3:55 PM keyvan also it would be cool for the issue itself to get auto-updated by BountySource to say something like &amp;quot;There is a X bounty on this issue!&amp;quot; and other appropriate notices if any
+3:55 PM keyvan ive thought a lot about this project so i&amp;#39;m kind of excited that it&amp;#39;s here :)
+3:56 PM  nbouscal quit (~nbouscal@c-67-185-201-65.hsd1.wa.comcast.net) Quit: Computer has commenced electric sheep tracking protocol.
+3:56 PM keyvan i think it will have huge positive consequences -- i.e. people with skill but inability to find jobs can now do useful work and get paid... i know several people like this personally.
+3:58 PM ccverg kevyan: hey there!
+3:59 PM ccverg we charge a fee on bounties that are paid out, and on fundraisers once they are successful
+4:00 PM ccverg we actually have a plugin for GitHub that updates issues with bounty details as you described, but a project committer has to enable it
+4:00 PM ccverg you can see some screenshots on our blog (blog.bountysource.com/post/48954271533/improved-github-integration-automatically-update)
+4:00 PM keyvan lol you guys may want to fix this http://cl.ly/image/1d09080J1Y24
+4:01 PM keyvan nice good stuff ccverg 
+4:01 PM ccverg &amp;quot;people with skill but inability to find jobs can now do useful work and get paid... i know several people like this personally.&amp;quot; — that&amp;#39;s awesome! that&amp;#39;s our goal, allowing open source developers to sustain themselves with their work
+4:02 PM ccverg kevyan: ack, good catch
+4:02 PM ccverg we&amp;#39;ll update that, thanks
+4:03 PM keyvan ccverg: i would love to help you guys out, from a dev perspective, like on weekends and maybe nights -- it was my ambition to build what you guys have so feel free to direct me to the proper channels if you&amp;#39;re interested in a Ruby/Rails/Coffeescript/Javascript/iOS developer looking at stuff
+4:04 PM keyvan like if you have an API that would be a great start so i can work on the browser extension and you guys can see if you like it / think it should be part of it or something
+4:04 PM keyvan also i was thinking of a mobile app that is basically a browser with the ideas of the browser extension built in, so you&amp;#39;re contributing to open source from your mobile device, making money thru bountysource integrations as well (if the project ur editing has a bounty that is)
+4:07 PM keyvan sorry i havent checked the bountysource github page, you probably alreayd have most if not all of it open source anyway, wherein i can find issues, and browser for API docs myself -- im just at work right now :) i&amp;#39;ll definitely be looking deeper later
+4:11 PM ccverg kevyan: awesome! :D
+4:12 PM ccverg only our frontend is open source right now, actually… but you&amp;#39;re welcome to check out the issues we have open so far
+4:12 PM ccverg and we really appreciate you wanting to help out!
+4:19 PM corytheboyd keyvan: sorry, got a little distracted :p
+4:25 PM  nbouscal joined (~nbouscal@c-67-168-113-48.hsd1.wa.comcast.net)
+4:27 PM keyvan cool for sure. np cory
+4:50 PM   nbouscal and satazor quit   jsilver popped in&lt;br&gt;
+6:41 PM keyvan woohoo first bounty complete! https://www.bountysource.com/#issues/379039-portfolio-page
+6:41 PM keyvan definitely a smooth process, my bounty hunter is pleased as well
+7:48 PM   Anonymous296 popped in   bountysource, warreng, corytheboyd, ccverg (opped) and realazthat nipped out&lt;br&gt;
+10:19 PM keyvan im going to start making random projects, speccable, and giving them bounties :) there aren&amp;#39;t enough live bounties as there should be... easy ones even
+10:20 PM keyvan knowing there&amp;#39;s an &amp;quot;army of developers&amp;quot; out there that can slam out any spec should motivate more of us that squelch our ideas because &amp;quot;work is more important&amp;quot; and you never write that README
+10:20 PM keyvan maybe someone&amp;#39;s willing to do it if you throw some coin at it!
+10:23 PM keyvan i thought (and mostly meet this type-) people resisted sharing their ideas because they are afraid to share... they&amp;#39;re wrong you should share, and you should even place a bounty on if it&amp;#39;s something you really want built -- if you&amp;#39;re in it for the money and u dont want to share for that reason, your startup probably won&amp;#39;t do well anyway and don&amp;#39;t get the
+10:23 PM keyvan big picture (i dont say this to them though, i&amp;#39;ll generally motivate them to learn jQuery or ruby). 
+10:26 PM  mode: corytheboyd (opped)   nbouscal popped in&lt;br&gt;
+/pre&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/06/03/bountysource</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/06/03/bountysource</guid>
                 <pubDate>2013-06-03T00:00:00-07:00</pubDate>
@@ -694,9 +835,10 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
                 <title>Coffeescript Source Maps</title>
                 <description>&lt;p&gt;No longer can your team claim ignorance of CoffeeScript and tout the excuse that it is difficult to debug in the console. Behold &lt;code&gt;gem &amp;#39;coffee-rails-source-maps&amp;#39;&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#39;https://github.com/markbates/coffee-rails-source-maps&#39;&gt;GitHub&lt;/a&gt; | &lt;a href=&#39;http://cl.ly/image/233C2H1j1V0F&#39;&gt;Screenshot&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/markbates/coffee-rails-source-maps&quot;&gt;GitHub&lt;/a&gt; | &lt;a href=&quot;http://cl.ly/image/233C2H1j1V0F&quot;&gt;Screenshot&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;This works in Rails 4 RC1, however I cannot install it on Rails 3.2 (coffee-rails version too old)&lt;/p&gt;</description>
+&lt;p&gt;This works in Rails 4 RC1, however I cannot install it on Rails 3.2 (coffee-rails version too old)&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/05/23/coffeescript-source-maps</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/05/23/coffeescript-source-maps</guid>
                 <pubDate>2013-05-23T00:00:00-07:00</pubDate>
@@ -704,45 +846,47 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 
         <item>
                 <title>Conflict Of Interest</title>
-                <description>&lt;p&gt;At my place of employment, I&amp;#8217;ve never had the issue of a conflict of interest &amp;#8211; until recently when I wanted to help a through-work contact to develop a small HTML5-driven web application, essentially helping him to launch an overnight startup. It was a very targeted problem, a simple one, and well thought out and designed &amp;#8211; the kinds of projects we love because it&amp;#8217;s clear. The kinds of projects you can turn around in a few hours if you had a bunch of Red Bull, as it were.&lt;/p&gt;
+                <description>&lt;p&gt;At my place of employment, I&amp;#39;ve never had the issue of a conflict of interest -- until recently when I wanted to help a through-work contact to develop a small HTML5-driven web application, essentially helping him to launch an overnight startup. It was a very targeted problem, a simple one, and well thought out and designed -- the kinds of projects we love because it&amp;#39;s clear. The kinds of projects you can turn around in a few hours if you had a bunch of Red Bull, as it were.&lt;/p&gt;
 
-&lt;p&gt;Seemed like a no-brainer, right? Well I guess not; I had met this particular entrepreneur through the work duties of interacting with the studios and artists that use our custom software, one of the standard things I needed to do myself as I built out the software division of my then-non-software-oriented (software-dev-virgin?) company. Now I have people that do this client and support interfacing &amp;#8211; so I don&amp;#8217;t develop the relationship that would yield this sort of excitement and impetus unless chancily I was met with the opportunity. The odds of this are low and my emotions thank the circumstances, despite this particular one&amp;#8217;s &lt;a href=&#39;/blog/2013/05/14/willful-defiance&#39;&gt;imprisoning&lt;/a&gt; smell.&lt;/p&gt;
+&lt;p&gt;Seemed like a no-brainer, right? Well I guess not; I had met this particular entrepreneur through the work duties of interacting with the studios and artists that use our custom software, one of the standard things I needed to do myself as I built out the software division of my then-non-software-oriented (software-dev-virgin?) company. Now I have people that do this client and support interfacing -- so I don&amp;#39;t develop the relationship that would yield this sort of excitement and impetus unless chancily I was met with the opportunity. The odds of this are low and my emotions thank the circumstances, despite this particular one&amp;#39;s &lt;a href=&quot;/blog/2013/05/14/willful-defiance&quot;&gt;imprisoning&lt;/a&gt; smell.&lt;/p&gt;
 
-&lt;h1 id=&#39;estimate__start&#39;&gt;Estimate &amp;amp; Start!&lt;/h1&gt;
+&lt;h1&gt;Estimate &amp;amp; Start!&lt;/h1&gt;
 
-&lt;p&gt;Let&amp;#8217;s build it! That&amp;#8217;s my attitude!&lt;/p&gt;
+&lt;p&gt;Let&amp;#39;s build it! That&amp;#39;s my attitude!&lt;/p&gt;
 
-&lt;p&gt;I estimated it would take 1-3 diligent weekends to pull it off. I would create it for him and he would go sell it to the world as he wants &amp;#8211; I ask for nothing in return. It may seem strange to some, but I do this because I love to see people&amp;#8217;s eyes light up as the weight is lifted from their shoulder and that energy can now be put into the business side. I prefer them to run the business instead if that&amp;#8217;s the skill they are good at. If they become successful, great! If not, even better because the lessons are valuable. Ultimately these are human investments which I think are totally worth making. In fact this is why I&amp;#8217;m a big proponent of &lt;a href=&#39;http://startupweekend.org/&#39;&gt;Startup Weekend&lt;/a&gt; events.&lt;/p&gt;
+&lt;p&gt;I estimated it would take 1-3 diligent weekends to pull it off. I would create it for him and he would go sell it to the world as he wants -- I ask for nothing in return. It may seem strange to some, but I do this because I love to see people&amp;#39;s eyes light up as the weight is lifted from their shoulder and that energy can now be put into the business side. I prefer them to run the business instead if that&amp;#39;s the skill they are good at. If they become successful, great! If not, even better because the lessons are valuable. Ultimately these are human investments which I think are totally worth making. In fact this is why I&amp;#39;m a big proponent of &lt;a href=&quot;http://startupweekend.org/&quot;&gt;Startup Weekend&lt;/a&gt; events.&lt;/p&gt;
 
-&lt;h1 id=&#39;excite__fizzle&#39;&gt;Excite -&amp;gt; Fizzle&lt;/h1&gt;
+&lt;h1&gt;Excite -&amp;gt; Fizzle&lt;/h1&gt;
 
 &lt;p&gt;The issue with this, and what took a lot of drilling from various people at work (CEO, Lawyer, HR, etc) for me to understand, is that an unavoidable, unbrainstorm-out-of-able conflict exists here:&lt;/p&gt;
 
 &lt;p&gt;I just want to build great software and help people out. In fact, I said I would do it for free! It would happen on the weekend, so I have a reason to be in Los Angeles and make a friend or two outside of work while still engaging in the things that interest me (development).&lt;/p&gt;
 
-&lt;p&gt;But the society and the laws are concerned with the fact that a usual employment contract (mine included) can own things you do outside of work hours&amp;#8230; my company happens to be &amp;#8220;nice&amp;#8221; enough not to lay a claim to things unless they fall within a specific scope; this unlucky entrepreneur&amp;#8217;s idea definitely fell within it.&lt;/p&gt;
+&lt;p&gt;But the society and the laws are concerned with the fact that a usual employment contract (mine included) can own things you do outside of work hours... my company happens to be &amp;quot;nice&amp;quot; enough not to lay a claim to things unless they fall within a specific scope; this unlucky entrepreneur&amp;#39;s idea definitely fell within it.&lt;/p&gt;
 
-&lt;h1 id=&#39;when_all_else_fails_you_do_it_yourself&#39;&gt;When all else fails, you do it yourself&lt;/h1&gt;
+&lt;h1&gt;When all else fails, you do it yourself&lt;/h1&gt;
 
-&lt;p&gt;On the bright side, he was really excited to &lt;a href=&#39;http://try.jquery.com/&#39;&gt;try jQuery&lt;/a&gt; and will have his hand at building his system all by himself&amp;#8230; I believe it can be done and it&amp;#8217;s the very same drive that resulted in my acquisition of ruby knowledge and the rest of it. This is far more valuable than any free work some developer might do for you &amp;#8211; I am a black box. You hate the black box, as you should, you must fear the black box, anything else is irrational.&lt;/p&gt;
+&lt;p&gt;On the bright side, he was really excited to &lt;a href=&quot;http://try.jquery.com/&quot;&gt;try jQuery&lt;/a&gt; and will have his hand at building his system all by himself... I believe it can be done and it&amp;#39;s the very same drive that resulted in my acquisition of ruby knowledge and the rest of it. This is far more valuable than any free work some developer might do for you -- I am a black box. You hate the black box, as you should, you must fear the black box, anything else is irrational.&lt;/p&gt;
 
 &lt;p&gt;However I am not an ordinary black box, but one that you cannot hate or fear for if you approach me with the interest, the dam holding back a torrent of knowledge only waits to be pulled back and for these weights to be lifted, shared. A black box is a single point of failure. We design around this in our software systems as we should with our human resources. I digress.&lt;/p&gt;
 
-&lt;p&gt;As far as this entrepreneur I could not help, I hope he continues &amp;#8211; I hope our society doesn&amp;#8217;t call my helping him at all a &amp;#8220;conflict of interest,&amp;#8221; if so I think that might be the last straw before I begin active research in making life-changes such as moving to a more exquisite part of the world.&lt;/p&gt;
+&lt;p&gt;As far as this entrepreneur I could not help, I hope he continues -- I hope our society doesn&amp;#39;t call my helping him at all a &amp;quot;conflict of interest,&amp;quot; if so I think that might be the last straw before I begin active research in making life-changes such as moving to a more exquisite part of the world. &lt;/p&gt;
 
-&lt;p&gt;This pour soul can take no more irrational stifling of the sort that prevent innovators and artists from performing their craft. The dam strains and cracks against the pressure of secrecy and not-sharing. In terms of innovators, the powerfuls prefer [even force, by way of legal and fiscal circumstance] them to take rest and abstain from their art, even in their own &amp;#8220;private time.&amp;#8221; In my worldview, such a notion is laughable at best, but apparently such is the world we live in.&lt;/p&gt;
+&lt;p&gt;This pour soul can take no more irrational stifling of the sort that prevent innovators and artists from performing their craft. The dam strains and cracks against the pressure of secrecy and not-sharing. In terms of innovators, the powerfuls prefer [even force, by way of legal and fiscal circumstance] them to take rest and abstain from their art, even in their own &amp;quot;private time.&amp;quot; In my worldview, such a notion is laughable at best, but apparently such is the world we live in.&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Life has never felt more Orwellian.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;All that strife has got me thinking&amp;#8230; if you could change it &lt;a href=&#39;/blog/2013/05/16/can-you-do-better&#39;&gt;could you do better?&lt;/a&gt;&lt;/p&gt;
-&lt;hr /&gt;
+&lt;p&gt;All that strife has got me thinking... if you could change it &lt;a href=&quot;/blog/2013/05/16/can-you-do-better&quot;&gt;could you do better?&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr&gt;
+
 &lt;p&gt;&lt;strong&gt;Extra&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;taken from &lt;a href=&#39;http://answers.onstartups.com/questions/947/when-is-a-startup-a-conflict-of-interest-with-existing-job&#39;&gt;source&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;taken from &lt;a href=&quot;http://answers.onstartups.com/questions/947/when-is-a-startup-a-conflict-of-interest-with-existing-job&quot;&gt;source&lt;/a&gt;:&lt;/p&gt;
 
-&lt;h2 id=&#39;when_is_a_startup_a_conflict_of_interest_with_existing_job&#39;&gt;When is a startup a conflict of interest with existing job?&lt;/h2&gt;
+&lt;h2&gt;When is a startup a conflict of interest with existing job?&lt;/h2&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;At least in Switzerland, you have to be very cautious about what of the things you create during your employment belongs to your employer. If you do not especially ask for the contract to include only results of your work for the company, all your private inventions and achievements not only in your field of employment can be claimed by the employer. It happened to a friend of mine that even the rights on a published book of poems were taken by his employer, another one lost the rights to a new bicycle break he invented. Both were programmers.&lt;/p&gt;
@@ -750,15 +894,12 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Some employers insist on 100% of your work time, including private work. They then claim that all achievements have been made during their time.&lt;/p&gt;
 
 &lt;p&gt;Rare cases I agree. And maybe its different where you live. Just read your contract very carefully.&lt;/p&gt;
-&lt;/blockquote&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;&amp;#8220;things you create during your employment belongs to your employer&amp;#8221; - is this the default (i.e. with no other agreements in place) rule? In the states, that&amp;#8217;s not the default, but it can be written into contracts and it has held up in court. – Alex Papadimoulis Oct 12 &amp;#8216;09 at 16:46&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&amp;quot;things you create during your employment belongs to your employer&amp;quot; - is this the default (i.e. with no other agreements in place) rule? In the states, that&amp;#39;s not the default, but it can be written into contracts and it has held up in court. – Alex Papadimoulis Oct 12 &amp;#39;09 at 16:46&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;It&amp;#8217;s a little more wordy,but the standard clause boils down to this in front of the court. It is one of the things that usually are missed by people - which does not matter in most cases, but when you are successful with your startup suddenly might. – malach Oct 13 &amp;#8216;09 at 4:34&lt;/p&gt;
-&lt;/blockquote&gt;</description>
+&lt;p&gt;It&amp;#39;s a little more wordy,but the standard clause boils down to this in front of the court. It is one of the things that usually are missed by people - which does not matter in most cases, but when you are successful with your startup suddenly might. – malach Oct 13 &amp;#39;09 at 4:34&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/05/16/conflict-of-interest</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/05/16/conflict-of-interest</guid>
                 <pubDate>2013-05-16T00:00:00-07:00</pubDate>
@@ -766,11 +907,12 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 
         <item>
                 <title>Can You Do Better</title>
-                <description>&lt;p&gt;I&amp;#8217;m a software developer, and not an economist, but I&amp;#8217;m beginning to feel some things that were never apparent to me and I didn&amp;#8217;t much care to think of before &amp;#8211; I hope it may be something I can articulate soon. But as of now, no, I can&amp;#8217;t do any better, and even if I did have clear ideas for reformation that would satisfy the internal moral conflict that the above discusses, I don&amp;#8217;t have the money/power/influence to implement the reforms it would take to make us a more innovative and forward thinking state.&lt;/p&gt;
+                <description>&lt;p&gt;I&amp;#39;m a software developer, and not an economist, but I&amp;#39;m beginning to feel some things that were never apparent to me and I didn&amp;#39;t much care to think of before -- I hope it may be something I can articulate soon. But as of now, no, I can&amp;#39;t do any better, and even if I did have clear ideas for reformation that would satisfy the internal moral conflict that the above discusses, I don&amp;#39;t have the money/power/influence to implement the reforms it would take to make us a more innovative and forward thinking state.&lt;/p&gt;
 
 &lt;p&gt;I do think that open source, anonymity, and bitcoins are building blocks to a subversive arsenal against the tyrants that stifle innovation: current laws, market forces, assholes. This all reduces the rate of good positive change and the general level of beauty and art in the world.&lt;/p&gt;
 
-&lt;p&gt;I&amp;#8217;ll close by saying the top hedge fund managers in the world get paid inane amounts of money for doing literally nothing positive (it&amp;#8217;s a zero sum game), while the scientists trying to cure your mother&amp;#8217;s cancer are being stifled and underfunded. Sick society.&lt;/p&gt;</description>
+&lt;p&gt;I&amp;#39;ll close by saying the top hedge fund managers in the world get paid inane amounts of money for doing literally nothing positive (it&amp;#39;s a zero sum game), while the scientists trying to cure your mother&amp;#39;s cancer are being stifled and underfunded. Sick society.&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/05/16/can-you-do-better</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/05/16/can-you-do-better</guid>
                 <pubDate>2013-05-16T00:00:00-07:00</pubDate>
@@ -778,14 +920,20 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
 
         <item>
                 <title>Willful Defiance</title>
-                <description>&lt;p&gt;In response to &lt;a href=&#39;http://articles.latimes.com/2013/may/12/local/la-me-adv-lausd-discipline-20130513&#39;&gt;LAUSD board could ban suspensions for &amp;#8216;willful defiance&amp;#8217;&lt;/a&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#39;4_freedom_is_good&#39;&gt;4. Freedom is good.&lt;/h2&gt;
+                <description>&lt;p&gt;In response to &lt;a href=&quot;http://articles.latimes.com/2013/may/12/local/la-me-adv-lausd-discipline-20130513&quot;&gt;LAUSD board could ban suspensions for &amp;#39;willful defiance&amp;#39;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Hackers are naturally anti-authoritarian. Anyone who can give you orders can stop you from solving whatever problem you&amp;#8217;re being fascinated by &amp;#8211; and, given the way authoritarian minds work, will generally find some appallingly stupid reason to do so. So the authoritarian attitude has to be fought wherever you find it, lest it smother you and other hackers. (This isn&amp;#8217;t the same as fighting all authority. Children need to be guided and criminals restrained. A hacker may agree to accept some kinds of authority in order to get something he wants more than the time he spends following orders. But that&amp;#8217;s a limited, conscious bargain; the kind of personal surrender authoritarians want is not on offer.)&lt;/p&gt;
+&lt;hr&gt;
 
-&lt;p&gt;Authoritarians thrive on censorship and secrecy. And they distrust voluntary cooperation and information-sharing &amp;#8211; they only like &amp;#8216;cooperation&amp;#8217; that they control. So to behave like a hacker, you have to develop an instinctive hostility to censorship, secrecy, and the use of force or deception to compel responsible adults. And you have to be willing to act on that belief.&lt;/p&gt;
-&lt;a href=&#39;#&#39; onclick=&#39;document.getElementById(&amp;apos;more&amp;apos;).style.display = &amp;apos;block&amp;apos;;&#39;&gt;show source&lt;/a&gt;&lt;pre id=&#39;more&#39; style=&#39;display:none&#39;&gt;
+&lt;h2&gt;4. Freedom is good.&lt;/h2&gt;
+
+&lt;p&gt;Hackers are naturally anti-authoritarian. Anyone who can give you orders can stop you from solving whatever problem you&amp;#39;re being fascinated by -- and, given the way authoritarian minds work, will generally find some appallingly stupid reason to do so. So the authoritarian attitude has to be fought wherever you find it, lest it smother you and other hackers.
+(This isn&amp;#39;t the same as fighting all authority. Children need to be guided and criminals restrained. A hacker may agree to accept some kinds of authority in order to get something he wants more than the time he spends following orders. But that&amp;#39;s a limited, conscious bargain; the kind of personal surrender authoritarians want is not on offer.)&lt;/p&gt;
+
+&lt;p&gt;Authoritarians thrive on censorship and secrecy. And they distrust voluntary cooperation and information-sharing -- they only like &amp;#39;cooperation&amp;#39; that they control. So to behave like a hacker, you have to develop an instinctive hostility to censorship, secrecy, and the use of force or deception to compel responsible adults. And you have to be willing to act on that belief.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#&quot; onclick=&quot;document.getElementById(&#39;more&#39;).style.display = &#39;block&#39;;&quot;&gt;show source&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre id=&quot;more&quot; style=&quot;display:none&quot;&gt;
     Back to [Eric&#39;s FAQs Page]  Up to [Site Map]  $Date: 2000/03/24 21:01:28 $
     Translations into: French Spanish Italian German Japanese Korean Swedish Portuguese Russian Bulgarian Danish Indonesian Dutch Chinese (Traditional) Chinese (Simplified)
 
@@ -1057,7 +1205,8 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
     Elsewhere on this page I include pointers to where to get the most commonly used free Unix. To be a hacker you need motivation and initiative and the ability to educate yourself. Start now...
     Back to Eric&#39;s FAQ Page Up to Site Map  $Date: 2000/03/24 21:01:28 $
     Eric S. Raymond esr@snark.thyrsus.com
-&lt;/pre&gt;</description>
+&lt;/pre&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/05/14/willful-defiance</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/05/14/willful-defiance</guid>
                 <pubDate>2013-05-14T00:00:00-07:00</pubDate>
@@ -1067,31 +1216,33 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
                 <title>Bellow (another notification gem)</title>
                 <description>&lt;p&gt;It wraps the top Prowl and Notify My Android ruby gems and presents one method&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#39;https://github.com/keyvanfatehi/bellow&#39;&gt;bellow on github&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;ruby&#39;&gt;&lt;span class=&#39;c1&#39;&gt;# People and API keys for each service (nma and prowl)&lt;/span&gt;
-&lt;span class=&#39;n&#39;&gt;people&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
-  &lt;span class=&#39;ss&#39;&gt;:guillaume&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
-    &lt;span class=&#39;ss&#39;&gt;:prowl&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;f7a1879f0331667e0a993b501127a5f21ce7fbff&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
-    &lt;span class=&#39;ss&#39;&gt;:nma&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;baa2ab11aa424a08945938a3df1e0341ce935d30704eca0b&amp;quot;&lt;/span&gt;
-  &lt;span class=&#39;p&#39;&gt;},&lt;/span&gt;
-  &lt;span class=&#39;s1&#39;&gt;&amp;#39;keyvan fatehi&amp;#39;&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
-    &lt;span class=&#39;ss&#39;&gt;:prowl&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;757e5b121f243d7309eafa041ba93f5d794336cd&amp;quot;&lt;/span&gt;
-  &lt;span class=&#39;p&#39;&gt;},&lt;/span&gt;
-  &lt;span class=&#39;ss&#39;&gt;:steve&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
-    &lt;span class=&#39;ss&#39;&gt;:prowl&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;85138c449bd3ee2f48039c8ca471f710c4257f70&amp;quot;&lt;/span&gt;
-  &lt;span class=&#39;p&#39;&gt;}&lt;/span&gt;
-&lt;span class=&#39;p&#39;&gt;}&lt;/span&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/keyvanfatehi/bellow&quot;&gt;bellow on github&lt;/a&gt;&lt;/p&gt;
 
-&lt;span class=&#39;c1&#39;&gt;# Build your message&lt;/span&gt;
-&lt;span class=&#39;n&#39;&gt;subject&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;McDonalds&amp;quot;&lt;/span&gt;
-&lt;span class=&#39;n&#39;&gt;message&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;Hey guys I just ordered a Big Mac LOL&amp;quot;&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# People and API keys for each service (nma and prowl)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;people&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;:guillaume&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;:prowl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;f7a1879f0331667e0a993b501127a5f21ce7fbff&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;:nma&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;baa2ab11aa424a08945938a3df1e0341ce935d30704eca0b&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;&amp;#39;keyvan fatehi&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;:prowl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;757e5b121f243d7309eafa041ba93f5d794336cd&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;:steve&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;:prowl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;85138c449bd3ee2f48039c8ca471f710c4257f70&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&#39;c1&#39;&gt;# Notify them all with Bellow&lt;/span&gt;
-&lt;span class=&#39;no&#39;&gt;Bellow&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;notify&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;people&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;app&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;message&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a href=&#39;http://www.prowlapp.com&#39;&gt;ProwlApp&lt;/a&gt;&lt;/p&gt;
+&lt;span class=&quot;c1&quot;&gt;# Build your message&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;subject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;McDonalds&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hey guys I just ordered a Big Mac LOL&amp;quot;&lt;/span&gt;
 
-&lt;p&gt;&lt;a href=&#39;http://www.notifymyandroid.com&#39;&gt;NMA&lt;/a&gt;&lt;/p&gt;</description>
+&lt;span class=&quot;c1&quot;&gt;# Notify them all with Bellow&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Bellow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;notify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;people&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.prowlapp.com&quot;&gt;ProwlApp&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.notifymyandroid.com&quot;&gt;NMA&lt;/a&gt;&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/05/14/Bellow</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/05/14/Bellow</guid>
                 <pubDate>2013-05-14T00:00:00-07:00</pubDate>
@@ -1101,30 +1252,31 @@ I prefer an associative visual element appear onscreen&lt;/code&gt;&lt;/pre&gt;
                 <title>Hello Jekyll Goodbye Tumblr</title>
                 <description>&lt;p&gt;Migrating my posts from Tumblr and into Jekyll was not too difficult but I did need to write a little script to make this work.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#39;https://gist.github.com/keyvanfatehi/5562147&#39;&gt;Gist&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;ruby&#39;&gt;&lt;span class=&#39;c1&#39;&gt;#!/usr/bin/env ruby&lt;/span&gt;
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/keyvanfatehi/5562147&quot;&gt;Gist&lt;/a&gt;&lt;/p&gt;
 
-&lt;span class=&#39;nb&#39;&gt;require&lt;/span&gt; &lt;span class=&#39;s1&#39;&gt;&amp;#39;rubygems&amp;#39;&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env ruby&lt;/span&gt;
 
-&lt;span class=&#39;c1&#39;&gt;##&lt;/span&gt;
-&lt;span class=&#39;c1&#39;&gt;# Monkeypatch to fix the following&lt;/span&gt;
-&lt;span class=&#39;c1&#39;&gt;# tumblr.rb:73&lt;/span&gt;
-&lt;span class=&#39;c1&#39;&gt;#   content = post.at[&amp;quot;audio-player&amp;quot;] + &amp;quot;&amp;lt;br/&amp;gt;&amp;quot; + post[&amp;quot;audio-caption&amp;quot;]&lt;/span&gt;
-&lt;span class=&#39;k&#39;&gt;class&lt;/span&gt; &lt;span class=&#39;nc&#39;&gt;Hash&lt;/span&gt;
-  &lt;span class=&#39;k&#39;&gt;def&lt;/span&gt; &lt;span class=&#39;nf&#39;&gt;at&lt;/span&gt;
-    &lt;span class=&#39;nb&#39;&gt;self&lt;/span&gt;
-  &lt;span class=&#39;k&#39;&gt;end&lt;/span&gt;
-&lt;span class=&#39;k&#39;&gt;end&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;rubygems&amp;#39;&lt;/span&gt;
 
-&lt;span class=&#39;k&#39;&gt;begin&lt;/span&gt;
-  &lt;span class=&#39;nb&#39;&gt;require&lt;/span&gt; &lt;span class=&#39;s1&#39;&gt;&amp;#39;jekyll/jekyll-import/tumblr&amp;#39;&lt;/span&gt;
-&lt;span class=&#39;k&#39;&gt;rescue&lt;/span&gt;
-  &lt;span class=&#39;nb&#39;&gt;puts&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;Missing jekyll-import gem. Do this: gem install jekyll-import --pre&amp;quot;&lt;/span&gt;
-  &lt;span class=&#39;nb&#39;&gt;exit&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;-&lt;/span&gt;&lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;
-&lt;span class=&#39;k&#39;&gt;end&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Monkeypatch to fix the following&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# tumblr.rb:73&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#   content = post.at[&amp;quot;audio-player&amp;quot;] + &amp;quot;&amp;lt;br/&amp;gt;&amp;quot; + post[&amp;quot;audio-caption&amp;quot;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Hash&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;at&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
-&lt;span class=&#39;ss&#39;&gt;JekyllImport&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;ss&#39;&gt;:Tumblr&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;process&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;s2&#39;&gt;&amp;quot;http://slog.keyvanfatehi.com&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;kp&#39;&gt;true&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;span class=&quot;k&quot;&gt;begin&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;jekyll/jekyll-import/tumblr&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;rescue&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Missing jekyll-import gem. Do this: gem install jekyll-import --pre&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;JekyllImport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Tumblr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;http://slog.keyvanfatehi.com&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/blog/2013/05/11/hello-jekyll-goodbye-tumblr</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/05/11/hello-jekyll-goodbye-tumblr</guid>
                 <pubDate>2013-05-11T00:00:00-07:00</pubDate>
@@ -1620,35 +1772,47 @@ to collaborate effectively on projects hosted on github, using branches for feat
 
         <item>
                 <title>Jekyll Introduction</title>
-                <description>&lt;p&gt;This Jekyll introduction will outline specifically what Jekyll is and why you would want to use it. Directly following the intro we&amp;#8217;ll learn exactly &lt;em&gt;how&lt;/em&gt; Jekyll does what it does.&lt;/p&gt;
+                <description>&lt;p&gt;This Jekyll introduction will outline specifically  what Jekyll is and why you would want to use it.
+Directly following the intro we&amp;#39;ll learn exactly &lt;em&gt;how&lt;/em&gt; Jekyll does what it does.&lt;/p&gt;
 
-&lt;h2 id=&#39;overview&#39;&gt;Overview&lt;/h2&gt;
+&lt;h2&gt;Overview&lt;/h2&gt;
 
-&lt;h3 id=&#39;what_is_jekyll&#39;&gt;What is Jekyll?&lt;/h3&gt;
+&lt;h3&gt;What is Jekyll?&lt;/h3&gt;
 
-&lt;p&gt;Jekyll is a parsing engine bundled as a ruby gem used to build static websites from dynamic components such as templates, partials, liquid code, markdown, etc. Jekyll is known as &amp;#8220;a simple, blog aware, static site generator&amp;#8221;.&lt;/p&gt;
+&lt;p&gt;Jekyll is a parsing engine bundled as a ruby gem used to build static websites from
+dynamic components such as templates, partials, liquid code, markdown, etc. Jekyll is known as &amp;quot;a simple, blog aware, static site generator&amp;quot;.&lt;/p&gt;
 
-&lt;h3 id=&#39;examples&#39;&gt;Examples&lt;/h3&gt;
+&lt;h3&gt;Examples&lt;/h3&gt;
 
-&lt;p&gt;This website is created with Jekyll. &lt;a href=&#39;https://github.com/mojombo/jekyll/wiki/Sites&#39;&gt;Other Jekyll websites&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This website is created with Jekyll. &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Sites&quot;&gt;Other Jekyll websites&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#39;what_does_jekyll_do&#39;&gt;What does Jekyll Do?&lt;/h3&gt;
+&lt;h3&gt;What does Jekyll Do?&lt;/h3&gt;
 
-&lt;p&gt;Jekyll is a ruby gem you install on your local system. Once there you can call &lt;code&gt;jekyll --server&lt;/code&gt; on a directory and provided that directory is setup in a way jekyll expects, it will do magic stuff like parse markdown/textile files, compute categories, tags, permalinks, and construct your pages from layout templates and partials.&lt;/p&gt;
+&lt;p&gt;Jekyll is a ruby gem you install on your local system.
+Once there you can call &lt;code&gt;jekyll --server&lt;/code&gt; on a directory and provided that directory
+is setup in a way jekyll expects, it will do magic stuff like parse markdown/textile files, 
+compute categories, tags, permalinks, and construct your pages from layout templates and partials.&lt;/p&gt;
 
-&lt;p&gt;Once parsed, Jekyll stores the result in a self-contained static &lt;code&gt;_site&lt;/code&gt; folder. The intention here is that you can serve all contents in this folder statically from a plain static web-server.&lt;/p&gt;
+&lt;p&gt;Once parsed, Jekyll stores the result in a self-contained static &lt;code&gt;_site&lt;/code&gt; folder.
+The intention here is that you can serve all contents in this folder statically from a plain static web-server.&lt;/p&gt;
 
-&lt;p&gt;You can think of Jekyll as a normalish dynamic blog but rather than parsing content, templates, and tags on each request, Jekyll does this once &lt;em&gt;beforehand&lt;/em&gt; and caches the &lt;em&gt;entire website&lt;/em&gt; in a folder for serving statically.&lt;/p&gt;
+&lt;p&gt;You can think of Jekyll as a normalish dynamic blog but rather than parsing content, templates, and tags
+on each request, Jekyll does this once &lt;em&gt;beforehand&lt;/em&gt; and caches the &lt;em&gt;entire website&lt;/em&gt; in a folder for serving statically.&lt;/p&gt;
 
-&lt;h3 id=&#39;jekyll_is_not_blogging_software&#39;&gt;Jekyll is Not Blogging Software&lt;/h3&gt;
+&lt;h3&gt;Jekyll is Not Blogging Software&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Jekyll is a parsing engine.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Jekyll does not come with any content nor does it have any templates or design elements. This is a common source of confusion when getting started. Jekyll does not come with anything you actually use or see on your website - you have to make it.&lt;/p&gt;
+&lt;p&gt;Jekyll does not come with any content nor does it have any templates or design elements.
+This is a common source of confusion when getting started.
+Jekyll does not come with anything you actually use or see on your website - you have to make it.&lt;/p&gt;
 
-&lt;h3 id=&#39;why_should_i_care&#39;&gt;Why Should I Care?&lt;/h3&gt;
+&lt;h3&gt;Why Should I Care?&lt;/h3&gt;
 
-&lt;p&gt;Jekyll is very minimalistic and very efficient. The most important thing to realize about Jekyll is that it creates a static representation of your website requiring only a static web-server. Traditional dynamic blogs like Wordpress require a database and server-side code. Heavily trafficked dynamic blogs must employ a caching layer that ultimately performs the same job Jekyll sets out to do; serve static content.&lt;/p&gt;
+&lt;p&gt;Jekyll is very minimalistic and very efficient.
+The most important thing to realize about Jekyll is that it creates a static representation of your website requiring only a static web-server.
+Traditional dynamic blogs like Wordpress require a database and server-side code.
+Heavily trafficked dynamic blogs must employ a caching layer that ultimately performs the same job Jekyll sets out to do; serve static content.&lt;/p&gt;
 
 &lt;p&gt;Therefore if you like to keep things simple and you prefer the command-line over an admin panel UI then give Jekyll a try.&lt;/p&gt;
 
@@ -1656,37 +1820,34 @@ to collaborate effectively on projects hosted on github, using branches for feat
 
 &lt;ul&gt;
 &lt;li&gt;Ability to write content in markdown or textile in your favorite text-editor.&lt;/li&gt;
-
 &lt;li&gt;Ability to write and preview your content via localhost.&lt;/li&gt;
-
 &lt;li&gt;No internet connection required.&lt;/li&gt;
-
 &lt;li&gt;Ability to publish via git.&lt;/li&gt;
-
 &lt;li&gt;Ability to host your blog on a static web-server.&lt;/li&gt;
-
 &lt;li&gt;Ability to host freely on GitHub Pages.&lt;/li&gt;
-
 &lt;li&gt;No database required.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&#39;how_jekyll_works&#39;&gt;How Jekyll Works&lt;/h1&gt;
+&lt;h1&gt;How Jekyll Works&lt;/h1&gt;
 
 &lt;p&gt;The following is a complete but concise outline of exactly how Jekyll works.&lt;/p&gt;
 
-&lt;p&gt;Be aware that core concepts are introduced in rapid succession without code examples. This information is not intended to specifically teach you how to do anything, rather it is intended to give you the &lt;em&gt;full picture&lt;/em&gt; relative to what is going on in Jekyll-world.&lt;/p&gt;
+&lt;p&gt;Be aware that core concepts are introduced in rapid succession without code examples.
+This information is not intended to specifically teach you how to do anything, rather it
+is intended to give you the &lt;em&gt;full picture&lt;/em&gt; relative to what is going on in Jekyll-world.&lt;/p&gt;
 
-&lt;p&gt;Learning these core concepts should help you avoid common frustrations and ultimately help you better understand the code examples contained throughout Jekyll-Bootstrap.&lt;/p&gt;
+&lt;p&gt;Learning these core concepts should help you avoid common frustrations and ultimately 
+help you better understand the code examples contained throughout Jekyll-Bootstrap.&lt;/p&gt;
 
-&lt;h2 id=&#39;initial_setup&#39;&gt;Initial Setup&lt;/h2&gt;
+&lt;h2&gt;Initial Setup&lt;/h2&gt;
 
-&lt;p&gt;After &lt;a href=&#39;/index.html#start-now&#39;&gt;installing jekyll&lt;/a&gt; you&amp;#8217;ll need to format your website directory in a way jekyll expects. Jekyll-bootstrap conveniently provides the base directory format.&lt;/p&gt;
+&lt;p&gt;After &lt;a href=&quot;/index.html#start-now&quot;&gt;installing jekyll&lt;/a&gt; you&amp;#39;ll need to format your website directory in a way jekyll expects.
+Jekyll-bootstrap conveniently provides the base directory format.&lt;/p&gt;
 
-&lt;h3 id=&#39;the_jekyll_application_base_format&#39;&gt;The Jekyll Application Base Format&lt;/h3&gt;
+&lt;h3&gt;The Jekyll Application Base Format&lt;/h3&gt;
 
 &lt;p&gt;Jekyll expects your website directory to be laid out like so:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;.
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;.
 |-- _config.yml
 |-- _includes
 |-- _layouts
@@ -1700,244 +1861,305 @@ to collaborate effectively on projects hosted on github, using branches for feat
 |-- assets
     |-- css
         |-- style.css
-    |-- javascripts&lt;/code&gt;&lt;/pre&gt;
-
+    |-- javascripts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;_config.yml&lt;/strong&gt;&lt;br /&gt;Stores configuration data.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;_includes&lt;/strong&gt;&lt;br /&gt;This folder is for partial views.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;_layouts&lt;/strong&gt; &lt;br /&gt;This folder is for the main templates your content will be inserted into. You can have different layouts for different pages or page sections.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;_posts&lt;/strong&gt;&lt;br /&gt;This folder contains your dynamic content/posts. the naming format is required to be &lt;code&gt;@YEAR-MONTH-DATE-title.MARKUP@&lt;/code&gt;.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;_site&lt;/strong&gt;&lt;br /&gt;This is where the generated site will be placed once Jekyll is done transforming it.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;assets&lt;/strong&gt;&lt;br /&gt;This folder is not part of the standard jekyll structure. The assets folder represents &lt;em&gt;any generic&lt;/em&gt; folder you happen to create in your root directory. Directories and files not properly formatted for jekyll will be left untouched for you to serve normally.&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;_config.yml&lt;/strong&gt;&lt;br&gt;
+Stores configuration data.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;_includes&lt;/strong&gt;&lt;br&gt;
+This folder is for partial views.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;_layouts&lt;/strong&gt;&lt;br&gt;
+This folder is for the main templates your content will be inserted into.
+You can have different layouts for different pages or page sections.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;_posts&lt;/strong&gt;&lt;br&gt;
+This folder contains your dynamic content/posts.
+the naming format is required to be &lt;code&gt;@YEAR-MONTH-DATE-title.MARKUP@&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;_site&lt;/strong&gt;&lt;br&gt;
+This is where the generated site will be placed once Jekyll is done transforming it. &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;assets&lt;/strong&gt;&lt;br&gt;
+This folder is not part of the standard jekyll structure.
+The assets folder represents &lt;em&gt;any generic&lt;/em&gt; folder you happen to create in your root directory.
+Directories and files not properly formatted for jekyll will be left untouched for you to serve normally.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;(read more: &lt;a href=&#39;https://github.com/mojombo/jekyll/wiki/Usage&#39;&gt;https://github.com/mojombo/jekyll/wiki/Usage&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;(read more: &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Usage&quot;&gt;https://github.com/mojombo/jekyll/wiki/Usage&lt;/a&gt;)&lt;/p&gt;
 
-&lt;h3 id=&#39;jekyll_configuration&#39;&gt;Jekyll Configuration&lt;/h3&gt;
+&lt;h3&gt;Jekyll Configuration&lt;/h3&gt;
 
-&lt;p&gt;Jekyll supports various configuration options that are fully outlined here: &lt;a href=&#39;https://github.com/mojombo/jekyll/wiki/Configuration&#39;&gt;https://github.com/mojombo/jekyll/wiki/Configuration&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Jekyll supports various configuration options that are fully outlined here:
+&lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Configuration&quot;&gt;https://github.com/mojombo/jekyll/wiki/Configuration&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#39;content_in_jekyll&#39;&gt;Content in Jekyll&lt;/h2&gt;
+&lt;h2&gt;Content in Jekyll&lt;/h2&gt;
 
-&lt;p&gt;Content in Jekyll is either a post or a page. These content &amp;#8220;objects&amp;#8221; get inserted into one or more templates to build the final output for its respective static-page.&lt;/p&gt;
+&lt;p&gt;Content in Jekyll is either a post or a page.
+These content &amp;quot;objects&amp;quot; get inserted into one or more templates to build the final output for its respective static-page.&lt;/p&gt;
 
-&lt;h3 id=&#39;posts_and_pages&#39;&gt;Posts and Pages&lt;/h3&gt;
+&lt;h3&gt;Posts and Pages&lt;/h3&gt;
 
-&lt;p&gt;Both posts and pages should be written in markdown, textile, or HTML and may also contain Liquid templating syntax. Both posts and pages can have meta-data assigned on a per-page basis such as title, url path, as well as arbitrary custom meta-data.&lt;/p&gt;
+&lt;p&gt;Both posts and pages should be written in markdown, textile, or HTML and may also contain Liquid templating syntax.
+Both posts and pages can have meta-data assigned on a per-page basis such as title, url path, as well as arbitrary custom meta-data.&lt;/p&gt;
 
-&lt;h3 id=&#39;working_with_posts&#39;&gt;Working With Posts&lt;/h3&gt;
+&lt;h3&gt;Working With Posts&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Creating a Post&lt;/strong&gt; &lt;br /&gt;Posts are created by properly formatting a file and placing it the &lt;code&gt;_posts&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Creating a Post&lt;/strong&gt;&lt;br&gt;
+Posts are created by properly formatting a file and placing it the &lt;code&gt;_posts&lt;/code&gt; folder.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;&lt;br /&gt;A post must have a valid filename in the form &lt;code&gt;YEAR-MONTH-DATE-title.MARKUP&lt;/code&gt; and be placed in the &lt;code&gt;_posts&lt;/code&gt; directory. If the data format is invalid Jekyll will not recognize the file as a post. The date and title are automatically parsed from the filename of the post file. Additionally, each file must have &lt;a href=&#39;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&#39;&gt;YAML Front-Matter&lt;/a&gt; prepended to its content. YAML Front-Matter is a valid YAML syntax specifying meta-data for the given file.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;&lt;br&gt;
+A post must have a valid filename in the form &lt;code&gt;YEAR-MONTH-DATE-title.MARKUP&lt;/code&gt; and be placed in the &lt;code&gt;_posts&lt;/code&gt; directory. 
+If the data format is invalid Jekyll will not recognize the file as a post. The date and title are automatically parsed from the filename of the post file.
+Additionally, each file must have &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&quot;&gt;YAML Front-Matter&lt;/a&gt; prepended to its content.
+YAML Front-Matter is a valid YAML syntax specifying meta-data for the given file.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Order&lt;/strong&gt;&lt;br /&gt;Ordering is an important part of Jekyll but it is hard to specify a custom ordering strategy. Only reverse chronological and chronological ordering is supported in Jekyll.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Order&lt;/strong&gt;&lt;br&gt;
+Ordering is an important part of Jekyll but it is hard to specify a custom ordering strategy.
+Only reverse chronological and chronological ordering is supported in Jekyll.&lt;/p&gt;
 
 &lt;p&gt;Since the date is hard-coded into the filename format, to change the order, you must change the dates in the filenames.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Tags&lt;/strong&gt; &lt;br /&gt;Posts can have tags associated with them as part of their meta-data. Tags may be placed on posts by providing them in the post&amp;#8217;s YAML front matter. You have access to the post-specific tags in the templates. These tags also get added to the sitewide collection.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tags&lt;/strong&gt;&lt;br&gt;
+Posts can have tags associated with them as part of their meta-data.
+Tags may be placed on posts by providing them in the post&amp;#39;s YAML front matter.
+You have access to the post-specific tags in the templates. These tags also get added to the sitewide collection.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Categories&lt;/strong&gt; &lt;br /&gt;Posts may be categorized by providing one or more categories in the YAML front matter. Categories offer more significance over tags in that they can be reflected in the URL path to the given post. Note categories in Jekyll work in a specific way. If you define more than one category you are defining a category hierarchy &amp;#8220;set&amp;#8221;. Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;---
+&lt;p&gt;&lt;strong&gt;Categories&lt;/strong&gt;&lt;br&gt;
+Posts may be categorized by providing one or more categories in the YAML front matter.
+Categories offer more significance over tags in that they can be reflected in the URL path to the given post.
+Note categories in Jekyll work in a specific way.
+If you define more than one category you are defining a category hierarchy &amp;quot;set&amp;quot;.
+Example:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;---
 title :  Hello World
 categories : [lessons, beginner]
----&lt;/code&gt;&lt;/pre&gt;
+---
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This defines the category hierarchy &amp;quot;lessons/beginner&amp;quot;. Note this is &lt;em&gt;one category&lt;/em&gt; node in Jekyll.
+You won&amp;#39;t find &amp;quot;lessons&amp;quot; and &amp;quot;beginner&amp;quot; as two separate categories unless you define them elsewhere as singular categories.&lt;/p&gt;
 
-&lt;p&gt;This defines the category hierarchy &amp;#8220;lessons/beginner&amp;#8221;. Note this is &lt;em&gt;one category&lt;/em&gt; node in Jekyll. You won&amp;#8217;t find &amp;#8220;lessons&amp;#8221; and &amp;#8220;beginner&amp;#8221; as two separate categories unless you define them elsewhere as singular categories.&lt;/p&gt;
+&lt;h3&gt;Working With Pages&lt;/h3&gt;
 
-&lt;h3 id=&#39;working_with_pages&#39;&gt;Working With Pages&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Creating a Page&lt;/strong&gt;&lt;br&gt;
+Pages are created by properly formatting a file and placing it anywhere in the root directory or subdirectories that do &lt;em&gt;not&lt;/em&gt; start with an underscore.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Creating a Page&lt;/strong&gt;&lt;br /&gt;Pages are created by properly formatting a file and placing it anywhere in the root directory or subdirectories that do &lt;em&gt;not&lt;/em&gt; start with an underscore.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;&lt;br&gt;
+In order to register as a Jekyll page the file must contain &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&quot;&gt;YAML Front-Matter&lt;/a&gt;.
+Registering a page means 1) that Jekyll will process the page and 2) that the page object will be available in the &lt;code&gt;site.pages&lt;/code&gt; array for inclusion into your templates.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;&lt;br /&gt;In order to register as a Jekyll page the file must contain &lt;a href=&#39;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&#39;&gt;YAML Front-Matter&lt;/a&gt;. Registering a page means 1) that Jekyll will process the page and 2) that the page object will be available in the &lt;code&gt;site.pages&lt;/code&gt; array for inclusion into your templates.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Categories and Tags&lt;/strong&gt;&lt;br&gt;
+Pages do not compute categories nor tags so defining them will have no effect.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Categories and Tags&lt;/strong&gt;&lt;br /&gt;Pages do not compute categories nor tags so defining them will have no effect.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Sub-Directories&lt;/strong&gt;&lt;br /&gt;If pages are defined in sub-directories, the path to the page will be reflected in the url. Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;.
+&lt;p&gt;&lt;strong&gt;Sub-Directories&lt;/strong&gt;&lt;br&gt;
+If pages are defined in sub-directories, the path to the page will be reflected in the url.
+Example:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;.
 |-- people
     |-- bob
-        |-- essay.html&lt;/code&gt;&lt;/pre&gt;
-
+        |-- essay.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This page will be available at &lt;code&gt;http://yourdomain.com/people/bob/essay.html&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Recommended Pages&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Recommended Pages&lt;/strong&gt;  &lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;index.html&lt;/strong&gt;&lt;br /&gt;You will always want to define the root index.html page as this will display on your root URL.&lt;/li&gt;
-
-&lt;li&gt;&lt;strong&gt;404.html&lt;/strong&gt;&lt;br /&gt;Create a root 404.html page and GitHub Pages will serve it as your 404 response.&lt;/li&gt;
-
-&lt;li&gt;&lt;strong&gt;sitemap.html&lt;/strong&gt;&lt;br /&gt;Generating a sitemap is good practice for SEO.&lt;/li&gt;
-
-&lt;li&gt;&lt;strong&gt;about.html&lt;/strong&gt;&lt;br /&gt;A nice about page is easy to do and gives the human perspective to your website.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;index.html&lt;/strong&gt;&lt;br&gt;
+You will always want to define the root index.html page as this will display on your root URL.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;404.html&lt;/strong&gt;&lt;br&gt;
+Create a root 404.html page and GitHub Pages will serve it as your 404 response.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sitemap.html&lt;/strong&gt;&lt;br&gt;
+Generating a sitemap is good practice for SEO.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;about.html&lt;/strong&gt;&lt;br&gt;
+A nice about page is easy to do and gives the human perspective to your website.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#39;templates_in_jekyll&#39;&gt;Templates in Jekyll&lt;/h2&gt;
+&lt;h2&gt;Templates in Jekyll&lt;/h2&gt;
 
-&lt;p&gt;Templates are used to contain a page&amp;#8217;s or post&amp;#8217;s content. All templates have access to a global site object variable: &lt;code&gt;site&lt;/code&gt; as well as a page object variable: &lt;code&gt;page&lt;/code&gt;. The site variable holds all accessible content and metadata relative to the site. The page variable holds accessible data for the given page or post being rendered at that point.&lt;/p&gt;
+&lt;p&gt;Templates are used to contain a page&amp;#39;s or post&amp;#39;s content.
+All templates have access to a global site object variable: &lt;code&gt;site&lt;/code&gt; as well as a page object variable: &lt;code&gt;page&lt;/code&gt;.
+The site variable holds all accessible content and metadata relative to the site.
+The page variable holds accessible data for the given page or post being rendered at that point.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Create a Template&lt;/strong&gt;&lt;br /&gt;Templates are created by properly formatting a file and placing it in the &lt;code&gt;_layouts&lt;/code&gt; directory.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Create a Template&lt;/strong&gt;&lt;br&gt;
+Templates are created by properly formatting a file and placing it in the &lt;code&gt;_layouts&lt;/code&gt; directory.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;&lt;br /&gt;Templates should be coded in HTML and contain YAML Front Matter. All templates can contain Liquid code to work with your site&amp;#8217;s data.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;&lt;br&gt;
+Templates should be coded in HTML and contain YAML Front Matter. 
+All templates can contain Liquid code to work with your site&amp;#39;s data.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Rending Page/Post Content in a Template&lt;/strong&gt;&lt;br /&gt;There is a special variable in all templates named : &lt;code&gt;content&lt;/code&gt;. The &lt;code&gt;content&lt;/code&gt; variable holds the page/post content including any sub-template content previously defined. Render the content variable wherever you want your main content to be injected into your template:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;...
+&lt;p&gt;&lt;strong&gt;Rending Page/Post Content in a Template&lt;/strong&gt;&lt;br&gt;
+There is a special variable in all templates named : &lt;code&gt;content&lt;/code&gt;.
+The &lt;code&gt;content&lt;/code&gt; variable holds the page/post content including any sub-template content previously defined.
+Render the content variable wherever you want your main content to be injected into your template:&lt;/p&gt;
+
+&lt;p&gt;&lt;pre&gt;&lt;code&gt;...
 &amp;lt;body&amp;gt;
-  &amp;lt;div id=&quot;sidebar&quot;&amp;gt; ... &amp;lt;/div&amp;gt;
-  &amp;lt;div id=&quot;main&quot;&amp;gt;
+  &amp;lt;div id=&amp;quot;sidebar&amp;quot;&amp;gt; ... &amp;lt;/div&amp;gt;
+  &amp;lt;div id=&amp;quot;main&amp;quot;&amp;gt;
     &amp;#123;{content}&amp;#125;
   &amp;lt;/div&amp;gt;
 &amp;lt;/body&amp;gt;
-...&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#39;subtemplates&#39;&gt;Sub-Templates&lt;/h3&gt;
+...&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
 
-&lt;p&gt;Sub-templates are exactly templates with the only difference being they define another &amp;#8220;root&amp;#8221; layout/template within their YAML Front Matter. This essentially means a template will render inside of another template.&lt;/p&gt;
+&lt;h3&gt;Sub-Templates&lt;/h3&gt;
 
-&lt;h3 id=&#39;includes&#39;&gt;Includes&lt;/h3&gt;
+&lt;p&gt;Sub-templates are exactly templates with the only difference being they 
+define another &amp;quot;root&amp;quot; layout/template within their YAML Front Matter.
+This essentially means a template will render inside of another template.&lt;/p&gt;
 
-&lt;p&gt;In Jekyll you can define include files by placing them in the &lt;code&gt;_includes&lt;/code&gt; folder. Includes are NOT templates, rather they are just code snippets that get included into templates. In this way, you can treat the code inside includes as if it was native to the parent template.&lt;/p&gt;
+&lt;h3&gt;Includes&lt;/h3&gt;
+
+&lt;p&gt;In Jekyll you can define include files by placing them in the &lt;code&gt;_includes&lt;/code&gt; folder.
+Includes are NOT templates, rather they are just code snippets that get included into templates.
+In this way, you can treat the code inside includes as if it was native to the parent template.&lt;/p&gt;
 
 &lt;p&gt;Any valid template code may be used in includes.&lt;/p&gt;
 
-&lt;h2 id=&#39;using_liquid_for_templating&#39;&gt;Using Liquid for Templating&lt;/h2&gt;
+&lt;h2&gt;Using Liquid for Templating&lt;/h2&gt;
 
-&lt;p&gt;Templating is perhaps the most confusing and frustrating part of Jekyll. This is mainly due to the fact that Jekyll templates must use the Liquid Templating Language.&lt;/p&gt;
+&lt;p&gt;Templating is perhaps the most confusing and frustrating part of Jekyll.
+This is mainly due to the fact that Jekyll templates must use the Liquid Templating Language.&lt;/p&gt;
 
-&lt;h3 id=&#39;what_is_liquid&#39;&gt;What is Liquid?&lt;/h3&gt;
+&lt;h3&gt;What is Liquid?&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href=&#39;https://github.com/Shopify/liquid&#39;&gt;Liquid&lt;/a&gt; is a secure templating language developed by &lt;a href=&#39;http://shopify.com&#39;&gt;Shopify&lt;/a&gt;. Liquid is designed for end-users to be able to execute logic within template files without imposing any security risk on the hosting server.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Shopify/liquid&quot;&gt;Liquid&lt;/a&gt; is a secure templating language developed by &lt;a href=&quot;http://shopify.com&quot;&gt;Shopify&lt;/a&gt;.
+Liquid is designed for end-users to be able to execute logic within template files 
+without imposing any security risk on the hosting server.&lt;/p&gt;
 
-&lt;p&gt;Jekyll uses Liquid to generate the post content within the final page layout structure and as the primary interface for working with your site and post/page data.&lt;/p&gt;
+&lt;p&gt;Jekyll uses Liquid to generate the post content within the final page layout structure and as the primary interface for working with
+your site and post/page data. &lt;/p&gt;
 
-&lt;h3 id=&#39;why_do_we_have_to_use_liquid&#39;&gt;Why Do We Have to Use Liquid?&lt;/h3&gt;
+&lt;h3&gt;Why Do We Have to Use Liquid?&lt;/h3&gt;
 
-&lt;p&gt;GitHub uses Jekyll to power &lt;a href=&#39;http://pages.github.com/&#39;&gt;GitHub Pages&lt;/a&gt;. GitHub cannot afford to run arbitrary code on their servers so they lock developers down via Liquid.&lt;/p&gt;
+&lt;p&gt;GitHub uses Jekyll to power &lt;a href=&quot;http://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt;. 
+GitHub cannot afford to run arbitrary code on their servers so they lock developers down via Liquid.&lt;/p&gt;
 
-&lt;h3 id=&#39;liquid_is_not_programmerfriendly&#39;&gt;Liquid is Not Programmer-Friendly.&lt;/h3&gt;
+&lt;h3&gt;Liquid is Not Programmer-Friendly.&lt;/h3&gt;
 
-&lt;p&gt;The short story is liquid is not real code and its not intended to execute real code. The point being you can&amp;#8217;t do jackshit in liquid that hasn&amp;#8217;t been allowed explicitly by the implementation. What&amp;#8217;s more you can only access data-structures that have been explicitly passed to the template.&lt;/p&gt;
+&lt;p&gt;The short story is liquid is not real code and its not intended to execute real code.
+The point being you can&amp;#39;t do jackshit in liquid that hasn&amp;#39;t been allowed explicitly by the implementation.
+What&amp;#39;s more you can only access data-structures that have been explicitly passed to the template. &lt;/p&gt;
 
-&lt;p&gt;In Jekyll&amp;#8217;s case it is not possible to alter what is passed to Liquid without hacking the gem or running custom plugins. Both of which cannot be supported by GitHub Pages.&lt;/p&gt;
+&lt;p&gt;In Jekyll&amp;#39;s case it is not possible to alter what is passed to Liquid without hacking the gem or running custom plugins. 
+Both of which cannot be supported by GitHub Pages.&lt;/p&gt;
 
 &lt;p&gt;As a programmer - this is very frustrating.&lt;/p&gt;
 
-&lt;p&gt;But rather than look a gift horse in the mouth we are going to suck it up and view it as an opportunity to work around limitations and adopt client-side solutions when possible.&lt;/p&gt;
+&lt;p&gt;But rather than look a gift horse in the mouth we are going to 
+suck it up and view it as an opportunity to work around limitations and adopt client-side solutions when possible.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Aside&lt;/strong&gt; &lt;br /&gt;My personal stance is to not invest time trying to hack liquid. It&amp;#8217;s really unnecessary &lt;em&gt;from a programmer&amp;#8217;s&lt;/em&gt; perspective. That is to say if you have the ability to run custom plugins (i.e. run arbitrary ruby code) you are better off sticking with ruby. Toward that end I&amp;#8217;ve built &lt;a href=&#39;http://github.com/plusjade/mustache-with-jekyll&#39;&gt;Mustache-with-Jekyll&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Aside&lt;/strong&gt;&lt;br&gt;
+My personal stance is to not invest time trying to hack liquid. It&amp;#39;s really unnecessary
+&lt;em&gt;from a programmer&amp;#39;s&lt;/em&gt; perspective. That is to say if you have the ability to run custom plugins (i.e. run arbitrary ruby code)
+you are better off sticking with ruby. Toward that end I&amp;#39;ve built &lt;a href=&quot;http://github.com/plusjade/mustache-with-jekyll&quot;&gt;Mustache-with-Jekyll&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#39;static_assets&#39;&gt;Static Assets&lt;/h2&gt;
+&lt;h2&gt;Static Assets&lt;/h2&gt;
 
-&lt;p&gt;Static assets are any file in the root or non-underscored subfolders that are not pages. That is they have no valid YAML Front Matter and are thus not treated as Jekyll Pages.&lt;/p&gt;
+&lt;p&gt;Static assets are any file in the root or non-underscored subfolders that are not pages.
+That is they have no valid YAML Front Matter and are thus not treated as Jekyll Pages.&lt;/p&gt;
 
-&lt;p&gt;Static assets should be used for images, css, and javascript files.&lt;/p&gt;
+&lt;p&gt;Static assets should be used for images, css, and javascript files. &lt;/p&gt;
 
-&lt;h2 id=&#39;how_jekyll_parses_files&#39;&gt;How Jekyll Parses Files&lt;/h2&gt;
+&lt;h2&gt;How Jekyll Parses Files&lt;/h2&gt;
 
 &lt;p&gt;Remember Jekyll is a processing engine. There are two main types of parsing in Jekyll.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Content parsing.&lt;/strong&gt; &lt;br /&gt;This is done with textile or markdown.&lt;/li&gt;
-
-&lt;li&gt;&lt;strong&gt;Template parsing.&lt;/strong&gt; &lt;br /&gt;This is done with the liquid templating language.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Content parsing.&lt;/strong&gt;&lt;br&gt;
+This is done with textile or markdown.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Template parsing.&lt;/strong&gt;&lt;br&gt;
+This is done with the liquid templating language.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;And thus there are two main types of file formats needed for this parsing.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Post and Page files.&lt;/strong&gt;&lt;br /&gt;All content in Jekyll is either a post or a page so valid posts and pages are parsed with markdown or textile.&lt;/li&gt;
-
-&lt;li&gt;&lt;strong&gt;Template files.&lt;/strong&gt; &lt;br /&gt;These files go in &lt;code&gt;_layouts&lt;/code&gt; folder and contain your blogs &lt;strong&gt;templates&lt;/strong&gt;. They should be made in HTML with the help of Liquid syntax. Since include files are simply injected into templates they are essentially parsed as if they were native to the template.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Post and Page files.&lt;/strong&gt;&lt;br&gt;
+All content in Jekyll is either a post or a page so valid posts and pages are parsed with markdown or textile.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Template files.&lt;/strong&gt;&lt;br&gt;
+These files go in &lt;code&gt;_layouts&lt;/code&gt; folder and contain your blogs &lt;strong&gt;templates&lt;/strong&gt;. They should be made in HTML with the help of Liquid syntax.
+Since include files are simply injected into templates they are essentially parsed as if they were native to the template.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;Arbitrary files and folders.&lt;/strong&gt; &lt;br /&gt;Files that &lt;em&gt;are not&lt;/em&gt; valid pages are treated as static content and pass through Jekyll untouched and reside on your blog in the exact structure and format they originally existed in.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Arbitrary files and folders.&lt;/strong&gt;&lt;br&gt;
+Files that &lt;em&gt;are not&lt;/em&gt; valid pages are treated as static content and pass through 
+Jekyll untouched and reside on your blog in the exact structure and format they originally existed in.&lt;/p&gt;
 
-&lt;h3 id=&#39;formatting_files_for_parsing&#39;&gt;Formatting Files for Parsing.&lt;/h3&gt;
+&lt;h3&gt;Formatting Files for Parsing.&lt;/h3&gt;
 
-&lt;p&gt;We&amp;#8217;ve outlined the need for valid formatting using &lt;strong&gt;YAML Front Matter&lt;/strong&gt;. Templates, posts, and pages all need to provide valid YAML Front Matter even if the Matter is empty. This is the only way Jekyll knows you want the file processed.&lt;/p&gt;
+&lt;p&gt;We&amp;#39;ve outlined the need for valid formatting using &lt;strong&gt;YAML Front Matter&lt;/strong&gt;.
+Templates, posts, and pages all need to provide valid YAML Front Matter even if the Matter is empty.
+This is the only way Jekyll knows you want the file processed.&lt;/p&gt;
 
 &lt;p&gt;YAML Front Matter must be prepended to the top of template/post/page files:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;---
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;---
 layout: post
 category : pages
 tags : [how-to, jekyll]
 ---
 
-... contents ...&lt;/code&gt;&lt;/pre&gt;
+... contents ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Three hyphens on a new line start the Front-Matter block and three hyphens on a new line end the block.
+The data inside the block must be valid YAML.&lt;/p&gt;
 
-&lt;p&gt;Three hyphens on a new line start the Front-Matter block and three hyphens on a new line end the block. The data inside the block must be valid YAML.&lt;/p&gt;
+&lt;p&gt;Configuration parameters for YAML Front-Matter is outlined here:
+&lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&quot;&gt;A comprehensive explanation of YAML Front Matter&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Configuration parameters for YAML Front-Matter is outlined here: &lt;a href=&#39;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&#39;&gt;A comprehensive explanation of YAML Front Matter&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;Defining Layouts for Posts and Templates Parsing.&lt;/h4&gt;
 
-&lt;h4 id=&#39;defining_layouts_for_posts_and_templates_parsing&#39;&gt;Defining Layouts for Posts and Templates Parsing.&lt;/h4&gt;
+&lt;p&gt;The &lt;code&gt;layout&lt;/code&gt; parameter in the YAML Front Matter defines the template file for which the given post or template should be injected into.
+If a template file specifies its own layout, it is effectively being used as a &lt;code&gt;sub-template.&lt;/code&gt;
+That is to say loading a post file into a template file that refers to another template file with work in the way you&amp;#39;d expect; as a nested sub-template.&lt;/p&gt;
 
-&lt;p&gt;The &lt;code&gt;layout&lt;/code&gt; parameter in the YAML Front Matter defines the template file for which the given post or template should be injected into. If a template file specifies its own layout, it is effectively being used as a &lt;code&gt;sub-template.&lt;/code&gt; That is to say loading a post file into a template file that refers to another template file with work in the way you&amp;#8217;d expect; as a nested sub-template.&lt;/p&gt;
+&lt;h2&gt;How Jekyll Generates the Final Static Files.&lt;/h2&gt;
 
-&lt;h2 id=&#39;how_jekyll_generates_the_final_static_files&#39;&gt;How Jekyll Generates the Final Static Files.&lt;/h2&gt;
-
-&lt;p&gt;Ultimately, Jekyll&amp;#8217;s job is to generate a static representation of your website. The following is an outline of how that&amp;#8217;s done:&lt;/p&gt;
+&lt;p&gt;Ultimately, Jekyll&amp;#39;s job is to generate a static representation of your website. 
+The following is an outline of how that&amp;#39;s done:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Jekyll collects data.&lt;/strong&gt; &lt;br /&gt;Jekyll scans the posts directory and collects all posts files as post objects. It then scans the layout assets and collects those and finally scans other directories in search of pages.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Jekyll computes data.&lt;/strong&gt; &lt;br /&gt;Jekyll takes these objects, computes metadata (permalinks, tags, categories, titles, dates) from them and constructs one big &lt;code&gt;site&lt;/code&gt; object that holds all the posts, pages, layouts, and respective metadata. At this stage your site is one big computed ruby object.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Jekyll liquifies posts and templates.&lt;/strong&gt;&lt;br /&gt;Next jekyll loops through each post file and converts (through markdown or textile) and &lt;strong&gt;liquifies&lt;/strong&gt; the post inside of its respective layout(s). Once the post is parsed and liquified inside the the proper layout structure, the layout itself is &amp;#8220;liquified&amp;#8221;. &lt;br /&gt;&lt;strong&gt;Liquification&lt;/strong&gt; is defined as follows: Jekyll initiates a Liquid template, and passes a simpler hash representation of the ruby site object as well as a simpler hash representation of the ruby post object. These simplified data structures are what you have access to in the templates.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Jekyll generates output.&lt;/strong&gt; &lt;br /&gt;Finally the liquid templates are &amp;#8220;rendered&amp;#8221;, thereby processing any liquid syntax provided in the templates and saving the final, static representation of the file.&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Jekyll collects data.&lt;/strong&gt;&lt;br&gt;
+Jekyll scans the posts directory and collects all posts files as post objects. It then scans the layout assets and collects those and finally scans other directories in search of pages.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Jekyll computes data.&lt;/strong&gt;&lt;br&gt;
+Jekyll takes these objects, computes metadata (permalinks, tags, categories, titles, dates) from them and constructs one 
+big &lt;code&gt;site&lt;/code&gt; object that holds all the posts, pages, layouts, and respective metadata.
+At this stage your site is one big computed ruby object.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Jekyll liquifies posts and templates.&lt;/strong&gt;&lt;br&gt;
+Next jekyll loops through each post file and converts (through markdown or textile) and &lt;strong&gt;liquifies&lt;/strong&gt; the post inside of its respective layout(s).
+Once the post is parsed and liquified inside the the proper layout structure, the layout itself is &amp;quot;liquified&amp;quot;.&lt;br&gt;
+&lt;strong&gt;Liquification&lt;/strong&gt; is defined as follows: Jekyll initiates a Liquid template, and passes a simpler hash representation of the ruby site object as well as a simpler
+hash representation of the ruby post object. These simplified data structures are what you have access to in the templates.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Jekyll generates output.&lt;/strong&gt;&lt;br&gt;
+Finally the liquid templates are &amp;quot;rendered&amp;quot;, thereby processing any liquid syntax provided in the templates
+and saving the final, static representation of the file.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;strong&gt;Notes.&lt;/strong&gt;&lt;br /&gt;Because Jekyll computes the entire site in one fell swoop, each template is given access to a global &lt;code&gt;site&lt;/code&gt; hash that contains useful data. It is this data that you&amp;#8217;ll iterate through and format using the Liquid tags and filters in order to render it onto a given page.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Notes.&lt;/strong&gt;&lt;br&gt;
+Because Jekyll computes the entire site in one fell swoop, each template is given access to 
+a global &lt;code&gt;site&lt;/code&gt; hash that contains useful data. It is this data that you&amp;#39;ll iterate through and format 
+using the Liquid tags and filters in order to render it onto a given page.&lt;/p&gt;
 
 &lt;p&gt;Remember, in Jekyll you are an end-user. Your API has only two components:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;The manner in which you setup your directory.&lt;/li&gt;
-
 &lt;li&gt;The liquid syntax and variables passed into the liquid templates.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;All the data objects available to you in the templates via Liquid are outlined in the &lt;strong&gt;API Section&lt;/strong&gt; of Jekyll-Bootstrap. You can also read the original documentation here: &lt;a href=&#39;https://github.com/mojombo/jekyll/wiki/Template-Data&#39;&gt;https://github.com/mojombo/jekyll/wiki/Template-Data&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;All the data objects available to you in the templates via Liquid are outlined in the &lt;strong&gt;API Section&lt;/strong&gt; of Jekyll-Bootstrap.
+You can also read the original documentation here: &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Template-Data&quot;&gt;https://github.com/mojombo/jekyll/wiki/Template-Data&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#39;conclusion&#39;&gt;Conclusion&lt;/h2&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
 
-&lt;p&gt;I hope this paints a clearer picture of what Jekyll is doing and why it works the way it does. As noted, our main programming constraint is the fact that our API is limited to what is accessible via Liquid and Liquid only.&lt;/p&gt;
+&lt;p&gt;I hope this paints a clearer picture of what Jekyll is doing and why it works the way it does.
+As noted, our main programming constraint is the fact that our API is limited to what is accessible via Liquid and Liquid only.&lt;/p&gt;
 
 &lt;p&gt;Jekyll-bootstrap is intended to provide helper methods and strategies aimed at making it more intuitive and easier to work with Jekyll =)&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Thank you&lt;/strong&gt; for reading this far.&lt;/p&gt;
 
-&lt;h2 id=&#39;next_steps&#39;&gt;Next Steps&lt;/h2&gt;
+&lt;h2&gt;Next Steps&lt;/h2&gt;
 
-&lt;p&gt;Please take a look at &lt;a href=&#39;&#39; /&gt; or jump right into &lt;a href=&#39;&#39;&gt;Usage&lt;/a&gt; if you&amp;#8217;d like.&lt;/p&gt;</description>
+&lt;p&gt;Please take a look at &lt;a href=&quot;&quot;&gt;&lt;/a&gt; 
+or jump right into &lt;a href=&quot;&quot;&gt;Usage&lt;/a&gt; if you&amp;#39;d like.&lt;/p&gt;
+</description>
                 <link>http://keyvanfatehi.github.io/lessons/2011/12/29/jekyll-introduction</link>
                 <guid>http://keyvanfatehi.github.io/lessons/2011/12/29/jekyll-introduction</guid>
                 <pubDate>2011-12-29T00:00:00-08:00</pubDate>

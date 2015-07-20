@@ -37,7 +37,7 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="container-narrow">
-          <a class="brand" href="/">blog of keyvan</a>
+          <a class="brand" href="/">Keyvan's Blog</a>
           <ul class="nav">
             
             
@@ -117,31 +117,33 @@
     <div class="content">
       <p>It wraps the top Prowl and Notify My Android ruby gems and presents one method</p>
 
-<p><a href='https://github.com/keyvanfatehi/bellow'>bellow on github</a></p>
-<div class='highlight'><pre><code class='ruby'><span class='c1'># People and API keys for each service (nma and prowl)</span>
-<span class='n'>people</span> <span class='o'>=</span> <span class='p'>{</span>
-  <span class='ss'>:guillaume</span> <span class='o'>=&gt;</span> <span class='p'>{</span>
-    <span class='ss'>:prowl</span> <span class='o'>=&gt;</span> <span class='s2'>&quot;f7a1879f0331667e0a993b501127a5f21ce7fbff&quot;</span><span class='p'>,</span>
-    <span class='ss'>:nma</span> <span class='o'>=&gt;</span> <span class='s2'>&quot;baa2ab11aa424a08945938a3df1e0341ce935d30704eca0b&quot;</span>
-  <span class='p'>},</span>
-  <span class='s1'>&#39;keyvan fatehi&#39;</span> <span class='o'>=&gt;</span> <span class='p'>{</span>
-    <span class='ss'>:prowl</span> <span class='o'>=&gt;</span> <span class='s2'>&quot;757e5b121f243d7309eafa041ba93f5d794336cd&quot;</span>
-  <span class='p'>},</span>
-  <span class='ss'>:steve</span> <span class='o'>=&gt;</span> <span class='p'>{</span>
-    <span class='ss'>:prowl</span> <span class='o'>=&gt;</span> <span class='s2'>&quot;85138c449bd3ee2f48039c8ca471f710c4257f70&quot;</span>
-  <span class='p'>}</span>
-<span class='p'>}</span>
+<p><a href="https://github.com/keyvanfatehi/bellow">bellow on github</a></p>
 
-<span class='c1'># Build your message</span>
-<span class='n'>subject</span> <span class='o'>=</span> <span class='s2'>&quot;McDonalds&quot;</span>
-<span class='n'>message</span> <span class='o'>=</span> <span class='s2'>&quot;Hey guys I just ordered a Big Mac LOL&quot;</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># People and API keys for each service (nma and prowl)</span>
+<span class="n">people</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="ss">:guillaume</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="ss">:prowl</span> <span class="o">=&gt;</span> <span class="s2">&quot;f7a1879f0331667e0a993b501127a5f21ce7fbff&quot;</span><span class="p">,</span>
+    <span class="ss">:nma</span> <span class="o">=&gt;</span> <span class="s2">&quot;baa2ab11aa424a08945938a3df1e0341ce935d30704eca0b&quot;</span>
+  <span class="p">},</span>
+  <span class="s1">&#39;keyvan fatehi&#39;</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="ss">:prowl</span> <span class="o">=&gt;</span> <span class="s2">&quot;757e5b121f243d7309eafa041ba93f5d794336cd&quot;</span>
+  <span class="p">},</span>
+  <span class="ss">:steve</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="ss">:prowl</span> <span class="o">=&gt;</span> <span class="s2">&quot;85138c449bd3ee2f48039c8ca471f710c4257f70&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
-<span class='c1'># Notify them all with Bellow</span>
-<span class='no'>Bellow</span><span class='o'>.</span><span class='n'>notify</span><span class='p'>(</span><span class='n'>people</span><span class='p'>,</span> <span class='n'>app</span><span class='p'>,</span> <span class='n'>message</span><span class='p'>)</span>
-</code></pre></div>
-<p><a href='http://www.prowlapp.com'>ProwlApp</a></p>
+<span class="c1"># Build your message</span>
+<span class="n">subject</span> <span class="o">=</span> <span class="s2">&quot;McDonalds&quot;</span>
+<span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hey guys I just ordered a Big Mac LOL&quot;</span>
 
-<p><a href='http://www.notifymyandroid.com'>NMA</a></p>
+<span class="c1"># Notify them all with Bellow</span>
+<span class="no">Bellow</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span></code></pre></div>
+
+<p><a href="http://www.prowlapp.com">ProwlApp</a></p>
+
+<p><a href="http://www.notifymyandroid.com">NMA</a></p>
+
     </div>
 
   
@@ -154,7 +156,7 @@
   
      
     	<li><a href="/categories.html#blog-ref">
-    		blog <span>13</span>
+    		blog <span>14</span>
     	</a></li>
     
   
@@ -201,7 +203,7 @@
       </div>
       <hr>
       <footer>
-        <p>&copy; 2014 Keyvan Fatehi
+        <p>&copy; 2015 Keyvan Fatehi
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>
