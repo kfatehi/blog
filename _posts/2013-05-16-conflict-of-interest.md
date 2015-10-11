@@ -36,8 +36,6 @@ This pour soul can take no more irrational stifling of the sort that prevent inn
 
 >Life has never felt more Orwellian.
 
-All that strife has got me thinking... if you could change it [could you do better?]({% post_url 2013-05-16-can-you-do-better %})
-
 ---
 
 **Extra**

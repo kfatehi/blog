@@ -1,8 +1,0 @@
----
-layout: post
-title: 'Step definition reuse'
-tags: 
----
-<p><em>From irc.freenode.net #rubyonrails<br/></em></p>
-<p>17:17 keyvan: hey guys, is it proper to reuse cucumber step definitions created for a different feature?<br/>17:18 keyvan: for example &#8220;given I am not authenticated&#8221;<br/>17:18 keyvan: or Given i have logged in as user &#8220;foo&#8221;<br/>17:18 Radar: keyvan: yes<br/>17:18 keyvan: thanks radar<br/>17:19 keyvan: hope all is well btw :] finally learned BDD/TDD and it has literally changed my life :]<br/>17:20 Radar: keyvan: Yup, everything&#8217;s just peachy.</p>
-<p><strong>You can find Radar&#8217;s blog at <a href="http://ryanbigg.com/">http://ryanbigg.com/</a></strong></p>

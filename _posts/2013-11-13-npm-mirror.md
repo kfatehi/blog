@@ -12,7 +12,7 @@ published: true
 
 ## UPDATE Feb 2, 2014
 
-Don't bother with any of this. Use [sinopia](https://github.com/rlidwka/sinopia) instead! I've prepared a [docker image](https://index.docker.io/u/keyvanfatehi/docker-sinopia/) for it as well.
+Don't bother with any of this. Use [sinopia](https://github.com/rlidwka/sinopia) instead! I've prepared a [docker image](https://hub.docker.com/r/keyvanfatehi/sinopia/) for it as well.
 
 ---
 

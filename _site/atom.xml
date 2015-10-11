@@ -4,7 +4,7 @@
  <title>Keyvan's Blog</title>
  <link href="http://keyvanfatehi.github.io/" rel="self"/>
  <link href="http://keyvanfatehi.github.io"/>
- <updated>2015-07-20T07:52:46-07:00</updated>
+ <updated>2015-10-11T16:48:06-07:00</updated>
  <id>http://keyvanfatehi.github.io</id>
  <author>
    <name>Keyvan Fatehi</name>
@@ -71,63 +71,6 @@ go run *.go start --debug --token &lt;span class=&quot;s2&quot;&gt;&amp;quot;abc
  </entry>
  
  <entry>
-   <title>Open Sourcing Hyperdock</title>
-   <link href="http://keyvanfatehi.github.io/2014/06/01/hyperdock-io"/>
-   <updated>2014-06-01T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/2014/06/01/hyperdock-io</id>
-   <content type="html">&lt;p&gt;I’ve thought about &lt;a href=&quot;https://github.com/hyperdock-io&quot;&gt;Hyperdock&lt;/a&gt; some more and have realized (eerily similarly to my Internet of Things project, &lt;a href=&quot;https://github.com/netpocket&quot;&gt;Netpocket&lt;/a&gt;) that although it can be a useful product, it is too broad and requires too much resources to do correctly.&lt;/p&gt;
-
-&lt;p&gt;I have taken steps in planning to minimize the scope (e.g. removing the concept of a &lt;code&gt;monitor&lt;/code&gt;, and only having docker hosts — solving monitoring by utilizing Keen.io across the platform) however despite my efforts I can’t see this project doing anything except cannibalizing my time. I liked how Hyperdock started out -- in minimizing reliance on outside systems -- but as I saught to rapidly prototype, I started using more and more external services (DigitalOcean, Cloudflare), but monitoring remained an internal, automatically deployed Logstash / Sensu stack... Departing from this and into Keen.io is a good, correct move, but further solidifies the change from Hyperdock as a PaaS business to Hyperdock as Open Source Software. It&amp;#39;s shaped up to be a rails version of the &lt;a href=&quot;http://shipyard-project.com/&quot;&gt;Shipyard Project&lt;/a&gt; and I think that is good.&lt;/p&gt;
-
-&lt;p&gt;It’s hard to justify the previous direction I was taking with it when solutions exist for the end result (e.g. you want ZNC? Check https://bnc.im or https://yourbnc.co.uk, so on for each application we might try to support)... When I first conceived of hyperdock I thought it is silly how companies are built around a single product (such as RedisToGo, or MongoLab) but my perspective on this has changed after several weekends of cramming in Hyperdock development: &lt;/p&gt;
-
-&lt;p&gt;I now realize that although one can develop a platform that can run any of these programs, doing any of these programs correctly, in a value-added way, is a huge task requiring a lot of specialization, infrastructure, and systems intelligence. Hyperdock can still be useful for small projects and developers, but I can’t really see us charging for the value it offers, and if we were to charge and have customers, I don’t see it offsetting costs while still providing good quality of service. If you need professional-level Mongo, for example, you won&amp;#39;t pay someone who runs a generic docker platform, you will pay someone who runs a professional-grade Mongo platform!&lt;/p&gt;
-
-&lt;p&gt;By being realistic about this, and refocusing away from my own greed or desire for a startup, it is clear what I need to do. I will prepare a simple splash page explaining Hyperdock as it is: a DigitalOcean and Docker powered container platform; I will open-source the project. I will kill all the currently running servers. I will add some nice documentation to the README and splash page and point http://hyperdock.io to that.&lt;/p&gt;
-
-&lt;p&gt;It is possible that Hyperdock will be embraced by the community, if so then good! If not, I still had fun building it and might use it again in the future.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Hackers and Bullshitters of OpenStack Summit</title>
-   <link href="http://keyvanfatehi.github.io/2014/05/14/the-hackers-and-bullshitters-of-openstack-summit"/>
-   <updated>2014-05-14T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/2014/05/14/the-hackers-and-bullshitters-of-openstack-summit</id>
-   <content type="html">&lt;p&gt;My company (DigitalFilm Tree) has become rather well-known and well-liked in the openstack community.&lt;/p&gt;
-
-&lt;p&gt;I was not included in the 2013 Summit, but I was given the chance to attend 2014&amp;#39;s Summit, which I took.&lt;/p&gt;
-
-&lt;p&gt;It has been great to witness (and participate in) some of the Juno design sessions.&lt;/p&gt;
-
-&lt;p&gt;At this point it appears to me that there are 2 main archetypes: the hacker and the bullshitter.&lt;/p&gt;
-
-&lt;p&gt;The design sessions are where you get to watch and interact with these modern hackers that make the concept of &amp;quot;cloud&amp;quot; actually a reality.&lt;/p&gt;
-
-&lt;p&gt;The non-design sessions are equally respectable (those which I attended), although in terms of archetypes, the attendees of these sessions tend to fall into a more primal category.&lt;/p&gt;
-
-&lt;p&gt;In contrast to the hackers, the innovators, you also have what I can only describe as the bullshitters, the deceivers.&lt;/p&gt;
-
-&lt;p&gt;In fact, the bullshitters have their own sets of sessions at OpenStack Summit.&lt;/p&gt;
-
-&lt;p&gt;The concepts are dumbed down to single syllable words and 4-letter acronyms for easy digestion, strung together, and combined with a sales pitch designed to satisfy the modern techno-babble pallate.&lt;/p&gt;
-
-&lt;p&gt;The hackers innovate, produce, test, and ship software and documentation and then a business process amalgamates that effort into a product, since usually the raw output (code in a repo) is generally extremely hard to use (only hackers can figure it out). It takes more hackers to deploy and ensure things run too!&lt;/p&gt;
-
-&lt;p&gt;The role of the bullshitter comes in later, when it is time for the business to sell the product despite the huge competition and thus lack of distinction.&lt;/p&gt;
-
-&lt;p&gt;The hackers that made the innovation more consumable (DevOps, Ops, Documentation writers) fall into the category of the hackers.&lt;/p&gt;
-
-&lt;p&gt;I used to view the marketers and sales people in a negative way, but at the end of the day, the bullshitters are just trying to make a living too.&lt;/p&gt;
-
-&lt;p&gt;In some ways, they are like DevOps, but for the business itself, since without sales, there is no payroll. Instead, I now realize that the bullshitters
-are tools of the business process that seeks to make profit off the backs of the creation-for-hire hackers that produce and tame the innovation just as much as the hackers themselves are also the tools of the same business process that seeks to make profit off the deception-for-hire skills of the bullshitter.&lt;/p&gt;
-
-&lt;p&gt;I wonder, if we lived in a society where there was no strife, and thus participation in a deception engine was not necessary for survival, what software would get made in 2014, and what the bullshitters would be creating instead of lies and manipulations?&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
    <title>How to setup iPhone tethering on Raspberry Pi</title>
    <link href="http://keyvanfatehi.github.io/2014/02/10/raspberry-pi-iphone-tether"/>
    <updated>2014-02-10T00:00:00-08:00</updated>
@@ -171,7 +114,7 @@ are tools of the business process that seeks to make profit off the backs of the
    <id>http://keyvanfatehi.github.io/2013/11/13/npm-mirror</id>
    <content type="html">&lt;h2&gt;UPDATE Feb 2, 2014&lt;/h2&gt;
 
-&lt;p&gt;Don&amp;#39;t bother with any of this. Use &lt;a href=&quot;https://github.com/rlidwka/sinopia&quot;&gt;sinopia&lt;/a&gt; instead! I&amp;#39;ve prepared a &lt;a href=&quot;https://index.docker.io/u/keyvanfatehi/docker-sinopia/&quot;&gt;docker image&lt;/a&gt; for it as well.&lt;/p&gt;
+&lt;p&gt;Don&amp;#39;t bother with any of this. Use &lt;a href=&quot;https://github.com/rlidwka/sinopia&quot;&gt;sinopia&lt;/a&gt; instead! I&amp;#39;ve prepared a &lt;a href=&quot;https://hub.docker.com/r/keyvanfatehi/sinopia/&quot;&gt;docker image&lt;/a&gt; for it as well.&lt;/p&gt;
 
 &lt;hr&gt;
 
@@ -278,104 +221,6 @@ would cause it to pick up where it left off, so I&amp;#39;ve developed a script.
  </entry>
  
  <entry>
-   <title>is it possible to hear every song?</title>
-   <link href="http://keyvanfatehi.github.io/2013/09/25/is-it-possible-to-hear-every-song"/>
-   <updated>2013-09-25T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/2013/09/25/is-it-possible-to-hear-every-song</id>
-   <content type="html">&lt;p&gt;/google &amp;quot;more music than you can possibly consume in a lifetime&amp;quot;
-About 5,420,000 results (0.43 seconds) &lt;/p&gt;
-
-&lt;p&gt;/retry &amp;quot;is it possible to hear every song&amp;quot;
-About 2,760,000,000 results (0.39 seconds) &lt;/p&gt;
-
-&lt;p&gt;Is it possible to hear every song that has ever been ...
-5 hours ago - e.g. How to make Sushi? • Where to buy the best ground coffee? • Which is the best phase of a relationship? Your New Answers Experience!&lt;/p&gt;
-
-&lt;p&gt;/clicky http://answers.yahoo.com/question/index?qid=20130924193110AA4yvRy&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Is it possible to hear every song that has ever been professionally recorded in one&amp;#39;s life?
-blue pixie asked 6 hrs ago - 4 days left to answer&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Prism answered 6 hrs ago&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Lol no&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;el Águila answered 5 hrs ago&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Yes; if you listen to, like, 100 songs at once. 
-So, get 100 albums on 100 record players and play them all at once, replacing albums as necessary.
-* 1 person rated this as good&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;/answer&lt;/p&gt;
-
-&lt;p&gt;Not meaningfully, but why do you want to do this?&lt;/p&gt;
-
-&lt;p&gt;Well, perhaps with brain computer interfaces, and an API (e.g. http://developer.echonest.com/), you could perhaps achieve whatever your reason is...&lt;/p&gt;
-
-&lt;p&gt;Math-wise, you&amp;#39;d need to find out how many songs have been professionally recorded on the planet.
-How many songs does Spotify have?&lt;/p&gt;
-
-&lt;p&gt;Number of songs: Over 20 million*
-Number of songs added per day: Over 20,000
-Source: http://press.spotify.com/us/information/&lt;/p&gt;
-
-&lt;p&gt;Let&amp;#39;s assume every song averages to about 5 minutes, for ease of calculation, and forget about the 20k added each day, we can factor that in later...
-How long will it take to listen to all of it? If that reasonable, how long will it take to stay on top of the 20k added each day?&lt;/p&gt;
-
-&lt;p&gt;(20,000,000 * 5) / 60 = 1,666,666 total hours&lt;/p&gt;
-
-&lt;p&gt;How many days is that? If you can manage to listen for every waking hour&lt;/p&gt;
-
-&lt;p&gt;let 24 - 8 sleeping hours be a 16 hour day&lt;/p&gt;
-
-&lt;p&gt;1,666,666 / 16 = 104,166 total days&lt;/p&gt;
-
-&lt;p&gt;How many months is that? 
-/wolframalpha 104,166 days to months&lt;/p&gt;
-
-&lt;p&gt;3425 months!&lt;/p&gt;
-
-&lt;p&gt;That&amp;#39;s 285+ years.&lt;/p&gt;
-
-&lt;p&gt;So no.&lt;/p&gt;
-
-&lt;p&gt;As far as keeping up with new stock, assuming it stays at 20,000 added per day (hah):&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;days2listen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;numSongs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;averageSongDuration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;totalHours&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;numSongs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;averageSongDuration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;wakingHoursPerDay&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;24&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;totalHours&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;wakingHoursPerDay&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;pre&gt;
-➜  ~ git:(mac) ✗ node
-&gt; function days2listen(numSongs)
-... {
-...   var averageSongDuration = 5;
-...   totalHours = (numSongs * averageSongDuration) / 60
-...   wakingHoursPerDay = 24 - 8
-...   return totalHours / wakingHoursPerDay
-... }
-undefined
-&gt; days2listen(20000)
-104.16666666666667
-&lt;/pre&gt;
-
-&lt;p&gt;/wolframalpha 105 days to months = 3.452 months&lt;/p&gt;
-
-&lt;p&gt;So yeah, if you ignore the pre-existing stuff, it seems doable to keep up with the new.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
    <title>Cucumber And Html5 And Microsoft</title>
    <link href="http://keyvanfatehi.github.io/blog/2013/09/06/cucumber-and-html5-and-microsoft"/>
    <updated>2013-09-06T00:00:00-07:00</updated>
@@ -461,375 +306,10 @@ target the Microsoft platform offerings. &lt;/p&gt;
  
  <entry>
    <title>Issue Branching Workflow</title>
-   <link href="http://keyvanfatehi.github.io/2013/08/05/issue-branching-workflow"/>
+   <link href="http://keyvanfatehi.github.io/blog/2013/08/05/issue-branching-workflow"/>
    <updated>2013-08-05T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/2013/08/05/issue-branching-workflow</id>
+   <id>http://keyvanfatehi.github.io/blog/2013/08/05/issue-branching-workflow</id>
    <content type="html">&lt;p&gt;I decided to automate this part of my git workflow. See the &lt;a href=&quot;https://gist.github.com/keyvanfatehi/6155048&quot;&gt;gist&lt;/a&gt; for the source.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Drones</title>
-   <link href="http://keyvanfatehi.github.io/2013/07/28/drones"/>
-   <updated>2013-07-28T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/2013/07/28/drones</id>
-   <content type="html">&lt;p&gt;Ruby on RPi on a Parrot AR drone &amp;amp; 4G receiver&lt;/p&gt;
-
-&lt;p&gt;helpful software: https://github.com/nixterrimus/spirit&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Rubygems Mirror</title>
-   <link href="http://keyvanfatehi.github.io/blog/2013/07/08/rubygems-mirror"/>
-   <updated>2013-07-08T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/blog/2013/07/08/rubygems-mirror</id>
-   <content type="html">&lt;p&gt;Now that I have openstack, of course I am setting up a rubygems mirror -- this turned out to be super simple thanks to a StackOverflow answer: http://stackoverflow.com/a/8411230/511621&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Influenceometer</title>
-   <link href="http://keyvanfatehi.github.io/apps/2013/07/03/influenceometer"/>
-   <updated>2013-07-03T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/apps/2013/07/03/influenceometer</id>
-   <content type="html">&lt;p&gt;Are you still influenced by this person? How much?
-Engagement platform.
-Platform API Interchange =&amp;gt; MD/DB&lt;/p&gt;
-
-&lt;h2&gt;Links&lt;/h2&gt;
-
-&lt;p&gt;http://themyndset.com/2013/04/sphere-of-influence-influential-topic/
-https://www.google.com/search?q=kred+api
-https://www.google.com/search?q=klout+api
-https://www.google.com/search?q=peerindex+api&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Lobbyist</title>
-   <link href="http://keyvanfatehi.github.io/apps/2013/07/01/lobbyist"/>
-   <updated>2013-07-01T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/apps/2013/07/01/lobbyist</id>
-   <content type="html">&lt;p&gt;Developed while watching Netflix documentary &amp;quot;Park Avenue: Money, Power and the American Dream&amp;quot; 2012&lt;/p&gt;
-
-&lt;p&gt;It appears evident that the US government does not work as the 70&amp;#39;s cartoon character, Bill, would have you think.&lt;/p&gt;
-
-&lt;p&gt;Corporations, through the tool used by lobbyists (campaign donations) buy the direction of our great nation in ways evidenced by the manifestation of all the shit in our planet and the correlative, progressive worsening of other aspects of our society.&lt;/p&gt;
-
-&lt;p&gt;This bill serves hereunto for the purpose of implementing a grand transparent design of the above processes.&lt;/p&gt;
-
-&lt;p&gt;In this way, we will better understand at a higher level of intelligence, the patterns of destruction such that we can have constructive, forward-moving progress in their adjustment towards a better future.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;describe&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Lobbyist&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;influences politicians&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;politician&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lobbied_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lobbyist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;should_cause&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;politicion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_be&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:influenced&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-gherkin&quot; data-lang=&quot;gherkin&quot;&gt;&lt;span class=&quot;k&quot;&gt;Given &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;that I am a lobbyist&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;When &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;I lobby a politician&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;And &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;I succeeded in lobbying the politican&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;Then &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;I get a bigger payout&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-gherkin&quot; data-lang=&quot;gherkin&quot;&gt;&lt;span class=&quot;k&quot;&gt;Given &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;that I am a&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Presidents are politicans.&lt;/p&gt;
-
-&lt;p&gt;They talk to the powerful people to get more money. We must make all this so much less tedious and easier to do with technology (apps/mobile/web) that it becomes more transparent and well known.&lt;/p&gt;
-
-&lt;p&gt;It must be a game in order that the players, my fellow Americans, become more aware of the comedic nature of this bold-faced lie we thought of government -- when we learned of this land we were born into, America, as children.&lt;/p&gt;
-
-&lt;h2&gt;Links&lt;/h2&gt;
-
-&lt;p&gt;http://www.opensecrets.org/about/
-http://www.opensecrets.org/politicians/summary.php?cid=n00001093&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>How to build a telescope service</title>
-   <link href="http://keyvanfatehi.github.io/blog/2013/06/22/how-to-build-a-telescope-service"/>
-   <updated>2013-06-22T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/blog/2013/06/22/how-to-build-a-telescope-service</id>
-   <content type="html">&lt;p&gt;Wish you collected more cool data? Want to bring proper streaming telescope services to the masses from inside the browser? It&amp;#39;s due time we get this right, by building the first well-done telescope service.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;#39;s how you might do it:&lt;/p&gt;
-
-&lt;h2&gt;Hardware&lt;/h2&gt;
-
-&lt;p&gt;Buy a good telescope
-* &lt;a href=&quot;http://www.celestron.com/astronomy/series/advanced-series-gt-computerized-telescopes/&quot;&gt;Must have GoTo feature&lt;/a&gt;
-* &lt;a href=&quot;http://www.celestron.com/astronomy/celestron-nexstar-5se.html&quot;&gt;Something about nexstar?&lt;/a&gt; Not sure, see github repo link below.&lt;/p&gt;
-
-&lt;p&gt;Mount on a high-altitude home in the Hollywood Hills (avoid smog and light pollution) with a high speed connection&lt;/p&gt;
-
-&lt;p&gt;Attach telescope lens to android device at the camera &lt;a href=&quot;http://www.htc.com/us/smartphones/htc-one/?PS=1&amp;amp;cid=sem157p174347&amp;amp;gclid=COf2jK2u97cCFRHhQgodhwoAGg&quot;&gt;HTC One&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;I would recommend designing this in solidworks and printing the mount for the best results.&lt;/p&gt;
-
-&lt;p&gt;Use a Raspberry Pi the basis of your compute platform.&lt;/p&gt;
-
-&lt;p&gt;Design and supply over USB an API to the weather protector&lt;/p&gt;
-
-&lt;p&gt;Suppply over USB ambient temperature and weather sensor data&lt;/p&gt;
-
-&lt;h2&gt;Software&lt;/h2&gt;
-
-&lt;p&gt;Setup https://github.com/fcsonline/node-telescope-server&lt;/p&gt;
-
-&lt;p&gt;Build a IRC-like single-operator chatroom system&lt;/p&gt;
-
-&lt;p&gt;Implement (port?) &lt;a href=&quot;http://www.stellarium.org/&quot;&gt;Stellarium&lt;/a&gt;-like system in the browser.&lt;/p&gt;
-
-&lt;p&gt;Display camera live feed.&lt;/p&gt;
-
-&lt;p&gt;Allow capture of the Android camera&amp;#39;s feed to LocalStorage.&lt;/p&gt;
-
-&lt;p&gt;Allow operators to implement and run scripts from the web browser, a la:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Keep a video running with a high speed camera sensor
-Constantly adjust focus to detect movers
-When detected, focus in on the mover and follow it
-Repeat
-
-Dump all activity (images, video, events) into ES/MD w/ odata
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Fun Links:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://services.odata.org/ODataAPIExplorer/ODataAPIExplorer.html&quot;&gt;OData API Explorer&lt;/a&gt;&lt;/p&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/embed/XfIU9DqPTl8&quot;&gt;&lt;/iframe&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Leaderless</title>
-   <link href="http://keyvanfatehi.github.io/blog/2013/06/17/leaderless"/>
-   <updated>2013-06-17T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/blog/2013/06/17/leaderless</id>
-   <content type="html">&lt;p&gt;Still thinking about this... &lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/embed/_Z99qFwsDmU&quot;&gt;snowden interview&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;There has been no change.&lt;/p&gt;
-
-&lt;p&gt;We are leaderless; at least we&amp;#39;ve still got apathy :3&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Parrot Assisted Training</title>
-   <link href="http://keyvanfatehi.github.io/blog/2013/06/03/parrot-assisted-training"/>
-   <updated>2013-06-03T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/blog/2013/06/03/parrot-assisted-training</id>
-   <content type="html">&lt;h1&gt;PARATRAIN&lt;/h1&gt;
-
-&lt;p&gt;Paratrain is a new app I&amp;#39;m developing for audio, language, and animal research. It stands for something along the lines of parrot-assist training, &lt;/p&gt;
-
-&lt;h2&gt;Artificial Intelligence&lt;/h2&gt;
-
-&lt;h3&gt;CARROT&lt;/h3&gt;
-
-&lt;p&gt;In Chicago last week I purchased CARROT on the Apple App Store while in line for Shedd Aquarium. Animals, ooh, I forgot all about them while developing software all the time. My legs fucking hurt too until the final Day there wherein my muscles finally remembered they can regenerate.&lt;/p&gt;
-
-&lt;p&gt;Food and drugs doesn&amp;#39;t fix long-term atrophy, exercise is necessary.
-Some people get dogs, like my older brother, which makes him more be more active.&lt;/p&gt;
-
-&lt;p&gt;One could assert by this that this is a &lt;strong&gt;use case&lt;/strong&gt; for having a kid &lt;em&gt;oof&lt;/em&gt; i mean pet.&lt;/p&gt;
-
-&lt;p&gt;It is a selfish reason, but a reason no less.&lt;/p&gt;
-
-&lt;h3&gt;PARATRAIN&lt;/h3&gt;
-
-&lt;p&gt;This is &lt;a href=&quot;https://github.com/keyvanfatehi/paratrain&quot;&gt;my accidental AI project&lt;/a&gt;... (the rapidly iterative README as of today)&lt;/p&gt;
-
-&lt;h4&gt;Paratrain README&lt;/h4&gt;
-
-&lt;h2&gt;Paratrain&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Purchase Paratrain from the Apple App Store&lt;/li&gt;
-&lt;li&gt;Make sure you&amp;#39;re connected to wifi and have a lot of battery&lt;/li&gt;
-&lt;li&gt;Open the app and create a profile for the learner&lt;/li&gt;
-&lt;li&gt;Setup some options in the the profile and enable the algorithm&lt;/li&gt;
-&lt;li&gt;Ensure the iphone and the learner are within earshot of each other.&lt;/li&gt;
-&lt;li&gt;Optionally set up a 2nd screen to provide visual data for the learner (See the API by version 1)&lt;/li&gt;
-&lt;li&gt;Optionally place wireless nodes around for the learner to activate. Custom-configuration possible. (See the API by version 2)&lt;/li&gt;
-&lt;li&gt;Optionally enable camera and the &amp;quot;Paratrainer&amp;quot; for strategies of increased awareness between learner and AI (See the API by version 3)
-
-&lt;ul&gt;
-&lt;li&gt;The paratrainer avatar can be invoked remotely by you (See facially emotive API by version 4)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;I don&amp;#39;t expect anything like Version 4 for at least another 3 years.&lt;/p&gt;
-
-&lt;p&gt;I intend to complete Version 1 by the end of June. The rest is futurestory, or as I like to call them, user stories...&lt;/p&gt;
-
-&lt;h2&gt;Paratrain AI Subsystems&lt;/h2&gt;
-
-&lt;h1&gt;System 1 Listening Mode&lt;/h1&gt;
-
-&lt;p&gt;System 1 can be toggled on or off. It&amp;#39;s Paratrain&amp;#39;s &amp;quot;Listening Mode&amp;quot;. This is how it affects Paratrain&amp;#39;s behavior:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;It collect words the that it &amp;quot;hears&amp;quot;.
-When it hears a new word, it will verify that it&amp;#39;s a word by converting the audio to text.
-  consider the confidence of the conversion
-  unconfident? then forget it
-  confident? then do this:
-    consider whether we&amp;#39;ve heard this word before
-    we have?
-      take note that we just heard this word again.
-      store this unique utterance (Word has_many Utterances)
-    we haven&amp;#39;t?
-      fetch media for the word (definitions, thesaurus, audio, images, video)
-      store all this in the database
-    Check if System 2 is enabled, if so, notify it that we&amp;#39;ve just now heard this word [id] for the [count] time
-  not sure?
-    store it in the app, let the user choose to:
-      * listen to the sample
-      * convert it to text manually and save with that audio
-      * adjust the confidence threshold
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;System 1 will start to be implemented once &lt;a href=&quot;https://github.com/keyvanfatehi/paratrain/issues/6&quot;&gt;#6&lt;/a&gt; is complete.&lt;/p&gt;
-
-&lt;h2&gt;System 2 Learning Mode&lt;/h2&gt;
-
-&lt;p&gt;Responsible for matters related to the exposure of the iphone&amp;#39;s existence to the learner.&lt;/p&gt;
-
-&lt;h3&gt;Engagement&lt;/h3&gt;
-
-&lt;p&gt;Engagement controls if and how the iphone speaks to nearby listeners
-There are several aspects of engagement exposed by System 2
- * persistence 0-100
- * aggression 0-100
- * boredom 0-100
- * rewards
- * content&lt;/p&gt;
-
-&lt;h2&gt;Second Screen&lt;/h2&gt;
-
-&lt;p&gt;If a second screen is available (Apple TV), the &lt;strong&gt;Visual Association Toggle&lt;/strong&gt; becomes available. It works like this:&lt;/p&gt;
-
-&lt;h4&gt;VAT:System 1&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;As someone learning a language
-When my artificial intelligence hears a word
-In order that I be more likely to learn the word
-I prefer an associative visual element appear onscreen
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;VAT:System 2&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;As someone learning a language
-When I am engaged by my artificial intelligence
-In order that I be more likely to learn the word
-I prefer an associative visual element appear onscreen
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;hr&gt;
-
-&lt;h1&gt;Goal&lt;/h1&gt;
-
-&lt;p&gt;Design a system good enough to teach an African Grey parrot at least 500 words before the age of 6, without inflicting emotional damage.&lt;/p&gt;
-
-&lt;p&gt;If successful, it can be used for small children, and eventually turn into an effective &amp;quot;knowledge download&amp;quot; tool. Might as well dream big; but it&amp;#39;s mainly to distract me from immediately buying a Grey before I&amp;#39;m really ready.&lt;/p&gt;
-
-&lt;h2&gt;No impulse-buy&lt;/h2&gt;
-
-&lt;p&gt;Only a few days ago, my brother suggested I get a parrot. I didn&amp;#39;t speak or think of parrots for maybe 7 years; It was something I could just never have, and so put away mentally ... too expensive ... with luck, becoming a competent developer has allowed me to break that financial barrier.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Resisting the impulse buy the African Grey is hard, but it&amp;#39;s a huge responsibility -- I am older and the facts of the matters make resistance easy&lt;/p&gt;
-
-&lt;p&gt;I always wanted a parrot as a kid, but needed to wait until I knew I could take care of it correctly (and afford one). I&amp;#39;ve had pets that died, and as a small kid, it can be traumatic. Failing to train a Grey well would be almost criminal.&lt;/p&gt;
-
-&lt;p&gt;I&amp;#39;m 24 and I feel like this parrot thing is now is making me face it, and the other big questions, all at once.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This was a small thing for him, I think, but for me it begins to feel as though it has stirred up a great spirit that been asleep inside me. All this time I&amp;#39;ve been secluding myself, perhaps buried under a lot of old guilt from the pets that I&amp;#39;ve had that have died --- not getting any more pets so as not to &amp;quot;kill it again&amp;quot;. Perhaps this is one of those latent and hard-to-understand better-to-avoid reasons I am so keen to remain single... err...&lt;/p&gt;
-
-&lt;p&gt;Uhm, in any case: I have a long history with avians and would rather get the bird when I have a house, to build a proper aviary again.&lt;/p&gt;
-
-&lt;p&gt;But I can start &lt;a href=&quot;https://github.com/keyvanfatehi/paratrain&quot;&gt;developing software&lt;/a&gt; and &lt;a href=&quot;https://github.com/keyvanfatehi/paratrain/issues/5&quot;&gt;doing research&lt;/a&gt;. It has proven fruitful so far.&lt;/p&gt;
-
-&lt;p&gt;I feel that &lt;strong&gt;buying the parrot right now would be a big mistake&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The matured scientist in me is eagerly awaiting pending discoveries into learning and intelligence ... and wants to ensure readiness ... once this turns into design, and then &lt;em&gt;implementation&lt;/em&gt;, I am ready.&lt;/p&gt;
-
-&lt;h1&gt;Caged Bird&lt;/h1&gt;
-
-&lt;p&gt;I will be waiting until the software &lt;em&gt;AND&lt;/em&gt; hardware is ready. I need an indoor cage. I&amp;#39;m opting not to build it with wood as I did for the doves I owned as a small child (these pets created life... they are not a memory of death like some later animals I had; but one of but birth and life; contentment and prosperity)&lt;/p&gt;
-
-&lt;p&gt;Consequently, software and hardware for a parrot equates to massive amounts of learning by the undertaker [me].&lt;/p&gt;
-
-&lt;h2&gt;3d Printer + Solidworks + Technique ... = Habitat ?&lt;/h2&gt;
-
-&lt;p&gt;My &lt;a href=&quot;http://pirate3d.com/&quot;&gt;Pirate3d 3d Printer, the Buccaneer&lt;/a&gt;, arrives in Dec 2013.&lt;/p&gt;
-
-&lt;p&gt;Now I have a real reason to properly learn &lt;strong&gt;SOLIDWORKS&lt;/strong&gt; again.&lt;/p&gt;
-
-&lt;p&gt;I need a chop-up-big-stuff algorithm for this. I am looking into [aluminum] extrusion/profile interlock systems for this.&lt;/p&gt;
-
-&lt;h2&gt;Space, I see you baby&lt;/h2&gt;
-
-&lt;p&gt;All I need to do now is ensure I learn electronics too and perhaps my Space 2022 ambitions will indeed become true on time.&lt;/p&gt;
-
-&lt;p&gt;If something like paratrain can be pulled off as quickly as it looks, then building the micro-agriculture systems I&amp;#39;ve envisioned should be less sweat too.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Bountysource</title>
-   <link href="http://keyvanfatehi.github.io/blog/2013/06/03/bountysource"/>
-   <updated>2013-06-03T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/blog/2013/06/03/bountysource</id>
-   <content type="html">&lt;p&gt;pre
-2:58 PM  keyvan joined (uid7672@gateway/web/irccloud.com/x-noobbtzvvxakpxyr)
-2:58 PM Channel mode is +cnt
-2:58 PM Homepage: http://www.bountysource.com
-2:58 PM keyvan wooo bountysource is awesome. good job :D
-2:59 PM keyvan my very first bounty https://www.bountysource.com/#issues/379039-portfolio-page
-3:03 PM   nbouscal quit   brooss nipped out&lt;br&gt;
-3:43 PM corytheboyd aww, thanks keyvan :)
-3:43 PM corytheboyd feel free to give us feedback!
-3:44 PM keyvan sure thanks
-3:46 PM keyvan corytheboyd: do you think should i be making an effort to market the opportunity or does bountysource do this for me somehow? that was one of the difficulties i had in thinking of how to design such an application... the marketing aspect...
-3:47 PM  nbouscal joined (~nbouscal@c-67-185-201-65.hsd1.wa.comcast.net)
-3:50 PM corytheboyd keyvan: good question. we don&amp;#39;t advertise bounties outside of our site
-3:51 PM corytheboyd it&amp;#39;s mostly up the the respective community to advertise bounties
-3:51 PM keyvan corytheboyd: my other question was, how do you make money? i was debating if i&amp;#39;d scrape money from the bounties in my implementation but i wasnt sure how that would fly with people
-3:51 PM keyvan what strategy are you taking on the money front?
-3:54 PM keyvan ccverg: how did you find my issue by the way? did you search github for &amp;quot;bounty&amp;quot; or something? the fact that you guys have built this thing is such a pleasant surprise. i mean to look to see if you guys have an API later, i&amp;#39;ll just make my browser extension ive been working on fit right into that
-3:55 PM keyvan also it would be cool for the issue itself to get auto-updated by BountySource to say something like &amp;quot;There is a X bounty on this issue!&amp;quot; and other appropriate notices if any
-3:55 PM keyvan ive thought a lot about this project so i&amp;#39;m kind of excited that it&amp;#39;s here :)
-3:56 PM  nbouscal quit (~nbouscal@c-67-185-201-65.hsd1.wa.comcast.net) Quit: Computer has commenced electric sheep tracking protocol.
-3:56 PM keyvan i think it will have huge positive consequences -- i.e. people with skill but inability to find jobs can now do useful work and get paid... i know several people like this personally.
-3:58 PM ccverg kevyan: hey there!
-3:59 PM ccverg we charge a fee on bounties that are paid out, and on fundraisers once they are successful
-4:00 PM ccverg we actually have a plugin for GitHub that updates issues with bounty details as you described, but a project committer has to enable it
-4:00 PM ccverg you can see some screenshots on our blog (blog.bountysource.com/post/48954271533/improved-github-integration-automatically-update)
-4:00 PM keyvan lol you guys may want to fix this http://cl.ly/image/1d09080J1Y24
-4:01 PM keyvan nice good stuff ccverg 
-4:01 PM ccverg &amp;quot;people with skill but inability to find jobs can now do useful work and get paid... i know several people like this personally.&amp;quot; — that&amp;#39;s awesome! that&amp;#39;s our goal, allowing open source developers to sustain themselves with their work
-4:02 PM ccverg kevyan: ack, good catch
-4:02 PM ccverg we&amp;#39;ll update that, thanks
-4:03 PM keyvan ccverg: i would love to help you guys out, from a dev perspective, like on weekends and maybe nights -- it was my ambition to build what you guys have so feel free to direct me to the proper channels if you&amp;#39;re interested in a Ruby/Rails/Coffeescript/Javascript/iOS developer looking at stuff
-4:04 PM keyvan like if you have an API that would be a great start so i can work on the browser extension and you guys can see if you like it / think it should be part of it or something
-4:04 PM keyvan also i was thinking of a mobile app that is basically a browser with the ideas of the browser extension built in, so you&amp;#39;re contributing to open source from your mobile device, making money thru bountysource integrations as well (if the project ur editing has a bounty that is)
-4:07 PM keyvan sorry i havent checked the bountysource github page, you probably alreayd have most if not all of it open source anyway, wherein i can find issues, and browser for API docs myself -- im just at work right now :) i&amp;#39;ll definitely be looking deeper later
-4:11 PM ccverg kevyan: awesome! :D
-4:12 PM ccverg only our frontend is open source right now, actually… but you&amp;#39;re welcome to check out the issues we have open so far
-4:12 PM ccverg and we really appreciate you wanting to help out!
-4:19 PM corytheboyd keyvan: sorry, got a little distracted :p
-4:25 PM  nbouscal joined (~nbouscal@c-67-168-113-48.hsd1.wa.comcast.net)
-4:27 PM keyvan cool for sure. np cory
-4:50 PM   nbouscal and satazor quit   jsilver popped in&lt;br&gt;
-6:41 PM keyvan woohoo first bounty complete! https://www.bountysource.com/#issues/379039-portfolio-page
-6:41 PM keyvan definitely a smooth process, my bounty hunter is pleased as well
-7:48 PM   Anonymous296 popped in   bountysource, warreng, corytheboyd, ccverg (opped) and realazthat nipped out&lt;br&gt;
-10:19 PM keyvan im going to start making random projects, speccable, and giving them bounties :) there aren&amp;#39;t enough live bounties as there should be... easy ones even
-10:20 PM keyvan knowing there&amp;#39;s an &amp;quot;army of developers&amp;quot; out there that can slam out any spec should motivate more of us that squelch our ideas because &amp;quot;work is more important&amp;quot; and you never write that README
-10:20 PM keyvan maybe someone&amp;#39;s willing to do it if you throw some coin at it!
-10:23 PM keyvan i thought (and mostly meet this type-) people resisted sharing their ideas because they are afraid to share... they&amp;#39;re wrong you should share, and you should even place a bounty on if it&amp;#39;s something you really want built -- if you&amp;#39;re in it for the money and u dont want to share for that reason, your startup probably won&amp;#39;t do well anyway and don&amp;#39;t get the
-10:23 PM keyvan big picture (i dont say this to them though, i&amp;#39;ll generally motivate them to learn jQuery or ruby). 
-10:26 PM  mode: corytheboyd (opped)   nbouscal popped in&lt;br&gt;
-/pre&lt;/p&gt;
 </content>
  </entry>
  
@@ -883,8 +363,6 @@ I prefer an associative visual element appear onscreen
 &lt;p&gt;Life has never felt more Orwellian.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;All that strife has got me thinking... if you could change it &lt;a href=&quot;/blog/2013/05/16/can-you-do-better&quot;&gt;could you do better?&lt;/a&gt;&lt;/p&gt;
-
 &lt;hr&gt;
 
 &lt;p&gt;&lt;strong&gt;Extra&lt;/strong&gt;&lt;/p&gt;
@@ -904,19 +382,6 @@ I prefer an associative visual element appear onscreen
 
 &lt;p&gt;It&amp;#39;s a little more wordy,but the standard clause boils down to this in front of the court. It is one of the things that usually are missed by people - which does not matter in most cases, but when you are successful with your startup suddenly might. – malach Oct 13 &amp;#39;09 at 4:34&lt;/p&gt;
 &lt;/blockquote&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Can You Do Better</title>
-   <link href="http://keyvanfatehi.github.io/blog/2013/05/16/can-you-do-better"/>
-   <updated>2013-05-16T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/blog/2013/05/16/can-you-do-better</id>
-   <content type="html">&lt;p&gt;I&amp;#39;m a software developer, and not an economist, but I&amp;#39;m beginning to feel some things that were never apparent to me and I didn&amp;#39;t much care to think of before -- I hope it may be something I can articulate soon. But as of now, no, I can&amp;#39;t do any better, and even if I did have clear ideas for reformation that would satisfy the internal moral conflict that the above discusses, I don&amp;#39;t have the money/power/influence to implement the reforms it would take to make us a more innovative and forward thinking state.&lt;/p&gt;
-
-&lt;p&gt;I do think that open source, anonymity, and bitcoins are building blocks to a subversive arsenal against the tyrants that stifle innovation: current laws, market forces, assholes. This all reduces the rate of good positive change and the general level of beauty and art in the world.&lt;/p&gt;
-
-&lt;p&gt;I&amp;#39;ll close by saying the top hedge fund managers in the world get paid inane amounts of money for doing literally nothing positive (it&amp;#39;s a zero sum game), while the scientists trying to cure your mother&amp;#39;s cancer are being stifled and underfunded. Sick society.&lt;/p&gt;
 </content>
  </entry>
  
@@ -1311,17 +776,6 @@ I prefer an associative visual element appear onscreen
  </entry>
  
  <entry>
-   <title>Great Testing Tips</title>
-   <link href="http://keyvanfatehi.github.io/2013/04/24/great-testing-tips"/>
-   <updated>2013-04-24T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/2013/04/24/great-testing-tips</id>
-   <content type="html">&lt;p&gt;&lt;a href=&quot;http://eggsonbread.com/2010/09/06/my-cucumber-best-practices-and-tips/&quot;&gt;Cucumber&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://eggsonbread.com/2010/03/28/my-rspec-best-practices-and-tips/&quot;&gt;RSpec&lt;/a&gt;&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
    <title>Fixing the "Nokogiri built against LibXML..." warning</title>
    <link href="http://keyvanfatehi.github.io/2013/04/15/fixing-the-nokogiri-built-against-libxml-warning"/>
    <updated>2013-04-15T00:00:00-07:00</updated>
@@ -1362,25 +816,6 @@ bundle exec gem pristine nokogiri
  </entry>
  
  <entry>
-   <title>bike pic: cahuenga pass</title>
-   <link href="http://keyvanfatehi.github.io/2013/03/09/bike-pic-cahuenga-pass"/>
-   <updated>2013-03-09T00:00:00-08:00</updated>
-   <id>http://keyvanfatehi.github.io/2013/03/09/bike-pic-cahuenga-pass</id>
-   <content type="html">behind some of the almost rich houses in the caheunga pass area, I believe this is mulholland
-&lt;img src=&quot;http://25.media.tumblr.com/6fd0c80568d379f7541b935b6efe854a/tumblr_mje87gcE1q1ql6q2so1_1280.jpg&quot;/&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Source: </title>
-   <link href="http://keyvanfatehi.github.io/2013/02/24/source"/>
-   <updated>2013-02-24T00:00:00-08:00</updated>
-   <id>http://keyvanfatehi.github.io/2013/02/24/source</id>
-   <content type="html">&lt;img src=&quot;http://24.media.tumblr.com/059694fc9032a224b5f1b1c0a504312f/tumblr_mirmsfbXUs1ql6q2so1_1280.png&quot;/&gt;
-</content>
- </entry>
- 
- <entry>
    <title>Rails 3 Passenger Nginx send_file with X-Accel-Redirect and X-Accel-Mapping</title>
    <link href="http://keyvanfatehi.github.io/2012/12/11/rails-3-passenger-nginx-send_file-with-x-accel-redirect-and-x-accel-mapping"/>
    <updated>2012-12-11T00:00:00-08:00</updated>
@@ -1409,15 +844,6 @@ bundle exec gem pristine nokogiri
 
 &lt;hr&gt;&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/6237016/message-x-accel-mapping-header-missing-in-nginx-error-log&quot;&gt;http://stackoverflow.com/questions/6237016/message-x-accel-mapping-header-missing-in-nginx-error-log&lt;/a&gt;
 &lt;a href=&quot;http://airbladesoftware.com/notes/rails-nginx-x-accel-mapping&quot;&gt;http://airbladesoftware.com/notes/rails-nginx-x-accel-mapping&lt;/a&gt;&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Explain the concept of a ruby gem (#ruby on Freenode)</title>
-   <link href="http://keyvanfatehi.github.io/2012/11/02/explain-the-concept-of-a-ruby-gem-ruby-on-freenode"/>
-   <updated>2012-11-02T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/2012/11/02/explain-the-concept-of-a-ruby-gem-ruby-on-freenode</id>
-   <content type="html">&lt;section&gt;&lt;dialog&gt;&lt;dt&gt;jake_:&lt;/dt&gt;&lt;dd&gt;could someone explain a gem to me?  is it the same as a python module? or it more like a package that gets installed that contains modules?&lt;/dd&gt;&lt;dt&gt;shevy3:&lt;/dt&gt;&lt;dd&gt;jake_: not sure how python does it&lt;/dd&gt;&lt;dt&gt;shevy3:&lt;/dt&gt;&lt;dd&gt;a .gem file is basically a kind of archive, with different files in it, mostly .rb files&lt;/dd&gt;&lt;dt&gt;shevy3:&lt;/dt&gt;&lt;dd&gt;so you install it via &quot;gem install name&quot; it gets downloaded and installed into [value of INSTALLATION DIRECTORY returned by `gem env`]&lt;/dd&gt;&lt;dt&gt;shevy3:&lt;/dt&gt;&lt;dd&gt;most often, the gem has some kind of main module, the main namespace&lt;/dd&gt;&lt;dt&gt;shevy3:&lt;/dt&gt;&lt;dd&gt;like foobar-1.0.gem would usually have the main namespace module Foobar; end&lt;/dd&gt;&lt;/section&gt;&lt;/dialog&gt;
 </content>
  </entry>
  
@@ -1685,17 +1111,6 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
  </entry>
  
  <entry>
-   <title>Step definition reuse</title>
-   <link href="http://keyvanfatehi.github.io/2012/06/27/is-it-ok-to-reuse-your-step-definitions-created-in-a-different-features-steps-file"/>
-   <updated>2012-06-27T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/2012/06/27/is-it-ok-to-reuse-your-step-definitions-created-in-a-different-features-steps-file</id>
-   <content type="html">&lt;p&gt;&lt;em&gt;From irc.freenode.net #rubyonrails&lt;br/&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;17:17 keyvan: hey guys, is it proper to reuse cucumber step definitions created for a different feature?&lt;br/&gt;17:18 keyvan: for example &amp;#8220;given I am not authenticated&amp;#8221;&lt;br/&gt;17:18 keyvan: or Given i have logged in as user &amp;#8220;foo&amp;#8221;&lt;br/&gt;17:18 Radar: keyvan: yes&lt;br/&gt;17:18 keyvan: thanks radar&lt;br/&gt;17:19 keyvan: hope all is well btw :] finally learned BDD/TDD and it has literally changed my life :]&lt;br/&gt;17:20 Radar: keyvan: Yup, everything&amp;#8217;s just peachy.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;You can find Radar&amp;#8217;s blog at &lt;a href=&quot;http://ryanbigg.com/&quot;&gt;http://ryanbigg.com/&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
    <title>Just replaced Vibrant Ink with Tomorrow Theme</title>
    <link href="http://keyvanfatehi.github.io/2012/06/22/just-replaced-vibrant-ink-with-tomorrow-theme"/>
    <updated>2012-06-22T00:00:00-07:00</updated>
@@ -1722,15 +1137,6 @@ require &#39;GEMNAME&#39; # they are in your load path now! They&#39;ll also be 
 to collaborate effectively on projects hosted on github, using branches for features, as described in other places on the internet.
 
 &lt;img src=&quot;http://24.media.tumblr.com/tumblr_m5x4qavuva1ql6q2so1_r1_1280.jpg&quot;/&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>OctopusCI is simple and effective continuous integration</title>
-   <link href="http://keyvanfatehi.github.io/2012/06/20/octopusci-simple-and-effective-continuous-integration"/>
-   <updated>2012-06-20T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/2012/06/20/octopusci-simple-and-effective-continuous-integration</id>
-   <content type="html">&lt;a href=&quot;http://octopusci.com/&quot;&gt;OctopusCI, simple and effective continuous integration&lt;/a&gt;&lt;br/&gt;
 </content>
  </entry>
  
@@ -2242,15 +1648,6 @@ or jump right into &lt;a href=&quot;&quot;&gt;Usage&lt;/a&gt; if you&amp;#39;d l
 &lt;p&gt;Why are you still reading this? Go download Sublime Text 2 and if you like it, support the developers (buy a license).&lt;/p&gt;
 &lt;p&gt;(I have no affiliation with them, I just think the editor is awesome and I want it to continue to be improved)&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;If there is one missing feature it would be a better split-pane system such as that of iTerm2, e.g. 2 panes on the left, one on the right, etc&lt;/strong&gt;&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>unnamed</title>
-   <link href="http://keyvanfatehi.github.io/2011/08/08/unnamed"/>
-   <updated>2011-08-08T00:00:00-07:00</updated>
-   <id>http://keyvanfatehi.github.io/2011/08/08/unnamed</id>
-   <content type="html">&lt;img src=&quot;http://24.media.tumblr.com/tumblr_lpltelmUBr1ql6q2so1_1280.png&quot;/&gt;
 </content>
  </entry>
  
