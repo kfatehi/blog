@@ -1,7 +1,11 @@
 ---
 layout: post
 category : blog
-tags : [mobile microsoft cucumber bdd]
+tags : 
+  - mobile
+  - microsoft
+  - cucumber
+  - bdd
 ---
 {% include JB/setup %}
 

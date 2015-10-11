@@ -1,7 +1,7 @@
 ---
 layout: post
 category : blog
-tags : [kvm ubuntu]
+tags : [kvm, ubuntu]
 ---
 {% include JB/setup %}
 

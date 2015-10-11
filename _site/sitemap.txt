@@ -46,7 +46,6 @@ http://keyvanfatehi.github.io/2012/06/20/simple-github-workflow
 http://keyvanfatehi.github.io/2012/06/08/apache-hosts-virtual--virtualhosts-and-control--ctl-on-mac-os-x-107-lion
 http://keyvanfatehi.github.io/2012/04/01/rvm-install-jruby-o-hai-java
 http://keyvanfatehi.github.io/2011/12/30/httpblogdavidtateorg201112the-dangerous-effects-of-reading
-http://keyvanfatehi.github.io/lessons/2011/12/29/jekyll-introduction
 http://keyvanfatehi.github.io/2011/12/16/unnamed
 http://keyvanfatehi.github.io/2011/12/10/httpprogramming-motherfuckercom
 http://keyvanfatehi.github.io/2011/11/19/a-quick-drawing-for-all-you-idea-guys-out-there
