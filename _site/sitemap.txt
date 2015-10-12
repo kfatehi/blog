@@ -1,8 +1,10 @@
 
+http://keyvanfatehi.github.io/404.html
 http://keyvanfatehi.github.io/archive.html
 http://keyvanfatehi.github.io/atom.xml
-http://keyvanfatehi.github.io/categories.html
 http://keyvanfatehi.github.io/index.html
+http://keyvanfatehi.github.io/reference/index.html
+http://keyvanfatehi.github.io/tools/index.html
 http://keyvanfatehi.github.io/pages.html
 http://keyvanfatehi.github.io/rss.xml
 http://keyvanfatehi.github.io/sitemap.txt

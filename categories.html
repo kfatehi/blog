@@ -3,6 +3,7 @@ layout: page
 title: Categories
 header: Posts By Category
 group: navigation
+published: false
 ---
 {% include JB/setup %}
 
@@ -20,3 +21,15 @@ group: navigation
   </ul>
 {% endfor %}
 
+
+{% assign uncategorized_posts = site.posts | filter_categorized_posts %}
+{% if uncategorized_posts.size > 0 %}
+<h2>uncategorized</h2>
+<ul>
+{% for post in uncategorized_posts %}
+  <li>
+    <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a>
+  </li>
+{% endfor %}
+</ul>
+{% endif %}
