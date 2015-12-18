@@ -5,8 +5,8 @@ if [[ "$?" -ne "0"  ]]; then
 else
   git add .
   git commit -am "Automatic publication commit"
-  git branch -D master
-  git checkout -b master
+  git branch -D gh-pages
+  git checkout -b gh-pages
   git filter-branch --subdirectory-filter _site/ -f
   git checkout source
   git push -f --all origin
