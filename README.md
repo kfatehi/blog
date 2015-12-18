@@ -1,4 +1,4 @@
-This is the source of my personal website [http://keyvanfatehi.com/](keyvanfatehi.com).  The only interesting branch in this repo will be the *source* branch as GitHub expects the generated website to live in *master*.
+This is the source of my personal website [http://keyvanfatehi.com/](keyvanfatehi.com).  The only interesting branch in this repo will be the *source* branch as GitHub expects the generated website to live in *gh-pages*.
 
 Steps to publish:
 
@@ -10,8 +10,8 @@ Steps to publish:
 
 The publish script consists of the following steps
 - Build & Autocommit
-- `git branch -D master`
-- `git checkout -b master`
+- `git branch -D gh-pages`
+- `git checkout -b gh-pages`
 - `git filter-branch --subdirectory-filter _site/ -f`
 - `git checkout source`
 - `git push --all origin`
