@@ -25,7 +25,7 @@ We did this project crazy-fast and without any hang-ups, which was interesting t
 
 * Original Raspberry Pi
 * 1x Opto-isolator
-* 1x reed switch
+* 1x Reed switch
 
 ## Embedded Software:
 
@@ -40,7 +40,7 @@ We did this project crazy-fast and without any hang-ups, which was interesting t
 
 Our garage door opener has a physical panel just outside where one can enter a 4 digit pin and open the garage.
 
-After some faily recent rain storms, the panel has been malfunctioning and fails to work 95% of the time. It's not a battery issue.
+After some fairly recent rain storms, the panel has been malfunctioning and fails to work 95% of the time. It's not a battery issue.
 
 It was expensive to replace that from the manufacturer, and we didn't want the same faulty product!
 
