@@ -63,21 +63,13 @@
   
     
       
-    
-  
-    
-      
       	
-      	<li><a href="/reference/index.html">Reference</a></li>
+      	<li><a href="/categories.html">Categories</a></li>
       	
       
     
   
     
-      
-      	
-      	<li><a href="/tools/index.html">Tools</a></li>
-      	
       
     
   
@@ -85,6 +77,14 @@
       
       	
       	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/reference/index.html">Reference</a></li>
       	
       
     
@@ -101,6 +101,14 @@
       
       	
       	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tools/index.html">Tools</a></li>
       	
       
     
@@ -131,7 +139,7 @@
 
 <p><a href="https://github.com/keyvanfatehi/bellow">bellow on github</a></p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># People and API keys for each service (nma and prowl)</span>
+<div class="highlight"><pre><code class="ruby"><span class="c1"># People and API keys for each service (nma and prowl)</span>
 <span class="n">people</span> <span class="o">=</span> <span class="p">{</span>
   <span class="ss">:guillaume</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="ss">:prowl</span> <span class="o">=&gt;</span> <span class="s2">&quot;f7a1879f0331667e0a993b501127a5f21ce7fbff&quot;</span><span class="p">,</span>
@@ -150,7 +158,8 @@
 <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hey guys I just ordered a Big Mac LOL&quot;</span>
 
 <span class="c1"># Notify them all with Bellow</span>
-<span class="no">Bellow</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span></code></pre></div>
+<span class="no">Bellow</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+</code></pre></div>
 
 <p><a href="http://www.prowlapp.com">ProwlApp</a></p>
 
