@@ -150,7 +150,7 @@
 <ul>
 <li>Original Raspberry Pi</li>
 <li>1x Opto-isolator</li>
-<li>1x Hall effect sensor</li>
+<li>1x reed switch</li>
 </ul>
 
 <h2>Embedded Software:</h2>
@@ -181,7 +181,7 @@
 <p>This would take two GPIO pins.</p>
 
 <ol>
-<li><p>read logic level 1 or 0 based on the garage door being open or closed. a <a href="https://en.wikipedia.org/wiki/Hall_effect_sensor">Hall effect sensor</a> affixed to the door&#39;s frame, adjecent to a strong magnet on the door, will do the trick.</p></li>
+<li><p>read logic level 1 or 0 based on the garage door being open or closed. a <a href="https://en.wikipedia.org/wiki/Reed_switch">reed switch</a> affixed to the door&#39;s frame, adjecent to a strong magnet on the door, will do the trick.</p></li>
 <li><p>write logic level 1 to a circuit that simulates a button press on the garage door manual switch, located inside the garage. We used an <a href="https://en.wikipedia.org/wiki/Opto-isolator">opto-isolator</a> for this.</p></li>
 </ol>
 
@@ -248,7 +248,7 @@
 </code></pre></div>
 <h3>Circuit</h3>
 
-<p>Credit goes 100% to my dad for all the circuit design and prep downstream of the GPIO pins. If you&#39;d like to replicate this look at the reference schematics for an appropriate voltage Hall effect sensor and opto-isolator.</p>
+<p>Credit goes 100% to my dad for all the circuit design and prep downstream of the GPIO pins. If you&#39;d like to replicate this look at the reference schematics for an appropriate voltage reed switch and opto-isolator.</p>
 
 <p>All I had to do was put the board together with the Raspberry Pi:</p>
 
@@ -310,9 +310,9 @@
 
 <p><img src="/assets/images/garage-door/3.png" alt="manual switch"></p>
 
-<p>The last step was hooking up the Hall effect to the door. You can see the Hall effect sensor in the left of the pic below:</p>
+<p>The last step was hooking up the reed switch to the door. You can see the reed switch in the left of the pic below:</p>
 
-<p><img src="/assets/images/garage-door/4.png" alt="hall effect"></p>
+<p><img src="/assets/images/garage-door/4.png" alt="reed switch"></p>
 
 <p>You can see the whole thing in action in the video at the top of this post.</p>
 

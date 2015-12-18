@@ -25,7 +25,7 @@ We did this project crazy-fast and without any hang-ups, which was interesting t
 
 * Original Raspberry Pi
 * 1x Opto-isolator
-* 1x Hall effect sensor
+* 1x reed switch
 
 ## Embedded Software:
 
@@ -50,7 +50,7 @@ We want to know if the garage door is open or closed and be able to open or clos
 
 This would take two GPIO pins.
 
-1. read logic level 1 or 0 based on the garage door being open or closed. a [Hall effect sensor](https://en.wikipedia.org/wiki/Hall_effect_sensor) affixed to the door's frame, adjecent to a strong magnet on the door, will do the trick.
+1. read logic level 1 or 0 based on the garage door being open or closed. a [reed switch](https://en.wikipedia.org/wiki/Reed_switch) affixed to the door's frame, adjecent to a strong magnet on the door, will do the trick.
 
 2. write logic level 1 to a circuit that simulates a button press on the garage door manual switch, located inside the garage. We used an [opto-isolator](https://en.wikipedia.org/wiki/Opto-isolator) for this.
 
@@ -122,7 +122,7 @@ end
 
 ### Circuit
 
-Credit goes 100% to my dad for all the circuit design and prep downstream of the GPIO pins. If you'd like to replicate this look at the reference schematics for an appropriate voltage Hall effect sensor and opto-isolator.
+Credit goes 100% to my dad for all the circuit design and prep downstream of the GPIO pins. If you'd like to replicate this look at the reference schematics for an appropriate voltage reed switch and opto-isolator.
 
 All I had to do was put the board together with the Raspberry Pi:
 
@@ -190,8 +190,8 @@ After soldering the wires from our opto-isolator into the manual switch, we've g
 
 ![manual switch]({{ site.url }}/assets/images/garage-door/3.png)
 
-The last step was hooking up the Hall effect to the door. You can see the Hall effect sensor in the left of the pic below:
+The last step was hooking up the reed switch to the door. You can see the reed switch in the left of the pic below:
 
-![hall effect]({{ site.url }}/assets/images/garage-door/4.png)
+![reed switch]({{ site.url }}/assets/images/garage-door/4.png)
 
 You can see the whole thing in action in the video at the top of this post.

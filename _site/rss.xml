@@ -5,8 +5,8 @@
         <description>Keyvan's Blog - Keyvan Fatehi</description>
         <link>http://keyvanfatehi.github.io</link>
         <link>http://keyvanfatehi.github.io</link>
-        <lastBuildDate>2015-12-17T20:46:44-08:00</lastBuildDate>
-        <pubDate>2015-12-17T20:46:44-08:00</pubDate>
+        <lastBuildDate>2015-12-17T22:47:14-08:00</lastBuildDate>
+        <pubDate>2015-12-17T22:47:14-08:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -27,7 +27,7 @@
 &lt;ul&gt;
 &lt;li&gt;Original Raspberry Pi&lt;/li&gt;
 &lt;li&gt;1x Opto-isolator&lt;/li&gt;
-&lt;li&gt;1x Hall effect sensor&lt;/li&gt;
+&lt;li&gt;1x reed switch&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2&gt;Embedded Software:&lt;/h2&gt;
@@ -58,7 +58,7 @@
 &lt;p&gt;This would take two GPIO pins.&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;read logic level 1 or 0 based on the garage door being open or closed. a &lt;a href=&quot;https://en.wikipedia.org/wiki/Hall_effect_sensor&quot;&gt;Hall effect sensor&lt;/a&gt; affixed to the door&amp;#39;s frame, adjecent to a strong magnet on the door, will do the trick.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;read logic level 1 or 0 based on the garage door being open or closed. a &lt;a href=&quot;https://en.wikipedia.org/wiki/Reed_switch&quot;&gt;reed switch&lt;/a&gt; affixed to the door&amp;#39;s frame, adjecent to a strong magnet on the door, will do the trick.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;write logic level 1 to a circuit that simulates a button press on the garage door manual switch, located inside the garage. We used an &lt;a href=&quot;https://en.wikipedia.org/wiki/Opto-isolator&quot;&gt;opto-isolator&lt;/a&gt; for this.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -125,7 +125,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;Circuit&lt;/h3&gt;
 
-&lt;p&gt;Credit goes 100% to my dad for all the circuit design and prep downstream of the GPIO pins. If you&amp;#39;d like to replicate this look at the reference schematics for an appropriate voltage Hall effect sensor and opto-isolator.&lt;/p&gt;
+&lt;p&gt;Credit goes 100% to my dad for all the circuit design and prep downstream of the GPIO pins. If you&amp;#39;d like to replicate this look at the reference schematics for an appropriate voltage reed switch and opto-isolator.&lt;/p&gt;
 
 &lt;p&gt;All I had to do was put the board together with the Raspberry Pi:&lt;/p&gt;
 
@@ -187,9 +187,9 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/garage-door/3.png&quot; alt=&quot;manual switch&quot;&gt;&lt;/p&gt;
 
-&lt;p&gt;The last step was hooking up the Hall effect to the door. You can see the Hall effect sensor in the left of the pic below:&lt;/p&gt;
+&lt;p&gt;The last step was hooking up the reed switch to the door. You can see the reed switch in the left of the pic below:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/garage-door/4.png&quot; alt=&quot;hall effect&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/garage-door/4.png&quot; alt=&quot;reed switch&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;You can see the whole thing in action in the video at the top of this post.&lt;/p&gt;
 </description>
