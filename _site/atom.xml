@@ -4,7 +4,7 @@
  <title>Keyvan's Blog</title>
  <link href="http://keyvanfatehi.github.io/" rel="self"/>
  <link href="http://keyvanfatehi.github.io"/>
- <updated>2015-12-17T23:03:34-08:00</updated>
+ <updated>2015-12-18T10:14:04-08:00</updated>
  <id>http://keyvanfatehi.github.io</id>
  <author>
    <name>Keyvan Fatehi</name>
@@ -32,7 +32,7 @@
 &lt;ul&gt;
 &lt;li&gt;Original Raspberry Pi&lt;/li&gt;
 &lt;li&gt;1x Opto-isolator&lt;/li&gt;
-&lt;li&gt;1x reed switch&lt;/li&gt;
+&lt;li&gt;1x Reed switch&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2&gt;Embedded Software:&lt;/h2&gt;
@@ -52,7 +52,7 @@
 
 &lt;p&gt;Our garage door opener has a physical panel just outside where one can enter a 4 digit pin and open the garage.&lt;/p&gt;
 
-&lt;p&gt;After some faily recent rain storms, the panel has been malfunctioning and fails to work 95% of the time. It&amp;#39;s not a battery issue.&lt;/p&gt;
+&lt;p&gt;After some fairly recent rain storms, the panel has been malfunctioning and fails to work 95% of the time. It&amp;#39;s not a battery issue.&lt;/p&gt;
 
 &lt;p&gt;It was expensive to replace that from the manufacturer, and we didn&amp;#39;t want the same faulty product!&lt;/p&gt;
 
