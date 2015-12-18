@@ -36,7 +36,7 @@ We did this project crazy-fast and without any hang-ups, which was interesting t
 
 * App: Custom Ionic app [source](https://github.com/kfatehi/AfternoonCommander)
 
-# Full Story
+## Problem
 
 Our garage door opener has a physical panel just outside where one can enter a 4 digit pin and open the garage.
 
@@ -123,6 +123,8 @@ end
 ### Circuit
 
 Credit goes 100% to my dad for all the circuit design and prep downstream of the GPIO pins. If you'd like to replicate this look at the reference schematics for an appropriate voltage reed switch and opto-isolator.
+
+> A Normally Open (NO) Reed Switch and a magnet are used as the Garage Door status sensor. The Reed switch is installed on the frame, and the magnet on moving door. When the door is in the closed position, the switch short the PI's input to ground indicating logic "0," otherwise that input is in logic "1." We chose a passive Reed magnetic sensor over hall effect transistor because the latter would have required access to a supply voltage and therefore we would have to run 3 wires from PI to the sensor.
 
 All I had to do was put the board together with the Raspberry Pi:
 

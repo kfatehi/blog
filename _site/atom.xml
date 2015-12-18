@@ -4,7 +4,7 @@
  <title>Keyvan's Blog</title>
  <link href="http://keyvanfatehi.github.io/" rel="self"/>
  <link href="http://keyvanfatehi.github.io"/>
- <updated>2015-12-17T23:00:24-08:00</updated>
+ <updated>2015-12-17T23:02:46-08:00</updated>
  <id>http://keyvanfatehi.github.io</id>
  <author>
    <name>Keyvan Fatehi</name>
@@ -48,7 +48,7 @@
 &lt;li&gt;App: Custom Ionic app &lt;a href=&quot;https://github.com/kfatehi/AfternoonCommander&quot;&gt;source&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1&gt;Full Story&lt;/h1&gt;
+&lt;h2&gt;Problem&lt;/h2&gt;
 
 &lt;p&gt;Our garage door opener has a physical panel just outside where one can enter a 4 digit pin and open the garage.&lt;/p&gt;
 
@@ -131,6 +131,10 @@
 &lt;h3&gt;Circuit&lt;/h3&gt;
 
 &lt;p&gt;Credit goes 100% to my dad for all the circuit design and prep downstream of the GPIO pins. If you&amp;#39;d like to replicate this look at the reference schematics for an appropriate voltage reed switch and opto-isolator.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A Normally Open (NO) Reed Switch and a magnet are used as the Garage Door status sensor. The Reed switch is installed on the frame, and the magnet on moving door. When the door is in the closed position, the switch short the PI&amp;#39;s input to ground indicating logic &amp;quot;0,&amp;quot; otherwise that input is in logic &amp;quot;1.&amp;quot; We chose a passive Reed magnetic sensor over hall effect transistor because the latter would have required access to a supply voltage and therefore we would have to run 3 wires from PI to the sensor.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;All I had to do was put the board together with the Raspberry Pi:&lt;/p&gt;
 
