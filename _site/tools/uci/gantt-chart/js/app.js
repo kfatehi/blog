@@ -1,281 +1,65 @@
-window.data = [
-  { id: 'PM',     name: 'INF 151',                                                from: new Date("01/04/2016"), to: new Date("03/18/2016") },
-  { parent: 'PM', name: 'Setup File Structure',                         tasks: [{ from: new Date("01/04/2016"), to: new Date("01/06/2016") }] },
-  { parent: 'PM', name: 'Quiz 1',                                       tasks: [{ from: new Date("01/06/2016"), to: new Date("01/06/2016") }] },
-  { parent: 'PM', name: 'Communication Covenant',                       tasks: [{ from: new Date("01/06/2016"), to: new Date("01/11/2016") }] },
-  { parent: 'PM', name: 'Gantt Chart of the Quarter',                   tasks: [{ from: new Date("01/06/2016"), to: new Date("01/11/2016") }] },
-  { parent: 'PM', name: 'Group Photo',                                  tasks: [{ from: new Date("01/06/2016"), to: new Date("01/13/2016") }] },
-  { parent: 'PM', name: 'Quiz 2',                                       tasks: [{ from: new Date("01/13/2016"), to: new Date("01/13/2016") }] },
-  { parent: 'PM', name: 'Project Description',                          tasks: [{ from: new Date("01/06/2016"), to: new Date("01/18/2016") }] },
-  { parent: 'PM', name: 'Business Case',                                tasks: [{ from: new Date("01/13/2016"), to: new Date("01/20/2016") }] },
-  { parent: 'PM', name: 'Quiz 3',                                       tasks: [{ from: new Date("01/20/2016"), to: new Date("01/20/2016") }] },
-  { parent: 'PM', name: 'Scope Statement and Work Breakdown Structure', tasks: [{ from: new Date("01/20/2016"), to: new Date("01/25/2016") }] },
-  { parent: 'PM', name: 'Quiz 4',                                       tasks: [{ from: new Date("01/25/2016"), to: new Date("01/25/2016") }] },
-  { parent: 'PM', name: 'Gantt Chart for Project',                      tasks: [{ from: new Date("01/25/2016"), to: new Date("02/01/2016") }] },
-  { parent: 'PM', name: 'Quiz 5',                                       tasks: [{ from: new Date("02/01/2016"), to: new Date("02/01/2016") }] },
-  { parent: 'PM', name: 'Midterm',                                      tasks: [{ from: new Date("02/08/2016"), to: new Date("02/08/2016") }] },
-  { parent: 'PM', name: 'Quiz 6',                                       tasks: [{ from: new Date("02/10/2016"), to: new Date("02/10/2016") }] },
-  { parent: 'PM', name: 'Quiz 7',                                       tasks: [{ from: new Date("02/17/2016"), to: new Date("02/17/2016") }] },
-  { parent: 'PM', name: 'Quiz 8',                                       tasks: [{ from: new Date("02/22/2016"), to: new Date("02/22/2016") }] },
-  { parent: 'PM', name: 'Cost, Quality, and Risk Management',           tasks: [{ from: new Date("02/17/2016"), to: new Date("02/22/2016") }] },
-  { parent: 'PM', name: 'Quiz 9',                                       tasks: [{ from: new Date("02/29/2016"), to: new Date("02/29/2016") }] },
-  { parent: 'PM', name: 'Quiz 10',                                      tasks: [{ from: new Date("03/02/2016"), to: new Date("03/02/2016") }] },
-  { parent: 'PM', name: 'Lessons Learned',                              tasks: [{ from: new Date("01/06/2016"), to: new Date("03/09/2016") }] },
-  { parent: 'PM', name: 'Final',                                        tasks: [{ from: new Date("03/18/2016"), to: new Date("03/18/2016") }] },
-]
+var data = [];
 
-/*
-  },{
-    name: "Communication Covenant",
- * */
+data = data.concat(
+  Util.classGantt('INF 151: Project Management', '01/04/2016', '03/18/2016', [
+    { name: 'Setup File Structure',                         from: "01/04/2016", to: "01/06/2016" },
+    { name: 'Quiz 1',                                       on: "01/06/2016" },
+    { name: 'Communication Covenant',                       from: "01/06/2016", to: "01/11/2016" },
+    { name: 'Gantt Chart of the Quarter',                   from: "01/06/2016", to: "01/11/2016" },
+    { name: 'Group Photo',                                  from: "01/06/2016", to: "01/13/2016" },
+    { name: 'Quiz 2',                                       on: "01/13/2016" },
+    { name: 'Project Description',                          from: "01/06/2016", to: "01/18/2016" },
+    { name: 'Business Case',                                from: "01/13/2016", to: "01/20/2016" },
+    { name: 'Quiz 3',                                       on: "01/20/2016" },
+    { name: 'Scope Statement and Work Breakdown',           from: "01/20/2016", to: "01/25/2016" },
+    { name: 'Quiz 4',                                       on: "01/25/2016" },
+    { name: 'Gantt Chart for Project',                      from: "01/25/2016", to: "02/01/2016" },
+    { name: 'Quiz 5',                                       on: "02/01/2016" },
+    { name: 'Midterm',                                      from: "02/08/2016", to: "02/08/2016" },
+    { name: 'Quiz 6',                                       on: "02/10/2016" },
+    { name: 'Quiz 7',                                       on: "02/17/2016" },
+    { name: 'Quiz 8',                                       on: "02/22/2016" },
+    { name: 'Cost, Quality, and Risk Management',           from: "02/17/2016", to: "02/22/2016" },
+    { name: 'Quiz 9',                                       on: "02/29/2016" },
+    { name: 'Quiz 10',                                      on: "03/02/2016" },
+    { name: 'Lessons Learned',                              from: "01/06/2016", to: "03/09/2016" },
+    { name: 'Final',                                        on: "03/18/2016" }
+  ])
+)
 
-/*window.data = [
-    // Order is optional. If not specified it will be assigned automatically
-    {
-        name: 'Milestones',
-        height: '3em',
-        sortable: false,
-        classes: 'gantt-row-milestone',
-        color: '#45607D',
-        tasks: [
-            // Dates can be specified as string, timestamp or javascript date object. The data attribute can be used to attach a custom object
-            {
-                name: 'Kickoff',
-                color: '#93C47D',
-                from: '2013-10-07T09:00:00',
-                to: '2013-10-07T10:00:00',
-                data: 'Can contain any custom data or object'
-            }, {
-                name: 'Concept approval',
-                color: '#93C47D',
-                from: new Date(2013, 9, 18, 18, 0, 0),
-                to: new Date(2013, 9, 18, 18, 0, 0),
-                est: new Date(2013, 9, 16, 7, 0, 0),
-                lct: new Date(2013, 9, 19, 0, 0, 0)
-            }, {
-                name: 'Development finished',
-                color: '#93C47D',
-                from: new Date(2013, 10, 15, 18, 0, 0),
-                to: new Date(2013, 10, 15, 18, 0, 0)
-            }, {
-                name: 'Shop is running',
-                color: '#93C47D',
-                from: new Date(2013, 10, 22, 12, 0, 0),
-                to: new Date(2013, 10, 22, 12, 0, 0)
-            }, {
-                name: 'Go-live',
-                color: '#93C47D',
-                from: new Date(2013, 10, 29, 16, 0, 0),
-                to: new Date(2013, 10, 29, 16, 0, 0)
-            }
-        ],
-        data: 'Can contain any custom data or object'
-    }, {
-        name: 'Status meetings',
-        tasks: [{
-            name: 'Demo #1',
-            color: '#9FC5F8',
-            from: new Date(2013, 9, 25, 15, 0, 0),
-            to: new Date(2013, 9, 25, 18, 30, 0)
-        }, {
-            name: 'Demo #2',
-            color: '#9FC5F8',
-            from: new Date(2013, 10, 1, 15, 0, 0),
-            to: new Date(2013, 10, 1, 18, 0, 0)
-        }, {
-            name: 'Demo #3',
-            color: '#9FC5F8',
-            from: new Date(2013, 10, 8, 15, 0, 0),
-            to: new Date(2013, 10, 8, 18, 0, 0)
-        }, {
-            name: 'Demo #4',
-            color: '#9FC5F8',
-            from: new Date(2013, 10, 15, 15, 0, 0),
-            to: new Date(2013, 10, 15, 18, 0, 0)
-        }, {
-            name: 'Demo #5',
-            color: '#9FC5F8',
-            from: new Date(2013, 10, 24, 9, 0, 0),
-            to: new Date(2013, 10, 24, 10, 0, 0)
-        }]
-    }, {
-        name: 'Kickoff',
-        movable: {
-            allowResizing: false
-        },
-        tasks: [{
-            name: 'Day 1',
-            color: '#9FC5F8',
-            from: new Date(2013, 9, 7, 9, 0, 0),
-            to: new Date(2013, 9, 7, 17, 0, 0),
-            progress: {
-                percent: 100,
-                color: '#3C8CF8'
-            },
-            movable: false
-        }, {
-            name: 'Day 2',
-            color: '#9FC5F8',
-            from: new Date(2013, 9, 8, 9, 0, 0),
-            to: new Date(2013, 9, 8, 17, 0, 0),
-            progress: {
-                percent: 100,
-                color: '#3C8CF8'
-            }
-        }, {
-            name: 'Day 3',
-            color: '#9FC5F8',
-            from: new Date(2013, 9, 9, 8, 30, 0),
-            to: new Date(2013, 9, 9, 12, 0, 0),
-            progress: {
-                percent: 100,
-                color: '#3C8CF8'
-            }
-        }]
-    }, {
-        name: 'Create concept',
-        tasks: [{
-            name: 'Create concept',
-            priority: 20,
-            content: '<i class="fa fa-cog" ng-click="scope.handleTaskIconClick(task.model)"></i> {{task.model.name}}',
-            color: '#F1C232',
-            from: new Date(2013, 9, 10, 8, 0, 0),
-            to: new Date(2013, 9, 16, 18, 0, 0),
-            est: new Date(2013, 9, 8, 8, 0, 0),
-            lct: new Date(2013, 9, 18, 20, 0, 0),
-            progress: 100
-        }]
-    }, {
-        name: 'Finalize concept',
-        tasks: [{
-            id: 'Finalize concept',
-            name: 'Finalize concept',
-            priority: 10,
-            color: '#F1C232',
-            from: new Date(2013, 9, 17, 8, 0, 0),
-            to: new Date(2013, 9, 18, 18, 0, 0),
-            progress: 100
-        }]
-    }, {
-        name: 'Development',
-        children: ['Sprint 1', 'Sprint 2', 'Sprint 3', 'Sprint 4'],
-        content: '<i class="fa fa-file-code-o" ng-click="scope.handleRowIconClick(row.model)"></i> {{row.model.name}}'
-    }, {
-        name: 'Sprint 1',
-        tooltips: false,
-        tasks: [{
-            id: 'Product list view',
-            name: 'Product list view',
-            color: '#F1C232',
-            from: new Date(2013, 9, 21, 8, 0, 0),
-            to: new Date(2013, 9, 25, 15, 0, 0),
-            progress: 25,
-            dependencies: [{
-                to: 'Order basket'
-            }, {
-                from: 'Finalize concept'
-            }]
-        }]
-    }, {
-        name: 'Sprint 2',
-        tasks: [{
-            id: 'Order basket',
-            name: 'Order basket',
-            color: '#F1C232',
-            from: new Date(2013, 9, 28, 8, 0, 0),
-            to: new Date(2013, 10, 1, 15, 0, 0),
-            dependencies: {
-                to: 'Checkout'
-            }
-        }]
-    }, {
-        name: 'Sprint 3',
-        tasks: [{
-            id: 'Checkout',
-            name: 'Checkout',
-            color: '#F1C232',
-            from: new Date(2013, 10, 4, 8, 0, 0),
-            to: new Date(2013, 10, 8, 15, 0, 0),
-            dependencies: {
-                to: 'Login & Signup & Admin Views'
-            }
-        }]
-    }, {
-        name: 'Sprint 4',
-        tasks: [{
-            id: 'Login & Signup & Admin Views',
-            name: 'Login & Signup & Admin Views',
-            color: '#F1C232',
-            from: new Date(2013, 10, 11, 8, 0, 0),
-            to: new Date(2013, 10, 15, 15, 0, 0),
-            dependencies: [{
-                to: 'HW'
-            }, {
-                to: 'SW / DNS/ Backups'
-            }]
-        }]
-    }, {
-        name: 'Hosting'
-    }, {
-        name: 'Setup',
-        tasks: [{
-            id: 'HW',
-            name: 'HW',
-            color: '#F1C232',
-            from: new Date(2013, 10, 18, 8, 0, 0),
-            to: new Date(2013, 10, 18, 12, 0, 0)
-        }]
-    }, {
-        name: 'Config',
-        tasks: [{
-            id: 'SW / DNS/ Backups',
-            name: 'SW / DNS/ Backups',
-            color: '#F1C232',
-            from: new Date(2013, 10, 18, 12, 0, 0),
-            to: new Date(2013, 10, 21, 18, 0, 0)
-        }]
-    }, {
-        name: 'Server',
-        parent: 'Hosting',
-        children: ['Setup', 'Config']
-    }, {
-        name: 'Deployment',
-        parent: 'Hosting',
-        tasks: [{
-            name: 'Depl. & Final testing',
-            color: '#F1C232',
-            from: new Date(2013, 10, 21, 8, 0, 0),
-            to: new Date(2013, 10, 22, 12, 0, 0),
-            'classes': 'gantt-task-deployment'
-        }]
-    }, {
-        name: 'Workshop',
-        tasks: [{
-            name: 'On-side education',
-            color: '#F1C232',
-            from: new Date(2013, 10, 24, 9, 0, 0),
-            to: new Date(2013, 10, 25, 15, 0, 0)
-        }]
-    }, {
-        name: 'Content',
-        tasks: [{
-            name: 'Supervise content creation',
-            color: '#F1C232',
-            from: new Date(2013, 10, 26, 9, 0, 0),
-            to: new Date(2013, 10, 29, 16, 0, 0)
-        }]
-    }, {
-        name: 'Documentation',
-        tasks: [{
-            name: 'Technical/User documentation',
-            color: '#F1C232',
-            from: new Date(2013, 10, 26, 8, 0, 0),
-            to: new Date(2013, 10, 28, 18, 0, 0)
-        }]
-    }
-];
-*/
+data = data.concat(
+  Util.classGantt('INF 131: Human Computer Interaction', '01/04/2016', '03/18/2016', [
+    { name: 'Deliverable 1',                         from: "01/11/2016", to: "01/29/2016" },
+    { name: 'Deliverable 2',                         from: "01/27/2016", to: "02/12/2016" },
+    { name: 'Deliverable 3',                         from: "02/10/2016", to: "03/04/2016" },
+    { name: 'Final',                                        on: "03/16/2016" }
+  ])
+)
 
+data = data.concat(
+  Util.classGantt('INF 141: Information Retreival', '01/04/2016', '03/18/2016', [
+    { name: 'Text processing functions',                         from: "01/11/2016", to: "01/20/2016" },
+    { name: 'Crawler',                         from: "01/14/2016", to: "02/12/2016" },
+    { name: "Quiz", on: "02/02/2016" },
+    { name: 'Search Engine',                         from: "01/26/2016", to: "02/22/2016" },
+    { name: "Quiz", on: "03/08/2016" },
+    { name: 'Final',                                        on: "03/15/2016" }
+  ])
+)
+
+data = data.concat(
+  Util.classGantt('INF 113: Requirements Engineering & Analysis', '01/04/2016', '03/18/2016', [
+    { name: "HW1", from: "01/12/2016", to: "01/15/2016" },
+    { name: "HW2", from: "01/14/2016", to: "01/25/2016" },
+    { name: "HW3", from: "01/28/2016", to: "02/05/2016" },
+    { name: 'Midterm',                                        on: "02/09/2016" },
+    { name: "HW4", from: "02/09/2016", to: "02/11/2016" },
+    { name: "HW5", from: "02/11/2016", to: "02/16/2016" },
+    { name: "HW6", from: "02/16/2016", to: "02/20/2016" },
+    { name: "HW7", from: "02/16/2016", to: "02/27/2016" },
+    { name: 'Final',                                        on: "03/17/2016" }
+  ])
+)
 
 angular.module("app", [
   'gantt',
@@ -300,11 +84,6 @@ angular.module("app", [
       minute:'HH:mm'
     }
   }
-  //$.get('calendar.ics', function(data){
-  //  $scope.$apply(function() {
-  //    $scope.data = window.data
-  //  })
-  //})
   $scope.data = window.data
 })
 
