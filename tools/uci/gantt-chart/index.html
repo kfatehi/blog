@@ -1,0 +1,60 @@
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <title>INF 151 Gantt Chart Keyvan Fatehi</title>
+  <script src="js/lib/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/lib/angular.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/lib/lodash.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/lib/moment.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/lib/angular-moment.js" type="text/javascript" charset="utf-8"></script>
+
+  <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/moment-range/2.0.3/moment-range.min.js"></script>
+
+  <script type='text/javascript' src="http://rawgit.com/JimLiu/angular-ui-tree/master/dist/angular-ui-tree.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://rawgit.com/angular-ui-tree/angular-ui-tree/master/dist/angular-ui-tree.min.css">
+
+  <script type='text/javascript' src="http://rawgit.com/ganarajpr/angular-dragdrop/master/draganddrop.js"></script>
+
+  <script type='text/javascript' src="http://rawgit.com/marcj/css-element-queries/master/src/ElementQueries.js"></script>
+  <script type='text/javascript' src="http://rawgit.com/marcj/css-element-queries/master/src/ResizeSensor.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css">
+
+  <script src="js/lib/angular-gantt.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/lib/angular-gantt-plugins.js" type="text/javascript" charset="utf-8"></script>
+
+  <script src="util.js" type="text/javascript" charset="utf-8"></script>
+  <script src="app.js" type="text/javascript" charset="utf-8"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/angular-gantt.css">
+  <link rel="stylesheet" type="text/css" href="css/angular-gantt-plugins.css">
+</head>
+<body>
+  <style type="text/css" media="all">
+.gantt-header-columns {
+  height: inherit !important;
+}
+  </style>
+  <div  ng-app="app" ng-controller="MainCtrl">
+    <div gantt
+      data="data"
+      headers="['month', 'day']"
+      from-date = "options.fromDate"
+      to-date = "options.toDate"
+      headers-formats="options.headersFormats"
+      time-frames="options.timeFrames"
+      time-frames-working-mode="cropped"
+      time-frames-non-working-mode="hidden"
+      >
+      <gantt-tree></gantt-tree>
+      <gantt-groups></gantt-groups>
+      <gantt-tooltips></gantt-tooltips>
+      <gantt-bounds></gantt-bounds>
+      <gantt-progress></gantt-progress>
+      <gantt-resize-sensor></gantt-resize-sensor>
+    </div>
+  </div>
+</body>
+</html>

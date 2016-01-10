@@ -8,3 +8,4 @@ group: navigation
 
 * [HTML Beautifier](http://www.dirtymarkup.com/)
 * [JavaScript Beautifier](http://jsbeautifier.org/)
+* [Gantt Chart Winter 2016](uci/gantt-chart)
