@@ -5,8 +5,8 @@
         <description>Keyvan's Blog - Keyvan Fatehi</description>
         <link>http://keyvanfatehi.github.io</link>
         <link>http://keyvanfatehi.github.io</link>
-        <lastBuildDate>2016-01-10T08:12:43-08:00</lastBuildDate>
-        <pubDate>2016-01-10T08:12:43-08:00</pubDate>
+        <lastBuildDate>2016-01-13T11:36:13-08:00</lastBuildDate>
+        <pubDate>2016-01-13T11:36:13-08:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -272,7 +272,7 @@ go run *.go start --debug --token &lt;span class=&quot;s2&quot;&gt;&amp;quot;abc
 
 &lt;h3&gt;Install libimobiledevice from latest source&lt;/h3&gt;
 
-&lt;p&gt;In order to get iOS 7 support, we need to compile everything from source. Find the scripts for ArchLinux and Raspbian here: &lt;a href=&quot;https://gist.github.com/keyvanfatehi/8922430&quot;&gt;https://gist.github.com/keyvanfatehi/8922430&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In order to get iOS 7 support, we need to compile everything from source. Find the scripts for ArchLinux and Raspbian here: &lt;a href=&quot;https://gist.github.com/kfatehi/8922430&quot;&gt;https://gist.github.com/kfatehi/8922430&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Usage&lt;/h2&gt;
 
@@ -382,7 +382,7 @@ would cause it to pick up where it left off, so I&amp;#39;ve developed a script.
 &lt;/ol&gt;
 
 &lt;p&gt;For more information check out
-&lt;a href=&quot;https://github.com/keyvanfatehi/npm-replication-watcher&quot;&gt;npm-replication-watcher&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;https://github.com/kfatehi/npm-replication-watcher&quot;&gt;npm-replication-watcher&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1&gt;Finalizing the installation&lt;/h1&gt;
 
@@ -496,7 +496,7 @@ target the Microsoft platform offerings. &lt;/p&gt;
 
         <item>
                 <title>Issue Branching Workflow</title>
-                <description>&lt;p&gt;I decided to automate this part of my git workflow. See the &lt;a href=&quot;https://gist.github.com/keyvanfatehi/6155048&quot;&gt;gist&lt;/a&gt; for the source.&lt;/p&gt;
+                <description>&lt;p&gt;I decided to automate this part of my git workflow. See the &lt;a href=&quot;https://gist.github.com/kfatehi/6155048&quot;&gt;gist&lt;/a&gt; for the source.&lt;/p&gt;
 </description>
                 <link>http://keyvanfatehi.github.io/blog/2013/08/05/issue-branching-workflow</link>
                 <guid>http://keyvanfatehi.github.io/blog/2013/08/05/issue-branching-workflow</guid>
@@ -873,7 +873,7 @@ target the Microsoft platform offerings. &lt;/p&gt;
                 <title>Bellow (another notification gem)</title>
                 <description>&lt;p&gt;It wraps the top Prowl and Notify My Android ruby gems and presents one method&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/keyvanfatehi/bellow&quot;&gt;bellow on github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/kfatehi/bellow&quot;&gt;bellow on github&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# People and API keys for each service (nma and prowl)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;people&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -910,7 +910,7 @@ target the Microsoft platform offerings. &lt;/p&gt;
                 <title>Hello Jekyll Goodbye Tumblr</title>
                 <description>&lt;p&gt;Migrating my posts from Tumblr and into Jekyll was not too difficult but I did need to write a little script to make this work.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://gist.github.com/keyvanfatehi/5562147&quot;&gt;Gist&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/kfatehi/5562147&quot;&gt;Gist&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env ruby&lt;/span&gt;
 
@@ -949,7 +949,7 @@ target the Microsoft platform offerings. &lt;/p&gt;
 
 &lt;p&gt;Rolling my own solution has ended up being easier for them, so I&amp;#8217;ve packaged it up as a gem.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/keyvanfatehi/apple_manifest_rails&quot;&gt;Also available on Github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/kfatehi/apple_manifest_rails&quot;&gt;Also available on Github&lt;/a&gt;&lt;/p&gt;
 </description>
                 <link>http://keyvanfatehi.github.io/2013/05/08/my-latest-gem-apple_manifest_rails</link>
                 <guid>http://keyvanfatehi.github.io/2013/05/08/my-latest-gem-apple_manifest_rails</guid>
@@ -1491,7 +1491,7 @@ int main() {
 }
 &lt;/pre&gt;
 &lt;p&gt;The above is chopped and sliced out of a program I&amp;#8217;ve been working on:&lt;/p&gt;
-&lt;p&gt;&lt;a title=&quot;Network Vim&quot; target=&quot;_blank&quot; href=&quot;http://github.com/keyvanfatehi/nim%20%20&quot;&gt;&lt;a href=&quot;http://github.com/keyvanfatehi/nim&quot;&gt;http://github.com/keyvanfatehi/nim&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a title=&quot;Network Vim&quot; target=&quot;_blank&quot; href=&quot;http://github.com/kfatehi/nim%20%20&quot;&gt;&lt;a href=&quot;http://github.com/kfatehi/nim&quot;&gt;http://github.com/kfatehi/nim&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;If you are interested in Unix socket and network programming, I highly recommend this resource:&lt;/p&gt;
 &lt;p&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://beej.us/guide/bgnet/&quot;&gt;&lt;a href=&quot;http://beej.us/guide/bgnet/&quot;&gt;http://beej.us/guide/bgnet/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 </description>

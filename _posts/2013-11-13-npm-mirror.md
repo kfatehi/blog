@@ -96,7 +96,7 @@ would cause it to pick up where it left off, so I've developed a script.
 4. `forever npm-replication-watcher/bin/npm-replication-watcher`
 
 For more information check out
-[npm-replication-watcher](https://github.com/keyvanfatehi/npm-replication-watcher)
+[npm-replication-watcher](https://github.com/kfatehi/npm-replication-watcher)
 
 # Finalizing the installation
 

@@ -11,7 +11,7 @@ tagline: "welcome"
 
 <p>
   You can learn more about me on
-  <a href="https://github.com/keyvanfatehi">github</a>
+  <a href="https://github.com/kfatehi">github</a>
   and <a href="https://www.linkedin.com/in/keyvanfatehi">linkedin</a>
 </p>
 

@@ -7,7 +7,7 @@ tags : []
 
 Migrating my posts from Tumblr and into Jekyll was not too difficult but I did need to write a little script to make this work.
 
-[Gist](https://gist.github.com/keyvanfatehi/5562147)
+[Gist](https://gist.github.com/kfatehi/5562147)
 
 {% highlight ruby %}
 #!/usr/bin/env ruby

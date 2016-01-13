@@ -20,7 +20,7 @@ https://wiki.archlinux.org/index.php/IPhone_Tethering
 
 ### Install libimobiledevice from latest source
 
-In order to get iOS 7 support, we need to compile everything from source. Find the scripts for ArchLinux and Raspbian here: [https://gist.github.com/keyvanfatehi/8922430](https://gist.github.com/keyvanfatehi/8922430)
+In order to get iOS 7 support, we need to compile everything from source. Find the scripts for ArchLinux and Raspbian here: [https://gist.github.com/kfatehi/8922430](https://gist.github.com/kfatehi/8922430)
 
 ## Usage
 
