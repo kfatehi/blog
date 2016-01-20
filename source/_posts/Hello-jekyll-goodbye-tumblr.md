@@ -1,7 +1,8 @@
 ---
 date: '2013-05-11'
 title: Hello jekyll goodbye tumblr
-tags: []
+tags:
+- ruby
 ---
 
 Migrating my posts from Tumblr and into Jekyll was not too difficult but I did need to write a little script to make this work.

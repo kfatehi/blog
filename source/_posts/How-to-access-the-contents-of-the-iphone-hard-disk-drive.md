@@ -2,7 +2,6 @@
 date: '2011-06-10'
 title: How to access the contents of the iphone hard disk drive
 tags:
-- ios
 - iphone
 ---
 <p>You may want to see and access the files you&#8217;re creating in your Documents or tmp directories while coding with iOS. Directly accessing those folders with Finder turns out to be rather difficult.</p>
@@ -12,7 +11,8 @@ tags:
 <p>2) Open up iTunes and access it from the Apps section of your device.</p>
 
 <p>So I was doing it this way, and received this dreaded message: </p>
-<p><img height="150" width="466" alt="iTunes you will be the death of me." src="http://f.cl.ly/items/1t333i2z2D3t0g1V0m1e/Screen%20shot%202011-06-10%20at%208.45.45%20AM.png"/></p>
+
+{% asset_img usure.png iTunes you will be the death of me. %}
 
 <p><strong>My iPhone is associated with a different mac&#8230; And I don&#8217;t want to delete everything just to access it from my development machine. To get around this, you will need to spend money on an application called Phone Disk.</strong></p>
 <p>Phone Disk gives you direct access to your root directory of your iPhone. It worked perfectly for what I needed.</p>

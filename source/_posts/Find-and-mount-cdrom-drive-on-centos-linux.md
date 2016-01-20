@@ -2,6 +2,7 @@
 date: '2012-08-03'
 title: Find and mount cdrom drive on centos linux
 tags: 
+- centos
 ---
 <p>Detect the device using <code>wodim --devices</code> and remember the drive name, I&#8217;ll assume it was <code>/dev/scd0</code></p>
 

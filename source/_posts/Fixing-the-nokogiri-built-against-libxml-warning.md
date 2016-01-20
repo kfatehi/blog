@@ -3,8 +3,6 @@ date: '2013-04-15'
 title: Fixing the nokogiri built against libxml warning
 tags:
 - ruby
-- nokogiri
-- bundler
 ---
 <p>Just installed Mountain Lion 10.8 fresh on my Mac Mini with a new SSD. As I get my rails environment up and running I ran into this common problem:</p>
 

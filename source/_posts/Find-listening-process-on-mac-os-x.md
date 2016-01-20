@@ -2,10 +2,7 @@
 date: '2014-09-05'
 title: Find listening process on mac os x
 tags:
-- mac os x
-- netstat
-- lsof
-- networking
+- osx
 ---
 
 Let's say you have something listening on port 4000, when you hit that port nothing happens, and you can't start any services on that port because something is using it.

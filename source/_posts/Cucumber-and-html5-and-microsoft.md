@@ -2,10 +2,7 @@
 date: '2013-09-06'
 title: Cucumber and html5 and microsoft
 tags:
-- mobile
-- microsoft
-- cucumber
-- bdd
+- testing
 ---
 
 At work we have built a product that is comprised of 3 parts: a backend

@@ -2,6 +2,8 @@
 date: '2012-07-08'
 title: Fixing gcc on mountain lion for gem install
 tags: 
+- osx
+- ruby
 ---
 <p>When you install Mountain Lion, you will no longer have build tools such as `gcc` or `make`</p>
 <p>Step 1, get the latest Xcode, and install Command Line Tools, granting you `make` and `gcc`</p>

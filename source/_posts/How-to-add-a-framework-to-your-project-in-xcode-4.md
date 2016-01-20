@@ -2,7 +2,6 @@
 date: '2011-06-07'
 title: How to add a framework to your project in xcode 4
 tags:
-- ios
 - xcode
 ---
 <p>When I googled for this, I got false information &#8212; so here is how you do it:</p>

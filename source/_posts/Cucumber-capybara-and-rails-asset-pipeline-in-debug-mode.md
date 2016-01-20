@@ -2,6 +2,8 @@
 date: '2012-09-27'
 title: Cucumber capybara and rails asset pipeline in debug mode
 tags: 
+- testing
+- debugging
 ---
 <p><strong>features/support/env.rb</strong></p>
 

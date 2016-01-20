@@ -2,6 +2,7 @@
 date: '2012-07-31'
 title: Centos vnc autostart chkconfig
 tags: 
+- centos
 ---
 <p>Ensure the VNC server (the daemon or server process) is set to autorun on system boots to your runlevel. For example,</p>
 
