@@ -1,11 +1,12 @@
 ---
 date: '2013-05-14'
-title: Bellow
+title: Bellow ruby gem wraps Prowl and Notify My Android
 tags:
 - gems
+- ruby
 ---
 
-It wraps the top Prowl and Notify My Android ruby gems and presents one method
+It wraps the top Prowl and Notify My Android ruby gems into one method
 
 [bellow on github](https://github.com/kfatehi/bellow)
 

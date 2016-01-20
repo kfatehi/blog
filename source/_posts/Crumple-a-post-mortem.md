@@ -12,18 +12,17 @@ Crumple is the startup idea of an old friend of mine from high school. Knowing t
 
 {% asset_img landing.png This is an example image %}
 
-
 **We went to work...** My co-founder was responsible for the business aspects, and I was responsible for the technical aspects. We would consult with each other on as much as we could. What could go wrong?
 
 Unfortunately we were far too optimistic about our project. We'd later discover we were so very very wrong.
 
-Sadly, we didn't realize this until we had build a complete platform and spent quite a bit of [our own] money. My co-founder recently deleted (without letting me know or getting my consent -- in fact I discover this as I write this article...) anything and everything related to Crumple, but as the developer, the code was out of his reach, safe on my GitLab server. Some of this code is worth discussing and releasing, before it falls into the abyss of proprietary abandonware.
+Sadly, we didn't realize this until we had build a complete platform and spent quite a bit of [our own] money. Some of the resulting code is worth discussing and releasing, before it falls into the abyss of proprietary abandonware. In addition, the business lessons are valuable and worthy of reflection.
 
-If I didn't provide a link to source code for a given project, it means I didn't think it useful or general enough to spend the effort moving the code out of my GitLab server. For the curious, feel free to email me and I am happy to share.
+_If I didn't provide a link to source code for a given project, it means I didn't think it useful or general enough to spend the effort moving the code out of my GitLab server. For the curious, feel free to email me and I am happy to share._
 
-## What we built
+## The Software
 
-By September 2015, we'd been at it for 9 months straight -- we'd designed, built, and deployed the entirety of the Crumple platform... complete with tests and CI (because that's how I do things). It was my co-founder's time to shine on the business front (more on this later)... and my time to enter maintainence mode on all the components:
+By September 2015, we'd been at it for 9 months straight -- we'd designed, built, and deployed the entirety of the Crumple platform... complete with tests and CI (because that's how I do things). It was my co-founder's time to shine on the business front (more on this later)... Until then, let's look at the software:
 
 ### VirtualPrinter (ESC/P Parser)
 
@@ -31,15 +30,13 @@ By September 2015, we'd been at it for 9 months straight -- we'd designed, built
 
 This is one of the first and most challenging things I wrote for Crumple.
 
-We used this to convert Epson Standard Code escape sequences to HTML receipts on the smartphone.
+It is a JavaScript module that we used for parsing and converting Epson Standard Code escape sequences to HTML receipts on the smartphone.
 
-We also used it in the Terminal to determine attributes of a print payload in order to employ rules defined for a given store.
-
-Written in pure javascript.
+We also used it in the Terminal under Node.js to determine attributes of a print payload in order to employ rules defined for a given store.
 
 ### The Terminal
 
-A beaglebone-based hardware platform that runs our Node.js software to capture receipts and send it to the backend.
+The name we used for our custom software and the physical beaglebone black it runs on. It runs Debian and Node.js to capture receipts and send it to the backend.
 
 It operates as a physical **Man in the Middle** between the point of sale and the receipt printer. It supports serial (FTDI) and/or the beaglebone's USB client interface with the ability to masquerade as a printer.
 
@@ -57,7 +54,7 @@ It was inspired by Ansible in that all the configuration was done idemptotently 
 
 ### The Web App
 
-It provides the admin portal, customer portal, and mobile app API. Of course all the database and pub/sub stuff is here too. Nothing special.
+It provides the admin portal, customer portal, and mobile app API. Of course all the database and pub/sub stuff is here too. We used PostgreSQL's NOTIFY feature for our PubSub, keeping the stack super lean (i.e. no need for Redis in order to scale horizontally). This worked very well, although I had the opportunity to stress this at scale.
 
 ### The Mobile App
 
@@ -67,11 +64,16 @@ It was pretty magical to hover the phone over the Tablet and receive your receip
 
 ### The Tablet
 
-An android app that would auto-discover the Terminals on the LAN and bind to them. It works in a "Kiosk Mode" and was the customer-facing interface to the Terminal.
+An android app that would auto-discover the Terminals on the LAN and bind to them with a WebSocket. It works in a "Kiosk Mode" and was the customer-facing interface to the Terminal.
 
-Users would use this to select how to get their receipt, enter email address, etc.
+Users would use this to select how to get their receipt, enter email address, tip and sign (if credit card transaction).
 
-**I would have had a video here, but my co-founder removed it from youtube and deleted our shared Google Drive without giving me any warning... I am just discovering this unfortunate fact.**
+{% asset_img idle.png Idle screen %}
+{% asset_img sign.png Signing screen seen for credit card transactions %}
+{% asset_img tip.png Enter a tip amount %}
+{% asset_img ble-start.png Many choices %}
+{% asset_img ble-pin.png The pin code was a security compromise %}
+{% asset_img ble-done.png Receipt arrives over the air like magic %}
 
 ## Business Post Mortem
 
@@ -101,4 +103,6 @@ This doesn't seem like something we could have known until we tried.
 
 > We built too fast. We rushed it. With more market research and by surveying business owners we would have realized points 1­5 and potentially saved ourselves time and money. Its very crucial to build something that solves a big problem and that people really want it.
 
-I should have stuck to my guns early on when I initially proved the technology -- but I allowed myself to be convinced by my co-founder that we needed "the real product" and "just one more feature" over and over again. Lesson learned.
+I should have stuck to my guns early on when I initially proved the technology -- but I allowed myself to be convinced by my co-founder that we needed "the real product" and "just one more feature" over and over again.
+
+I would say "Lesson Learned" but I have a feeling that this experience requires further analysis before its lessons are fully internalized.
