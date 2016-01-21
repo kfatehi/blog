@@ -2,9 +2,7 @@
 date: '2013-11-13'
 title: Npm mirror
 tags:
-- npm
 - nodejs
-- couchdb
 - raspberry pi
 - arch linux
 ---

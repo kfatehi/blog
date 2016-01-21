@@ -11,5 +11,4 @@ tags:
 <blockquote>
 <p>“Can you recommend a good book for getting started with Objective-C?”</p>
 <p>I get this question a lot, but there’s no need to spend any money or even to spend time digesting an entire book. I always point people to the Apple docs — the documentation is very modular and (mostly) very reliable.</p>
-<p>But the&#8230;</p>
 </blockquote>

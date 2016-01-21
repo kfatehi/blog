@@ -3,10 +3,7 @@ date: '2014-02-10'
 title: Raspberry pi iphone tether
 tags:
 - iphone
-- ios
 - raspberry pi
-- raspbian
-- arch linux
 ---
 
 # iPhone Tethering on Raspberry Pi

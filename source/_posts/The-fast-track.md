@@ -2,6 +2,7 @@
 date: '2011-10-29'
 title: The fast track
 tags: 
+- hackers
 ---
 <p>This blog was intended to be cut &amp; dry programming and no commentary as I began to explore iOS development for the first time (I now work full time as an iOS developer for a company in LA). However, I&#8217;ve mindfully gone through what I think is an important transformation over the years that could be of benefit to the slightly younger generation of would-be coders.</p>
 <p><strong>Background<br/></strong>In the past few years, I&#8217;ve risen fairly quickly to being considered &#8220;highly skilled&#8221; and &#8220;very fast&#8221; as a software engineer. I get nothing but praise and surprise from clients, employers, peers, mentors. I did not start out this way. 2 years ago I could definitely not do the things I am doing today. I didn&#8217;t go to school in order to achieve this level of competence &#8212; that was too slow for me&#8230; Instead, I took the fast track, which I would like to now describe:</p>

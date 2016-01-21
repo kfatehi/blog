@@ -2,6 +2,7 @@
 date: '2012-07-03'
 title: Mountains are merely mountains
 tags: 
+- social
 ---
 <p>Since August 2011, I belong to a group with the intent of developing a game, someday, someway. It started with a handful of people and has grown, morphed, contracted, shuffled and perhaps finally stabilized enough to talk about.</p>
 <p>It&#8217;s very low pressure (no bosses really, very little drama or heat) and, from my perspective, is mainly a place for folks to determine where they&#8217;d fit in within a game development team, and learn how to be productive towards a common goal.</p>

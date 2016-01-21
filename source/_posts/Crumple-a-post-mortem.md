@@ -3,7 +3,7 @@ title: 'Crumple, Inc.: a startup post-mortem'
 date: 2016-01-19 15:00:11
 tags:
   - startup
-  - embedded
+  - beaglebone
 ---
 
 Crumple is the startup idea of an old friend of mine from high school. Knowing that I can develop whatever, he presented me with his pitch and I thought:

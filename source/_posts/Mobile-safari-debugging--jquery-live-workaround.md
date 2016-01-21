@@ -1,7 +1,8 @@
 ---
 date: '2012-10-17'
-title: Mobile safari debugging  jquery live workaround
+title: Mobile safari debugging jquery live workaround
 tags: 
+- debugging
 ---
 <h2>Mobile Safari Debugging</h2>
 

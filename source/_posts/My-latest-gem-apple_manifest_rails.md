@@ -1,7 +1,8 @@
 ---
 date: '2013-05-08'
-title: My latest gem apple_manifest_rails
+title: created ruby gem apple_manifest_rails
 tags: 
+- ruby
 ---
 <p>A couple days ago I released <a href="http://rubygems.org/gems/apple_manifest_rails">apple_manifest_rails</a>, a rails engine that simplifies the iOS application ad-hoc enroll / install process.</p>
 

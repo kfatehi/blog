@@ -1,7 +1,6 @@
 ---
 date: '2011-06-12'
-title: Using spark on your hackintosh for volume key binding  a voodoohda prefpane
-  applescript
+title: Using spark on your hackintosh for volume key binding a VoodooHDA PrefPane applescript
 tags:
 - hackintosh
 ---
@@ -17,7 +16,3 @@ tags:
 end tell
 </pre>
 <p>And problem 2 is solved now as well. Hell yeah!</p>
-
-<p><strong>Hackintosh laptop is complete. Here&#8217;s a photo:</strong></p>
-
-<p><strong><img src="http://keyvanfatehi.com/up/asusosx86.jpg" width="510" height="585"/><br/></strong></p>

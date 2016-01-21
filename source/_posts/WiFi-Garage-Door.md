@@ -3,7 +3,8 @@ title: "DIY WiFi Garage door opener and status checker"
 date: 2015-12-17 17:11:13
 tags:
   - elixir
-  - embedded
+  - nerves
+  - raspberry pi
 ---
 
 {% youtube 4XBNwHmx-4Q %}

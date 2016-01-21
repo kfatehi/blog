@@ -3,8 +3,8 @@ date: '2015-07-20'
 title: Setup go compiler on arm and compile buildkite agent
 tags:
 - ci
-- arm
 - beaglebone
+- golang
 ---
 
 Notes getting buildkite agent running on BeagleBone/ARM7

@@ -2,6 +2,7 @@
 date: '2012-07-31'
 title: Zlib error on gem install on debian squeeze
 tags: 
+- debian
 ---
 <p>Despite having all libzlib dependencies installed, I would still get an error when trying to use <code>gem install</code></p>
 

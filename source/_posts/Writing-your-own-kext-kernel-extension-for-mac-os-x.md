@@ -3,7 +3,7 @@ date: '2011-06-12'
 title: Writing your own kext kernel extension for mac os x
 tags:
 - xcode
-- kext
+- osx
 ---
 <p>Direct copypasta of <a href="http://unixjunkie.blogspot.com/2006/12/kernel-extension-by-hand.html"><a href="http://unixjunkie.blogspot.com/2006/12/kernel-extension-by-hand.html">http://unixjunkie.blogspot.com/2006/12/kernel-extension-by-hand.html</a></a></p>
 <p><span> </span></p>
