@@ -1,8 +1,8 @@
 ---
 title: Hello hexo goodbye Jekyll
-date: 2016-01-20 14:52:37
 tags:
-- ruby
+  - ruby
+date: 2016-01-20 14:52:37
 ---
 
 Migrating my posts from Jekyll (which had old stuff from tumblr, never properly integrated) into Hexo without breaking Hexo's defaults.
