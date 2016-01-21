@@ -2,7 +2,7 @@
 date: '2013-08-13'
 title: Install kvm with gui on ubuntu 12.04
 tags:
-- kvm
+- virtualization
 - ubuntu
 ---
 

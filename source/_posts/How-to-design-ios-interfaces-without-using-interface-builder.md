@@ -2,6 +2,7 @@
 date: '2011-06-10'
 title: How to design ios interfaces without using interface builder
 tags: 
+- ios
 ---
 <p>Now that my app has achieved the functionality requested by my client&#8212;naturally he begins to talk about interface design.</p>
 <p>I am a coder, but I am not a graphic designer. So how can we allow the budget-client, who may not be using Mac&#8212;and doesn&#8217;t want to figure out how to use Interface Builder anyway&#8212;to create great interfaces?</p>

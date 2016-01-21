@@ -2,10 +2,11 @@
 date: '2011-07-18'
 title: Imagemagick and its delegate libraries
 tags: 
+- ruby
 ---
 <p>You need ImageMagick in order to get ruby gems such as Paperclip, or Rmagick, etc to work properly. ImageMagick is one of the most feared dependencies since even if you correctly install it, you may still get errors like:</p>
 <pre>"is not recognized by the 'identify' command"</pre>
-<p>This is because &#8220;identify&#8221;, a command that comes in the ImageMagick suite (in addition to &#8220;convert&#8221;), requires special libraries to understand different image formats. These special libraries are called &#8220;delegates&#8221;.</p>
+<p>This is because "identify", a command that comes in the ImageMagick suite (in addition to "convert"), requires special libraries to understand different image formats. These special libraries are called "delegates".</p>
 <p>You can see all the delegates set up to work with your current ImageMagick with this command:</p>
 <pre>convert -list configure</pre>
 <p><span><span>All the delegates are available at this link:</span></span></p>
@@ -20,4 +21,4 @@ tags:
 make
 sudo make install
 </pre>
-<p>You should hopefully see your delegates&#8212;if not at least you know about them now and can troubleshoot further&#8212;enjoy.</p>
+<p>You should hopefully see your delegates--if not at least you know about them now and can troubleshoot further--enjoy.</p>

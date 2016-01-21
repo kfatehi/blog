@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+# Strip shitty &#...; characters from a file
+# usage: sanitize source/_posts/whatever.md
+post_path = ARGV[0]
+if File.exists?(post_path)
+  content = nil
+  File.open(post_path) do |file|
+    content = file.read
+      .gsub(/&#8220;/, '"')
+      .gsub(/&#8221;/, '"')
+      .gsub(/&#8212;/, '--')
+  end
+  File.open(post_path, "w") do |file|
+    file.write content
+  end
+end

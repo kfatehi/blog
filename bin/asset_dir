@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+# Make an asset dir for a post that doesn't have one already
+# usage: asset_dir source/_posts/whatever.md
+post_path = ARGV[0]
+if File.exists?(post_path)
+  name = File.basename(post_path, ".md")
+  dir = File.dirname(post_path)
+  asset_dir = File.join(dir, name)
+  Dir.mkdir(asset_dir) unless Dir.exists?(asset_dir)
+  puts asset_dir
+end
