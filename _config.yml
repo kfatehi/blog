@@ -68,4 +68,9 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:kfatehi/keyvanfatehi.github.com.git
+  branch: gh-pages
+
+plugins:
+  - hexo-generator-cname
