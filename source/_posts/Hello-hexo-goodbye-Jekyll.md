@@ -5,7 +5,9 @@ tags:
 date: 2016-01-20 14:52:37
 ---
 
-Migrating my posts from Jekyll (which had old stuff from tumblr, never properly integrated) into Hexo without breaking Hexo's defaults.
+Migrating my posts from Jekyll into Hexo without breaking Hexo's defaults.
+
+The tumblr stuff is for when i migrated from tumblr to Jekyll. It was never a proper migration. Now everything is properly migrated with this script.
 
 [Gist](https://gist.github.com/kfatehi/236209b093c66da11065)
 
