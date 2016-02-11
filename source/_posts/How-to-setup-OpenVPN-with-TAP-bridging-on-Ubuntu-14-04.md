@@ -67,13 +67,12 @@ Open the server config, e.g. `vim /etc/openvpn/server.conf`
 Configure the following, yours may be different depending on your topology:
 
 ```
-port 1194
+port 1189
 proto udp
 server-bridge 192.168.1.206 255.255.255.0 192.168.1.239 192.168.1.254
 dev tap0
 ca ca.crt
 cert server.crt
-tun-mtu 1454
 key server.key  
 dh dh2048.pem
 up "/etc/openvpn/up.sh br0"
@@ -86,6 +85,7 @@ persist-tun
 verb 3
 mute 20
 status openvpn-status.log
+duplicate-cn
 ```
 
 Create the scripts that will execute when the OpenVPN service starts and stops. These scripts add and remove the OpenVPN interface to the servers br0 interface.
@@ -203,7 +203,7 @@ Edit the client profile to reflect your server's IP address and configure it for
 client
 dev tap
 proto udp
-remote my-server-1 1194
+remote my-server-1 1189
 resolv-retry infinite
 nobind
 persist-key
