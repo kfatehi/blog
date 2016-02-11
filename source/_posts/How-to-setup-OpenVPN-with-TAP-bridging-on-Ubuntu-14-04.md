@@ -232,7 +232,28 @@ cp ca.crt my-vpn.tblk
 tar -czf my-vpn.tblk.tar.gz my-vpn.tblk
 ```
 
-TODO: Add part about vpshere/esxi promisc mode
+# Troubleshooting
+
+## It connects, I can ping the OpenVPN server's LAN address, but no internet or other LAN addresses.
+
+Are you running on VMWare VSphere or ESXi? If so you need to configure your switch in promiscuous mode.
+
+{% asset_img vsphere_1.png VSphere host config tab, networking sidebar %}
+
+{% asset_img vsphere_2.png VSphere host switch properties %}
+
+{% asset_img vsphere_3.png Editing VSphere host switch properties to enable promiscuous mode %}
+
+## It connects, I can ping LAN and internet addresses, but DNS isn't working.
+
+If you manually configure a DNS (e.g. 8.8.8.8), does it work? Then you can configure your openvpn server to `push` DNS configuration to the clients.
+
+Add a line like this to the openvpn server config:
+
+```
+push "dhcp-option DNS 192.168.1.1"
+```
+
 
 ## References
 
@@ -242,3 +263,5 @@ TODO: Add part about vpshere/esxi promisc mode
 * http://askubuntu.com/questions/533047/use-steams-in-home-streaming-across-vpn-openvpn
 * http://www.evilbox.ro/linux/install-bridged-openvpn-on-ubuntu-14-04-x64-server-and-configure-windows-8-1-x64-client/
 * http://unix.stackexchange.com/questions/23004/openvpn-bridge-cant-access-machines-on-local-network
+* https://community.openvpn.net/openvpn/wiki/BridgingAndRouting
+* http://serverfault.com/questions/318563/how-to-push-my-own-dns-server-to-openvpn
