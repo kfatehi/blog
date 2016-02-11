@@ -74,3 +74,5 @@ deploy:
 
 plugins:
   - hexo-generator-cname
+
+disqus_shortname: keyvanfatehi
