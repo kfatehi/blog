@@ -217,9 +217,9 @@ verb 3
 mute 20
 ```
 
-Finally, you can transfer client1.crt, client1.key, client.ovpn, and ca.crt over to your client. Mac users should use tunnelblick... the process there is simple. Create a directory `foo.tblk` and drop those files in. Double-click it and Tunnelblick handles the rest.
+Finally, you can transfer client1.crt, client1.key, client.ovpn, and ca.crt over to your client.
 
-### Export Tunnelblick Config (Mac only)
+### Create and download Tunnelblick Config (Mac only)
 
 ```sh
 cd /etc/openvpn/easy-rsa/keys
@@ -231,6 +231,8 @@ cp client.ovpn my-vpn.tblk
 cp ca.crt my-vpn.tblk
 tar -czf my-vpn.tblk.tar.gz my-vpn.tblk
 ```
+
+Now you can `scp` that over to your Mac, double-click to extract, and then double-click the `.tblk` file to allow Tunnelblick to install the profile.
 
 # Troubleshooting
 
