@@ -92,7 +92,7 @@ INSERT INTO zcallrecord (
   ZNAME,
   ZUNIQUE_ID
 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}, [
-  2, 1, 1, 1, nil, nil, 0, 0, 1, 475200000, 60.0, "+17277533865", nil, "us", nil, "58918CBA-C9C1-479B-8B6D-9DD1FD70E293"
+  2, 1, 1, 1, nil, nil, 0, 0, 1, 475200000, 60.0, "+17277531234", nil, "us", nil, "58918CBA-C9C1-479B-8B6D-9DD1FD70E293"
 ])
 
 db.execute("select * from zcallrecord") do |row|
