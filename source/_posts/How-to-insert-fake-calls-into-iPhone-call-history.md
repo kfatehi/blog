@@ -26,7 +26,7 @@ Because I know I will make a lot of mistakes, I initialized a git repo and check
 Next I created this Makefile so I could rapidly iterate, sending the modified database to my phone.
 
 ```makefile
-all: modify push
+all: reset modify push
 
 reset:
         git checkout CallHistoryDB/*
@@ -34,13 +34,13 @@ reset:
 push:
         scp CallHistoryDB/CallHistory.* root@172.20.10.2:/var/mobile/Library/CallHistoryDB/
 
-modify: reset
+modify:
         ruby insert.rb
 ```
 
 Next I examined the database with a text editor to determine the schema... I extracted it out to a text file:
 
-```
+```sql
 CREATE TABLE ZCALLRECORD (
   Z_PK INTEGER PRIMARY KEY,
   Z_ENT INTEGER,
