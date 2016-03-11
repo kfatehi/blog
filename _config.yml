@@ -72,7 +72,5 @@ deploy:
   repo: git@github.com:kfatehi/keyvanfatehi.github.com.git
   branch: gh-pages
 
-plugins:
-  - hexo-generator-cname
-
+cname: keyvanfatehi.com
 disqus_shortname: keyvanfatehi
