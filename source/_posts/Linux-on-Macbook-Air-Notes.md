@@ -22,7 +22,7 @@ I used https://github.com/hartwork/image-bootstrap from another linux machine to
 
 I am using `dwm` compiled from source (suckless.org).
 
-# Troubleshooting
+# Troubleshooting (Solved)
 
 ## No Sound
 
@@ -31,3 +31,9 @@ After installing ALSA I still had no sound, but I was able to fix it by appendin
 `options snd-hda-intel model=pch position_fix=1`
 
 After a reboot, I had sound.
+
+# Troubleshooting (Unsolved)
+
+* No horizontal scrolling. [see](http://askubuntu.com/questions/451386/how-to-achieve-multi-touch-gestures-in-ubuntu-14-04)
+* Keyboard repeat rate too slow within dwm
+* Get 3rd mouse button so I can stop invoking `xclip -o` directly
