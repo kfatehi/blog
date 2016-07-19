@@ -34,7 +34,7 @@ Save your rules off to a file:
 
 `sudo sh -c "iptables-save > /etc/iptables.rules"`
 
-Add `pre-up`, and optionally, `pre-down` rules to one or more interfaces in `/etc/network/interfaces`, e.g.:
+Add up and/or down hooks to interfaces in `/etc/network/interfaces`, e.g.:
 
 ```
 auto eth0
