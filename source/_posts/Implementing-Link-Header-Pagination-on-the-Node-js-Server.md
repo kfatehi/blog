@@ -25,7 +25,7 @@ function paginate(sourceList, page, perPage) {
 }
 ```
 
-To demonstrate the usage, imagine you have defined a function `getMovies` which provides q `movieList` array you wish to paginate.
+To demonstrate the usage, imagine you have defined a function `getMovies` which provides a `movieList` array you wish to paginate.
 You have an express route `/movies` which serves as the web API to your movie library.
 You might create a paginated route like this:
 
