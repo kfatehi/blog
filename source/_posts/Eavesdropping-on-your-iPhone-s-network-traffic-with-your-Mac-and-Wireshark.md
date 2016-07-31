@@ -5,6 +5,8 @@ tags:
 - wireshark
 ---
 
+**A few days after this writing, a relevant item appeared on HackerNews discussing the use of an HTTP proxy for this purpose, which allows you to see TLS traffic in most circumstances, a shortcoming of my approach here with wireshark. [Here is the link](https://news.ycombinator.com/item?id=12195470). The [top comment](https://news.ycombinator.com/item?id=12196063) recommends [mitmproxy](https://github.com/mitmproxy/mitmproxy) which looks like the better tool for the job in this case than wireshark! Still it is very good to learn so that you can intercept the traffic when lower level network functions are used directly, although this is becoming quite rare I think.**
+
 "Pokemon Go" is a mobile phone game in which little mofos spawn in various places in the real world (on a map) and you have to be within proximity to (a) discover them and (b) "catch" them by throwing a ball at them.
 
 Finding these little mofos is a hassle because you don't know where the optimal populations might be at any moment and/or you may be looking for a specific type of little mofo. If only you could see all the locations at once!
