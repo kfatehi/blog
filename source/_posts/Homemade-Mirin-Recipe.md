@@ -16,7 +16,7 @@ ingredients:
 
 directions:
 
-* Combine the ingredients in a very small saucepan, such as butter warmer/melter. Bring to boil over medium heat, give things a stir to ensure the sugar has dissolved.
-* Remove from the heat and set aside to cool. Taste and add the cane syrup for depth, if you like.
+1. Combine the ingredients in a very small saucepan, such as butter warmer/melter. Bring to boil over medium heat, give things a stir to ensure the sugar has dissolved.
+1. Remove from the heat and set aside to cool. Taste and add the cane syrup for depth, if you like.
 
 source: http://www.vietworldkitchen.com/blog/2013/09/homemade-mirin-recipe.html

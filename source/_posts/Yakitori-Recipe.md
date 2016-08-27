@@ -20,13 +20,13 @@ ingredients:
 
 directions:
 
-* In a small saucepan, combine soy sauce, sugar, mirin, sake, garlic and gingerroot.
-* Cook over medium high heat 3 to 4 minutes.
-* In a small bowl, blend water and cornstarch.
-* Stir constarch mixture into soy sauce mixture.
-* Cook until thickened, stirring constantly.
-* Strain sauce.
-* Keep at room temperature for up to 24 hours.
-* Refrigerate.
+1. In a small saucepan, combine soy sauce, sugar, mirin, sake, garlic and gingerroot.
+1. Cook over medium high heat 3 to 4 minutes.
+1. In a small bowl, blend water and cornstarch.
+1. Stir constarch mixture into soy sauce mixture.
+1. Cook until thickened, stirring constantly.
+1. Strain sauce.
+1. Keep at room temperature for up to 24 hours.
+1. Refrigerate.
 
 source: http://www.food.com/recipe/yakitori-sauce-344705
