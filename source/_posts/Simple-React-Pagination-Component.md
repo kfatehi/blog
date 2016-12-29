@@ -3,6 +3,7 @@ title: A simple React pagination component
 date: 2016-12-29 11:08:43
 tags:
 - react
+- javascript
 ---
 
 I had to do pagination in a react app today. Often times for things like this, it's easier to write your own thing than to use a library. Here's the Pager component I ended up with:
