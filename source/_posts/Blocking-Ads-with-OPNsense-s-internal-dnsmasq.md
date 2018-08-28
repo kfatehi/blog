@@ -47,13 +47,9 @@ https://blockads.fivefilters.org
 
 So dnsmasq can also log queries if you add `log-queries` to the advanced configuration section. Then, the opnsense dnsmasq logs will show queries.
 
-## Also See
-
-* https://pi-hole.net/
-* https://github.com/pi-hole/FTL
-
 ## Resources
 
-* https://github.com/collinbarrett/FilterLists
-* https://raw.githubusercontent.com/StevenBlack/hosts
+* https://github.com/StevenBlack/hosts
+* https://pi-hole.net/
 * https://github.com/pi-hole/FTL
+* https://github.com/collinbarrett/FilterLists
