@@ -2,6 +2,8 @@
 title: Path to Unraid
 date: 2020-08-02 18:11:08
 tags:
+- unraid
+- nas
 ---
 
 Let me start with a bit of meta-blogging since it has been awhile since I've edited my website...
@@ -37,3 +39,5 @@ But let's be clear that the Docker Hub is for developers; using it or pushing it
 This is why you have such a rich ecosystem around Docker (and by rich I mean complicated and hard to understand, case in point: k8s).
 
 I think the community application system within Unraid understands and addresses this gap, and so I'll begin documenting this process here as it unfolds.
+
+
