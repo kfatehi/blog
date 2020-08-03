@@ -65,12 +65,5 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: landscape
 
-# Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repo: git@github.com:kfatehi/keyvanfatehi.github.com.git
-  branch: gh-pages
-
 cname: keyvanfatehi.com
 disqus_shortname: keyvanfatehi
