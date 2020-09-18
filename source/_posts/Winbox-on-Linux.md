@@ -1,6 +1,6 @@
 ---
 title: Winbox on Linux through Docker
-date: 2020-10-14 18:11:08
+date: 2020-09-14 18:11:08
 tags:
 - mikrotik
 - docker
@@ -11,7 +11,7 @@ tags:
 
 Discovered [an excellent wine in docker solution](https://github.com/yantis/docker-wine) today and so I thought it would be fun to use it to run winbox on my linux laptop. This was very easy to do, with great results, so I am writing it here for future use.
 
-{% img https://imgur.com/7GX8dio.gif %}
+{% asset_img winbox.gif %}
 
 ## You will need:
 
