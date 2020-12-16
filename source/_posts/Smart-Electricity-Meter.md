@@ -58,5 +58,4 @@ The deployment can be described tersely as follows:
 
 ## Resources
 
-1. My Grafana Dashboard export can be downloaded <a href="{% asset_path Studio-1608078494569.json %}">here</a>
-1. My source code repository can be accessed through GitHub <a href="https://github.com/kfatehi/smart-electric-panel-sce">here</a>
+1. Source code repository can be accessed through GitHub <a href="https://github.com/kfatehi/smart-electric-panel-sce">here</a>
