@@ -1,5 +1,5 @@
 ---
-title: Executable Poetry with Bash and Docker
+title: How to run ncdu in an Unraid
 date: 2020-12-26 07:46:29
 tags:
 - docker
