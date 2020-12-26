@@ -4,6 +4,7 @@ date: 2020-12-26 07:46:29
 tags:
 - docker
 - bash
+- unraid
 ---
 
 I wish I could run `ncdu` in Unraid but it does not ship there.
