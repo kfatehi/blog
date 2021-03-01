@@ -1,3 +1,18 @@
+# Docker Quick Start
+
+### Create a new post
+
+``` bash
+$ docker run --rm -v $PWD:/app -w /app -it node /app/node_modules/.bin/hexo new "My New Post"
+```
+
+### Run server
+
+``` bash
+$ docker run --rm -v $PWD:/app -w /app --network=br1 -it node /app/node_modules/.bin/hexo server
+```
+Start the server
+
 ## Quick Start
 
 ### Create a new post
