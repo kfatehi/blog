@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "hexo server"
+    "start": "hexo server",
+    "hexo": "hexo"
   },
   "hexo": {
     "version": "5.4.0"
