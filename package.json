@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "hexo server",
+    "test": "hexo generate && npx http-server -p 4000",
     "hexo": "hexo"
   },
   "hexo": {

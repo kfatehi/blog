@@ -11,7 +11,7 @@ On the weekend of November 12-14 2021 I attended <a href="https://blog.comma.ai/
 
 The project I wished to PoC was to see how we could use the driver monitoring model (which is used to detect the distraction level of the driver) to guide a reprojection of one of the back-facing cameras so as to achieve the illusion of transparency.
 
-<video controls>
+<video controls poster="{% asset_path seethru-poster.png %}">
   <source src="{% asset_path seethru-112521.mp4 %}" type="video/mp4">
   Sorry, your browser doesn't support embedded videos.
 </video>
