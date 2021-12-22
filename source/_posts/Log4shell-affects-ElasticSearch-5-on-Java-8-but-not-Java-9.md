@@ -36,9 +36,11 @@ haHA!!!!!!!! yep, my ES5 with java 8 was vulnerable... but with Java 9 was NOT..
 
 ## Eating the Fish
 
-Mainly we've got here a java8 container which is vulnerable to the JNDI attack: https://github.com/kfatehi/docker-elasticsearch5-java8
+Here we have our basic Log4J tester project in which the log4j dependency can be changed easily in the gradle.properties file: https://github.com/kfatehi/log4shell-test-log4j-intellij-idea-project
 
-Go ahead and try swapping it for the java9 (<a href="https://github.com/kfatehi/docker-elasticsearch5-java8/blob/master/Dockerfile#L16">link in the Dockerfile</a>) and see for yourself.
+Then, for the elasticsearch side of things, we've got here a java8 container which is vulnerable to the JNDI attack: https://github.com/kfatehi/docker-elasticsearch5-java8
+
+Finally, we can swap Java 8 for Java 9 (<a href="https://github.com/kfatehi/docker-elasticsearch5-java8/blob/master/Dockerfile#L16">link in the Dockerfile</a>) and witness that the attack does not work.
 
 ## Forcing All Queries to Get Logged
 
