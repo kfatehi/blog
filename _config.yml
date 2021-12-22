@@ -65,4 +65,5 @@ pagination_dir: page
 theme: landscape
 
 cname: keyvanfatehi.com
-disqus_shortname: kfatehi
+# Login to Disqus with google account keyvanfatehi@gmail.com
+disqus_shortname: keyvanfatehi
