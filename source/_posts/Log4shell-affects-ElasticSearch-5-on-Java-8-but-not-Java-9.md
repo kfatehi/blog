@@ -36,7 +36,7 @@ haHA!!!!!!!! yep, my ES5 with java 8 was vulnerable... but with Java 9 was NOT..
 
 ## Eating the Fish
 
-Here we have our basic Log4J tester project in which the log4j dependency can be changed easily in the gradle.properties file: https://github.com/kfatehi/log4shell-test-log4j-intellij-idea-project
+Here we have our basic Log4J tester project in which the log4j dependency can be changed easily in the build.gradle file: https://github.com/kfatehi/log4shell-test-log4j-intellij-idea-project
 
 Then, for the elasticsearch side of things, we've got here a java8 container which is vulnerable to the JNDI attack: https://github.com/kfatehi/docker-elasticsearch5-java8
 
