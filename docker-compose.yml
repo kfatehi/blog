@@ -1,9 +1,11 @@
-hexo:
-  build: .
-  volumes:
-    - ./source:/app/source
-    - ./themes:/app/themes
-    - ./scaffolds:/app/scaffolds
-  ports:
-    - 4000:4000
-  command: server
+version: '3.5'
+services:
+  hexo:
+    build: .
+    volumes:
+      - ./source:/app/source
+      - ./themes:/app/themes
+      - ./scaffolds:/app/scaffolds
+    ports:
+      - 4000:4000
+    command: server
