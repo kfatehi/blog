@@ -3,13 +3,13 @@
 ### Create a new post
 
 ``` bash
-$ docker run --rm -v $PWD:/app -w /app -it node /app/node_modules/.bin/hexo new "My New Post"
+docker-compose run --rm hexo new "My New Post"
 ```
 
 ### Run server
 
 ``` bash
-$ docker run --rm -v $PWD:/app -w /app --network=br1 -it node /app/node_modules/.bin/hexo server
+docker-compose run -p 4000:4000 --rm hexo server
 ```
 Start the server
 
