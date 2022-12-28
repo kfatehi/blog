@@ -3,6 +3,7 @@ title: How to trace postgresql database SQL queries
 date: 2022-12-22 03:43:42
 tags:
 - postgresql
+- traceability
 ---
 
 let's use docker to quickly prove the concept of sending arbitrary trace strings into our postgres logs.
