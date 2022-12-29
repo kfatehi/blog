@@ -2,9 +2,11 @@
 title: Tracking long-running postgresql queries
 date: 2022-12-27 15:14:56
 tags:
+- traceability
 - postgresql
 - rails
-- traceability
+- ruby
+excerpt: automatic logging of long running queries and the automatic injection of a tracer comment into every Rails ActiveRecord query
 ---
 
 Last time we learned how to add comments to our SQL queries. This helps tie logged queries back to code. But to truly achieve this goal have to solve two more problems: the **exfiltration** of long running queries and the **injection** of a unique identifier that maps to our workloads' code paths:

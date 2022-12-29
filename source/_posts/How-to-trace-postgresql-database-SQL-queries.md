@@ -4,6 +4,7 @@ date: 2022-12-22 03:43:42
 tags:
 - postgresql
 - traceability
+excerpt: testing the embedding of tracer comments within postgres queries
 ---
 
 let's use docker to quickly prove the concept of sending arbitrary trace strings into our postgres logs.

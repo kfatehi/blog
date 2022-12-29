@@ -18,6 +18,10 @@
             <a href="<%- url_for(post.path) %>#more"><%= theme.excerpt_link %></a>
           </p>
         <% } %>
+      <% } else if (config.no_article_content_on_index && index) { %>
+        <p class="article-more-link">
+          <a href="<%- url_for(post.path) %>#more"><%= theme.excerpt_link %></a>
+        </p>
       <% } else { %>
         <%- post.content %>
       <% } %>

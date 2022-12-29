@@ -8,6 +8,7 @@ tags:
 - docker
 - earthly
 - apple silicon
+- arm
 ---
 
 [Earthly](https://earthly.dev) is so useful. Native linux/arm64 builds (which will be the default when running Docker Desktop on an Apple M1 chip) can be shipped directly to and run fine on a Comma 3!

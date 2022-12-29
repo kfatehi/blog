@@ -2,6 +2,9 @@
 title: 2011 (armv6l) Raspberry Pis can still use the default OS of the Raspberry Pi Imager while NodeJS v11 is the last armv6l precompiled binary
 date: 2022-06-23 19:36:38
 tags:
+- raspberry pi
+- nodejs
+- arm
 ---
 
 An old 2011 Raspberry Pi I thought was damaged turned out to be just fine. The 5v adapter went bad somehow. Funny thing is I had two Pis deployed on this circuit, and both of their adapters went bad, whereas the Pis themselves are now verified working fine. The greater mystery about the adapters and power provision remain, but I learned a few facts about the Pi as I ended up reflashing the SD cards during verification:
