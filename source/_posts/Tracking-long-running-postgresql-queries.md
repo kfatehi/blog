@@ -227,3 +227,7 @@ SELECT pg_cancel_backend(<pid of the process>)
 ```SQL
 SELECT pg_terminate_backend(<pid of the process>)
 ```
+
+## Reporting
+
+See {% post_link Reporting-on-Postgres-Long-Queries %}
