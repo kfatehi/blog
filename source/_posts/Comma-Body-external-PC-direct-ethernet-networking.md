@@ -13,6 +13,11 @@ Lately I have been working on the comma body, specifically merging it with a sma
 
 {% asset_img comma-body-latency.jpg acceptable latency webrtc %}
 
+This is fine but I realized with a bit more effort we could eliminate the router, reducing complexity and maybe improving latency further. Notice the much cleaner look too:
+
+{% asset_img comma-body-external-pc.png nice cable management %}
+
+This guide sparked a more sophisticated bit of tooling which can be found https://github.com/kfatehi/comma-body-hacks but the following techniques apply to linux machines in general and so it is worth publishing before further pigeonholing it into highly customized scripts. Hope you find the information in a random google search and it helps you!
 
 # Utilizing Comma Prime to SSH into a computer physically connected via direct ethernet cable
 
@@ -64,6 +69,5 @@ sudo nmcli --ask dev wifi connect network-ssid
 # or use the ncurses terminal-based UI interface: nmtui
 ```
 
-{% asset_img comma-body-external-pc.png nice cable management %}
 
 Further work on this topic can be found here https://github.com/kfatehi/comma-body-hacks
