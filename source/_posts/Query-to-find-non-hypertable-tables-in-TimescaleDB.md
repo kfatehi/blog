@@ -1,6 +1,6 @@
 ---
-title: Query to find non-hypertable tables in TimescaleDB
-excerpt: Here is an easy to use query to reveal the tables which are not taking advantage of the special features of TimescaleDB, specifically retention policies, automatic moving, and high performance chunking.
+title: How to identify tables in TimescaleDB that aren't optimized for performance
+excerpt: Use this simple SQL query to quickly identify tables in TimescaleDB that aren't using features like retention policies, automatic moving, and high-performance chunking to their full potential.
 date: 2023-02-22 16:11:20
 tags:
 - postgresql
