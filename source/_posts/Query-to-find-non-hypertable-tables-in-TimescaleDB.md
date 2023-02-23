@@ -10,7 +10,7 @@ tags:
 
 Here is an easy to use query to reveal the tables which are not taking advantage of the special features of TimescaleDB, specifically retention policies, automatic moving, and high performance chunking.
 
-In {% post_link Creating-a-retention-policy-in-TimescaleDB.md %} we discussed the fact that the Telegraf TimescaleDB Postgres output plugin does not properly create hypertables automatically. I wrote the following query to reveal them easily:
+In {% post_link Creating-a-retention-policy-in-TimescaleDB %} we discussed the fact that the Telegraf TimescaleDB Postgres output plugin does not properly create hypertables automatically. I wrote the following query to reveal them easily:
 
 ```SQL
 SELECT
