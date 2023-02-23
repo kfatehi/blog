@@ -4,6 +4,7 @@ date: 2021-07-14 15:22:28
 tags:
 - postgresql
 - timescaledb
+- observability
 ---
 
 Are you looking for the official how-to guide from timescaledb about retention policies? [Here is a link](https://docs.timescale.com/timescaledb/latest/how-to-guides/data-retention/)
@@ -27,7 +28,7 @@ But I have a lot of other tables that are created by telegraf (specifically, [ph
 
 This is important because you can't do retention policies on regular tables with timescaledb. You also lose out on other important timescaledb features which in my case of concern about disk space may be important, i.e. compression.
 
-Turns out that the telegraf plugin is not automatically creating a hypertable, so that's [a todo on my telegraf fork](https://github.com/kfatehi/telegraf/issues/1).
+Turns out that the telegraf plugin is not automatically creating a hypertable, so that's [a todo on my telegraf fork](https://github.com/kfatehi/telegraf/issues/1). (Edit 2/22/23: See here for a query to reveal these tables: {% post_link Query-to-find-non-hypertable-tables-in-TimescaleDB.md %})
 
 Regardless, we want to solve for disk space to avoid a 3 AM pagerduty alert. We want a retention policy of 12 months for the rails requests and 2 weeks for everything else.
 
