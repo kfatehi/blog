@@ -56,34 +56,34 @@ pid /run/nginx.pid;
 include /etc/nginx/modules-enabled/*.conf;
 
 events {
-	worker_connections 768;
+  worker_connections 768;
 }
 
 http {
-	sendfile on;
-	tcp_nopush on;
-	types_hash_max_size 2048;
-	include /etc/nginx/mime.types;
-	default_type application/octet-stream;
-	ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3; # Dropping SSLv3, ref: POODLE
-	ssl_prefer_server_ciphers on;
+  sendfile on;
+  tcp_nopush on;
+  types_hash_max_size 2048;
+  include /etc/nginx/mime.types;
+  default_type application/octet-stream;
+  ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3; # Dropping SSLv3, ref: POODLE
+  ssl_prefer_server_ciphers on;
 
-	access_log /var/log/nginx/access.log;
-	error_log /var/log/nginx/error.log;
+  access_log /var/log/nginx/access.log;
+  error_log /var/log/nginx/error.log;
 
-	gzip on;
+  gzip on;
 
-	include /etc/nginx/conf.d/*.conf;
-	include /etc/nginx/sites-enabled/*;
+  include /etc/nginx/conf.d/*.conf;
+  include /etc/nginx/sites-enabled/*;
 
-	server {
+  server {
     listen 8080 proxy_protocol;
     location / {
       return 301 https://$host$request_uri;
     }
-	}
+  }
 
-	server {
+  server {
     ssl_certificate /root/.acme.sh/x.kebcom.com_ecc/fullchain.cer;
     ssl_certificate_key /root/.acme.sh/x.kebcom.com_ecc/x.kebcom.com.key;
     listen 8101 ssl proxy_protocol;
@@ -92,8 +92,8 @@ http {
       proxy_set_header Host $host;
       proxy_set_header Proxy "";
     }
-	}
-	server {
+  }
+  server {
     ssl_certificate /root/.acme.sh/x.kebcom.com_ecc/fullchain.cer;
     ssl_certificate_key /root/.acme.sh/x.kebcom.com_ecc/x.kebcom.com.key;
     listen 8102 ssl proxy_protocol;
@@ -102,8 +102,8 @@ http {
       proxy_set_header Host $host;
       proxy_set_header Proxy "";
     }
-	}
-	server {
+  }
+  server {
     ssl_certificate /root/.acme.sh/x.kebcom.com_ecc/fullchain.cer;
     ssl_certificate_key /root/.acme.sh/x.kebcom.com_ecc/x.kebcom.com.key;
     listen 8103 ssl proxy_protocol;
@@ -112,8 +112,8 @@ http {
       proxy_set_header Host $host;
       proxy_set_header Proxy "";
     }
-	}
-	server {
+  }
+  server {
     ssl_certificate /root/.acme.sh/x.kebcom.com_ecc/fullchain.cer;
     ssl_certificate_key /root/.acme.sh/x.kebcom.com_ecc/x.kebcom.com.key;
     listen 8104 ssl proxy_protocol;
@@ -122,20 +122,20 @@ http {
       proxy_set_header Host $host;
       proxy_set_header Proxy "";
     }
-	}
+  }
 }
 
 stream {
-	map $ssl_preread_server_name $name {
-		include /etc/nginx/backends.map;
-	}
+  map $ssl_preread_server_name $name {
+    include /etc/nginx/backends.map;
+  }
 
-	upstream x {
+  upstream x {
     server 127.0.0.1:8101;
     server 127.0.0.1:8102;
   }
 
-	upstream y {
+  upstream y {
     server 127.0.0.1:8103;
     server 127.0.0.1:8104;
   }
