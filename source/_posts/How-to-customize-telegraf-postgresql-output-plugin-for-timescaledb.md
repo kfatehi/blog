@@ -2,6 +2,9 @@
 title: How to customize telegraf postgresql output plugin for timescaledb
 date: 2023-04-16 18:53:55
 tags:
+- timescaledb
+- observability
+- postgresql
 ---
 
 In the telegraf.conf file we can see the following snippet commented out
