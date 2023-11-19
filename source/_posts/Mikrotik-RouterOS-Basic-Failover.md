@@ -1,5 +1,6 @@
 ---
-title: Mikrotik Simple WWAN Fallback
+title: Mikrotik/RouterOS Basic Failover Script
+excerpt: "Keeping your network online when your primary WAN goes offline"
 date: 2023-11-18 22:34:45
 tags:
 - Mikrotik
