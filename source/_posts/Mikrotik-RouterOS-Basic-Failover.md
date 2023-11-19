@@ -1,5 +1,5 @@
 ---
-title: Mikrotik/RouterOS Basic Failover Script
+title: How to script RouterOS to failover primary WAN in a Mikrotik router
 excerpt: "Keeping your network online when your primary WAN goes offline"
 date: 2023-11-18 22:34:45
 tags:
