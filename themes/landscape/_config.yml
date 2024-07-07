@@ -2,7 +2,10 @@
 menu:
   Home: /
   Archives: /archives
+  Patents: /patents
+  Credentials: /degrees_certs
 rss: /atom.xml
+github: kfatehi
 
 # Content
 excerpt_link: Read More
