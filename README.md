@@ -1,18 +1,3 @@
-# Docker Quick Start
-
-### Create a new post
-
-``` bash
-docker-compose run --rm hexo new "My New Post"
-```
-
-### Run server
-
-``` bash
-docker-compose run -p 4000:4000 --rm hexo server
-```
-Start the server
-
 ## Quick Start
 
 ### Create a new post
